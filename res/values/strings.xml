@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">O`Kobotoke</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="textview_init1">値①</string>
+    <string name="textview_init2">値②</string>
+    <string name="gfx_start">Start GFX</string>
+
+</resources>
