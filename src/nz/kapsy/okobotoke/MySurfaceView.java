@@ -17,7 +17,12 @@ public class MySurfaceView extends SurfaceView implements
     
     public Circle circle;
     public SonarCircle sonarcircle;
-    public TwoTouchCircle twotouchcircle;
+    
+    
+    public NormalCircle twotouch1;
+    public NormalCircle twotouch2;
+    
+    public NormalCircleMultiTouch testxtend;
 	
 	private boolean initbackground;
 
@@ -26,11 +31,8 @@ public class MySurfaceView extends SurfaceView implements
 	    
 	Bitmap backg_bitmap = 
     		BitmapFactory.decodeResource(this.getContext().getResources(), R.drawable.bg_test_2);
-//	Canvas tmpcanvas;
-//	Bitmap tmpScreen;
+
 //	Rect bitmapsaverect;
-	
-//	public boolean paused;
 	
 	
     private Random rnd = new Random();
@@ -39,13 +41,9 @@ public class MySurfaceView extends SurfaceView implements
     final static int MULTI_TOUCH_MAX = 2;
     private PointF [] touchpoints = new PointF[MULTI_TOUCH_MAX];
     
+    int oneinx = 0;
     
-
-
     
-
-//    private Random rndthread = new Random();
-//    int rndthreadint;
 
     public MySurfaceView(Context context) {
         super(context);
@@ -106,9 +104,13 @@ public class MySurfaceView extends SurfaceView implements
         sonarcircle.setAlive(false);
         //sonarcircle.initCircle();
        
-        twotouchcircle = new TwoTouchCircle();
-        twotouchcircle.setAlive(false);
+//        twotouchcircle = new TwoTouchCircle();
+//        twotouchcircle.setAlive(false);
         
+        twotouch1 = new NormalCircle();
+        twotouch2 = new NormalCircle();
+        
+        testxtend = new NormalCircleMultiTouch();
         
         initbackground = true;
                 
@@ -125,18 +127,13 @@ public class MySurfaceView extends SurfaceView implements
         case MotionEvent.ACTION_DOWN:
 //            x = event.getX();
 //            y = event.getY();
-            
-//          dropInit();
-//          
-//this.sonarcircle.setPosx(event.getX());
-//this.sonarcircle.setPosy(event.getY());
-//this.sonarcircle.initCircle();
+
         	
         }*/
     	
     	//int action = event.getAction();
     	//outofrangeexception
-    	Log.v("Multi", "getPointerCount() " + event.getPointerCount());
+    	//Log.v("Multi", "getPointerCount() " + event.getPointerCount());
     	
     	
     	if (event.getPointerCount() == MULTI_TOUCH_MAX) {
@@ -148,79 +145,91 @@ public class MySurfaceView extends SurfaceView implements
 //    				break;
     		 
     	        case MotionEvent.ACTION_POINTER_DOWN:
-    	        	Log.v("Multi", "ACTION_POINTER_DOWN");
+    	        	//Log.v("Multi", "ACTION_POINTER_DOWN");
     	        	// ここで必要ないかも
-    	        	this.twotouchcircle.initCircle();
     	        	
-    	    		this.twotouchcircle.setAlive(true);
+    	        	// this.twotouchcircle.initCircle();
+    	        	
+    	        	this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
+    	        	//this.twotouch2.init();
+    	        	this.testxtend.init(0, rndCol(130), rndCol(130), rndCol(130));
+    	       
+    	        	
     	    		break;
     	        	
     	    	case MotionEvent.ACTION_MOVE:
-    	    		Log.v("Multi", "ACTION_MOVE");
-		    		for (int i = 0; i < MULTI_TOUCH_MAX; i++) {
-		    			int pointid = event.getPointerId(i);
-			    		touchpoints[pointid].x = event.getX(i);
-			    		touchpoints[pointid].y = event.getX(i);
-		    		}
-		    		
-		    		
-		    		PointF circlecentre = new PointF();
-		    		
-		    		float radius = 0;
-		    		
-		    		float xdiff = 0F; 
-		    		float ydiff = 0F; 		
-		    		
-		    		//circlecentre.
-		    		
-		    		if (touchpoints[0].x < touchpoints[1].x) { 
-		    			xdiff = ((touchpoints[1].x - touchpoints[0].x));
-		    			circlecentre.x = (touchpoints[0].x + xdiff) / 2;
-		    		}
-		    		else {
-		    			xdiff = ((touchpoints[0].x - touchpoints[1].x));
-		    			circlecentre.x = (touchpoints[1].x + xdiff) / 2;
-		    		}
-		    		
-		    		//xdifference.positive
-		    		if (touchpoints[0].y < touchpoints[1].y) { 
-		    			ydiff = ((touchpoints[1].y - touchpoints[0].y));
-		    			circlecentre.y = (touchpoints[0].y + ydiff) / 2;
-		    		}
-		    		else {
-		    			ydiff = ((touchpoints[0].y - touchpoints[1].y));
-		    			circlecentre.y = (touchpoints[1].y + ydiff) / 2;
-		    		}
-		    	
-		    		//radius = (float)Math.sqrt(Math.pow((double)xdiff, 2D) + Math.pow((double)ydiff, 2D))/2D;
-		    		radius = (float)Math.sqrt((double)((xdiff * xdiff) + (ydiff * ydiff)))/2F;
-	    			
-		    		
-		    		
-
-//		    		// x1、y1 :距離算出座標1つ目
-//		    		// x2, y2 :距離算出座標2つ目
-//		    		// distance :2点間の距離
-//
-//		    		double dx = Math.pow(x1 - x2, 2);
-//		    		double dy = Math.pow(y1 - y2, 2);
-//		    		double distance = Math.sqrt(dx + dy);
+    	    		//Log.v("Multi", "ACTION_MOVE");
+    	    		
+//    	    		if (oneInX()) {
+//		    		for (int i = 0; i < MULTI_TOUCH_MAX; i++) {
+//		    			int pointid = event.getPointerId(i);
+//			    		touchpoints[pointid].x = event.getX(i);
+//			    		touchpoints[pointid].y = event.getX(i);
+//		    		}
 //		    		
-//		    		double radius = Math.sqrt()
+//		    		
+//		    		PointF circlecentre = new PointF();
+//		    		
+//		    		float radius = 0;
+//		    		
+//		    		float xdiff = 0F; 
+//		    		float ydiff = 0F; 		
+//    		
+//		    		if (touchpoints[0].x < touchpoints[1].x) { 
+//		    			xdiff = ((touchpoints[1].x - touchpoints[0].x));
+//		    			circlecentre.x = (touchpoints[0].x + xdiff) / 2;
+//		    		}
+//		    		else {
+//		    			xdiff = ((touchpoints[0].x - touchpoints[1].x));
+//		    			circlecentre.x = (touchpoints[1].x + xdiff) / 2;
+//		    		}
+//		    		
+//		    		//xdifference.positive
+//		    		if (touchpoints[0].y < touchpoints[1].y) { 
+//		    			ydiff = ((touchpoints[1].y - touchpoints[0].y));
+//		    			circlecentre.y = (touchpoints[0].y + ydiff) / 2;
+//		    		}
+//		    		else {
+//		    			ydiff = ((touchpoints[0].y - touchpoints[1].y));
+//		    			circlecentre.y = (touchpoints[1].y + ydiff) / 2;
+//		    		}
+//		    			    		
+//		    		radius = (float)Math.sqrt((double)((xdiff * xdiff) + (ydiff * ydiff)))/2F;
+//	    					    		
+//		    		this.twotouchcircle.setPosX(circlecentre.x);
+//		    		this.twotouchcircle.setPosY(circlecentre.y);
+//		    		this.twotouchcircle.setRad(radius);
+//		    		
+//		    		
+//    	    		}
 		    		
-		    		
-		    		
-		    		this.twotouchcircle.setPosX(circlecentre.x);
-		    		this.twotouchcircle.setPosY(circlecentre.y);
-		    		this.twotouchcircle.setRad(radius);
-		    		
+    	    		
+/*    	    		if (oneInX()) {
+		    		this.twotouchcircle.setLinePoints(event.getX(0), event.getY(0), 
+		    				event.getX(1), event.getY(1));
+		    		Log.v("Multi", "ACTION_MOVE" + " x1 " + event.getX(0) + " y1 " + event.getY(0) + 
+		    				" x2 " + event.getX(1) + " y2 " + event.getY(1));
+    	    		}*/
+    	    		if (oneInX()) {
+    	    		this.twotouch1.setPosX(event.getX(0));
+    	    		this.twotouch1.setPosY(event.getY(0));
+    	    		
+      	    		this.testxtend.setPosX(event.getX(1));
+    	    		this.testxtend.setPosY(event.getY(1));
+    	    		}
+//		    		Log.v("Multi", "CO-ORDS" + " x1 " + event.getX(0) + " y1 " + event.getY(0) + 
+//		    				" x2 " + event.getX(1) + " y2 " + event.getY(1));
+    	    		
+    	    		
+    	    		
 		    		break;
 	    		
     	    	case MotionEvent.ACTION_POINTER_UP:
     	    		// フェードアウト・アニメーション
-    	    		Log.v("Multi", "ACTION_POINTER_UP");
+    	    		//Log.v("Multi", "ACTION_POINTER_UP");
 
-    	    		this.twotouchcircle.setAlive(false);
+    	    		this.twotouch1.setAlive(false);
+    	    		this.testxtend.relAnimOn();
     	    		break;
 
     		 }
@@ -233,67 +242,30 @@ public class MySurfaceView extends SurfaceView implements
         //return super.onTouchEvent(event);
     }
     
-/*    public float GetRadius() {
-    	
-    }*/
-    
-/*    public void dropInit() {
-    	
-    x = rnd.nextInt(getWidth());
-    y = rnd.nextInt(getHeight());
-    	  
-        initbackground = false;
-        
-        
-	r = 18 - rnd.nextInt(8);
-	biggestmet = false;
-	alpha = 1;
-	alphaslower = (float)0;
-	
-	red = rnd.nextInt(1);
-	grn = rnd.nextInt(2);
-	blu = rnd.nextInt(3);
-	//Log.d("COLOR", "Initial Colors: r" + red + " g" + grn + " b" + blu);
-	
-	redlimit = rnd.nextInt(254 - rnd.nextInt(6));
-	grnlimit = rnd.nextInt(254 - rnd.nextInt(6));
-	blulimit = rnd.nextInt(245 - rnd.nextInt(6));		
-	//Log.d("COLOR", "Color Limits: r" + redlimit + " g" + grnlimit + " b" + blulimit);
-	
-	//biggestdropsize = rnd.nextInt(100 - rnd.nextInt(40));
-	biggestdropsize = 120;
-	
-	rspeed = (float)0.234;
-	yspeed = (float)0.674375;
-    	
-    }*/
+ 
 
-    
-/*    public void saveCanvas() {
+    public boolean oneInX() {
     	
-    	canvas = getHolder().lockCanvas();
-    	//別途BitmapとCanvasを用意する
-
-
-    	//TODO tmpCanvasに対して描画処理を行う
-
-    	//canvas.drawBitmap(tmpScreen, null, mScreenRect, null);
-    	//反映
-    	getHolder().unlockCanvasAndPost(canvas);
+    	if (oneinx == 2) {
+    		oneinx = 0;
+    	}
     	
-    	
-    	
+    	if (oneinx == 0) {
+    		//Log.v("oneInX", "TRUE " + oneinx);
+    		oneinx++;
+    		return true;
+    	}
+    	else {	
+    		//Log.v("oneInX", "FALSE " + oneinx);
+    		oneinx++;
+    		return false;
+    	}
     }
     
-    public void restoreCanvas() {
-    	
-    	canvas  = holder.lockCanvas();
-    	
-
-    	//反映
-        holder.unlockCanvasAndPost(canvas);
+    public int rndCol(int scope) {
+    	return (255 - rnd.nextInt(scope));
     }
-*/
+    
 
     public void draw() {
     	canvas  = holder.lockCanvas();
@@ -312,20 +284,7 @@ public class MySurfaceView extends SurfaceView implements
             path.lineTo(80, 330);
             canvas.drawPath(path, p1);
             
-//            if(paused == false && tmpcanvas !=null) {
-//            	// canvas.drawBitmap(tmpScreen, null, bitmapsaverect, null);
-//            	canvas.drawBitmap(backg_bitmap, null, screensizerect, null);
-//            	Log.d("PauseRes", "canvas.drawBitmap(tmpScreen, null, bitmapsaverect, null)");
-//            }
         }
-        
-//    	if (paused){
-//    		//surfaceView からbitmapを取得できないので…やめとけ？
-//        	tmpScreen = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-//        	//tmpcanvas = new Canvas(tmpScreen);
-//        	Log.d("PauseRes", "tmpcanvas = new Canvas(tmpScreen);");
-//    	}
-        
 
         Paint pcircle = new Paint();
         pcircle.setStyle(Paint.Style.FILL);
@@ -403,34 +362,16 @@ public class MySurfaceView extends SurfaceView implements
         }
         
         
-        int twoalpha = twotouchcircle.getAlpha();
-        int twored = twotouchcircle.getRed();
-        int twogrn = twotouchcircle.getGrn();
-        int twoblu = twotouchcircle.getBlu();
-        
-        float twox = twotouchcircle.getPosX();
-        float twoy = twotouchcircle.getPosY();
-        float twor = twotouchcircle.getRad();
         
         
-        Paint ptwotouchcircle = new Paint();
-        ptwotouchcircle.setStyle(Paint.Style.FILL_AND_STROKE);
-        //ptwotouchcircle.setStrokeWidth((float)1);
-        ptwotouchcircle.setAntiAlias(false);
-        ptwotouchcircle.setDither(false);
+//        if (twotouchcircle.isAlive()) {
+//    twotouchcircle.drawLine(canvas);
+//
+//          }
         
-        if (twotouchcircle.isAlive()) {
-          Log.d("drawCircle", "Colors " + "a " + twoalpha + " r " + twored + " g " + twogrn+ " b " + twoblu);
-          Log.d("drawCircle", "Dimens " + "x " + twox + " y " + twoy + " r " + twor);
-  
-          ptwotouchcircle.setColor(Color.argb(100, 255, 255, 255));
-            canvas.drawCircle(twox, twoy, twor, ptwotouchcircle); // ★修正
+        this.twotouch1.drawCircleFadedEdges(canvas);
+        this.testxtend.drawCircleFadedEdges(canvas);
         	
-        }
-        	
-        
-        
-        
     
         holder.unlockCanvasAndPost(canvas);
     }
@@ -443,45 +384,6 @@ public class MySurfaceView extends SurfaceView implements
         executor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-            	// 100: 最大 ?: まだ知らない 10: 最初の値
-				//            	r = r > 100 ? 10 : r + 1;]
-				//            	if (r > 60){}
-            	
-
-            	
-
-            	
-/*            	if(r > biggestdropsize){
-            		biggestmet = true;
-            	}
-
-            	if (biggestmet == false) {
-            		
-            		
-            		
-            		if (alpha < 7) {            			
-            			alphaslower += (float).32;
-            			alpha = (int)alphaslower;
-            			//Log.d("RUN", "alpha: " + alpha);
-            		}
-            		
-
-            		y = y + yspeed;
-            		r = r +rspeed;
-            		rspeed = rspeed + (float).00072;
-
-            	 	if (red <= redlimit){red++;}
-            	 	if (grn <= grnlimit){grn++;}
-            	 	if (blu <= blulimit){blu++;}
-            	 	
-            	 	
-            	 	
-            	 	
-            	 	//Log.d("COLOR", "Update Color: r" + red + " g" + grn + " b" + blu);
-            	 	draw();
-            	}*/
-            	
-            	
             	
             	if (circle.isAlive()){
             		circle.circleAnim();
@@ -492,15 +394,10 @@ public class MySurfaceView extends SurfaceView implements
             		sonarcircle.circleAnim();
             	}
             	
-            	
-            	if (circle.isAlive() || sonarcircle.isAlive() || twotouchcircle.isAlive()) {
+            	if (circle.isAlive() || sonarcircle.isAlive()) {
             		draw();
             	}
             	
-            	
-            		
-            	
-
             }
         }, 28, 28, TimeUnit.MILLISECONDS);
 
@@ -537,13 +434,13 @@ public class MySurfaceView extends SurfaceView implements
 //    		
     		rad = 130 - rnd.nextInt(50);
     		
-    		posx = (float)((int)(rad + 7) + rnd.nextInt(getWidth() - (((int)rad + 7) * 2)));
-    		posy = (float)((int)(rad + 140) + rnd.nextInt(getHeight() - (((int)rad + 75) + 140)));
+    		posx = (float)((int)(rad + 8) + rnd.nextInt(getWidth() - (((int)rad + 8) * 2)));
+    		posy = (float)((int)(rad + 140) + rnd.nextInt(getHeight() - (((int)rad + 80) + 140)));
 
     		Log.d("POS", "posx " + posx);
     		Log.d("POS", "posy " + posy);
     		
-    		alpha = 7;
+    		alpha = 19;
     		alphaslower = 0;
     		red = 255 - rnd.nextInt(220);
     		grn = 255 - rnd.nextInt(220);
@@ -673,6 +570,8 @@ public class MySurfaceView extends SurfaceView implements
     	private float sinangle;
     	private float sinanglechangerate;
     	private float modamplitude;
+    	
+    	private Paint paint;
     	    	
     	public void initCircle() {
     		
@@ -785,7 +684,9 @@ public class MySurfaceView extends SurfaceView implements
     
     }
     
-    //circle animation 
+    //TODO 実装メッソドに変更
+    
+/*    //circle animation 
     public class TwoTouchCircle {
 
 		private int alpha;
@@ -793,11 +694,18 @@ public class MySurfaceView extends SurfaceView implements
     	private int grn;
     	private int blu;
     	
-    	private float alphaslower = 0;
+    	private float alphaslower = 1;
 	    
     	private float posx;
     	private float posy;
     	private float rad = 0;
+    	
+    	
+    	private Paint paint = new Paint();
+    	
+    	private float[] linepoints = new float[4];
+    	
+    	
 
     	private float rspd = 45F;
     	private float yspd = 0.674375F;
@@ -817,18 +725,34 @@ public class MySurfaceView extends SurfaceView implements
     		
     	}
     	
+    	public void setLinePoints(float x1, float y1, float x2, float y2) {
+    		linepoints[0] = x1;
+    		linepoints[1] = y1;
+    		linepoints[2] = x2;
+    		linepoints[3] = y2;
+  
+    	}
     	
+    	public void drawLine(Canvas c) {
+    		
+    		this.circleAnim();
+    		c.drawLine(linepoints[0], linepoints[1], linepoints[2], linepoints[3], this.getPaint());
+    		
+    		// Log.d("drawLine", " lp[0] " + linepoints[0] + " lp[1] " + linepoints[1] + 
+    		//		" lp[2] " + linepoints[2] + " lp[3] " + linepoints[3]); 
+    	}
     	
     	public void initCircle() {
     		// setPos メソッドの方がいいかも???
 //    		posx = (float)rnd.nextInt(getWidth());
 //    		posy = (float)rnd.nextInt(getHeight());
     		
-    		rad = 20;
-    		alpha = 100;
-    		red = 255 - rnd.nextInt(30);
-    		grn = 0 + rnd.nextInt(15);
-    		blu = 0 + rnd.nextInt(15);
+    		//rad = 20;
+    		//alpha = 100;
+    		alphaslower = 0F;
+    		red = 255 - rnd.nextInt(130);
+    		grn = 255 - rnd.nextInt(130);
+    		blu = 255 - rnd.nextInt(130);
     		
     		//alphaslower = 0;
     		
@@ -846,18 +770,27 @@ public class MySurfaceView extends SurfaceView implements
 //    		sinanglechangerate = (float)4.5;
 //    		modamplitude = (float).8;
     		
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
+            paint.setAntiAlias(false);
+            paint.setDither(false);
+            paint.setColor(Color.argb(150, red, grn, blu));
     	}
+    	
+
     	
     
 	    public void circleAnim() {	
 	    		
-		    	if (frame < 500){
+		    	if (frame < 200){
 		    		
-		    		rad = rad + rspd;
+		    		//rad = rad + rspd;
 		    		//posy = posy - yspd;
 		    		
-//        			alphaslower += (float).3;
-//        			alpha = (int)alphaslower;
+        			alphaslower += (float)1.3;
+        			alpha = (int)alphaslower;
+        			
+        			paint.setAlpha(alpha);
         			
         			frame++;
 				
@@ -922,8 +855,6 @@ public class MySurfaceView extends SurfaceView implements
 			this.rad = rad;
 		}
 
-
-
 		public int getRed() {
 			return red;
 		}
@@ -935,16 +866,96 @@ public class MySurfaceView extends SurfaceView implements
 		public int getBlu() {
 			return blu;
 		}
+
+		public Paint getPaint() {
+			return paint;
+		}
     
+    }*/
+        
+    public class NormalCircleMultiTouch extends NormalCircle {
+    	    	
+    	@Override
+    	public void drawCircleFadedEdges(Canvas c) {
+    		//this.setColor(this.getPaint());
+    		
+    		if (this.isAlive()){
+    			    			
+	            this.circleAnim();
+	            this.circleRadiusMod();
+        		
+	            int ciralpha = this.getAlpha();
+	            int cirred = this.getRed();
+	            int cirgrn = this.getGrn();
+	            int cirblu = this.getBlu();
+	            
+	            float cirx = this.getPosX();
+	            float ciry = this.getPosY();
+	            float cirr = this.getRad();
+	            
+	            
+	            for (int i = 0; i < 3; i++) {
+	            	this.getPaint().setColor(Color.argb(ciralpha, cirred, cirgrn, cirblu));
+	                c.drawCircle(cirx, ciry, cirr, this.getPaint());
+	                
+//	                Log.d("drawCircle", "Colors " + "a " + ciralpha + " r " + cirred + " g " + cirgrn+ " b " + cirblu);
+//	                Log.d("drawCircle", "Dimens " + "x " + cirx + " y " + ciry + " r " + cirr);
+	                if (ciralpha < 0) {
+	                	ciralpha += 1;
+	                }
+	                cirr -= 20;
+	                ciry -= 1;
+	            }
+    		
+	            
+//                Log.d("SimpleCircle", "Colors " + "a " + this.getAlpha() + " r " + this.getRed() 
+//                		+ " g " + this.getGrn()+ " b " + this.getBlu());
+//                Log.d("SimpleCircle", "Dimens " + "x " + this.getPosX() + " y " + this.getPosY() 
+//                		+ " r " + this.getRad());
+    		}    		
+    	}
+    	
+    	@Override
+	    public void circleAnim() {	
+	    		
+	    		int cf = this.getCurrframe();
+	    		
+	    		if (this.getRelAnim() == false) {
+	    			
+	    			if (cf < 500){
+			    		
+			    		this.alphaIncrement(2.6F, 50F);
+		    			//Log.d("circleAnim", "alpha val " + this.getAlpha());
+			
+		    			this.frameAdvance();
+					
+			    	}
+			    	else if (cf >= 500 && cf < 600) {
+			    		this.frameAdvance();
+					}		
+			    	else if (cf == 600) { //アニメーション終了
+			    		
+			    		//this.setAlive(false);
+			    		//currframe = 1; // ループなら
+			    	}
+	    				    			
+	    		}
+	    		else {
+	    			if (cf < 70){
+	    				this.alphaDecrement(2.6F, 0F);
+	    				this.frameAdvance();
+	    				//Log.d("alpha", "A " + this.getAlpha() + " frame " + this.getCurrframe());
+	    			}
+	    			else if (cf == 20) {
+	    				this.setAlive(false);
+	    				//Log.d("setAlive", "thisisAlive " + this.isAlive());
+	    			}
+	    		}
+		    	
+	    }
+    	
     }
     
-    
-    
-  	
-
-    
-    
-
 }
 
 
