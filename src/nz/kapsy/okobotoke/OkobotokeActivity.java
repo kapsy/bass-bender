@@ -109,12 +109,16 @@ public class OkobotokeActivity extends Activity {
 				
 			if (source.equals("note_change")){
 				Log.d("RECV", "bang " + source);
-				mysurfview.circle.initCircle();
+				mysurfview.circle2.init();//.circle.initCircle();
 			}
 			
 			if (source.equals("sonar")){
 				Log.d("RECV", "bang " + source);
-				mysurfview.sonarcircle.initCircle();
+				
+				//mysurfview.sonarcircle.initCircle();
+
+				mysurfview.sonarcircle2.init();
+				
 			}
 									
 		}

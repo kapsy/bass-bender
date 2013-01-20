@@ -3,6 +3,7 @@ package nz.kapsy.okobotoke;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
 // 新しい刷新した、全般的な円形を書くクラス。
 // 実装ができるくらすです。
@@ -24,8 +25,8 @@ public class NormalCircle {
 	private float rad = 0;
 	
 	// アニメーションのためパラメーター
-	private float radspd = 45F;
-	private float yspd = 0.674375F;
+	private float radchgspd = 45F;
+	private float ychgspd = 0.674375F;
 	private int currframe;
 	
 	private boolean playrelanim = false;
@@ -66,81 +67,113 @@ public class NormalCircle {
 //		blu = 255 - rnd.nextInt(130);
 		
 		alpha = a;
+		alphaf = (float)alpha;
+		
 		red = r;
 		grn = g;
 		blu = b;
 		
-		alphaf = (float)alpha;
 		// このメソッドを描く直前に呼ぶ筈だ
 		//this.setColor(paint);
 		
-		this.setRad(80F);
+		//this.setRad(80F);
 		
 	}
 	
-	// 円形を書くってこと
-	public void drawCircleFadedEdges(Canvas c) {
-		if (this.isAlive()){
+	public void init() {
+
+		// 必要処理
+		alive = true;
+		currframe = 1;
+		playrelanim = false;
 		
-            int ciralpha = this.getAlpha();
-            int cirred = this.getRed();
-            int cirgrn = this.getGrn();
-            int cirblu = this.getBlu();
+		alphaf = (float)alpha;
+		
+	}
+	
+	public void drawSequence(Canvas c) {
+		if (this.isAlive()) {
+			//this.circleAnim();
+			//this.circleRadiusMod();
+			this.drawCircleFadedEdges(15, 5F, 1, c);
+		}
+	}
+	
+	// 円形を書くってこと
+	public void drawCircleFadedEdges(int layers, float rchng, int alphachng, Canvas c) {
+		
+        int ciralpha = this.getAlpha();
+        int cirred = this.getRed();
+        int cirgrn = this.getGrn();
+        int cirblu = this.getBlu();
+        
+        float cirx = this.getPosX();
+        float ciry = this.getPosY();
+        float cirr = this.getRad();
+        
+        for (int i = 0; i < layers; i++) {
+        	paint.setColor(Color.argb(ciralpha, cirred, cirgrn, cirblu));
+            c.drawCircle(cirx, ciry, cirr, this.getPaint());
             
-            float cirx = this.getPosX();
-            float ciry = this.getPosY();
-            float cirr = this.getRad();
-            
-            for (int i = 0; i < 15; i++) {
-            	paint.setColor(Color.argb(ciralpha, cirred, cirgrn, cirblu));
-                c.drawCircle(cirx, ciry, cirr, this.getPaint());
-                
 //                Log.d("drawCircle", "Colors " + "a " + ciralpha + " r " + cirred + " g " + cirgrn+ " b " + cirblu);
 //                Log.d("drawCircle", "Dimens " + "x " + cirx + " y " + ciry + " r " + cirr);
-                
-                ciralpha += 1;
-                cirr -= 5;
-                ciry -= 1;
+            
+            if (ciralpha > 0) {
+            	ciralpha += alphachng;
             }
-		}
+            
+            //ciralpha += 1;
+            cirr -= rchng;
+            ciry -= 1;
+        }
+	}
+	
+	public void drawCircleOnce(Canvas c) {
+		
+        	paint.setColor(Color.argb(alpha, red, grn, blu));
+            c.drawCircle(posx, posy, rad, this.getPaint());
+            
+//            Log.d("drawCircleOnce", "Colors " + "a " + alpha + " r " + red + " g " + grn+ " b " + blu);
+//            Log.d("drawCircleOnce", "Dimens " + "x " + posx + " y " + posy + " r " + rad);
+
 	}
    	    
 	// currframeによって色、形を変える処理
     public void circleAnim() {	
+    	
+    	int cf = this.getCurrframe();
+		
+    	if (cf < 200){
     		
-	    	if (currframe < 200){
-	    		
-	    		//rad = rad + rspd;
-	    		//posy = posy - yspd;
-    			
-    			this.alphaIncrement(1.3F, 7F);
-    			
-    			//ひつようない
-    			// paint.setAlpha(alpha);
-    			
-    			currframe++;
+    		//rad = rad + rspd;
+    		//posy = posy - yspd;
 			
-	    	}
-	    	else if (currframe >= 500 && currframe < 600) {
-	    		currframe++;
-			}		
-	    	else if (currframe == 600) { //アニメーション終了
-	    		alive = false;
-	    		
-	    		//currframe = 1; // ループなら
-	    	}
+			this.alphaIncrement(1.3F, 7F);
+			
+			this.frameAdvance();
+		
+    	}
+    	else if (cf >= 500 && cf < 600) {
+    		this.frameAdvance();
+		}		
+    	else if (cf == 600) { //アニメーション終了
+    		this.setAlive(false);
+    		
+    		// ループなら this.setCurrframe(1);
+    	}
     }
     
     public void circleRadiusMod() {
-    	
-    	if(sinangle < 360F - sinanglechangerate) {
-    		sinangle = sinangle + sinanglechangerate;
-    	}
-    	else {
-    		sinangle = 0;
-    	}
-    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);	
-    	//Log.d("sinval", "sine angle: " + sinangle + "result: " + (float)Math.sin(Math.toRadians((double)sinangle)));
+    	//if (this.isAlive()) {
+    		if(sinangle < 360F - sinanglechangerate) {
+    			sinangle = sinangle + sinanglechangerate;
+	    	}
+	    	else {
+	    		sinangle = 0;
+	    	}
+	    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);	
+	    	//Log.d("sinval", "sine angle: " + sinangle + "result: " + (float)Math.sin(Math.toRadians((double)sinangle)));
+    	//}
     }
     
 	public void relAnimOn() {
@@ -211,6 +244,30 @@ public class NormalCircle {
 	public void setRad(float rad) {
 		this.rad = rad;
 	}
+	
+	protected void radIncrement() {
+		this.rad = this.rad + this.radchgspd;
+	}
+
+	protected float getRadchgspd() {
+		return radchgspd;
+	}
+
+	protected void setRadchgspd(float radchgspd) {
+		this.radchgspd = radchgspd;
+	}
+	
+	protected void yIncrement() {
+		this.posy = this.posy + this.ychgspd;
+	}
+
+	protected float getYchgspd() {
+		return ychgspd;
+	}
+
+	protected void setYchgspd(float ychgspd) {
+		this.ychgspd = ychgspd;
+	}
 
 	public void setColor(Paint p) {
         p.setColor(Color.argb(alpha, red, grn, blu));
@@ -226,6 +283,13 @@ public class NormalCircle {
 	
 	public void setAlpha(int alpha) {
 		this.alpha = alpha;
+	}
+	
+	public void setARGB (int a, int r, int g, int b) {
+		this.alpha = a;
+		this.red = r;
+		this.grn = g;
+		this.blu = b;
 	}
 
 	public int getRed() {
