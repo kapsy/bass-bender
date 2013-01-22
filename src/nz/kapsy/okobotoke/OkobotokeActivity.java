@@ -23,6 +23,7 @@ import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
@@ -65,9 +66,15 @@ public class OkobotokeActivity extends Activity {
 	int inChan = 0;
 	int outChan = 2;
 	
+	private static final float FM_FADE_MAX = 80F;
+	private static final float FM_FADE_MIN = 0F;
+	
+	
 	string test;
 
 	MySurfaceView mysurfview;
+	
+	
 	
 	private Toast toast = null;
 
@@ -92,6 +99,11 @@ public class OkobotokeActivity extends Activity {
 //			}
 //		});
 //	}
+	
+//public Context rtnContext() {
+//	this.
+//	
+//}
 
 	private PdReceiver receiver = new PdReceiver() {
 
@@ -436,7 +448,7 @@ public class OkobotokeActivity extends Activity {
 //				break;
 //			case 1:
 //				Object x = list.get(0);
-//				if (x instanceof String) {
+//				if (x instanceof String) {s
 //					PdBase.sendSymbol(dest, (String) x);
 //				} else {
 //					PdBase.sendFloat(dest, (Float) x);
@@ -454,8 +466,21 @@ public class OkobotokeActivity extends Activity {
 //	  PdBase.sendBang(s);
 //	}
 
-	public void sendFloat(String s, float f) {
+	public static void sendFloat(String s, float f) {
 		PdBase.sendFloat(s, f);
+	}
+	
+//	public float calcToRange(float sndrmax, float tgtvalmax, float tgtvalmin) {
+//		
+//		
+//		
+//	}
+	
+	public static float calcToRangeFM(float sndrval, float sndrrng) {
+		
+		float rtnval =(sndrval * (FM_FADE_MAX/sndrrng)) + FM_FADE_MIN;
+		return rtnval;
+		
 	}
 
 

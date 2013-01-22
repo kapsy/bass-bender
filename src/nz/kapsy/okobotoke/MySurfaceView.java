@@ -3,6 +3,7 @@ package nz.kapsy.okobotoke;
 import java.util.Random;
 import java.util.concurrent.*;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.*;
 import android.graphics.Paint.Style;
@@ -15,19 +16,19 @@ public class MySurfaceView extends SurfaceView implements
 
     private SurfaceHolder holder;
     
-//    public Circle circle;
+    
+    //private OkobotokeActivity okoboactivity = (OkobotokeActivity)this.getContext();
+    
+   // public OkobotokeActivity okoboactivity = (OkobotokeActivity)this.getParent(); 
     
     public Circle2 circle2;
-    // public SonarCircle sonarcircle;
+            
+    public NormalCircle twotouch1;    
+    public NormalCircleMultiTouch testxtend;
+    public NormalLineFader faderline;
     
     public SonarCircle2 sonarcircle2;
-    
-    
-    public NormalCircle twotouch1;
-   // public NormalCircle twotouch2;
-    
-    public NormalCircleMultiTouch testxtend;
-	
+    	
 	private boolean initbackground;
 
 	Rect screensizerect;
@@ -42,7 +43,10 @@ public class MySurfaceView extends SurfaceView implements
     final static int MULTI_TOUCH_MAX = 2;
     private PointF [] touchpoints = new PointF[MULTI_TOUCH_MAX];
     
-    int oneinx = 0;
+    int oneintwo = 0;
+    int oneinfour = 0;
+    
+    private float screendiag;
     
     
 
@@ -95,28 +99,16 @@ public class MySurfaceView extends SurfaceView implements
        // new Rect(l, t, r, b);
        screensizerect = new Rect(0, 0, getWidth(), rectheight);
        
-      // screensizerect.
+       screendiag = this.getScreenDiag();
         
-       
-//       	circle = new Circle();
-//        circle.initCircle();
-        
+               
         circle2 = new Circle2();
-        
-//        sonarcircle = new SonarCircle();
-//        sonarcircle.setAlive(false);
-        //sonarcircle.initCircle();
-
         sonarcircle2 = new SonarCircle2();
-        
-        
-//        twotouchcircle = new TwoTouchCircle();
-//        twotouchcircle.setAlive(false);
-        
+                
+        faderline = new NormalLineFader();
         twotouch1 = new NormalCircle();
-       // twotouch2 = new NormalCircle();
-        
         testxtend = new NormalCircleMultiTouch();
+
         
         initbackground = true;
                 
@@ -144,6 +136,7 @@ public class MySurfaceView extends SurfaceView implements
     	
     	if (event.getPointerCount() == MULTI_TOUCH_MAX) {
     		
+    	    		
     		 switch (event.getAction() & MotionEvent.ACTION_MASK) {
     		 
 //    			case MotionEvent.ACTION_DOWN:
@@ -154,7 +147,17 @@ public class MySurfaceView extends SurfaceView implements
     	        	//Log.v("Multi", "ACTION_POINTER_DOWN");
     	        	// ここで必要ないかも
     	        	
+	    			this.faderline.setLinePoints
+	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
+    			    	    			
+	    			this.twotouch1.setPosX(event.getX(1));
+		    		this.twotouch1.setPosY(event.getY(1));
+		    		
+	  	    		this.testxtend.setPosX(event.getX(0));
+		    		this.testxtend.setPosY(event.getY(0));
     	        	
+    	        	this.faderline.init();
+    	        	    	        	
     	        	this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
     	        	this.twotouch1.setRad(80F);
     	        	this.testxtend.init(0, rndCol(130), rndCol(130), rndCol(130));
@@ -164,68 +167,32 @@ public class MySurfaceView extends SurfaceView implements
     	        	
     	    	case MotionEvent.ACTION_MOVE:
     	    		//Log.v("Multi", "ACTION_MOVE");
+
     	    		
-//    	    		if (oneInX()) {
-//		    		for (int i = 0; i < MULTI_TOUCH_MAX; i++) {
-//		    			int pointid = event.getPointerId(i);
-//			    		touchpoints[pointid].x = event.getX(i);
-//			    		touchpoints[pointid].y = event.getX(i);
-//		    		}
-//		    		
-//		    		
-//		    		PointF circlecentre = new PointF();
-//		    		
-//		    		float radius = 0;
-//		    		
-//		    		float xdiff = 0F; 
-//		    		float ydiff = 0F; 		
-//    		
-//		    		if (touchpoints[0].x < touchpoints[1].x) { 
-//		    			xdiff = ((touchpoints[1].x - touchpoints[0].x));
-//		    			circlecentre.x = (touchpoints[0].x + xdiff) / 2;
-//		    		}
-//		    		else {
-//		    			xdiff = ((touchpoints[0].x - touchpoints[1].x));
-//		    			circlecentre.x = (touchpoints[1].x + xdiff) / 2;
-//		    		}
-//		    		
-//		    		//xdifference.positive
-//		    		if (touchpoints[0].y < touchpoints[1].y) { 
-//		    			ydiff = ((touchpoints[1].y - touchpoints[0].y));
-//		    			circlecentre.y = (touchpoints[0].y + ydiff) / 2;
-//		    		}
-//		    		else {
-//		    			ydiff = ((touchpoints[0].y - touchpoints[1].y));
-//		    			circlecentre.y = (touchpoints[1].y + ydiff) / 2;
-//		    		}
-//		    			    		
-//		    		radius = (float)Math.sqrt((double)((xdiff * xdiff) + (ydiff * ydiff)))/2F;
-//	    					    		
-//		    		this.twotouchcircle.setPosX(circlecentre.x);
-//		    		this.twotouchcircle.setPosY(circlecentre.y);
-//		    		this.twotouchcircle.setRad(radius);
-//		    		
-//		    		
-//    	    		}
-		    		
+    	    		if (oneInTwo()) {
+    	    			
+    	    			this.faderline.setLinePoints
+	    	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
     	    		
-/*    	    		if (oneInX()) {
-		    		this.twotouchcircle.setLinePoints(event.getX(0), event.getY(0), 
-		    				event.getX(1), event.getY(1));
-		    		Log.v("Multi", "ACTION_MOVE" + " x1 " + event.getX(0) + " y1 " + event.getY(0) + 
-		    				" x2 " + event.getX(1) + " y2 " + event.getY(1));
-    	    		}*/
-    	    		
-    	    		if (oneInX()) {
-    	    		this.twotouch1.setPosX(event.getX(1));
-    	    		this.twotouch1.setPosY(event.getY(1));
-    	    		
-      	    		this.testxtend.setPosX(event.getX(0));
-    	    		this.testxtend.setPosY(event.getY(0));
+    	    			this.twotouch1.setPosX(event.getX(1));
+	    	    		this.twotouch1.setPosY(event.getY(1));
+	    	    		
+	      	    		this.testxtend.setPosX(event.getX(0));
+	    	    		this.testxtend.setPosY(event.getY(0));
+    	    			
+  		
+	    	    		if (oneInFour()) {
+	    	    			
+	    	    			OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM(
+	    	    			this.faderline.calcDistance(), screendiag));
+	    	    			
+//	    	    			Log.d("sendFloat", "fm_index " + "faderline.calcDistance() " 
+//    	    					+ this.faderline.calcDistance() + " screendiag " + screendiag + " calcToRangeFM " + OkobotokeActivity.calcToRangeFM(
+//    	    							this.faderline.calcDistance(), screendiag)); 
+	    	    		}
     	    		}
-//		    		Log.v("Multi", "CO-ORDS" + " x1 " + event.getX(0) + " y1 " + event.getY(0) + 
-//		    				" x2 " + event.getX(1) + " y2 " + event.getY(1));
     	    		
+    	 
     	    		
     	    		
 		    		break;
@@ -234,8 +201,13 @@ public class MySurfaceView extends SurfaceView implements
     	    		// フェードアウト・アニメーション
     	    		//Log.v("Multi", "ACTION_POINTER_UP");
 
+    	    		
+    	    		
+    	    		OkobotokeActivity.sendFloat("fm_index", 12F);
     	    		this.twotouch1.setAlive(false);
     	    		this.testxtend.relAnimOn();
+    	    		
+    	    		this.faderline.setAlive(false);
     	    		break;
 
     		 }
@@ -250,20 +222,33 @@ public class MySurfaceView extends SurfaceView implements
     
  
 
-    public boolean oneInX() {
+    public boolean oneInTwo() {
     	
-    	if (oneinx == 2) {
-    		oneinx = 0;
+    	if (oneintwo == 2) {
+    		oneintwo = 0;
     	}
-    	
-    	if (oneinx == 0) {
+    	if (oneintwo == 0) {
     		//Log.v("oneInX", "TRUE " + oneinx);
-    		oneinx++;
+    		oneintwo++;
     		return true;
     	}
     	else {	
     		//Log.v("oneInX", "FALSE " + oneinx);
-    		oneinx++;
+    		oneintwo++;
+    		return false;
+    	}
+    }
+    
+    public boolean oneInFour() {
+    	if (oneinfour == 2) {
+    		oneinfour = 0;
+    	}
+    	if (oneinfour == 0) {
+    		oneinfour++;
+    		return true;
+    	}
+    	else {	
+    		oneinfour++;
     		return false;
     	}
     }
@@ -272,6 +257,16 @@ public class MySurfaceView extends SurfaceView implements
     	return (255 - rnd.nextInt(scope));
     }
     
+    public float getScreenDiag() {
+    	
+		double w = (double)this.getWidth();
+		double h = (double)this.getHeight();
+				
+	    float diag = (float)Math.sqrt(Math.pow(w, 2D) + Math.pow(h, 2D));
+		
+	    return diag;
+    	
+    }
 
     public void draw() {
     	canvas  = holder.lockCanvas();
@@ -292,42 +287,13 @@ public class MySurfaceView extends SurfaceView implements
             
         }
 
-/*        Paint pcircle = new Paint();
-        pcircle.setStyle(Paint.Style.FILL);
-       pcircle.setAntiAlias(false);
-        pcircle.setDither(true);
-        
-         //Log.d("drawCircle", "Colors " + "a " + circle.getAlpha() + " r " + circle.getRed() + " g " + circle.getGrn() + " b " + circle.getBlu());
-        
-           // Log.d("drawCircle", "Dimens " + "x " + circle.getPosx() + " y " + circle.getPosy() + " r " + circle.getRad());
-        
-        // cir = circle, values for drawing a shadow effect
-        int ciralpha = circle.getAlpha();
-        int cirred = circle.getRed();
-        int cirgrn = circle.getGrn();
-        int cirblu = circle.getBlu();
-        
-        float cirx = circle.getPosx();
-        float ciry = circle.getPosy();
-        float cirr = circle.getRad();
-        
-        for (int i = 0; i < 15; i++) {
-        	
-        	pcircle.setColor(Color.argb(ciralpha, cirred, cirgrn, cirblu));
-            canvas.drawCircle(cirx, ciry, cirr, pcircle); // ★修正
-            
-            ciralpha += 1;
-            cirr -= 5;
-            ciry -= 1;
-        }*/
-        
         this.circle2.drawSequence(canvas);        
         
-        this.sonarcircle2.drawSequence(canvas);
-        
+        this.faderline.drawSequence(canvas);        
         this.twotouch1.drawSequence(canvas);
-                
         this.testxtend.drawSequence(canvas);
+        
+        this.sonarcircle2.drawSequence(canvas);
     
         holder.unlockCanvasAndPost(canvas);
     }
@@ -358,343 +324,11 @@ public class MySurfaceView extends SurfaceView implements
             	draw();
             	
             }
-        }, 28, 28, TimeUnit.MILLISECONDS);
+        }, 26, 26, TimeUnit.MILLISECONDS); // 28だった
 
     }
     
 
-    
-/*    //circle animation 
-    public class Circle {
-
-		private int alpha;
-    	private int red;
-    	private int grn;
-    	private int blu;
-    	
-    	private float alphaslower;
-	    
-    	private float posx;
-    	private float posy;
-    	private float rad;
-
-    	private float rspd;
-    	private float yspd;
-    	
-    	private int frame;
-    	private boolean alive;
-    	    	
-    	private float sinangle;
-    	private float sinanglechangerate;
-    	private float modamplitude;
-    	    	
-    	public void initCircle() {
-    		
-//    		posx = (float)(80 + rnd.nextInt(getWidth() - 160));
-//    		posy = (float)(175 + rnd.nextInt(getHeight() - 210));
-//    		
-    		rad = 130 - rnd.nextInt(50);
-    		
-    		posx = (float)((int)(rad + 8) + rnd.nextInt(getWidth() - (((int)rad + 8) * 2)));
-    		posy = (float)((int)(rad + 140) + rnd.nextInt(getHeight() - (((int)rad + 80) + 140)));
-
-    		//Log.d("POS", "posx " + posx);
-    		//Log.d("POS", "posy " + posy);
-    		
-    		alpha = 19;
-    		alphaslower = 0;
-    		red = 255 - rnd.nextInt(220);
-    		grn = 255 - rnd.nextInt(220);
-    		blu = 255 - rnd.nextInt(220);
-    		
-    		rspd = (float)0.184;
-    		yspd = (float)0.674375;
-    		
-    		frame = 1;
-    		
-    		alive = true;
-    		
-    		//initbackground = false;
-    		
-    		sinangle = 0;
-    		sinanglechangerate = (float)4.5;
-    		modamplitude = (float).8;
-    		
-    	}
-    	
-    
-	    public void circleAnim() {	
-	    		
-		    	if (frame < 500){
-		    		
-		    		rad = rad + rspd;
-		    		posy = posy - yspd;
-		    		
-//        			alphaslower += (float).3;
-//        			alpha = (int)alphaslower;
-        			
-        			frame++;
-				
-		    	}
-		    	else if (frame >= 500 && frame < 600) {
-				
-					//rad = rad - rspd;
-					
-					//posy = posy - yspd;
-		    		
-		    		frame++;
-				}		
-		    	else if (frame == 500) { //アニメーション終了
-		    		alive = false;
-		    		//frame = 1;
-		    	}
-	    }
-	    
-	    public void circleMod() {
-	    	if(sinangle < (float)360 - sinanglechangerate) {
-	    		sinangle = sinangle + sinanglechangerate;
-	    	}
-	    	else {
-	    		sinangle = 0;
-	    	}
-
-	    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);	
-	    	//Log.d("sinval", "sine angle: " + sinangle + "result: " 
-	    		// + (float)Math.sin(Math.toRadians((double)sinangle)));
-	    }
-
-		public boolean isAlive() {
-			return alive;
-		}
-		
-		public int getAlpha() {
-			return alpha;
-		}
-
-		public float getPosx() {
-			return posx;
-		}
-
-		public void setPosx(float posx) {
-			this.posx = posx;
-		}
-
-		public float getPosy() {
-			return posy;
-		}
-		
-		public void setPosy(float posy) {
-			this.posy = posy;
-		}
-
-		public float getRad() {
-			return rad;
-		}
-
-		public int getRed() {
-			return red;
-		}
-
-		public int getGrn() {
-			return grn;
-		}
-
-		public int getBlu() {
-			return blu;
-		}
-    
-    }*/
-
-    
-    //TODO 実装メッソドに変更
-    
-/*    //circle animation 
-    public class TwoTouchCircle {
-
-		private int alpha;
-    	private int red;
-    	private int grn;
-    	private int blu;
-    	
-    	private float alphaslower = 1;
-	    
-    	private float posx;
-    	private float posy;
-    	private float rad = 0;
-    	
-    	
-    	private Paint paint = new Paint();
-    	
-    	private float[] linepoints = new float[4];
-    	
-    	
-
-    	private float rspd = 45F;
-    	private float yspd = 0.674375F;
-    	
-    	private int frame;
-    	private boolean alive;
-    	    	
-    	private float sinangle = 0F;
-    	private float sinanglechangerate = 4.5F;
-    	private float modamplitude = 0.8F;
-    	    	
-    	
-    	
-    	public TwoTouchCircle () {
-    	
-    		
-    		
-    	}
-    	
-    	public void setLinePoints(float x1, float y1, float x2, float y2) {
-    		linepoints[0] = x1;
-    		linepoints[1] = y1;
-    		linepoints[2] = x2;
-    		linepoints[3] = y2;
-  
-    	}
-    	
-    	public void drawLine(Canvas c) {
-    		
-    		this.circleAnim();
-    		c.drawLine(linepoints[0], linepoints[1], linepoints[2], linepoints[3], this.getPaint());
-    		
-    		// Log.d("drawLine", " lp[0] " + linepoints[0] + " lp[1] " + linepoints[1] + 
-    		//		" lp[2] " + linepoints[2] + " lp[3] " + linepoints[3]); 
-    	}
-    	
-    	public void initCircle() {
-    		// setPos メソッドの方がいいかも???
-//    		posx = (float)rnd.nextInt(getWidth());
-//    		posy = (float)rnd.nextInt(getHeight());
-    		
-    		//rad = 20;
-    		//alpha = 100;
-    		alphaslower = 0F;
-    		red = 255 - rnd.nextInt(130);
-    		grn = 255 - rnd.nextInt(130);
-    		blu = 255 - rnd.nextInt(130);
-    		
-    		//alphaslower = 0;
-    		
-//    		rspd = (float)45;
-//    		yspd = (float)0.674375;
-    		
-    		frame = 1;
-    		
-    		alive = true;
-    		
-    		//initbackground = false;
-    		
-    		
-//    		sinangle = 0;
-//    		sinanglechangerate = (float)4.5;
-//    		modamplitude = (float).8;
-    		
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
-            paint.setAntiAlias(false);
-            paint.setDither(false);
-            paint.setColor(Color.argb(150, red, grn, blu));
-    	}
-    	
-
-    	
-    
-	    public void circleAnim() {	
-	    		
-		    	if (frame < 200){
-		    		
-		    		//rad = rad + rspd;
-		    		//posy = posy - yspd;
-		    		
-        			alphaslower += (float)1.3;
-        			alpha = (int)alphaslower;
-        			
-        			paint.setAlpha(alpha);
-        			
-        			frame++;
-				
-		    	}
-		    	else if (frame >= 500 && frame < 600) {
-				
-
-		    		frame++;
-				}		
-		    	else if (frame == 500) { //アニメーション終了
-		    		alive = false;
-		    		//frame = 1;
-		    	}
-	    }
-	    
-	    public void circleRadiusMod() {
-	    	
-	    	if(sinangle < 360F - sinanglechangerate) {
-	    		sinangle = sinangle + sinanglechangerate;
-	    	}
-	    	else {
-	    		sinangle = 0;
-	    	}
-
-	    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);	
-	    	//Log.d("sinval", "sine angle: " + sinangle + "result: " + (float)Math.sin(Math.toRadians((double)sinangle)));
-	    }
-
-		public boolean isAlive() {
-			return alive;
-		}
-		
-		public void setAlive(boolean alive) {
-			this.alive = alive;
-		}
-
-		public int getAlpha() {
-			return alpha;
-		}
-
-		public float getPosX() {
-			return posx;
-		}
-
-		public void setPosX(float posx) {
-			this.posx = posx;
-		}
-
-		public float getPosY() {
-			return posy;
-		}
-		
-		public void setPosY(float posy) {
-			this.posy = posy;
-		}
-
-		public float getRad() {
-			return rad;
-		}
-
-		public void setRad(float rad) {
-			this.rad = rad;
-		}
-
-		public int getRed() {
-			return red;
-		}
-
-		public int getGrn() {
-			return grn;
-		}
-
-		public int getBlu() {
-			return blu;
-		}
-
-		public Paint getPaint() {
-			return paint;
-		}
-    
-    }*/
-    
     
     
     public class Circle2 extends NormalCircle {
@@ -706,12 +340,10 @@ public class MySurfaceView extends SurfaceView implements
     		
     		this.setPosX((float)((int)(r + 8) + rnd.nextInt(getWidth() - (((int)r + 8) * 2))));
     		this.setPosY((float)((int)(r + 140) + rnd.nextInt(getHeight() - (((int)r + 80) + 140))));
-    		
     		this.setRad((float)(130 - rnd.nextInt(50)));
     		
     		this.setARGB(19, rndCol(220), rndCol(220), rndCol(220));
-    		
-    		
+    		    		
     		this.setRadchgspd((float)0.184);
     		this.setYchgspd((float)-0.674375);
     		
@@ -719,34 +351,6 @@ public class MySurfaceView extends SurfaceView implements
     		this.getPaint().setDither(false);
     		
     		super.init();
-    			//Log.d("POS", "posx " + posx);
-    		//Log.d("POS", "posy " + posy);
-    		
-//    		
-//    		rad = 130 - rnd.nextInt(50);
-//    		
-//    		posx = (float)((int)(rad + 8) + rnd.nextInt(getWidth() - (((int)rad + 8) * 2)));
-//    		posy = (float)((int)(rad + 140) + rnd.nextInt(getHeight() - (((int)rad + 80) + 140)));
-
-//    		alpha = 19;
-//    		alphaslower = 0;
-//    		red = 255 - rnd.nextInt(220);
-//    		grn = 255 - rnd.nextInt(220);
-//    		blu = 255 - rnd.nextInt(220);
-    		
-//    		rspd = (float)0.184;
-//    		yspd = (float)0.674375;
-    		
-//    		frame = 1;
-//    		
-//    		alive = true;
-    		
-    		//initbackground = false;
-    		
-//    		sinangle = 0;
-//    		sinanglechangerate = (float)4.5;
-//    		modamplitude = (float).8;
-    		
     	}
     	
     	@Override
@@ -797,13 +401,14 @@ public class MySurfaceView extends SurfaceView implements
     		this.setPosX((float)rnd.nextInt(getWidth()));
     		this.setPosY((float)rnd.nextInt(getHeight()));
     		
+    		// 89だった
     		this.setARGB(89, 255 - rnd.nextInt(30), 0, 0);
     		
     		this.setRad(20F);
     		this.setRadchgspd(50F);
     		
     		this.getPaint().setStyle(Paint.Style.STROKE);
-    		this.getPaint().setStrokeWidth(20F);
+    		this.getPaint().setStrokeWidth(20F + (float)rnd.nextInt(30));
     		//this.getPaint().setDither(true);
     		
     		super.init();
@@ -881,7 +486,22 @@ public class MySurfaceView extends SurfaceView implements
     	        this.drawCircleFadedEdges(3, 20F, 1, c);
     		}
     	}
+    }
+    
+    
+    public class NormalLineFader extends NormalLine {
     	
+    	@Override
+    	public void init() {
+    		
+    		this.setARGB(45, rndCol(30), rndCol(30), rndCol(30));
+    		
+    		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+    		this.getPaint().setStrokeWidth(2F);
+    		//this.getPaint().setDither(true);
+    		    		
+    		super.init();
+    	}
     }
     
 }
