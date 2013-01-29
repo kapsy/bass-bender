@@ -27,6 +27,7 @@ public class NormalCircle {
 	// アニメーションのためパラメーター
 	private float radchgspd = 45F;
 	private float ychgspd = 0.674375F;
+	private float accelangle = 0F;
 	private int currframe;
 	
 	private boolean playrelanim = false;
@@ -43,8 +44,11 @@ public class NormalCircle {
         //paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
         paint.setAntiAlias(false);
         paint.setDither(false);
+        
+       
 		
 	}
+
 	
 	// 初期化
 	// 円形を描く前、このメソッドを呼びなくて駄目
@@ -176,6 +180,34 @@ public class NormalCircle {
     	//}
     }
     
+/*    public void speedAccel(float changeangle, float initialspeed, float targetspeed, float startangle) {
+    	    	
+    	float targetdiff = targetspeed - initialspeed;
+    	this.accelangle = this.accelangle + changeangle;
+    	
+    	if((accelangle + startangle) < 360F - changeangle) {
+    		this.setYchgspd(initialspeed + (targetdiff * (((float)Math.sin(Math.toRadians((double)accelangle + startangle))) + 1F)));
+//    		Log.d("sineq", "accelangel into sin: " + ((double)accelangle + startangle) 
+//    				+ " sin eq: " + ((((float)Math.sin(Math.toRadians((double)accelangle + startangle))) + 1F) / 2));
+//    		Log.d("speedAccelif", "initialspeed " + initialspeed + " targetdiff " + targetdiff 
+//    				+ " accelangle " + accelangle + " ySpeed " + this.getYchgspd());
+    	}
+	}*/
+    
+    public void speedAccelSamp(float changeangle, float initialspeed, float targetspeed, float startangle) {
+    	
+    	float targetdiff = targetspeed - initialspeed;
+    	
+    	if ((this.accelangle + startangle) < 360F - changeangle) {
+    
+    		float val = SampledSines.getPosSineVal(this.accelangle + startangle);
+    		this.setYchgspd(initialspeed + (targetdiff * val));
+    		
+    		//Log.d("speedAccelSamp", "this.getYchgspd(): " + this.getYchgspd());
+        	this.accelangle = this.accelangle + changeangle;
+    	}
+    }
+    
 	public void relAnimOn() {
 		
 		this.playrelanim = true;
@@ -203,6 +235,7 @@ public class NormalCircle {
 	
 	protected void alphaDecrement (float dec, float min) {
 		
+		// float -> int for slower fade outs 
 		if (this.alpha > (min + dec)) {
 			alphaf -= dec;
 			this.alpha = (int)alphaf;
@@ -267,6 +300,14 @@ public class NormalCircle {
 
 	protected void setYchgspd(float ychgspd) {
 		this.ychgspd = ychgspd;
+	}
+
+	protected float getAccelangle() {
+		return accelangle;
+	}
+
+	protected void setAccelangle(float accelangle) {
+		this.accelangle = accelangle;
 	}
 
 	public void setColor(Paint p) {

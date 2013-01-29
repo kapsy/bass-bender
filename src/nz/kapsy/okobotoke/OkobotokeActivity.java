@@ -9,6 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 
@@ -36,6 +40,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -60,22 +65,32 @@ public class OkobotokeActivity extends Activity {
 	private PdService pdService = null;
 	private TextView textview1;
 	private TextView textview2;
+	
 
-	float bufferSize = 250;
-	int sampleRate = 22050;
+	//float bufferSize = 250;
+	float bufferSize = 50;
+	
+	
+	//int sampleRate = 22050;
+	int sampleRate = 11025;
+	//int sampleRate = 16538;
+	
 	int inChan = 0;
 	int outChan = 2;
 	
-	private static final float FM_FADE_MAX = 80F;
+	private static final float FM_FADE_RNG = 80F;
 	private static final float FM_FADE_MIN = 0F;
-	
+		
+	private static final float CF_FADE_RNG = 5.5F;
+	private static final float CF_FADE_MIN = 1.5F;
 	
 	string test;
 
 	MySurfaceView mysurfview;
+			
 	
-	
-	
+	//private TestDelayThread testd1 = new TestDelayThread(mysurfview);
+
 	private Toast toast = null;
 
 	private void toast(final String msg) {
@@ -119,19 +134,27 @@ public class OkobotokeActivity extends Activity {
 		@Override
 		public void receiveBang(String source) {
 				
-			if (source.equals("note_change")){
+			if (source.equals("notec")){
 				Log.d("RECV", "bang " + source);
-				mysurfview.circle2.init();//.circle.initCircle();
+				//mysurfview.circle2.init();//.circle.initCircle();
+				DelayLights();
+				
 			}
 			
 			if (source.equals("sonar")){
 				Log.d("RECV", "bang " + source);
-				
-				//mysurfview.sonarcircle.initCircle();
+					DelaySonar();
 
-				mysurfview.sonarcircle2.init();
-				
 			}
+			
+//			if (source.equals("metbang")) {
+//				Log.d("RECV", "bang " + source);
+//				
+//			}
+			
+//			if source.equals("switchdir") { 
+//				Delay
+//			}
 									
 		}
 
@@ -154,6 +177,42 @@ public class OkobotokeActivity extends Activity {
 		public void receiveSymbol(String source, String symbol) {
 			//pdPost("symbol: " + symbol);
 		}
+		
+		
+	    public void DelaySonar(){
+	        ScheduledExecutorService executor =
+	                Executors.newSingleThreadScheduledExecutor();
+	        executor.schedule(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO 自動生成されたメソッド・スタブ
+
+					mysurfview.sonarcircle2.init();
+				}	        		        	
+	        }, 100L, TimeUnit.MILLISECONDS);
+	    }
+		
+	    public void DelayLights(){
+	        ScheduledExecutorService executor =
+	                Executors.newSingleThreadScheduledExecutor();
+	        executor.schedule(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO 自動生成されたメソッド・スタブ
+
+					
+					//mysurfview.circle2.init();
+					mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
+					mysurfview.nextCirc();
+					mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
+					
+					
+				}	        		        	
+	        }, 490L, TimeUnit.MILLISECONDS);
+	    }
+		
 	};
 	
 	
@@ -187,6 +246,9 @@ public class OkobotokeActivity extends Activity {
 		//PdPreferences.initPreferences(getApplicationContext());
 		//PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).registerOnSharedPreferenceChangeListener(this);
 		//initGui();
+		
+		
+		SampledSines.init(3600);
 		
 		mysurfview = new MySurfaceView(getApplication());
 
@@ -318,8 +380,10 @@ public class OkobotokeActivity extends Activity {
 
 		try {
 			PdBase.setReceiver(receiver);
-			PdBase.subscribe("note_change");
+			PdBase.subscribe("notec");
+			//PdBase.subscribe("metbang");
 			PdBase.subscribe("sonar");
+			
 //			InputStream in = res.openRawResource(R.raw.test);
 //			patchFile = IoUtils.extractResource(in, "test.pd", getCacheDir());
 //			PdBase.openPatch(patchFile);
@@ -478,11 +542,16 @@ public class OkobotokeActivity extends Activity {
 	
 	public static float calcToRangeFM(float sndrval, float sndrrng) {
 		
-		float rtnval =(sndrval * (FM_FADE_MAX/sndrrng)) + FM_FADE_MIN;
+		float rtnval =(sndrval * (FM_FADE_RNG/sndrrng)) + FM_FADE_MIN;
 		return rtnval;
 		
 	}
 
+	public static float calcToRangeCentFreq(float sndrval, float sndrrng) {
+		
+		float rtnval =(sndrval * (CF_FADE_RNG/sndrrng)) + CF_FADE_MIN;
+		return rtnval;
+	}
 
 //	public void send(String dest, String s) {
 //	  String[] pieces = s.split(" ");r
@@ -498,6 +567,47 @@ public class OkobotokeActivity extends Activity {
 //
 //	  PdBase.sendList(dest, list);
 //	}
+	
+//	public void TrigDelayTest() {Thread thread = new Thread(); thread.start(); {
+//		@Override
+//		public void run() {
+//	
+//				
+//		}
+//	}
+//	}
 
 
+         
+         
+         
+         
 }
+
+/*class TestDelayThread extends Thread {
+	
+	MySurfaceView s;
+	
+	*//**
+	 * @param s
+	 *//*
+	public TestDelayThread(MySurfaceView s) {
+		super();
+		this.s = s;
+	}
+
+
+	
+	public void run() {
+		try {
+			sleep(100);
+
+			s.sonarcircle2.init();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		
+	}
+}*/

@@ -20,8 +20,13 @@ public class MySurfaceView extends SurfaceView implements
     //private OkobotokeActivity okoboactivity = (OkobotokeActivity)this.getContext();
     
    // public OkobotokeActivity okoboactivity = (OkobotokeActivity)this.getParent(); 
+    //test1234sdafzvzd1123412341234testdsf
     
-    public Circle2 circle2;
+    //public Circle2 circle2;
+    
+    public Circle2[] maincircles;
+    private int curmaincircle = 0;
+    
             
     public NormalCircle twotouch1;    
     public NormalCircleMultiTouch testxtend;
@@ -47,6 +52,8 @@ public class MySurfaceView extends SurfaceView implements
     int oneinfour = 0;
     
     private float screendiag;
+    private float screenwidth;
+    private float screenheight;
     
     
 
@@ -97,19 +104,25 @@ public class MySurfaceView extends SurfaceView implements
        int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
     	
        // new Rect(l, t, r, b);
-       screensizerect = new Rect(0, 0, getWidth(), rectheight);
-       
-       screendiag = this.getScreenDiag();
-        
+		screensizerect = new Rect(0, 0, getWidth(), rectheight);
+		   
+		screendiag = this.getScreenDiag();
+		screenwidth = (float)this.getWidth();
+		screenheight = (float)this.getHeight(); 
                
-        circle2 = new Circle2();
+        //circle2 = new Circle2();
+        
+		maincircles = new Circle2[6];
+        for(int i = 0; i < maincircles.length; i++) {
+        	maincircles[i] = new Circle2();
+        }
+        
         sonarcircle2 = new SonarCircle2();
                 
         faderline = new NormalLineFader();
         twotouch1 = new NormalCircle();
         testxtend = new NormalCircleMultiTouch();
-
-        
+           
         initbackground = true;
                 
         startnow(); // ★追加
@@ -121,66 +134,78 @@ public class MySurfaceView extends SurfaceView implements
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-/*        switch (event.getAction()) {
-        case MotionEvent.ACTION_DOWN:
-//            x = event.getX();
-//            y = event.getY();
+    	
+    	
+    	// 録音/再生機能を追加したいならここで一番いい
+    	// if playingBack() {
+    	// 		y = playback.getY();
+    	// }
+    	// else {
+    	// 		y = event.getY(0); など
+    	
+    	// いえいえ全く違います・ACTION_DOWN処理とか・別のメソッドが必要 jgjkh
+    	
+    	int pts = event.getPointerCount();
+    	
+    	int index = event.getActionIndex();
+//    	Log.v("MotionEvent", "event.getActionIndex() " + event.getActionIndex());
 
-        	
-        }*/
-    	
-    	//int action = event.getAction();
-    	//outofrangeexception
-    	//Log.v("Multi", "getPointerCount() " + event.getPointerCount());
-    	
-    	
-    	if (event.getPointerCount() == MULTI_TOUCH_MAX) {
-    		
-    	    		
-    		 switch (event.getAction() & MotionEvent.ACTION_MASK) {
-    		 
-//    			case MotionEvent.ACTION_DOWN:
-//    				Log.v("Multi", "ACTION_DOWN");
-//    				break;
-    		 
-    	        case MotionEvent.ACTION_POINTER_DOWN:
-    	        	//Log.v("Multi", "ACTION_POINTER_DOWN");
-    	        	// ここで必要ないかも
-    	        	
-	    			this.faderline.setLinePoints
-	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-    			    	    			
-	    			this.twotouch1.setPosX(event.getX(1));
-		    		this.twotouch1.setPosY(event.getY(1));
-		    		
-	  	    		this.testxtend.setPosX(event.getX(0));
-		    		this.testxtend.setPosY(event.getY(0));
-    	        	
-    	        	this.faderline.init();
-    	        	    	        	
-    	        	this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
-    	        	this.twotouch1.setRad(80F);
-    	        	this.testxtend.init(0, rndCol(130), rndCol(130), rndCol(130));
-    	        	this.testxtend.setRad(80F);
-    	        	
-    	    		break;
-    	        	
-    	    	case MotionEvent.ACTION_MOVE:
-    	    		//Log.v("Multi", "ACTION_MOVE");
+		 switch (event.getAction() & MotionEvent.ACTION_MASK) {
+		 
+		 	case MotionEvent.ACTION_DOWN:
+//	 	        	Log.v("MotionEvent", "ACTION_DOWN");
+    			 
+   	    		this.testxtend.setPosX(event.getX(0));
+ 	    		this.testxtend.setPosY(event.getY(0));
+ 	    		
+ 	        	this.testxtend.init(0, rndCol(130), rndCol(130), rndCol(130));
+ 	        	this.testxtend.setRad(80F);
+ 	        	break;
+			 
+	 
+	        case MotionEvent.ACTION_POINTER_DOWN:
+//    	        	Log.v("MotionEvent", "ACTION_POINTER_DOWN");
+	        	// ここで必要ないかも
+	    		if (this.testxtend.getRelAnim() == false) {  	
+	        	this.faderline.setLinePoints
+    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
+			    	    			
+    			this.twotouch1.setPosX(event.getX(1));
+	    		this.twotouch1.setPosY(event.getY(1));
+	    	   
+	    		this.faderline.init();	
+	    	    
+	    		this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
+	        	this.twotouch1.setRad(80F);
+	    		}
+	    		break;
+	        	
+	    	case MotionEvent.ACTION_MOVE:
+//    	    		Log.v("MotionEvent", "ACTION_MOVE");
+	    		
+	    		if (this.testxtend.getRelAnim() == false) {
+	    			this.testxtend.setPosX(event.getX(0));
+    	    		this.testxtend.setPosY(event.getY(0));
+	    	    	    			
+    	    		OkobotokeActivity.sendFloat("cntr_freq", 
+    	    				OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
+    	    			
 
-    	    		
-    	    		if (oneInTwo()) {
+	    		
+//	    	    			Log.d("sendFloat", "cntr_freq " + "test " + "testxtend.getPosY() " + testxtend.getPosY() 
+//	    	    					+ " screenheight " + screenheight + " calcToRangeCentFreq " 
+//	    	    					+ OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
+//		
+	    	
+	    		if (pts == MULTI_TOUCH_MAX) {
+	    			if (oneInTwo()) {
     	    			
     	    			this.faderline.setLinePoints
 	    	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
     	    		
     	    			this.twotouch1.setPosX(event.getX(1));
 	    	    		this.twotouch1.setPosY(event.getY(1));
-	    	    		
-	      	    		this.testxtend.setPosX(event.getX(0));
-	    	    		this.testxtend.setPosY(event.getY(0));
-    	    			
-  		
+	    	    				    	    		
 	    	    		if (oneInFour()) {
 	    	    			
 	    	    			OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM(
@@ -191,28 +216,50 @@ public class MySurfaceView extends SurfaceView implements
 //    	    							this.faderline.calcDistance(), screendiag)); 
 	    	    		}
     	    		}
-    	    		
-    	 
-    	    		
-    	    		
-		    		break;
+	    		}
+	    		}	    		    	    		
+	    		break;
+    		
+	    	case MotionEvent.ACTION_POINTER_UP:
+	    		// フェードアウト・アニメーション
+//    	    		Log.v("MotionEvent", "ACTION_POINTER_UP");
+
+	    		if (index == 1) {
+	    			
+		    		OkobotokeActivity.sendFloat("fm_index", 12F);
+	    	    	this.twotouch1.setAlive(false);
+	    	    	this.faderline.setAlive(false);
+	    		}
 	    		
-    	    	case MotionEvent.ACTION_POINTER_UP:
-    	    		// フェードアウト・アニメーション
-    	    		//Log.v("Multi", "ACTION_POINTER_UP");
+   	    		if (index == 0) {
+   	    			
+       	 			OkobotokeActivity.sendFloat("fm_index", 12F);
+       				this.twotouch1.setAlive(false);
+       				this.testxtend.relAnimOn();
+       				this.faderline.setAlive(false);
+	    		}
+	    		
+	    		break;
+	    		
+	    	case MotionEvent.ACTION_UP:
+//    	    		Log.v("MotionEvent", "ACTION_UP");
+	    		
+	    		if (index == 0) {
+	    			this.testxtend.relAnimOn();
+	    		}
+	    			    	    		
+	    		break;
 
-    	    		
-    	    		
-    	    		OkobotokeActivity.sendFloat("fm_index", 12F);
-    	    		this.twotouch1.setAlive(false);
-    	    		this.testxtend.relAnimOn();
-    	    		
-    	    		this.faderline.setAlive(false);
-    	    		break;
-
-    		 }
+		 }
+    		 
+    	if (pts > MULTI_TOUCH_MAX) {
+    		
+			OkobotokeActivity.sendFloat("fm_index", 12F);
+			this.twotouch1.setAlive(false);
+			this.testxtend.relAnimOn();
+			
+			this.faderline.setAlive(false);
     	}
-    	
     	
     	
 //		invalidate();
@@ -239,6 +286,7 @@ public class MySurfaceView extends SurfaceView implements
     	}
     }
     
+    // nested as in oneInTwo, hence oneInFour
     public boolean oneInFour() {
     	if (oneinfour == 2) {
     		oneinfour = 0;
@@ -287,7 +335,12 @@ public class MySurfaceView extends SurfaceView implements
             
         }
 
-        this.circle2.drawSequence(canvas);        
+        //this.circle2.drawSequence(canvas);        
+        
+
+        for(int i = 0; i < maincircles.length; i++) {
+        	maincircles[i].drawSequence(canvas);
+        }
         
         this.faderline.drawSequence(canvas);        
         this.twotouch1.drawSequence(canvas);
@@ -329,26 +382,44 @@ public class MySurfaceView extends SurfaceView implements
     }
     
 
+	public void nextCirc() {
+				
+		//int cur = curmaincircle;
+		
+		if(curmaincircle < maincircles.length) {
+			curmaincircle++;
+		}
+		if (curmaincircle == maincircles.length) {
+			curmaincircle = 0;
+		}
+		//return cur;
+	}
     
-    
-    public class Circle2 extends NormalCircle {
+    protected int getCurmaincircle() {
+		return curmaincircle;
+	}
+
+	public class Circle2 extends NormalCircle {
     	
     	@Override
     	public void init() {
-    		
+    		Log.d("Circle2", "init()");
     		float r = this.getRad();
     		
     		this.setPosX((float)((int)(r + 8) + rnd.nextInt(getWidth() - (((int)r + 8) * 2))));
     		this.setPosY((float)((int)(r + 140) + rnd.nextInt(getHeight() - (((int)r + 80) + 140))));
     		this.setRad((float)(130 - rnd.nextInt(50)));
     		
-    		this.setARGB(19, rndCol(220), rndCol(220), rndCol(220));
+    		this.setARGB(60, rndCol(220), rndCol(220), rndCol(220));
     		    		
     		this.setRadchgspd((float)0.184);
-    		this.setYchgspd((float)-0.674375);
+    		//this.setYchgspd((float)-0.674375);
+    		this.setYchgspd(-0.1F);
+    		this.setAccelangle(0F);
     		
     		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
     		this.getPaint().setDither(false);
+//    		this.getPaint().setAntiAlias(true);
     		
     		super.init();
     	}
@@ -358,37 +429,58 @@ public class MySurfaceView extends SurfaceView implements
     		if (this.isAlive()) {
     	        this.circleAnim();
     	      //  this.circleRadiusMod();
-    	        this.drawCircleFadedEdges(15, 5F, 1, c);
+    	        //this.drawCircleFadedEdges(15, 5F, 1, c);
+    	        this.drawCircleFadedEdges(5, 15F, 10, c);
+    	        
     		}
 		}
     
     	@Override
 	    public void circleAnim() {	
-	    		
-    		int cf = this.getCurrframe();
-    		
-		    	if (cf < 500){
-		    		
+
+			int cf = this.getCurrframe();
+		
+    		if (this.getRelAnim() == false) {
+    			
+    			if (cf < 600){
 		    		this.radIncrement();
 		    		this.yIncrement();
 		    		
-//		    		rad = rad + rspd;
-//		    		posy = posy - yspd;
-		    		
-		    		this.frameAdvance();      			
+		    		//this.alphaIncrement(2.6F, 50F);
+		    		this.alphaDecrement(0.3F, 0F);
+	    			//Log.d("circleAnim", "alpha val " + this.getAlpha());
+	    			this.frameAdvance();
 		    	}
-		    	else if (cf >= 500 && cf < 600) {
-				
-					//rad = rad - rspd;
-					
-					//posy = posy - yspd;
-		    		
-		    		this.frameAdvance();
-				}		
-		    	else if (cf == 500) { //アニメーション終了
-		    		this.setAlive(false);
+//		    	else if (cf >= 500 && cf < 600) {
+//		    		this.frameAdvance();
+//				}		
+		    	else if (cf == 600) { //アニメーション終了
+		    		//this.setAlive(false);
 		    	}
+    				    			
+    		}
+    		else {
+    			if (cf < 150){
+    				this.alphaDecrement(3.5F, 0F); 
+    				
+		    		this.radIncrement();
+		    		this.yIncrement();
+    				this.frameAdvance();
+    				//Log.d("alpha", "A " + this.getAlpha() + " frame " + this.getCurrframe());
+    			}
+    			else if (cf == 150) {
+    				this.setAlive(false);
+    				//Log.d("setAlive", "thisisAlive " + this.isAlive());
+    			}
+    		}
+    		//to switch:
+    		
+    		// this.speedAccelSamp(1F, -.1F, -60F, 277);
+    		this.speedAccelSamp(1F, -.1F, -60F, 225);
 	    }
+    	
+    	
+
     	
     }
     
@@ -410,6 +502,8 @@ public class MySurfaceView extends SurfaceView implements
     		this.getPaint().setStyle(Paint.Style.STROKE);
     		this.getPaint().setStrokeWidth(20F + (float)rnd.nextInt(30));
     		//this.getPaint().setDither(true);
+    		
+    		Log.d("SonarCircle2", "init()");
     		
     		super.init();
     	}
