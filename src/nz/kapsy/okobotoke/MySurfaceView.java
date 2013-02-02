@@ -27,14 +27,23 @@ public class MySurfaceView extends SurfaceView implements
     public Circle2[] maincircles;
     private int curmaincircle = 0;
     
+    public RainStar[] rainstars;
+    private int currainstar = 0;
+    
             
     public NormalCircle twotouch1;    
     public NormalCircleMultiTouch testxtend;
     public NormalLineFader faderline;
     
     public SonarCircle2 sonarcircle2;
-    	
+    
+    
+    private static boolean parentdirswitchon = true;
 	private boolean initbackground;
+	
+	public TouchRecorder trec;
+	
+	
 
 	Rect screensizerect;
 	public Canvas canvas;
@@ -43,6 +52,8 @@ public class MySurfaceView extends SurfaceView implements
     		BitmapFactory.decodeResource(this.getContext().getResources(), R.drawable.bg_test_2);
 	
     private Random rnd = new Random();
+    
+    private static Random srnd = new Random();
     
     // タッチ処理
     final static int MULTI_TOUCH_MAX = 2;
@@ -56,8 +67,68 @@ public class MySurfaceView extends SurfaceView implements
     private float screenheight;
     
     
+   
+    
+    public float radFadearg1 = 1F;
+    public float radFadearg2 = 227F;
+    public float radFadearg3 = 277F;
+    public float radFadearg4 = 250F;
 
-    public MySurfaceView(Context context) {
+    public float spdaccel1_prf = 1F;
+    public float spdaccel2_prf = -.1F;
+    public float spdaccel3_prf = -60F;
+    public float spdaccel4_prf = 277F;
+    
+    
+
+//	this.speedAccelSamp(1F, -.1F, -60F, 225);
+    
+    public void dirSwitchCalled() {
+    	
+/*    	if (rnd.nextBoolean()) {
+    		
+
+    		
+    	}
+    	else {
+
+    	}*/
+    	
+    	
+    	
+    	
+    	if (parentdirswitchon) {
+    		
+
+    		    		radFadearg1 = 1F;
+    		//spdaccel4_prf = 277F;
+    		
+    		//色処理・赤い
+    		
+    		
+    	}
+    	else {
+    		    		radFadearg1 = 3F;
+    		//spdaccel4_prf = 225F;		
+    		
+    		//色処理・ブルー
+    	}
+    	
+    }
+    
+    
+    
+    
+    
+    protected static boolean isParentdirswitch() {
+		return parentdirswitchon;
+	}
+
+	protected static void setParentdirswitch(boolean b) {
+		parentdirswitchon = b;
+	}
+
+	public MySurfaceView(Context context) {
         super(context);
         MySurfaceViewInit();
     }
@@ -103,6 +174,10 @@ public class MySurfaceView extends SurfaceView implements
     	// creates rectangle at ratio of source bitmap to fit screen
        int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
     	
+       
+       
+       trec = new TouchRecorder();
+       
        // new Rect(l, t, r, b);
 		screensizerect = new Rect(0, 0, getWidth(), rectheight);
 		   
@@ -124,6 +199,13 @@ public class MySurfaceView extends SurfaceView implements
         testxtend = new NormalCircleMultiTouch();
            
         initbackground = true;
+        
+        
+        rainstars = new RainStar[40];
+        for(int i = 0; i < rainstars.length; i++) {
+        	rainstars[i] = new RainStar();
+        }
+        
                 
         startnow(); // ★追加
 
@@ -160,6 +242,14 @@ public class MySurfaceView extends SurfaceView implements
  	    		
  	        	this.testxtend.init(0, rndCol(130), rndCol(130), rndCol(130));
  	        	this.testxtend.setRad(80F);
+ 	        	
+ 	        	
+ 	        	
+ 	        	if (trec.isRecordingnow()) {
+ 	        		trec.recordTouchEvent(MotionEvent.ACTION_DOWN, 
+ 	        				0, event.getX(0), event.getY(0));
+ 	        	}
+ 	        	
  	        	break;
 			 
 	 
@@ -167,16 +257,23 @@ public class MySurfaceView extends SurfaceView implements
 //    	        	Log.v("MotionEvent", "ACTION_POINTER_DOWN");
 	        	// ここで必要ないかも
 	    		if (this.testxtend.getRelAnim() == false) {  	
-	        	this.faderline.setLinePoints
-    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-			    	    			
-    			this.twotouch1.setPosX(event.getX(1));
-	    		this.twotouch1.setPosY(event.getY(1));
-	    	   
-	    		this.faderline.init();	
-	    	    
-	    		this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
-	        	this.twotouch1.setRad(80F);
+		        	this.faderline.setLinePoints
+	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
+				    	    			
+	    			this.twotouch1.setPosX(event.getX(1));
+		    		this.twotouch1.setPosY(event.getY(1));
+		    	   
+		    		this.faderline.init();	
+		    	    
+		    		this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
+		        	this.twotouch1.setRad(80F);
+		        	
+		        	
+		        	
+	 	        	if (trec.isRecordingnow()) {
+	 	        		trec.recordTouchEvent(MotionEvent.ACTION_POINTER_DOWN, 
+	 	        				1, event.getX(1), event.getY(1));
+	 	        	}
 	    		}
 	    		break;
 	        	
@@ -190,7 +287,14 @@ public class MySurfaceView extends SurfaceView implements
     	    		OkobotokeActivity.sendFloat("cntr_freq", 
     	    				OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
     	    			
-
+    	    		
+    	    		
+	 	        	if (trec.isRecordingnow()) {
+	 	        		trec.recordTouchEvent(MotionEvent.ACTION_MOVE, 
+	 	        				0, event.getX(0), event.getY(0));
+	 	        	}
+    	    		
+    	    		
 	    		
 //	    	    			Log.d("sendFloat", "cntr_freq " + "test " + "testxtend.getPosY() " + testxtend.getPosY() 
 //	    	    					+ " screenheight " + screenheight + " calcToRangeCentFreq " 
@@ -216,6 +320,12 @@ public class MySurfaceView extends SurfaceView implements
 //    	    							this.faderline.calcDistance(), screendiag)); 
 	    	    		}
     	    		}
+	    			
+	 	        	if (trec.isRecordingnow()) {
+	 	        		trec.recordTouchEvent(MotionEvent.ACTION_MOVE, 
+	 	        				1, event.getX(1), event.getY(1));
+	 	        	}
+	    			
 	    		}
 	    		}	    		    	    		
 	    		break;
@@ -229,6 +339,13 @@ public class MySurfaceView extends SurfaceView implements
 		    		OkobotokeActivity.sendFloat("fm_index", 12F);
 	    	    	this.twotouch1.setAlive(false);
 	    	    	this.faderline.setAlive(false);
+	    	    	
+	 	        	if (trec.isRecordingnow()) {
+	 	        		trec.recordTouchEvent(MotionEvent.ACTION_POINTER_UP, 
+	 	        				1, event.getX(1), event.getY(1));
+	 	        	}
+	    	    	
+	    	    	
 	    		}
 	    		
    	    		if (index == 0) {
@@ -237,6 +354,13 @@ public class MySurfaceView extends SurfaceView implements
        				this.twotouch1.setAlive(false);
        				this.testxtend.relAnimOn();
        				this.faderline.setAlive(false);
+       				
+       				
+	 	        	if (trec.isRecordingnow()) {
+	 	        		trec.recordTouchEvent(MotionEvent.ACTION_POINTER_UP, 
+	 	        				0, event.getX(0), event.getY(0));
+	 	        	}
+       				
 	    		}
 	    		
 	    		break;
@@ -246,6 +370,12 @@ public class MySurfaceView extends SurfaceView implements
 	    		
 	    		if (index == 0) {
 	    			this.testxtend.relAnimOn();
+	    			
+	 	        	if (trec.isRecordingnow()) {
+	 	        		trec.recordTouchEvent(MotionEvent.ACTION_UP, 
+	 	        				0, event.getX(0), event.getY(0));
+	 	        	}
+	    			
 	    		}
 	    			    	    		
 	    		break;
@@ -336,7 +466,11 @@ public class MySurfaceView extends SurfaceView implements
         }
 
         //this.circle2.drawSequence(canvas);        
+        for (int i = 0; i < rainstars.length; i++) {
+        	rainstars[i].drawSequence(canvas);
+        }
         
+        this.sonarcircle2.drawSequence(canvas);  
 
         for(int i = 0; i < maincircles.length; i++) {
         	maincircles[i].drawSequence(canvas);
@@ -346,7 +480,7 @@ public class MySurfaceView extends SurfaceView implements
         this.twotouch1.drawSequence(canvas);
         this.testxtend.drawSequence(canvas);
         
-        this.sonarcircle2.drawSequence(canvas);
+
     
         holder.unlockCanvasAndPost(canvas);
     }
@@ -359,21 +493,7 @@ public class MySurfaceView extends SurfaceView implements
         executor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-            	
-/*            	if (circle.isAlive()){
-            		circle.circleAnim();
-            		//circle.circleMod();            		
-            	}*/
-            	
-//            	if (sonarcircle.isAlive()) {
-//            		sonarcircle.circleAnim();
-//            	}
-            	
-//            	if (circle.isAlive() || sonarcircle2.isAlive()
-//            			|| twotouch1.isAlive() || ) {
-//            		draw();
-//            	}
-            	
+
             	draw();
             	
             }
@@ -383,16 +503,13 @@ public class MySurfaceView extends SurfaceView implements
     
 
 	public void nextCirc() {
-				
-		//int cur = curmaincircle;
-		
+	
 		if(curmaincircle < maincircles.length) {
 			curmaincircle++;
 		}
 		if (curmaincircle == maincircles.length) {
 			curmaincircle = 0;
 		}
-		//return cur;
 	}
     
     protected int getCurmaincircle() {
@@ -400,26 +517,59 @@ public class MySurfaceView extends SurfaceView implements
 	}
 
 	public class Circle2 extends NormalCircle {
-    	
+		
+		private boolean acceldir;
+		
+		private float radfad1;
+		private float radfad2;
+		private float radfad3;
+		private float radfad4;
+		
+		
+		private float spdaccel1;
+		private float spdaccel2;
+		private float spdaccel3;
+		private float spdaccel4;
+		
     	@Override
     	public void init() {
     		Log.d("Circle2", "init()");
     		float r = this.getRad();
     		
-    		this.setPosX((float)((int)(r + 8) + rnd.nextInt(getWidth() - (((int)r + 8) * 2))));
-    		this.setPosY((float)((int)(r + 140) + rnd.nextInt(getHeight() - (((int)r + 80) + 140))));
-    		this.setRad((float)(130 - rnd.nextInt(50)));
+    		this.setPosX((float)((int)(r + 10) + rnd.nextInt(getWidth() - (((int)r + 10) * 2))));
+    		this.setPosY((float)((int)(r + 200) + rnd.nextInt(getHeight() - (((int)r + 100) + 200))));
+    		this.setRad((float)(110 - rnd.nextInt(45)));
     		
-    		this.setARGB(60, rndCol(220), rndCol(220), rndCol(220));
+    		this.setARGB(0, rndCol(220), rndCol(220), rndCol(220));
     		    		
-    		this.setRadchgspd((float)0.184);
+    		//this.setRadchgspd((float)0.184);
     		//this.setYchgspd((float)-0.674375);
     		this.setYchgspd(-0.1F);
     		this.setAccelangle(0F);
+    		this.setRadfadeangle(0F);
+    		this.setBaserad(this.getRad());
+    		
+    	    		
+    		this.radfad1 = radFadearg1;
+    		this.radfad2 = radFadearg2;
+    		this.radfad3 = radFadearg3;
+    		this.radfad4 = radFadearg4;
+    		
+    		this.spdaccel1 = spdaccel1_prf;
+    		this.spdaccel2 = spdaccel2_prf;
+    		this.spdaccel3 = spdaccel3_prf - ((float)rnd.nextInt(20));
+    		this.spdaccel4 = spdaccel4_prf;
     		
     		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
     		this.getPaint().setDither(false);
 //    		this.getPaint().setAntiAlias(true);
+    		
+    		if (MySurfaceView.isParentdirswitch()) {
+    			acceldir = true;
+    		}
+    		else {
+    			acceldir = false;
+    		}
     		
     		super.init();
     	}
@@ -430,7 +580,7 @@ public class MySurfaceView extends SurfaceView implements
     	        this.circleAnim();
     	      //  this.circleRadiusMod();
     	        //this.drawCircleFadedEdges(15, 5F, 1, c);
-    	        this.drawCircleFadedEdges(5, 15F, 10, c);
+    	        this.drawCircleFadedEdges(4, 18F, 10, c);
     	        
     		}
 		}
@@ -446,8 +596,8 @@ public class MySurfaceView extends SurfaceView implements
 		    		this.radIncrement();
 		    		this.yIncrement();
 		    		
-		    		//this.alphaIncrement(2.6F, 50F);
-		    		this.alphaDecrement(0.3F, 0F);
+		    		this.alphaIncrement(9.6F, 90F);
+		    		//this.alphaDecrement(0.3F, 0F);
 	    			//Log.d("circleAnim", "alpha val " + this.getAlpha());
 	    			this.frameAdvance();
 		    	}
@@ -473,10 +623,15 @@ public class MySurfaceView extends SurfaceView implements
     				//Log.d("setAlive", "thisisAlive " + this.isAlive());
     			}
     		}
-    		//to switch:
     		
-    		// this.speedAccelSamp(1F, -.1F, -60F, 277);
-    		this.speedAccelSamp(1F, -.1F, -60F, 225);
+		//	if (MySurfaceView.isParentdirswitch()) {
+				this.radFade(this.radfad1, this.radfad2, 
+						this.radfad3, this.radfad4);
+    //		}
+    			
+    		this.speedAccelSamp(this.spdaccel1, this.spdaccel2, 
+    				this.spdaccel3, this.spdaccel4);
+    			
 	    }
     	
     	
@@ -560,14 +715,14 @@ public class MySurfaceView extends SurfaceView implements
     				    			
     		}
     		else {
-    			if (cf < 70){
+    			if (cf < 20){
     				this.alphaDecrement(2.6F, 0F); 
     				this.frameAdvance();
     				//Log.d("alpha", "A " + this.getAlpha() + " frame " + this.getCurrframe());
     			}
-    			else if (cf == 20) {
+    			else if (cf == 20) { // elseなので、必ず ifが同じ値を
     				this.setAlive(false);
-    				//Log.d("setAlive", "thisisAlive " + this.isAlive());
+    				Log.d("isAlive", "thisisAlive " + this.isAlive());
     			}
     		}
 	    }
@@ -576,7 +731,7 @@ public class MySurfaceView extends SurfaceView implements
     	public void drawSequence(Canvas c) {
     		if (this.isAlive()) {
     	        this.circleAnim();
-    	        this.circleRadiusMod();
+    	       // this.cirRadModSamp(4.5F, 0.8F);
     	        this.drawCircleFadedEdges(3, 20F, 1, c);
     		}
     	}
@@ -596,6 +751,66 @@ public class MySurfaceView extends SurfaceView implements
     		    		
     		super.init();
     	}
+    }
+    
+    public class RainStar extends NormalCircle {
+    	
+    	private float radmodspd;
+    	private float radmodamp;
+    	
+    	private float acctargetspd;
+    	
+    	@Override
+    	public void init() {
+    		
+    		this.setPosX((float)rnd.nextInt(getWidth()));
+    		this.setPosY((float)rnd.nextInt(getHeight()));
+    		    		
+    		this.setYchgspd(-0.1F);
+    		this.setAccelangle(0F);
+    		
+    		
+    		this.setRad(5F + (float)rnd.nextInt(20));
+    		this.setBaserad(this.getRad());
+    		//this.setRadchgspd(50F);
+    		
+    		//int gry = rnd.nextInt(200);
+    		
+    		// cirRadModSamp()に問題があるので、ご周囲を
+    		this.radmodspd = (float)rnd.nextInt(40) / 10F;
+    		this.radmodamp = (float)rnd.nextInt(((int)this.getRad() - 5) * 10) / 10F;
+    		
+    		this.acctargetspd = (float)rnd.nextInt(20) / 10F;
+    		
+    		this.setARGB(rnd.nextInt(100), 255, 255, 255);
+    		
+    		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+    		this.getPaint().setStrokeWidth(2F);
+    		
+    		super.init();
+    	}
+    	
+    	@Override
+	    public void circleAnim() {	
+    		this.yIncrement();
+    	this.speedAccelSamp(1F, 0.1F, acctargetspd, 270F);
+    		
+    		
+    	}
+    	
+    	
+    	@Override
+    	public void drawSequence(Canvas c) {
+    		if (this.isAlive()) {
+    	        this.circleAnim();
+    	        this.cirRadModSamp(this.radmodspd, this.radmodamp);
+    	        this.drawCircleOnce(c);
+    		}
+    	}
+    	
+
+    	
+    	
     }
     
 }

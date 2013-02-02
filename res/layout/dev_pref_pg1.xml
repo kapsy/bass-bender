@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- prefs regarding circle movement/acceleration -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="horizontal" 
+	android:padding="20dp">
+
+    	<!-- radFade() args -->
+   		<LinearLayout
+			android:layout_width="120dp"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingRight="10dp">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="radFade()"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:textColor="@android:color/secondary_text_light"/>
+			
+           	<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="angchgrate"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+           	<EditText
+				android:id="@+id/pg1_et_radfade_arg1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+           
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="startang"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+           	<EditText
+				android:id="@+id/pg1_et_radfade_arg2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+           
+          	<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="finang"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+			<EditText
+				android:id="@+id/pg1_et_radfade_arg3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+              
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="raddiff"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+			<EditText
+				android:id="@+id/pg1_et_radfade_arg4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+              
+			<Button 
+				android:id="@+id/pg1_applybtn_radfade"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Apply"/>
+        
+		</LinearLayout>
+		
+   		<!-- speedAccelSamp() args -->
+   		<LinearLayout
+			android:layout_width="140dp"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingRight="10dp">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="speedAccelSamp()"
+				android:textAppearance="?android:attr/textAppearanceSmall" 
+				android:textColor="@android:color/secondary_text_light"/>
+              
+           	<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="changeangle"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+           	<EditText
+				android:id="@+id/pg1_et_speedaccelsamp_arg1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+           
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="initialspeed"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+           	<EditText
+				android:id="@+id/pg1_et_speedaccelsamp_arg2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+           
+          	<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="targetspeed"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+			<EditText
+				android:id="@+id/pg1_et_speedaccelsamp_arg3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+              
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="startangle"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
+
+			<EditText
+				android:id="@+id/pg1_et_speedaccelsamp_arg4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:inputType="numberDecimal" />
+              
+			<Button 
+				android:id="@+id/pg1_applybtn_speedaccelsamp"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Apply"/>
+        
+		</LinearLayout>
+
+</LinearLayout>

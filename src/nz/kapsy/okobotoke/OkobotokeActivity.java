@@ -23,7 +23,8 @@ import org.puredata.core.PdBase;
 import org.puredata.core.PdReceiver;
 import org.puredata.core.utils.IoUtils;
 
-import android.R.string;
+//import android.R.string;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -43,9 +44,13 @@ import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -57,24 +62,14 @@ public class OkobotokeActivity extends Activity {
 	private static final String TAG = "Pd Test";
 	private static final String TAG1 = "Pd Debug";
 
-//	private CheckBox left, right, mic;
-//	private EditText msg;
-//	private Button prefs;
-//	private TextView logs;
-
 	private PdService pdService = null;
-	private TextView textview1;
-	private TextView textview2;
-	
 
 	//float bufferSize = 250;
 	float bufferSize = 50;
 	
-	
 	//int sampleRate = 22050;
 	int sampleRate = 11025;
-	//int sampleRate = 16538;
-	
+		
 	int inChan = 0;
 	int outChan = 2;
 	
@@ -84,15 +79,170 @@ public class OkobotokeActivity extends Activity {
 	private static final float CF_FADE_RNG = 5.5F;
 	private static final float CF_FADE_MIN = 1.5F;
 	
-	string test;
+	//string test;
 
+	FrameLayout framelayout;
 	MySurfaceView mysurfview;
-			
-	
-	//private TestDelayThread testd1 = new TestDelayThread(mysurfview);
 
+	LinearLayout dev_master_btns;
+	LinearLayout dev_pref_pg1;
+	
 	private Toast toast = null;
 
+	@Override
+	protected void onCreate(android.os.Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		Log.d(TAG1, "onCreate() " + System.currentTimeMillis());
+
+
+				
+		SampledSines.init(3600);
+				
+		mysurfview = new MySurfaceView(getApplication());
+		
+				
+		framelayout = new FrameLayout(this);
+						
+		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
+		
+		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
+		
+						
+		//----====----====----====----====----====----====----
+		
+		framelayout.addView(mysurfview, 
+				new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
+		//dev panel
+		framelayout.addView(dev_master_btns);
+		
+		
+		setContentView(framelayout);
+		
+		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
+		
+		//----====----====----====----====----====----====----
+		
+		
+		Button dprefbtn_pg1 = (Button)findViewById(R.id.dprefbtn_pg1);
+			dprefbtn_pg1.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+				
+					Log.d("dprefbtn_pg1", "dev_master_btns.getChildCount()" + dev_master_btns.getChildCount());
+					if (dev_master_btns.getChildCount() == 2) {
+						
+						dev_master_btns.addView(dev_pref_pg1);
+										
+						devPrefPg1Init();
+
+					}
+					
+					else if(dev_master_btns.getChildCount() > 2) {
+						
+						dev_master_btns.removeViews(2, 1);
+					}
+	
+	
+				}
+			});	
+			
+		//----====----====----====----====----====----====----
+		
+		Button dprefbtn_rec = (Button)findViewById(R.id.dprefbtn_rec);
+			dprefbtn_rec.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					mysurfview.trec.startRecording();
+				}
+			});
+	
+		}
+	
+	public void devPrefPg1Init() {
+		
+		final EditText radarg1 = (EditText)findViewById(R.id.pg1_et_radfade_arg1);
+		final EditText radarg2 = (EditText)findViewById(R.id.pg1_et_radfade_arg2);
+		final EditText radarg3 = (EditText)findViewById(R.id.pg1_et_radfade_arg3);
+		final EditText radarg4 = (EditText)findViewById(R.id.pg1_et_radfade_arg4);
+		
+		radarg1.setText(String.valueOf(mysurfview.radFadearg1));
+		radarg2.setText(String.valueOf(mysurfview.radFadearg2));
+		radarg3.setText(String.valueOf(mysurfview.radFadearg3));
+		radarg4.setText(String.valueOf(mysurfview.radFadearg4));
+		
+		Button pg1_applybtn_radfade = (Button)findViewById(R.id.pg1_applybtn_radfade);
+		pg1_applybtn_radfade.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				mysurfview.radFadearg1 = Float.parseFloat(radarg1.getText().toString());
+				mysurfview.radFadearg2 = Float.parseFloat(radarg2.getText().toString());
+				mysurfview.radFadearg3 = Float.parseFloat(radarg3.getText().toString());
+				mysurfview.radFadearg4 = Float.parseFloat(radarg4.getText().toString());
+			}
+		});
+		
+		final EditText spdarg1 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg1);
+		final EditText spdarg2 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg2);
+		final EditText spdarg3 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg3);
+		final EditText spdarg4 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg4);
+		
+		spdarg1.setText(String.valueOf(mysurfview.spdaccel1_prf));
+		spdarg2.setText(String.valueOf(mysurfview.spdaccel2_prf));
+		spdarg3.setText(String.valueOf(mysurfview.spdaccel3_prf));
+		spdarg4.setText(String.valueOf(mysurfview.spdaccel4_prf));
+		
+		Button pg1_applybtn_spdaccel = (Button)findViewById(R.id.pg1_applybtn_speedaccelsamp);
+		pg1_applybtn_spdaccel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				mysurfview.spdaccel1_prf = Float.parseFloat(spdarg1.getText().toString());
+				mysurfview.spdaccel2_prf = Float.parseFloat(spdarg2.getText().toString());
+				mysurfview.spdaccel3_prf = Float.parseFloat(spdarg3.getText().toString());
+				mysurfview.spdaccel4_prf = Float.parseFloat(spdarg4.getText().toString());
+			}
+		});
+				
+	}
+	
+	@Override
+	protected void onPause() {
+		Log.d(TAG1, "onPause() " + System.currentTimeMillis());
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		Log.d(TAG1, "onResume() " + System.currentTimeMillis());
+		super.onResume();
+	}
+	@Override
+	protected void onStart() {
+		Log.d(TAG1, "onStart() " + System.currentTimeMillis());
+		super.onStart();
+	}
+
+	@Override
+	protected void onStop() {
+		Log.d(TAG1, "onStop() " + System.currentTimeMillis());
+		super.onStop();
+	}
+
+	@Override
+	protected void onDestroy() {
+		Log.d(TAG1, "onDestroy() " + System.currentTimeMillis());
+		super.onDestroy();
+		cleanup();
+	}
+		
+	
 	private void toast(final String msg) {
 		runOnUiThread(new Runnable() {
 			@Override
@@ -114,12 +264,6 @@ public class OkobotokeActivity extends Activity {
 //			}
 //		});
 //	}
-	
-//public Context rtnContext() {
-//	this.
-//	
-//}
-
 	private PdReceiver receiver = new PdReceiver() {
 
 		private void pdPost(String msg) {
@@ -147,14 +291,20 @@ public class OkobotokeActivity extends Activity {
 
 			}
 			
-//			if (source.equals("metbang")) {
-//				Log.d("RECV", "bang " + source);
-//				
-//			}
-			
-//			if source.equals("switchdir") { 
-//				Delay
-//			}
+			if (source.equals("switchdir")) { 
+
+				Log.d("RECV", "bang " + source);
+				
+				//DelaySwitchDir();
+				
+				if (MySurfaceView.isParentdirswitch()) {
+					MySurfaceView.setParentdirswitch(false);
+				}
+				else {
+					MySurfaceView.setParentdirswitch(true);
+				}
+				mysurfview.dirSwitchCalled();
+			}
 									
 		}
 
@@ -185,10 +335,13 @@ public class OkobotokeActivity extends Activity {
 	        executor.schedule(new Runnable() {
 				
 				@Override
-				public void run() {
-					// TODO 自動生成されたメソッド・スタブ
-
+				public void run() {	
 					mysurfview.sonarcircle2.init();
+					
+					for(int i = 0; i < mysurfview.rainstars.length; i++) {
+						mysurfview.rainstars[i].init();
+					}
+					
 				}	        		        	
 	        }, 100L, TimeUnit.MILLISECONDS);
 	    }
@@ -200,19 +353,33 @@ public class OkobotokeActivity extends Activity {
 				
 				@Override
 				public void run() {
-					// TODO 自動生成されたメソッド・スタブ
-
-					
-					//mysurfview.circle2.init();
 					mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
 					mysurfview.nextCirc();
 					mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
-					
-					
 				}	        		        	
 	        }, 490L, TimeUnit.MILLISECONDS);
 	    }
-		
+	    
+	    public void DelaySwitchDir(){
+	        ScheduledExecutorService executor =
+	                Executors.newSingleThreadScheduledExecutor();
+	        executor.schedule(new Runnable() {
+				
+				@Override
+				public void run() {
+
+					if (MySurfaceView.isParentdirswitch()) {
+						MySurfaceView.setParentdirswitch(false);
+					}
+					else {
+						MySurfaceView.setParentdirswitch(true);
+					}
+					mysurfview.dirSwitchCalled();
+					
+				}
+			}, 490L, TimeUnit.MILLISECONDS);
+	    }
+	    
 	};
 	
 	
@@ -233,92 +400,7 @@ public class OkobotokeActivity extends Activity {
 		}
 	};
 
-	@Override
-	protected void onCreate(android.os.Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		Log.d(TAG1, "onCreate() " + System.currentTimeMillis());
-		//setContentView(R.layout.main);
-		
-		
-		
-		
-		//PdPreferences.initPreferences(getApplicationContext());
-		//PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).registerOnSharedPreferenceChangeListener(this);
-		//initGui();
-		
-		
-		SampledSines.init(3600);
-		
-		mysurfview = new MySurfaceView(getApplication());
 
-		//mysurfview = new MySurfaceView(this);
-		setContentView(mysurfview);
-		
-		//高実行すれば、問題が起きて、使えない方がいい
-		//setContentView(new MySurfaceView(this));
-		
-		
-		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
-
-
-		//fm_index 9 - 30
-/*		SeekBar fmindextester = (SeekBar)this.findViewById(R.id.seekBar1);
-		fmindextester.setOnSeekBarChangeListener(new ValChangeAdapter());
-
-		textview1 = (TextView)this.findViewById(R.id.textView1);
-		textview2 = (TextView)this.findViewById(R.id.textView2);*/
-		
-
-
-	};
-	
-	
-	@Override
-	protected void onPause() {
-		Log.d(TAG1, "onPause() " + System.currentTimeMillis());
-		// TODO 自動生成されたメソッド・スタブ
-		super.onPause();
-		
-		//mysurfview.paused = true;
-	}
-
-
-	@Override
-	protected void onResume() {
-		Log.d(TAG1, "onResume() " + System.currentTimeMillis());
-		// TODO 自動生成されたメソッド・スタブ
-		super.onResume();
-		
-	//mysurfview.paused = false;
-
-		
-	}
-
-
-	@Override
-	protected void onStart() {
-		Log.d(TAG1, "onStart() " + System.currentTimeMillis());
-		// TODO 自動生成されたメソッド・スタブ
-		super.onStart();
-	}
-
-
-
-	@Override
-	protected void onStop() {
-		Log.d(TAG1, "onStop() " + System.currentTimeMillis());
-		// TODO 自動生成されたメソッド・スタブ
-		super.onStop();
-	}
-
-
-	@Override
-	protected void onDestroy() {
-		Log.d(TAG1, "onDestroy() " + System.currentTimeMillis());
-		super.onDestroy();
-		cleanup();
-	}
 	
 
 //	public void gfxStartClick(View v) {
@@ -383,6 +465,7 @@ public class OkobotokeActivity extends Activity {
 			PdBase.subscribe("notec");
 			//PdBase.subscribe("metbang");
 			PdBase.subscribe("sonar");
+			PdBase.subscribe("switchdir");
 			
 //			InputStream in = res.openRawResource(R.raw.test);
 //			patchFile = IoUtils.extractResource(in, "test.pd", getCacheDir());
@@ -430,8 +513,23 @@ public class OkobotokeActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main, menu);
+//		MenuInflater inflater = getMenuInflater();
+//		inflater.inflate(R.menu.main, menu);rn
+		
+//		if (this.showingops) {			
+//			Log.d("showingops", "true");
+//			showingops = false;
+//			this.setContentView(this.mysurfview);
+//
+//			
+//		}
+//		else {
+//			Log.d("showingops", "false");
+//			showingops = true;
+//			this.setContentView(R.layout.devset);
+//		}
+//		
+		
 		return true;
 	}
 

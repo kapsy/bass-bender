@@ -22,19 +22,30 @@ public class NormalCircle {
     
 	private float posx;
 	private float posy;
-	private float rad = 0;
+	private float rad = 0F;
 	
 	// アニメーションのためパラメーター
-	private float radchgspd = 45F;
+	private float radchgspd = 0F;
 	private float ychgspd = 0.674375F;
-	private float accelangle = 0F;
+
 	private int currframe;
 	
 	private boolean playrelanim = false;
 	    	
+	// mod フィルド
+	private float accelangle = 0F;
+	
+	private float radfadeangle = 0F;
+	private float baserad = 0F; //original radius before fadein
+	
+	
+	private float radmodsinangle = 0F;
+	
+	
+/*	// delete these once sample working
 	private float sinangle = 0F;
 	private float sinanglechangerate = 4.5F;
-	private float modamplitude = 0.8F;
+	private float modamplitude = 0.8F;*/
 	
 	public NormalCircle () {
 	    
@@ -104,7 +115,7 @@ public class NormalCircle {
 	}
 	
 	// 円形を書くってこと
-	public void drawCircleFadedEdges(int layers, float rchng, int alphachng, Canvas c) {
+	public void drawCircleFadedEdges(int layers, float rchg, int alphachng, Canvas c) {
 		
         int ciralpha = this.getAlpha();
         int cirred = this.getRed();
@@ -114,6 +125,7 @@ public class NormalCircle {
         float cirx = this.getPosX();
         float ciry = this.getPosY();
         float cirr = this.getRad();
+        //float rchgreal = (cirr / 100) * rchg;
         
         for (int i = 0; i < layers; i++) {
         	paint.setColor(Color.argb(ciralpha, cirred, cirgrn, cirblu));
@@ -127,8 +139,8 @@ public class NormalCircle {
             }
             
             //ciralpha += 1;
-            cirr -= rchng;
-            ciry -= 1;
+            cirr -= rchg;
+            ciry -= 2;
         }
 	}
 	
@@ -167,17 +179,34 @@ public class NormalCircle {
     	}
     }
     
-    public void circleRadiusMod() {
-    	//if (this.isAlive()) {
+/*    public void circleRadiusMod() {
+
     		if(sinangle < 360F - sinanglechangerate) {
     			sinangle = sinangle + sinanglechangerate;
 	    	}
 	    	else {
 	    		sinangle = 0;
 	    	}
-	    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);	
-	    	//Log.d("sinval", "sine angle: " + sinangle + "result: " + (float)Math.sin(Math.toRadians((double)sinangle)));
-    	//}
+	    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);
+
+	    	Log.d("sinval", "sine angle: " + sinangle + "result: " + (float)Math.sin(Math.toRadians((double)sinangle)));
+
+    }*/
+    
+    public void cirRadModSamp(float anglechgrate, float modamplitude) {
+    	
+    	if (this.radmodsinangle < 360F - anglechgrate) {
+    		this.radmodsinangle = this.radmodsinangle + anglechgrate;
+    	}
+    	else {
+    		this.radmodsinangle  = 0;	
+    	}
+    	
+    	float sinval = SampledSines.getPosNegSineVal(this.radmodsinangle);
+    	//this.rad = this.rad + (sinval * modamplitude); 
+    	this.rad = this.baserad + (sinval * modamplitude);
+//    	Log.d("cirRadModSamp", "radmodsinangle: " + radmodsinangle 
+//    			+ " mod values: " + (sinval * modamplitude));
     }
     
 /*    public void speedAccel(float changeangle, float initialspeed, float targetspeed, float startangle) {
@@ -200,12 +229,31 @@ public class NormalCircle {
     	
     	if ((this.accelangle + startangle) < 360F - changeangle) {
     
-    		float val = SampledSines.getPosSineVal(this.accelangle + startangle);
-    		this.setYchgspd(initialspeed + (targetdiff * val));
+    		float sval = SampledSines.getPosSineVal(this.accelangle + startangle);
+    		this.setYchgspd(initialspeed + (targetdiff * sval));
     		
     		//Log.d("speedAccelSamp", "this.getYchgspd(): " + this.getYchgspd());
         	this.accelangle = this.accelangle + changeangle;
     	}
+    }
+    
+    //curveの方はどうだ？
+    // 180 -> 270
+    public void radFade(float angchgrate, float startang, float finang, float raddiff) {
+
+    	//this.baserad = this.getRad();
+    	
+    	if ((this.radfadeangle + startang) < finang) {
+    		
+    		float sval = SampledSines.getPosSineVal(this.radfadeangle + startang);
+    		this.setRad((raddiff * sval) + this.baserad);
+
+    		//Log.d("radFade", "sval: " + sval + " this.getRad(): " + this.getRad());
+    		    		
+    		this.radfadeangle = this.radfadeangle + angchgrate;
+    		
+    	}
+    	
     }
     
 	public void relAnimOn() {
@@ -309,6 +357,21 @@ public class NormalCircle {
 	protected void setAccelangle(float accelangle) {
 		this.accelangle = accelangle;
 	}
+
+	protected float getRadfadeangle() {
+		return radfadeangle;
+	}
+
+
+	protected void setRadfadeangle(float radfadeangle) {
+		this.radfadeangle = radfadeangle;
+	}
+
+
+	protected void setBaserad(float baserad) {
+		this.baserad = baserad;
+	}
+
 
 	public void setColor(Paint p) {
         p.setColor(Color.argb(alpha, red, grn, blu));
