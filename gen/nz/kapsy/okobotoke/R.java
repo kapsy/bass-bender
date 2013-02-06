@@ -29,28 +29,29 @@ public final class R {
         public static final int icon=0x7f020002;
     }
     public static final class id {
-        public static final int button1=0x7f0b0014;
+        public static final int button1=0x7f0b0015;
         public static final int devprefmaster_btn=0x7f0b0000;
         public static final int dprefbtn_pg1=0x7f0b0001;
         public static final int dprefbtn_pg2=0x7f0b0002;
         public static final int dprefbtn_pg3=0x7f0b0003;
         public static final int dprefbtn_pg4=0x7f0b0004;
         public static final int dprefbtn_pg5=0x7f0b0005;
+        public static final int dprefbtn_play=0x7f0b0007;
         public static final int dprefbtn_rec=0x7f0b0006;
-        public static final int menu_settings=0x7f0b0015;
-        public static final int pg1_applybtn_radfade=0x7f0b000b;
-        public static final int pg1_applybtn_speedaccelsamp=0x7f0b0010;
-        public static final int pg1_et_radfade_arg1=0x7f0b0007;
-        public static final int pg1_et_radfade_arg2=0x7f0b0008;
-        public static final int pg1_et_radfade_arg3=0x7f0b0009;
-        public static final int pg1_et_radfade_arg4=0x7f0b000a;
-        public static final int pg1_et_speedaccelsamp_arg1=0x7f0b000c;
-        public static final int pg1_et_speedaccelsamp_arg2=0x7f0b000d;
-        public static final int pg1_et_speedaccelsamp_arg3=0x7f0b000e;
-        public static final int pg1_et_speedaccelsamp_arg4=0x7f0b000f;
-        public static final int seekBar1=0x7f0b0013;
-        public static final int textView1=0x7f0b0011;
-        public static final int textView2=0x7f0b0012;
+        public static final int menu_settings=0x7f0b0016;
+        public static final int pg1_applybtn_radfade=0x7f0b000c;
+        public static final int pg1_applybtn_speedaccelsamp=0x7f0b0011;
+        public static final int pg1_et_radfade_arg1=0x7f0b0008;
+        public static final int pg1_et_radfade_arg2=0x7f0b0009;
+        public static final int pg1_et_radfade_arg3=0x7f0b000a;
+        public static final int pg1_et_radfade_arg4=0x7f0b000b;
+        public static final int pg1_et_speedaccelsamp_arg1=0x7f0b000d;
+        public static final int pg1_et_speedaccelsamp_arg2=0x7f0b000e;
+        public static final int pg1_et_speedaccelsamp_arg3=0x7f0b000f;
+        public static final int pg1_et_speedaccelsamp_arg4=0x7f0b0010;
+        public static final int seekBar1=0x7f0b0014;
+        public static final int textView1=0x7f0b0012;
+        public static final int textView2=0x7f0b0013;
     }
     public static final class layout {
         public static final int dev_master=0x7f030000;

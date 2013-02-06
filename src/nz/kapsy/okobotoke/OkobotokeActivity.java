@@ -156,11 +156,37 @@ public class OkobotokeActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					mysurfview.trec.startRecording();
+					//mysurfview.trec.startRecording();
+					
+					
+					
+					mysurfview.framerec.startRecord();
+					mysurfview.recbar.init();
+					
 				}
 			});
-	
+
+			Button dprefbtn_play = (Button)findViewById(R.id.dprefbtn_play);
+			dprefbtn_play.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+//					mysurfview.trec.initPlayBack(mysurfview.circtouchsecond, 
+//							mysurfview.circtouchfirst, mysurfview.faderline);
+					
+					//mysurfview.framerec.startPlayBack();
+				}
+			});
+			
+			
+			
+			
+			
+			
+			
 		}
+	
+
 	
 	public void devPrefPg1Init() {
 		

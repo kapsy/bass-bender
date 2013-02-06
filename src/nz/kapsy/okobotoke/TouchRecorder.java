@@ -1,5 +1,10 @@
 package nz.kapsy.okobotoke;
 
+// Please note: this method is now defunct keeping here for ref purposes only.
+
+//ご注意：このクラスは廃止されて使用を推奨されなくなりました。
+
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -15,13 +20,6 @@ import android.view.MotionEvent;
 
 public class TouchRecorder {
 
-	//必要ないかも
-	final static int rec_ACTION_DOWN = MotionEvent.ACTION_DOWN;
-	final static int rec_ACTION_POINTER_DOWN = MotionEvent.ACTION_POINTER_DOWN;
-	final static int rec_ACTION_MOVE = MotionEvent.ACTION_MOVE;
-	final static int rec_ACTION_POINTER_UP = MotionEvent.ACTION_POINTER_UP;
-	final static int rec_ACTION_UP = MotionEvent.ACTION_UP;
-
 	private final long rectotalmillis = 10000;
 	
 	private long recstarttime;
@@ -32,11 +30,18 @@ private long recfinishtime;
 	ArrayList<TouchRecUnit> recording;
 	
 	private int playbackframe;
+	private long playbackstarttime;
+	
+	private NormalCircle circtouchone;
+	private NormalCircleMultiTouch circtouchtwo; 
+	private NormalLineFader fline;
+	
+	public Thread testthr;
 	
 
 	
 	/**
-	 * ここで説明をかけます
+	 * ここで説明をかきます
 	 */
 	public TouchRecorder() {
 		super();
@@ -59,11 +64,11 @@ private long recfinishtime;
 	public void recordTouchEvent(int ttype,	int tindex, float x, float y) {
 		
 		if(System.currentTimeMillis() < this.recfinishtime) {
-			recording.add(new TouchRecUnit(ttype, tindex, x, y));
+			recording.add(new TouchRecUnit(ttype, tindex, x, y, this));
 			
 			TouchRecUnit t = recording.get(recording.size() - 1);
 			
-			Log.d("recordTouchEvent()", "recording.size(): " + recording.size() 
+			Log.d("playback", "recording.size(): " + recording.size() 
 					+ " time: " + t.getEventtime() + " touch type: " + t.getTouchtype() 
 					+ " index: " + t.getIndex() + " x: " + t.getTouch_x() + " y: " + t.getTouch_y());
 			
@@ -73,24 +78,77 @@ private long recfinishtime;
 		}
 	}
 
-	public void startPlayBack() {Thread playback = 
-			new Thread(new Runnable() {
+	
+	public void initPlayBack (NormalCircle circtouchtwo, 
+			NormalCircleMultiTouch circtouchone, NormalLineFader fline) {
 		
-			@Override
-			public void run() {
-				playBack();							
-			}
-		});
+		this.circtouchone = circtouchtwo;
+		this.circtouchtwo = circtouchone; 
+		this.fline = fline;
+		
+		this.playbackframe = 0;
+		this.playbackstarttime = System.currentTimeMillis();
+		
+		Log.d("playback", "initPlayBack() called");
+		
+		
+
+		
+		this.startPlayBack();
+		
+		
+		
 		
 	}
 	
-public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLineFader fline) {
-	
-	TouchRecUnit t = this.recording.get(this.playbackframe);
-	
-	if (this.playbackframe < this.recording.size()) {
+	public void startPlayBack() {
+
+					testthr = new Thread( new Runnable() {
+			public void run() {
+				
+				playBack();
+				
+			}
+		});	
+
+		testthr.start();
 		
-		if (System.currentTimeMillis() == t.getEventtime()) {
+	}
+	
+	
+	
+public void playBack() {
+	
+
+	
+	
+	   try
+       {
+		
+	
+		   TouchRecUnit t = this.recording.get(this.playbackframe);
+			Log.d("playback", "this.playbackframe " + this.playbackframe 
+					+ " this.recording.size() " + this.recording.size() );	
+           while(this.playbackframe < this.recording.size())
+           {
+
+        	   
+
+
+//	Log.d("playback", "time since play" 
+//				+ (System.currentTimeMillis() - this.playbackstarttime));
+	testthr.sleep(1);	
+	
+	long ct = (System.currentTimeMillis() - this.playbackstarttime);
+	
+		if (ct >= (t.getEventtime() - 10) &&  ct <= (t.getEventtime() + 10)) {
+			
+			
+	   		Log.d("playback", "time since play" 
+	   				+ (System.currentTimeMillis() - this.playbackstarttime) 
+	   				+ " t.getEventtime() " + t.getEventtime() 
+	   				+ " this.playbackframe " + this.playbackframe);	
+			
 			
 			switch (t.getTouchtype()) {
 			
@@ -98,31 +156,33 @@ public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLine
 					
 					if (t.getIndex() == 0) {
 
-		   	    		txtend.setPosX(t.getTouch_x());
-		 	    		txtend.setPosY(t.getTouch_y());
+		   	    		circtouchtwo.setPosX(t.getTouch_x());
+		 	    		circtouchtwo.setPosY(t.getTouch_y());
 		 	    		
-		 	        	txtend.init(0, rndCol(130), rndCol(130), rndCol(130));
-		 	        	txtend.setRad(80F);
+		 	        	//txtend.init(0, rndCol(130), rndCol(130), rndCol(130));
+		 	        	circtouchtwo.init(0, 255, 0, 0);
+		 	        	circtouchtwo.setRad(80F);
 		 	        		
 					}
 					
 				break;
 				
 				case MotionEvent.ACTION_POINTER_DOWN:
-		    		if (txtend.getRelAnim() == false) {  	
+		    		if (circtouchtwo.getRelAnim() == false) {  	
 //			        	fline.setLinePoints
 //		    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
 //					    	    	
 		    			if (t.getIndex() == 1) {
-			    			tt1.setPosX(t.getTouch_x());
-				    		tt1.setPosY(t.getTouch_y());
+			    			circtouchone.setPosX(t.getTouch_x());
+				    		circtouchone.setPosY(t.getTouch_y());
 				    	   
 		    			}
 		    			
 			    		//this.faderline.init();	
 			    	    
-			    		tt1.init(7, rndCol(130), rndCol(130), rndCol(130));
-			        	tt1.setRad(80F);
+			    		//tt1.init(7, rndCol(130), rndCol(130), rndCol(130));
+			    		circtouchtwo.init(7, 255, 0, 0);
+			        	circtouchone.setRad(80F);
 			        	
 			        	
 			        	
@@ -135,14 +195,21 @@ public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLine
 				
 				case MotionEvent.ACTION_MOVE:
 					
-		    		if (txtend.getRelAnim() == false) {
+		    		if (circtouchtwo.getRelAnim() == false) {
+		    			
+		    			
+		    			
 		    			if (t.getIndex() == 0) {
-			    			txtend.setPosX(t.getTouch_x());
-		    	    		txtend.setPosY(t.getTouch_y());
+			    			circtouchtwo.setPosX(t.getTouch_x());
+		    	    		circtouchtwo.setPosY(t.getTouch_y());
 		    			}
 //	    	    		OkobotokeActivity.sendFloat("cntr_freq", 
 //	    	    				OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
 //	    	    			
+		    			if (t.getIndex() == 1) {
+		    				circtouchone.setPosX(t.getTouch_x());
+		    				circtouchone.setPosY(t.getTouch_y());
+		    			}
 //	    	    	
 	    	    		
 		    		}
@@ -153,14 +220,31 @@ public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLine
 					break;
 					
 				case MotionEvent.ACTION_POINTER_UP:
-					break;
+				
+					
+	    			
+	    			if (t.getIndex() == 1) {
+	    				circtouchone.setAlive(false);
+
+	    			}
+	    			if (t.getIndex() == 0) {
+
+	    				circtouchone.setAlive(false);
+		    			circtouchtwo.relAnimOn();
+	    			}
+					
+						break;
 					
 				case MotionEvent.ACTION_UP:
-					break;
 				
+				
+	    			if (t.getIndex() == 0) {
+
+	    				
+		    			circtouchtwo.relAnimOn();
+	    			}
 			
-			
-			
+	    			break;
 			
 			
 			}
@@ -170,8 +254,33 @@ public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLine
 			
 			
 			this.playbackframe++;
+			t = this.recording.get(this.playbackframe);
+			Log.d("playback", "this.playbackframe++");
 		}
 		
+        	   
+        	   
+        	   
+           }
+       }
+       catch (Exception ex)
+       {
+           
+       }
+	
+	
+	
+	
+	
+	
+
+	
+	
+	Log.d("playback", "this.playbackframe " + this.playbackframe 
+			+ " this.recording.size() " + this.recording.size() );	
+	if (this.playbackframe < this.recording.size()) {
+		
+
 	}
 }
 
@@ -184,8 +293,27 @@ public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLine
 		this.recordingnow = recordingnow;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	protected long getRecstarttime() {
+		return recstarttime;
+	}
+
+
+
+
+
+
+
+
 	private class TouchRecUnit {
 				
+		
 		private long eventtime;
 		private int touchtype;
 		private int index;		
@@ -201,9 +329,9 @@ public void playBack(NormalCircle tt1, NormalCircleMultiTouch txtend, NormalLine
 		 * @param touch_y
 		 */
 		public TouchRecUnit(int touchtype, int index,
-				float touch_x, float touch_y) {
+				float touch_x, float touch_y, TouchRecorder rec) {
 			super();
-			this.eventtime = System.currentTimeMillis();
+			this.eventtime = System.currentTimeMillis() - rec.getRecstarttime();
 			this.touchtype = touchtype;
 			this.index = index;
 			this.touch_x = touch_x;

@@ -14,34 +14,28 @@ import android.view.*;
 public class MySurfaceView extends SurfaceView implements
         SurfaceHolder.Callback {
 
-    private SurfaceHolder holder;
-    
-    
-    //private OkobotokeActivity okoboactivity = (OkobotokeActivity)this.getContext();
-    
-   // public OkobotokeActivity okoboactivity = (OkobotokeActivity)this.getParent(); 
-    //test1234sdafzvzd1123412341234testdsf
-    
-    //public Circle2 circle2;
+	private SurfaceHolder holder;
     
     public Circle2[] maincircles;
     private int curmaincircle = 0;
     
     public RainStar[] rainstars;
-    private int currainstar = 0;
-    
-            
-    public NormalCircle twotouch1;    
-    public NormalCircleMultiTouch testxtend;
+                
+    public NormalCircle circtouchsecond;    
+    public NormalCircleMultiTouch circtouchfirst;
     public NormalLineFader faderline;
     
     public SonarCircle2 sonarcircle2;
     
     
+    
+    
+    
     private static boolean parentdirswitchon = true;
 	private boolean initbackground;
 	
-	public TouchRecorder trec;
+    public RecordBar recbar;
+	public FrameRecorder framerec;
 	
 	
 
@@ -100,7 +94,7 @@ public class MySurfaceView extends SurfaceView implements
     	if (parentdirswitchon) {
     		
 
-    		    		radFadearg1 = 1F;
+    		    		//radFadearg1 = 1F;
     		//spdaccel4_prf = 277F;
     		
     		//色処理・赤い
@@ -108,7 +102,7 @@ public class MySurfaceView extends SurfaceView implements
     		
     	}
     	else {
-    		    		radFadearg1 = 3F;
+    		    		//radFadearg1 = 3F;
     		//spdaccel4_prf = 225F;		
     		
     		//色処理・ブルー
@@ -176,7 +170,8 @@ public class MySurfaceView extends SurfaceView implements
     	
        
        
-       trec = new TouchRecorder();
+       //trec = new TouchRecorder();
+       framerec = new FrameRecorder();
        
        // new Rect(l, t, r, b);
 		screensizerect = new Rect(0, 0, getWidth(), rectheight);
@@ -185,9 +180,7 @@ public class MySurfaceView extends SurfaceView implements
 		screenwidth = (float)this.getWidth();
 		screenheight = (float)this.getHeight(); 
                
-        //circle2 = new Circle2();
-        
-		maincircles = new Circle2[6];
+      	maincircles = new Circle2[6];
         for(int i = 0; i < maincircles.length; i++) {
         	maincircles[i] = new Circle2();
         }
@@ -195,16 +188,19 @@ public class MySurfaceView extends SurfaceView implements
         sonarcircle2 = new SonarCircle2();
                 
         faderline = new NormalLineFader();
-        twotouch1 = new NormalCircle();
-        testxtend = new NormalCircleMultiTouch();
+        circtouchfirst = new NormalCircleMultiTouch();
+        circtouchsecond = new NormalCircle();
            
         initbackground = true;
-        
+        recbar = new RecordBar(this.screenwidth, this.screenheight, 10000, 26, this.framerec);
         
         rainstars = new RainStar[40];
         for(int i = 0; i < rainstars.length; i++) {
         	rainstars[i] = new RainStar();
         }
+        
+        
+        
         
                 
         startnow(); // ★追加
@@ -217,17 +213,12 @@ public class MySurfaceView extends SurfaceView implements
     @Override
     public boolean onTouchEvent(MotionEvent event) {
     	
-    	
-    	// 録音/再生機能を追加したいならここで一番いい
-    	// if playingBack() {
-    	// 		y = playback.getY();
-    	// }
-    	// else {
-    	// 		y = event.getY(0); など
-    	
-    	// いえいえ全く違います・ACTION_DOWN処理とか・別のメソッドが必要 jgjkh
-    	
+
     	int pts = event.getPointerCount();
+    	
+
+   		framerec.setTouchpts(pts);
+
     	
     	int index = event.getActionIndex();
 //    	Log.v("MotionEvent", "event.getActionIndex() " + event.getActionIndex());
@@ -237,18 +228,13 @@ public class MySurfaceView extends SurfaceView implements
 		 	case MotionEvent.ACTION_DOWN:
 //	 	        	Log.v("MotionEvent", "ACTION_DOWN");
     			 
-   	    		this.testxtend.setPosX(event.getX(0));
- 	    		this.testxtend.setPosY(event.getY(0));
+   	    		this.circtouchfirst.setPosX(event.getX(0));
+ 	    		this.circtouchfirst.setPosY(event.getY(0));
  	    		
- 	        	this.testxtend.init(0, rndCol(130), rndCol(130), rndCol(130));
- 	        	this.testxtend.setRad(80F);
- 	        	
- 	        	
- 	        	
- 	        	if (trec.isRecordingnow()) {
- 	        		trec.recordTouchEvent(MotionEvent.ACTION_DOWN, 
- 	        				0, event.getX(0), event.getY(0));
- 	        	}
+ 	        	this.circtouchfirst.init(0, rndCol(130), rndCol(130), rndCol(130));
+ 	        	this.circtouchfirst.initRad(80F);
+ 	        
+ 	        	framerec.setMotionevent(MotionEvent.ACTION_DOWN);
  	        	
  	        	break;
 			 
@@ -256,77 +242,59 @@ public class MySurfaceView extends SurfaceView implements
 	        case MotionEvent.ACTION_POINTER_DOWN:
 //    	        	Log.v("MotionEvent", "ACTION_POINTER_DOWN");
 	        	// ここで必要ないかも
-	    		if (this.testxtend.getRelAnim() == false) {  	
+	    		if (this.circtouchfirst.getRelAnim() == false) {  	
 		        	this.faderline.setLinePoints
 	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
 				    	    			
-	    			this.twotouch1.setPosX(event.getX(1));
-		    		this.twotouch1.setPosY(event.getY(1));
+	    			this.circtouchsecond.setPosX(event.getX(1));
+		    		this.circtouchsecond.setPosY(event.getY(1));
 		    	   
 		    		this.faderline.init();	
 		    	    
-		    		this.twotouch1.init(7, rndCol(130), rndCol(130), rndCol(130));
-		        	this.twotouch1.setRad(80F);
+		    		this.circtouchsecond.init(7, rndCol(130), rndCol(130), rndCol(130));
+		        	this.circtouchsecond.initRad(80F);
 		        	
+	 	        	framerec.setMotionevent(MotionEvent.ACTION_POINTER_DOWN);
+	 	    
 		        	
-		        	
-	 	        	if (trec.isRecordingnow()) {
-	 	        		trec.recordTouchEvent(MotionEvent.ACTION_POINTER_DOWN, 
-	 	        				1, event.getX(1), event.getY(1));
-	 	        	}
 	    		}
 	    		break;
 	        	
 	    	case MotionEvent.ACTION_MOVE:
 //    	    		Log.v("MotionEvent", "ACTION_MOVE");
 	    		
-	    		if (this.testxtend.getRelAnim() == false) {
-	    			this.testxtend.setPosX(event.getX(0));
-    	    		this.testxtend.setPosY(event.getY(0));
+	    		if (this.circtouchfirst.getRelAnim() == false) {
+	    			this.circtouchfirst.setPosX(event.getX(0));
+    	    		this.circtouchfirst.setPosY(event.getY(0));
 	    	    	    			
     	    		OkobotokeActivity.sendFloat("cntr_freq", 
     	    				OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
     	    			
-    	    		
-    	    		
-	 	        	if (trec.isRecordingnow()) {
-	 	        		trec.recordTouchEvent(MotionEvent.ACTION_MOVE, 
-	 	        				0, event.getX(0), event.getY(0));
-	 	        	}
-    	    		
-    	    		
-	    		
-//	    	    			Log.d("sendFloat", "cntr_freq " + "test " + "testxtend.getPosY() " + testxtend.getPosY() 
-//	    	    					+ " screenheight " + screenheight + " calcToRangeCentFreq " 
-//	    	    					+ OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
-//		
+    	    		 	    
+	 	        	framerec.setMotionevent(MotionEvent.ACTION_MOVE);
+	 	    
 	    	
-	    		if (pts == MULTI_TOUCH_MAX) {
-	    			if (oneInTwo()) {
-    	    			
-    	    			this.faderline.setLinePoints
-	    	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-    	    		
-    	    			this.twotouch1.setPosX(event.getX(1));
-	    	    		this.twotouch1.setPosY(event.getY(1));
-	    	    				    	    		
-	    	    		if (oneInFour()) {
+		    		if (pts == MULTI_TOUCH_MAX) {
+//		    			if (oneInTwo()) {
 	    	    			
-	    	    			OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM(
-	    	    			this.faderline.calcDistance(), screendiag));
-	    	    			
-//	    	    			Log.d("sendFloat", "fm_index " + "faderline.calcDistance() " 
-//    	    					+ this.faderline.calcDistance() + " screendiag " + screendiag + " calcToRangeFM " + OkobotokeActivity.calcToRangeFM(
-//    	    							this.faderline.calcDistance(), screendiag)); 
-	    	    		}
-    	    		}
-	    			
-	 	        	if (trec.isRecordingnow()) {
-	 	        		trec.recordTouchEvent(MotionEvent.ACTION_MOVE, 
-	 	        				1, event.getX(1), event.getY(1));
-	 	        	}
-	    			
-	    		}
+	    	    			this.faderline.setLinePoints
+		    	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
+	    	    		
+	    	    			this.circtouchsecond.setPosX(event.getX(1));
+		    	    		this.circtouchsecond.setPosY(event.getY(1));
+		    	    				    	    		
+//		    	    		if (oneInFour()) {
+		    	    			
+		    	    			OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM(
+		    	    			this.faderline.calcDistance(), screendiag));
+		    	    			
+	//	    	    			Log.d("sendFloat", "fm_index " + "faderline.calcDistance() " 
+	//    	    					+ this.faderline.calcDistance() + " screendiag " + screendiag + " calcToRangeFM " + OkobotokeActivity.calcToRangeFM(
+	//    	    							this.faderline.calcDistance(), screendiag)); 
+//		    	    		}
+//	    	    		}
+		    			
+		    		}
 	    		}	    		    	    		
 	    		break;
     		
@@ -337,30 +305,22 @@ public class MySurfaceView extends SurfaceView implements
 	    		if (index == 1) {
 	    			
 		    		OkobotokeActivity.sendFloat("fm_index", 12F);
-	    	    	this.twotouch1.setAlive(false);
+	    	    	this.circtouchsecond.setAlive(false);
 	    	    	this.faderline.setAlive(false);
-	    	    	
-	 	        	if (trec.isRecordingnow()) {
-	 	        		trec.recordTouchEvent(MotionEvent.ACTION_POINTER_UP, 
-	 	        				1, event.getX(1), event.getY(1));
-	 	        	}
-	    	    	
-	    	    	
+	 	       
+	 	       		framerec.setMotionevent(MotionEvent.ACTION_POINTER_UP);
+	 	       	    	    	
 	    		}
 	    		
    	    		if (index == 0) {
    	    			
        	 			OkobotokeActivity.sendFloat("fm_index", 12F);
-       				this.twotouch1.setAlive(false);
-       				this.testxtend.relAnimOn();
+       				this.circtouchsecond.setAlive(false);
+       				this.circtouchfirst.relAnimOn();
        				this.faderline.setAlive(false);
-       				
-       				
-	 	        	if (trec.isRecordingnow()) {
-	 	        		trec.recordTouchEvent(MotionEvent.ACTION_POINTER_UP, 
-	 	        				0, event.getX(0), event.getY(0));
-	 	        	}
-       				
+ 	 	       
+	 	       		framerec.setMotionevent(MotionEvent.ACTION_POINTER_UP);
+	       				
 	    		}
 	    		
 	    		break;
@@ -369,24 +329,23 @@ public class MySurfaceView extends SurfaceView implements
 //    	    		Log.v("MotionEvent", "ACTION_UP");
 	    		
 	    		if (index == 0) {
-	    			this.testxtend.relAnimOn();
+	    			this.circtouchfirst.relAnimOn();
 	    			
-	 	        	if (trec.isRecordingnow()) {
-	 	        		trec.recordTouchEvent(MotionEvent.ACTION_UP, 
-	 	        				0, event.getX(0), event.getY(0));
-	 	        	}
-	    			
+	 	       		framerec.setMotionevent(MotionEvent.ACTION_UP);
+	 	      		framerec.setTouchpts(0);
+	 	       	    			
 	    		}
 	    			    	    		
 	    		break;
 
 		 }
     		 
+		// 指三本処理
     	if (pts > MULTI_TOUCH_MAX) {
     		
 			OkobotokeActivity.sendFloat("fm_index", 12F);
-			this.twotouch1.setAlive(false);
-			this.testxtend.relAnimOn();
+			this.circtouchsecond.setAlive(false);
+			this.circtouchfirst.relAnimOn();
 			
 			this.faderline.setAlive(false);
     	}
@@ -399,7 +358,7 @@ public class MySurfaceView extends SurfaceView implements
     
  
 
-    public boolean oneInTwo() {
+/*    public boolean oneInTwo() {
     	
     	if (oneintwo == 2) {
     		oneintwo = 0;
@@ -429,7 +388,7 @@ public class MySurfaceView extends SurfaceView implements
     		oneinfour++;
     		return false;
     	}
-    }
+    }*/
     
     public int rndCol(int scope) {
     	return (255 - rnd.nextInt(scope));
@@ -464,7 +423,9 @@ public class MySurfaceView extends SurfaceView implements
             canvas.drawPath(path, p1);
             
         }
+        //RectF r = new RectF(left, top, right, bottom);
 
+        
         //this.circle2.drawSequence(canvas);        
         for (int i = 0; i < rainstars.length; i++) {
         	rainstars[i].drawSequence(canvas);
@@ -476,9 +437,174 @@ public class MySurfaceView extends SurfaceView implements
         	maincircles[i].drawSequence(canvas);
         }
         
-        this.faderline.drawSequence(canvas);        
-        this.twotouch1.drawSequence(canvas);
-        this.testxtend.drawSequence(canvas);
+//        this.circtouchfirst.drawSequence(canvas);
+//        this.circtouchsecond.drawSequence(canvas);
+//        this.faderline.drawSequence(canvas); 
+        
+        
+        NormalCircleMultiTouch ct1 = this.circtouchfirst;
+        NormalCircle ct2 = this.circtouchsecond;
+       
+       
+        
+        	
+    	this.framerec.setFrame(
+    			ct1.isAlive(),
+    			ct1.getPosX(), ct1.getPosY(),
+    			ct2.isAlive(),
+    			ct2.getPosX(), ct2.getPosY());
+
+        
+    	if (this.framerec.isPlayingback()) {
+    		
+    		
+    		
+    		
+    		FrameRecUnit fru = this.framerec.getPlaybackFrame();
+    		
+
+    		
+    		
+    		switch (fru.getMotionevent()) {
+    		
+//    			case MotionEvent.ACTION_CANCEL:
+//    				ct1.setAlive(false);
+//    				ct2.setAlive(false);
+//    				
+//    				break;
+    			
+    			case MotionEvent.ACTION_DOWN:
+    				
+    				ct1.setPosX(fru.getCirtfirstx());
+    				ct1.setPosY(fru.getCirtfirsty());
+    				
+	 	        	ct1.init(0, rndCol(130), rndCol(130), rndCol(130));
+	 	        	ct1.initRad(80F);
+	 	        	
+    				break;
+    			
+    			case MotionEvent.ACTION_POINTER_DOWN:
+    				
+		    		if (ct1.getRelAnim() == false) {  	
+			        	this.faderline.setLinePoints
+			    			(fru.getCirtfirstx(), fru.getCirtfirsty(), 
+			    					fru.getCirtsecondx(), fru.getCirtsecondy());
+					    	    			
+		    			ct2.setPosX(fru.getCirtsecondx());
+			    		ct2.setPosY(fru.getCirtsecondy());
+			    	   
+			    		this.faderline.init();	
+			    	    
+			    		ct2.init(7, rndCol(130), rndCol(130), rndCol(130));
+			        	ct2.initRad(80F);
+
+		    		}
+    				
+    				
+    				break;
+    				
+    			case MotionEvent.ACTION_MOVE:
+
+    				
+		    		if (ct1.getRelAnim() == false) {
+		    			ct1.setPosX(fru.getCirtfirstx());
+	    	    		ct1.setPosY(fru.getCirtfirsty());
+		    	    	    			
+	    	    		OkobotokeActivity.sendFloat("cntr_freq", 
+	    	    				OkobotokeActivity.calcToRangeCentFreq
+	    	    				(fru.getCirtfirsty(), this.screenheight));
+	    	    			
+		    	    	if (fru.getTouchpts() == 2) {
+		    	    		
+			    			ct2.setPosX(fru.getCirtsecondx());
+				    		ct2.setPosY(fru.getCirtsecondy());
+		    	    		
+		    	    		
+				        	this.faderline.setLinePoints
+			    			(fru.getCirtfirstx(), fru.getCirtfirsty(), 
+			    					fru.getCirtsecondx(), fru.getCirtsecondy());
+	    	    			
+				        	OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM
+				        			(this.faderline.calcDistance(), screendiag));
+		    	    				    	    		
+		    	    	}
+    					    	    		
+		    		}
+		    		
+    				break;
+    				
+    			case MotionEvent.ACTION_POINTER_UP:
+    				
+		    		if (!fru.isCirtsecondisalive()) {
+		    			
+			    		OkobotokeActivity.sendFloat("fm_index", 12F);
+		    	    	ct2.setAlive(false);
+		    	    	this.faderline.setAlive(false);
+		    	    	
+		    		}
+		    		else if (fru.getTouchpts() <= 2) {
+	   	    			
+	       	 			OkobotokeActivity.sendFloat("fm_index", 12F);
+	       				ct2.setAlive(false);
+	       				ct1.relAnimOn();
+	       				this.faderline.setAlive(false);
+
+		    		}
+    				
+    				break;
+    			
+    			case MotionEvent.ACTION_UP:
+				
+    				if (fru.getTouchpts() == 0) {
+    					
+
+	       	 			OkobotokeActivity.sendFloat("fm_index", 12F);
+	       				ct2.setAlive(false);
+	       				ct1.relAnimOn();
+	       				this.faderline.setAlive(false);
+    					
+    					
+    					
+    				}
+    				    	
+    				
+    				
+    				
+    				break;
+
+    		
+    		}
+    		
+    		// 指三本処理
+        	if (fru.getTouchpts() > MULTI_TOUCH_MAX) {
+        		
+    			OkobotokeActivity.sendFloat("fm_index", 12F);
+    			ct2.setAlive(false);
+    			ct1.relAnimOn();
+    			
+    			this.faderline.setAlive(false);
+        	}
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    	}
+    	
+    	
+
+			
+		ct1.drawSequence(canvas);
+		ct2.drawSequence(canvas);
+		this.faderline.drawSequence(canvas);
+      
+		
+		recbar.drawSequence(canvas);
         
 
     
@@ -495,6 +621,8 @@ public class MySurfaceView extends SurfaceView implements
             public void run() {
 
             	draw();
+            	
+            	
             	
             }
         }, 26, 26, TimeUnit.MILLISECONDS); // 28だった
@@ -731,7 +859,7 @@ public class MySurfaceView extends SurfaceView implements
     	public void drawSequence(Canvas c) {
     		if (this.isAlive()) {
     	        this.circleAnim();
-    	       // this.cirRadModSamp(4.5F, 0.8F);
+    	       this.cirRadModSamp(4.5F, 25F);
     	        this.drawCircleFadedEdges(3, 20F, 1, c);
     		}
     	}

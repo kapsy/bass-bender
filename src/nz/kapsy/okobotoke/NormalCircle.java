@@ -193,6 +193,7 @@ public class NormalCircle {
 
     }*/
     
+    //modamplitude %
     public void cirRadModSamp(float anglechgrate, float modamplitude) {
     	
     	if (this.radmodsinangle < 360F - anglechgrate) {
@@ -255,6 +256,7 @@ public class NormalCircle {
     	}
     	
     }
+    
     
 	public void relAnimOn() {
 		
@@ -322,9 +324,16 @@ public class NormalCircle {
 		return rad;
 	}
 
+	// sets baserad - for retaining original radius if applying mod
+	public void initRad(float rad) {
+		this.rad = rad;
+		this.baserad = this.rad;
+	}
+	
 	public void setRad(float rad) {
 		this.rad = rad;
 	}
+	
 	
 	protected void radIncrement() {
 		this.rad = this.rad + this.radchgspd;
@@ -418,6 +427,24 @@ public class NormalCircle {
 	
 	protected void frameAdvance() {
 		this.currframe++;
+	}
+
+
+	protected float getAlphaf() {
+		return alphaf;
+	}
+
+	protected void setAlphaf(float alphaf) {
+		this.alphaf = alphaf;
+	}
+
+	protected boolean isPlayrelanim() {
+		return playrelanim;
+	}
+
+
+	protected void setPlayrelanim(boolean playrelanim) {
+		this.playrelanim = playrelanim;
 	}
 
 }

@@ -59,14 +59,20 @@
 	<LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
-          <Button
+     	<Button
 			android:id="@+id/dprefbtn_rec"
             android:layout_width="100dp"
             android:layout_height="fill_parent"
-          	android:text="Rec"
-			android:layout_margin="5dp"/>
+          	android:text="Rec"/>
+          
+		<Button
+			android:id="@+id/dprefbtn_play"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+          	android:text="Play"/>
           
     </LinearLayout>
 
