@@ -9,9 +9,8 @@ import android.util.Log;
 
 public class RecordBar extends NormalCircle {
 	
-	private long starttime;
-	private long finishtime;
 	
+
 	private long totaltime;
 	
 	
@@ -26,7 +25,7 @@ public class RecordBar extends NormalCircle {
 	private int frameinterval;//アニメーションの間隔
 	private float incperframe;
 	
-//	private boolean recording;
+	
 	
 	FrameRecorder framerec;
 	
@@ -66,7 +65,7 @@ public class RecordBar extends NormalCircle {
 	public void init() {
 				
 		rec_left = 0F;
-		rec_top = totalheight - 30F;
+		rec_top = totalheight - 6F;
 		
 		rec_right = 0F;
 		rec_bottom = totalheight;
@@ -127,12 +126,11 @@ public class RecordBar extends NormalCircle {
 		}
 		else {
 		
-			//this.rec_right = 0;
-			
 			
 			if (this.framerec.isRecordingnow()) {
 				this.framerec.startPlayBack();
 			}
+			// 再生ループ
 			if (this.framerec.isPlayingback()) {
 				this.framerec.startPlayBack();
 			}
@@ -149,19 +147,6 @@ public class RecordBar extends NormalCircle {
 		this.rec_right = (this.rec_right + this.incperframe);
 	}
 
-//
-//	protected boolean isRecording() {
-//		return recording;
-//	}
-//
-//
-//	protected void setRecording(boolean recording) {
-//		this.recording = recording;
-//	}
-
-
-	
-	
 	
 	
 

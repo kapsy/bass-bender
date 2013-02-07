@@ -87,6 +87,12 @@ public class OkobotokeActivity extends Activity {
 	LinearLayout dev_master_btns;
 	LinearLayout dev_pref_pg1;
 	
+	
+	private ScheduledExecutorService lightsdelay;
+	private Runnable lightrun;
+	private ScheduledExecutorService sonardelay;
+    private Runnable sonarrun; 
+	
 	private Toast toast = null;
 
 	@Override
@@ -98,6 +104,32 @@ public class OkobotokeActivity extends Activity {
 
 				
 		SampledSines.init(3600);
+		
+		
+        lightsdelay = Executors.newSingleThreadScheduledExecutor();
+        lightrun = new Runnable() {
+        	@Override
+			public void run() {
+				mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
+				mysurfview.nextCirc();
+				mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
+			}
+		};
+        
+        sonardelay = Executors.newSingleThreadScheduledExecutor();
+        sonarrun = new Runnable() {
+			@Override
+			public void run() {	
+				mysurfview.sonarcircle2.init();
+				rainStarsInitAll();
+//				for(int i = 0; i < mysurfview.rainstars.length; i++) {
+//					mysurfview.rainstars[i].init();
+//				}
+			}
+		};
+		
+		
+		
 				
 		mysurfview = new MySurfaceView(getApplication());
 		
@@ -109,7 +141,7 @@ public class OkobotokeActivity extends Activity {
 		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
 		
 						
-		//----====----====----====----====----====----====----
+		//----====----====----====----====----====----
 		
 		framelayout.addView(mysurfview, 
 				new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -122,7 +154,7 @@ public class OkobotokeActivity extends Activity {
 		
 		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
 		
-		//----====----====----====----====----====----====----
+		//----====----====----====----====----====----
 		
 		
 		Button dprefbtn_pg1 = (Button)findViewById(R.id.dprefbtn_pg1);
@@ -269,6 +301,12 @@ public class OkobotokeActivity extends Activity {
 	}
 		
 	
+	private void rainStarsInitAll() {
+		for(int i = 0; i < mysurfview.rainstars.length; i++) {
+			mysurfview.rainstars[i].init();
+		}
+	}
+	
 	private void toast(final String msg) {
 		runOnUiThread(new Runnable() {
 			@Override
@@ -321,14 +359,6 @@ public class OkobotokeActivity extends Activity {
 
 				Log.d("RECV", "bang " + source);
 				
-				//DelaySwitchDir();
-				
-				if (MySurfaceView.isParentdirswitch()) {
-					MySurfaceView.setParentdirswitch(false);
-				}
-				else {
-					MySurfaceView.setParentdirswitch(true);
-				}
 				mysurfview.dirSwitchCalled();
 			}
 									
@@ -355,10 +385,8 @@ public class OkobotokeActivity extends Activity {
 		}
 		
 		
-	    public void DelaySonar(){
-	        ScheduledExecutorService executor =
-	                Executors.newSingleThreadScheduledExecutor();
-	        executor.schedule(new Runnable() {
+/*	    public void DelaySonar(){
+	    	sonardelay.schedule(new Runnable() {
 				
 				@Override
 				public void run() {	
@@ -368,49 +396,21 @@ public class OkobotokeActivity extends Activity {
 						mysurfview.rainstars[i].init();
 					}
 					
-				}	        		        	
+				}
 	        }, 100L, TimeUnit.MILLISECONDS);
-	    }
-		
-	    public void DelayLights(){
-	        ScheduledExecutorService executor =
-	                Executors.newSingleThreadScheduledExecutor();
-	        executor.schedule(new Runnable() {
-				
-				@Override
-				public void run() {
-					mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
-					mysurfview.nextCirc();
-					mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
-				}	        		        	
-	        }, 490L, TimeUnit.MILLISECONDS);
+	    }*/
+	    
+	    public void DelaySonar(){
+	    	sonardelay.schedule(sonarrun, 100L, TimeUnit.MILLISECONDS);
 	    }
 	    
-	    public void DelaySwitchDir(){
-	        ScheduledExecutorService executor =
-	                Executors.newSingleThreadScheduledExecutor();
-	        executor.schedule(new Runnable() {
-				
-				@Override
-				public void run() {
-
-					if (MySurfaceView.isParentdirswitch()) {
-						MySurfaceView.setParentdirswitch(false);
-					}
-					else {
-						MySurfaceView.setParentdirswitch(true);
-					}
-					mysurfview.dirSwitchCalled();
-					
-				}
-			}, 490L, TimeUnit.MILLISECONDS);
+	    public void DelayLights(){
+	        lightsdelay.schedule(lightrun, 490L, TimeUnit.MILLISECONDS);
 	    }
+	    
+
 	    
 	};
-	
-	
-	
-
 
 	private final ServiceConnection pdConnection = new ServiceConnection() {
 		@Override

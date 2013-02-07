@@ -14,6 +14,12 @@ import android.view.*;
 public class MySurfaceView extends SurfaceView implements
         SurfaceHolder.Callback {
 
+	
+
+	private Thread drawthread = null;
+	private boolean isAttached = true;
+	
+	
 	private SurfaceHolder holder;
     
     public Circle2[] maincircles;
@@ -31,7 +37,7 @@ public class MySurfaceView extends SurfaceView implements
     
     
     
-    private static boolean parentdirswitchon = true;
+   // private static boolean parentdirswitchon = true;
 	private boolean initbackground;
 	
     public RecordBar recbar;
@@ -78,49 +84,14 @@ public class MySurfaceView extends SurfaceView implements
 //	this.speedAccelSamp(1F, -.1F, -60F, 225);
     
     public void dirSwitchCalled() {
-    	
-/*    	if (rnd.nextBoolean()) {
-    		
-
-    		
-    	}
-    	else {
-
-    	}*/
-    	
-    	
-    	
-    	
-    	if (parentdirswitchon) {
-    		
-
-    		    		//radFadearg1 = 1F;
-    		//spdaccel4_prf = 277F;
-    		
-    		//色処理・赤い
-    		
-    		
-    	}
-    	else {
-    		    		//radFadearg1 = 3F;
-    		//spdaccel4_prf = 225F;		
-    		
-    		//色処理・ブルー
-    	}
-    	
+    	    	
     }
     
     
     
     
     
-    protected static boolean isParentdirswitch() {
-		return parentdirswitchon;
-	}
 
-	protected static void setParentdirswitch(boolean b) {
-		parentdirswitchon = b;
-	}
 
 	public MySurfaceView(Context context) {
         super(context);
@@ -166,7 +137,13 @@ public class MySurfaceView extends SurfaceView implements
 //float ratio = (float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth();
     	
     	// creates rectangle at ratio of source bitmap to fit screen
-       int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
+       
+
+
+    	
+    	
+    	
+    	int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
     	
        
        
@@ -201,14 +178,48 @@ public class MySurfaceView extends SurfaceView implements
         
         
         
+        startThread();
+        
+
         
                 
-        startnow(); // ★追加
+       // startnow(); // ★追加
 
     }
+    
+    
+    public void startThread() {
+    	
+    	
+        this.drawthread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				while(isAttached) {
+					//		Log.d("THREAD", "run()");
+				draw();
+			    	try {
+						Thread.sleep(18);
+					} catch (InterruptedException e) {
+					}
+				}
+				
+				
+			}
+		});
+
+        this.drawthread.start();
+    	    	
+    }
+    
 
     @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {}
+    public void surfaceDestroyed(SurfaceHolder holder) {
+    	
+    	isAttached = false;
+    	this.drawthread = null;
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -390,6 +401,27 @@ public class MySurfaceView extends SurfaceView implements
     	}
     }*/
     
+//    // ★追加メソッド
+//    public void startnow(){
+//        ScheduledExecutorService executor =
+//                Executors.newSingleThreadScheduledExecutor();
+//        executor.scheduleAtFixedRate(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            	
+//            	
+//            	draw();
+//            	
+//            	
+//            	
+//            }
+//        }, 26, 26, TimeUnit.MILLISECONDS); // 28だった
+//
+//    }
+    
+    
+    
     public int rndCol(int scope) {
     	return (255 - rnd.nextInt(scope));
     }
@@ -404,8 +436,16 @@ public class MySurfaceView extends SurfaceView implements
 	    return diag;
     	
     }
+    
+    
+    
+    
 
     public void draw() {
+    	
+
+    	
+    	
     	canvas  = holder.lockCanvas();
         
         if(initbackground) {
@@ -414,19 +454,17 @@ public class MySurfaceView extends SurfaceView implements
             
            //canvas.drawBitmap(backg_bitmap, null, screensizerect, null);
         	
-        	Paint p1 = new Paint();
-            p1.setColor(Color.RED);
-            Path path = new Path();
-            path.moveTo(100, 300);
-            path.lineTo(10, 350);
-            path.lineTo(80, 330);
-            canvas.drawPath(path, p1);
+//        	Paint p1 = new Paint();
+//            p1.setColor(Color.RED);
+//            Path path = new Path();
+//            path.moveTo(100, 300);
+//            path.lineTo(10, 350);
+//            path.lineTo(80, 330);
+//            canvas.drawPath(path, p1);
             
         }
         //RectF r = new RectF(left, top, right, bottom);
 
-        
-        //this.circle2.drawSequence(canvas);        
         for (int i = 0; i < rainstars.length; i++) {
         	rainstars[i].drawSequence(canvas);
         }
@@ -437,17 +475,9 @@ public class MySurfaceView extends SurfaceView implements
         	maincircles[i].drawSequence(canvas);
         }
         
-//        this.circtouchfirst.drawSequence(canvas);
-//        this.circtouchsecond.drawSequence(canvas);
-//        this.faderline.drawSequence(canvas); 
-        
-        
         NormalCircleMultiTouch ct1 = this.circtouchfirst;
         NormalCircle ct2 = this.circtouchsecond;
        
-       
-        
-        	
     	this.framerec.setFrame(
     			ct1.isAlive(),
     			ct1.getPosX(), ct1.getPosY(),
@@ -612,22 +642,7 @@ public class MySurfaceView extends SurfaceView implements
     }
     
 
-    // ★追加メソッド
-    public void startnow(){
-        ScheduledExecutorService executor =
-                Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
 
-            	draw();
-            	
-            	
-            	
-            }
-        }, 26, 26, TimeUnit.MILLISECONDS); // 28だった
-
-    }
     
 
 	public void nextCirc() {
@@ -646,7 +661,7 @@ public class MySurfaceView extends SurfaceView implements
 
 	public class Circle2 extends NormalCircle {
 		
-		private boolean acceldir;
+		//private boolean acceldir;
 		
 		private float radfad1;
 		private float radfad2;
@@ -666,7 +681,7 @@ public class MySurfaceView extends SurfaceView implements
     		
     		this.setPosX((float)((int)(r + 10) + rnd.nextInt(getWidth() - (((int)r + 10) * 2))));
     		this.setPosY((float)((int)(r + 200) + rnd.nextInt(getHeight() - (((int)r + 100) + 200))));
-    		this.setRad((float)(110 - rnd.nextInt(45)));
+    		this.setRad((float)(70 - rnd.nextInt(15)));
     		
     		this.setARGB(0, rndCol(220), rndCol(220), rndCol(220));
     		    		
@@ -692,13 +707,13 @@ public class MySurfaceView extends SurfaceView implements
     		this.getPaint().setDither(false);
 //    		this.getPaint().setAntiAlias(true);
     		
-    		if (MySurfaceView.isParentdirswitch()) {
-    			acceldir = true;
-    		}
-    		else {
-    			acceldir = false;
-    		}
-    		
+//    		if (MySurfaceView.isParentdirswitch()) {
+//    			acceldir = true;
+//    		}
+//    		else {
+//    			acceldir = false;
+//    		}
+//    		
     		super.init();
     	}
     	
@@ -708,7 +723,7 @@ public class MySurfaceView extends SurfaceView implements
     	        this.circleAnim();
     	      //  this.circleRadiusMod();
     	        //this.drawCircleFadedEdges(15, 5F, 1, c);
-    	        this.drawCircleFadedEdges(4, 18F, 10, c);
+    	        this.drawCircleFadedEdges(3, 21F, 20, c);
     	        
     		}
 		}
@@ -724,7 +739,7 @@ public class MySurfaceView extends SurfaceView implements
 		    		this.radIncrement();
 		    		this.yIncrement();
 		    		
-		    		this.alphaIncrement(9.6F, 90F);
+		    		this.alphaIncrement(9.6F, 110F);
 		    		//this.alphaDecrement(0.3F, 0F);
 	    			//Log.d("circleAnim", "alpha val " + this.getAlpha());
 	    			this.frameAdvance();

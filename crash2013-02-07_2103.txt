@@ -1,0 +1,3822 @@
+02-07 20:38:16.812: D/RECV(30503): bang notec
+02-07 20:38:16.832: D/SonarCircle2(30503): init()
+02-07 20:38:17.302: D/Circle2(30503): init()
+02-07 20:38:17.642: D/RECV(30503): bang notec
+02-07 20:38:18.132: D/Circle2(30503): init()
+02-07 20:38:18.312: D/RECV(30503): bang notec
+02-07 20:38:18.802: D/Circle2(30503): init()
+02-07 20:38:18.872: D/RECV(30503): bang notec
+02-07 20:38:19.332: D/RECV(30503): bang notec
+02-07 20:38:19.362: D/Circle2(30503): init()
+02-07 20:38:19.822: D/Circle2(30503): init()
+02-07 20:38:20.092: D/RECV(30503): bang notec
+02-07 20:38:20.582: D/Circle2(30503): init()
+02-07 20:38:20.832: D/RECV(30503): bang notec
+02-07 20:38:21.322: D/Circle2(30503): init()
+02-07 20:38:21.572: D/RECV(30503): bang notec
+02-07 20:38:21.922: D/RECV(30503): bang notec
+02-07 20:38:22.062: D/Circle2(30503): init()
+02-07 20:38:22.412: D/Circle2(30503): init()
+02-07 20:38:22.642: D/RECV(30503): bang notec
+02-07 20:38:23.132: D/RECV(30503): bang notec
+02-07 20:38:23.132: D/Circle2(30503): init()
+02-07 20:38:23.622: D/Circle2(30503): init()
+02-07 20:38:23.682: D/RECV(30503): bang notec
+02-07 20:38:24.192: D/Circle2(30503): init()
+02-07 20:38:24.342: D/RECV(30503): bang notec
+02-07 20:38:24.832: D/Circle2(30503): init()
+02-07 20:38:24.992: D/RECV(30503): bang notec
+02-07 20:38:25.352: D/RECV(30503): bang notec
+02-07 20:38:25.482: D/Circle2(30503): init()
+02-07 20:38:25.842: D/RECV(30503): bang notec
+02-07 20:38:25.842: D/Circle2(30503): init()
+02-07 20:38:26.332: D/Circle2(30503): init()
+02-07 20:38:26.392: D/RECV(30503): bang notec
+02-07 20:38:26.882: D/Circle2(30503): init()
+02-07 20:38:26.962: D/RECV(30503): bang notec
+02-07 20:38:27.452: D/Circle2(30503): init()
+02-07 20:38:27.582: D/RECV(30503): bang notec
+02-07 20:38:28.072: D/Circle2(30503): init()
+02-07 20:38:28.372: D/RECV(30503): bang notec
+02-07 20:38:28.862: D/Circle2(30503): init()
+02-07 20:38:29.092: D/RECV(30503): bang notec
+02-07 20:38:29.582: D/Circle2(30503): init()
+02-07 20:38:29.852: D/RECV(30503): bang notec
+02-07 20:38:30.182: D/RECV(30503): bang notec
+02-07 20:38:30.192: D/RECV(30503): bang sonar
+02-07 20:38:30.292: D/SonarCircle2(30503): init()
+02-07 20:38:30.342: D/Circle2(30503): init()
+02-07 20:38:30.672: D/Circle2(30503): init()
+02-07 20:38:30.842: D/RECV(30503): bang notec
+02-07 20:38:31.332: D/Circle2(30503): init()
+02-07 20:38:31.392: D/RECV(30503): bang notec
+02-07 20:38:31.882: D/Circle2(30503): init()
+02-07 20:38:31.982: D/RECV(30503): bang notec
+02-07 20:38:32.402: D/RECV(30503): bang notec
+02-07 20:38:32.472: D/Circle2(30503): init()
+02-07 20:38:32.882: D/RECV(30503): bang notec
+02-07 20:38:32.892: D/Circle2(30503): init()
+02-07 20:38:33.372: D/Circle2(30503): init()
+02-07 20:38:33.542: D/RECV(30503): bang notec
+02-07 20:38:34.032: D/Circle2(30503): init()
+02-07 20:38:34.182: D/RECV(30503): bang notec
+02-07 20:38:34.532: D/RECV(30503): bang notec
+02-07 20:38:34.672: D/Circle2(30503): init()
+02-07 20:38:35.022: D/Circle2(30503): init()
+02-07 20:38:35.192: D/RECV(30503): bang notec
+02-07 20:38:35.682: D/RECV(30503): bang notec
+02-07 20:38:35.682: D/Circle2(30503): init()
+02-07 20:38:36.172: D/Circle2(30503): init()
+02-07 20:38:36.412: D/RECV(30503): bang notec
+02-07 20:38:36.822: D/RECV(30503): bang notec
+02-07 20:38:36.892: D/RECV(30503): bang switchdir
+02-07 20:38:36.902: D/Circle2(30503): init()
+02-07 20:38:37.312: D/Circle2(30503): init()
+02-07 20:38:37.632: D/RECV(30503): bang notec
+02-07 20:38:38.102: D/RECV(30503): bang notec
+02-07 20:38:38.122: D/Circle2(30503): init()
+02-07 20:38:38.602: D/Circle2(30503): init()
+02-07 20:38:38.642: D/RECV(30503): bang notec
+02-07 20:38:39.112: D/RECV(30503): bang notec
+02-07 20:38:39.132: D/Circle2(30503): init()
+02-07 20:38:39.292: D/isAlive(30503): thisisAlive false
+02-07 20:38:39.582: D/RECV(30503): bang notec
+02-07 20:38:39.602: D/Circle2(30503): init()
+02-07 20:38:40.082: D/Circle2(30503): init()
+02-07 20:38:40.432: D/RECV(30503): bang notec
+02-07 20:38:40.922: D/Circle2(30503): init()
+02-07 20:38:41.162: D/RECV(30503): bang notec
+02-07 20:38:41.652: D/Circle2(30503): init()
+02-07 20:38:42.072: D/RECV(30503): bang notec
+02-07 20:38:42.562: D/Circle2(30503): init()
+02-07 20:38:43.032: D/RECV(30503): bang notec
+02-07 20:38:43.522: D/Circle2(30503): init()
+02-07 20:38:43.692: D/RECV(30503): bang sonar
+02-07 20:38:43.772: D/RECV(30503): bang notec
+02-07 20:38:43.792: D/SonarCircle2(30503): init()
+02-07 20:38:44.262: D/Circle2(30503): init()
+02-07 20:38:44.592: D/RECV(30503): bang notec
+02-07 20:38:45.082: D/Circle2(30503): init()
+02-07 20:38:45.262: D/RECV(30503): bang notec
+02-07 20:38:45.752: D/Circle2(30503): init()
+02-07 20:38:46.162: D/RECV(30503): bang notec
+02-07 20:38:46.652: D/Circle2(30503): init()
+02-07 20:38:47.212: D/RECV(30503): bang notec
+02-07 20:38:47.702: D/Circle2(30503): init()
+02-07 20:38:47.872: D/RECV(30503): bang notec
+02-07 20:38:48.362: D/Circle2(30503): init()
+02-07 20:38:48.602: D/RECV(30503): bang notec
+02-07 20:38:49.092: D/Circle2(30503): init()
+02-07 20:38:49.692: D/RECV(30503): bang notec
+02-07 20:38:50.182: D/Circle2(30503): init()
+02-07 20:38:50.742: D/RECV(30503): bang notec
+02-07 20:38:51.232: D/Circle2(30503): init()
+02-07 20:38:51.662: D/RECV(30503): bang notec
+02-07 20:38:52.152: D/Circle2(30503): init()
+02-07 20:38:52.482: D/RECV(30503): bang notec
+02-07 20:38:52.972: D/Circle2(30503): init()
+02-07 20:38:53.552: D/RECV(30503): bang notec
+02-07 20:38:54.042: D/Circle2(30503): init()
+02-07 20:38:54.382: D/isAlive(30503): thisisAlive false
+02-07 20:38:54.842: D/RECV(30503): bang notec
+02-07 20:38:55.332: D/Circle2(30503): init()
+02-07 20:38:56.002: D/RECV(30503): bang notec
+02-07 20:38:56.502: D/Circle2(30503): init()
+02-07 20:38:57.152: D/RECV(30503): bang sonar
+02-07 20:38:57.152: D/RECV(30503): bang notec
+02-07 20:38:57.252: D/SonarCircle2(30503): init()
+02-07 20:38:57.642: D/Circle2(30503): init()
+02-07 20:38:58.052: D/RECV(30503): bang notec
+02-07 20:38:58.172: D/isAlive(30503): thisisAlive false
+02-07 20:38:58.542: D/Circle2(30503): init()
+02-07 20:38:58.892: D/RECV(30503): bang notec
+02-07 20:38:59.382: D/Circle2(30503): init()
+02-07 20:39:00.062: D/RECV(30503): bang notec
+02-07 20:39:00.552: D/Circle2(30503): init()
+02-07 20:39:01.152: D/RECV(30503): bang notec
+02-07 20:39:01.642: D/Circle2(30503): init()
+02-07 20:39:02.332: D/RECV(30503): bang notec
+02-07 20:39:02.832: D/Circle2(30503): init()
+02-07 20:39:03.462: D/RECV(30503): bang notec
+02-07 20:39:03.952: D/Circle2(30503): init()
+02-07 20:39:04.262: D/isAlive(30503): thisisAlive false
+02-07 20:39:04.602: D/RECV(30503): bang notec
+02-07 20:39:05.092: D/Circle2(30503): init()
+02-07 20:39:05.682: D/RECV(30503): bang notec
+02-07 20:39:06.172: D/Circle2(30503): init()
+02-07 20:39:07.082: D/RECV(30503): bang notec
+02-07 20:39:07.572: D/Circle2(30503): init()
+02-07 20:39:08.302: D/RECV(30503): bang notec
+02-07 20:39:08.792: D/Circle2(30503): init()
+02-07 20:39:09.302: D/RECV(30503): bang notec
+02-07 20:39:09.792: D/Circle2(30503): init()
+02-07 20:39:10.262: D/RECV(30503): bang notec
+02-07 20:39:10.602: D/RECV(30503): bang sonar
+02-07 20:39:10.702: D/SonarCircle2(30503): init()
+02-07 20:39:10.752: D/Circle2(30503): init()
+02-07 20:39:11.562: D/RECV(30503): bang notec
+02-07 20:39:12.052: D/Circle2(30503): init()
+02-07 20:39:12.392: D/RECV(30503): bang notec
+02-07 20:39:12.882: D/Circle2(30503): init()
+02-07 20:39:13.402: D/RECV(30503): bang notec
+02-07 20:39:13.892: D/Circle2(30503): init()
+02-07 20:39:14.452: D/RECV(30503): bang notec
+02-07 20:39:14.942: D/Circle2(30503): init()
+02-07 20:39:15.382: D/RECV(30503): bang notec
+02-07 20:39:15.872: D/Circle2(30503): init()
+02-07 20:39:16.112: D/RECV(30503): bang notec
+02-07 20:39:16.602: D/Circle2(30503): init()
+02-07 20:39:16.852: D/RECV(30503): bang notec
+02-07 20:39:16.912: D/RECV(30503): bang switchdir
+02-07 20:39:17.342: D/Circle2(30503): init()
+02-07 20:39:17.612: D/isAlive(30503): thisisAlive false
+02-07 20:39:17.872: D/RECV(30503): bang notec
+02-07 20:39:18.362: D/Circle2(30503): init()
+02-07 20:39:18.802: D/RECV(30503): bang notec
+02-07 20:39:19.292: D/Circle2(30503): init()
+02-07 20:39:19.632: D/RECV(30503): bang notec
+02-07 20:39:20.122: D/Circle2(30503): init()
+02-07 20:39:20.532: D/RECV(30503): bang notec
+02-07 20:39:21.022: D/Circle2(30503): init()
+02-07 20:39:21.402: D/RECV(30503): bang notec
+02-07 20:39:21.892: D/Circle2(30503): init()
+02-07 20:39:22.412: D/RECV(30503): bang notec
+02-07 20:39:22.902: D/Circle2(30503): init()
+02-07 20:39:23.322: D/RECV(30503): bang notec
+02-07 20:39:23.812: D/Circle2(30503): init()
+02-07 20:39:23.892: D/RECV(30503): bang notec
+02-07 20:39:24.102: D/RECV(30503): bang sonar
+02-07 20:39:24.202: D/SonarCircle2(30503): init()
+02-07 20:39:24.382: D/Circle2(30503): init()
+02-07 20:39:24.722: D/RECV(30503): bang notec
+02-07 20:39:25.212: D/Circle2(30503): init()
+02-07 20:39:25.582: D/RECV(30503): bang notec
+02-07 20:39:26.072: D/Circle2(30503): init()
+02-07 20:39:26.322: D/RECV(30503): bang notec
+02-07 20:39:26.812: D/Circle2(30503): init()
+02-07 20:39:27.142: D/RECV(30503): bang notec
+02-07 20:39:27.632: D/RECV(30503): bang notec
+02-07 20:39:27.632: D/Circle2(30503): init()
+02-07 20:39:28.122: D/Circle2(30503): init()
+02-07 20:39:28.302: D/RECV(30503): bang notec
+02-07 20:39:28.792: D/Circle2(30503): init()
+02-07 20:39:28.802: D/RECV(30503): bang notec
+02-07 20:39:29.292: D/Circle2(30503): init()
+02-07 20:39:29.472: D/RECV(30503): bang notec
+02-07 20:39:29.962: D/Circle2(30503): init()
+02-07 20:39:30.302: D/RECV(30503): bang notec
+02-07 20:39:30.632: D/isAlive(30503): thisisAlive false
+02-07 20:39:30.792: D/Circle2(30503): init()
+02-07 20:39:30.852: D/RECV(30503): bang notec
+02-07 20:39:31.342: D/Circle2(30503): init()
+02-07 20:39:31.432: D/RECV(30503): bang notec
+02-07 20:39:31.922: D/Circle2(30503): init()
+02-07 20:39:32.072: D/RECV(30503): bang notec
+02-07 20:39:32.462: D/RECV(30503): bang notec
+02-07 20:39:32.562: D/Circle2(30503): init()
+02-07 20:39:32.952: D/Circle2(30503): init()
+02-07 20:39:33.082: D/RECV(30503): bang notec
+02-07 20:39:33.572: D/Circle2(30503): init()
+02-07 20:39:33.942: D/RECV(30503): bang notec
+02-07 20:39:34.302: D/RECV(30503): bang notec
+02-07 20:39:34.432: D/Circle2(30503): init()
+02-07 20:39:34.792: D/Circle2(30503): init()
+02-07 20:39:35.042: D/RECV(30503): bang notec
+02-07 20:39:35.432: D/RECV(30503): bang notec
+02-07 20:39:35.532: D/Circle2(30503): init()
+02-07 20:39:35.922: D/Circle2(30503): init()
+02-07 20:39:36.092: D/RECV(30503): bang notec
+02-07 20:39:36.582: D/Circle2(30503): init()
+02-07 20:39:36.652: D/RECV(30503): bang notec
+02-07 20:39:36.992: D/RECV(30503): bang notec
+02-07 20:39:37.142: D/Circle2(30503): init()
+02-07 20:39:37.382: D/RECV(30503): bang notec
+02-07 20:39:37.482: D/Circle2(30503): init()
+02-07 20:39:37.502: D/RECV(30503): bang sonar
+02-07 20:39:37.602: D/SonarCircle2(30503): init()
+02-07 20:39:37.872: D/Circle2(30503): init()
+02-07 20:39:38.132: D/RECV(30503): bang notec
+02-07 20:39:38.622: D/Circle2(30503): init()
+02-07 20:39:38.862: D/RECV(30503): bang notec
+02-07 20:39:39.352: D/Circle2(30503): init()
+02-07 20:39:39.512: D/RECV(30503): bang notec
+02-07 20:39:39.962: D/RECV(30503): bang notec
+02-07 20:39:40.002: D/Circle2(30503): init()
+02-07 20:39:40.362: D/RECV(30503): bang notec
+02-07 20:39:40.452: D/Circle2(30503): init()
+02-07 20:39:40.822: D/RECV(30503): bang notec
+02-07 20:39:40.852: D/Circle2(30503): init()
+02-07 20:39:41.262: D/RECV(30503): bang notec
+02-07 20:39:41.312: D/Circle2(30503): init()
+02-07 20:39:41.732: D/RECV(30503): bang notec
+02-07 20:39:41.752: D/Circle2(30503): init()
+02-07 20:39:42.242: D/Circle2(30503): init()
+02-07 20:39:42.412: D/RECV(30503): bang notec
+02-07 20:39:42.752: D/RECV(30503): bang notec
+02-07 20:39:42.902: D/Circle2(30503): init()
+02-07 20:39:43.242: D/Circle2(30503): init()
+02-07 20:39:43.282: D/isAlive(30503): thisisAlive false
+02-07 20:39:43.322: D/RECV(30503): bang notec
+02-07 20:39:43.812: D/Circle2(30503): init()
+02-07 20:39:44.142: D/RECV(30503): bang notec
+02-07 20:39:44.642: D/Circle2(30503): init()
+02-07 20:39:44.892: D/RECV(30503): bang notec
+02-07 20:39:45.382: D/Circle2(30503): init()
+02-07 20:39:45.442: D/RECV(30503): bang notec
+02-07 20:39:45.932: D/RECV(30503): bang notec
+02-07 20:39:45.932: D/Circle2(30503): init()
+02-07 20:39:46.422: D/Circle2(30503): init()
+02-07 20:39:46.482: D/RECV(30503): bang notec
+02-07 20:39:46.972: D/Circle2(30503): init()
+02-07 20:39:47.242: D/RECV(30503): bang notec
+02-07 20:39:47.732: D/Circle2(30503): init()
+02-07 20:39:47.812: D/RECV(30503): bang notec
+02-07 20:39:48.302: D/Circle2(30503): init()
+02-07 20:39:48.312: D/RECV(30503): bang notec
+02-07 20:39:48.802: D/Circle2(30503): init()
+02-07 20:39:49.072: D/RECV(30503): bang notec
+02-07 20:39:49.562: D/Circle2(30503): init()
+02-07 20:39:49.712: D/RECV(30503): bang notec
+02-07 20:39:50.202: D/Circle2(30503): init()
+02-07 20:39:50.582: D/RECV(30503): bang notec
+02-07 20:39:50.932: D/RECV(30503): bang sonar
+02-07 20:39:51.032: D/SonarCircle2(30503): init()
+02-07 20:39:51.072: D/Circle2(30503): init()
+02-07 20:39:51.412: D/RECV(30503): bang notec
+02-07 20:39:51.902: D/Circle2(30503): init()
+02-07 20:39:51.982: D/RECV(30503): bang notec
+02-07 20:39:52.472: D/Circle2(30503): init()
+02-07 20:39:52.892: D/RECV(30503): bang notec
+02-07 20:39:53.382: D/Circle2(30503): init()
+02-07 20:39:53.902: D/RECV(30503): bang notec
+02-07 20:39:54.392: D/Circle2(30503): init()
+02-07 20:39:54.952: D/RECV(30503): bang notec
+02-07 20:39:55.442: D/Circle2(30503): init()
+02-07 20:39:55.692: D/RECV(30503): bang notec
+02-07 20:39:55.852: D/isAlive(30503): thisisAlive false
+02-07 20:39:56.182: D/Circle2(30503): init()
+02-07 20:39:56.522: D/RECV(30503): bang notec
+02-07 20:39:56.922: D/RECV(30503): bang switchdir
+02-07 20:39:57.012: D/Circle2(30503): init()
+02-07 20:39:57.352: D/RECV(30503): bang notec
+02-07 20:39:57.842: D/Circle2(30503): init()
+02-07 20:39:58.462: D/RECV(30503): bang notec
+02-07 20:39:58.952: D/Circle2(30503): init()
+02-07 20:39:59.482: D/RECV(30503): bang notec
+02-07 20:39:59.972: D/Circle2(30503): init()
+02-07 20:40:00.342: D/RECV(30503): bang notec
+02-07 20:40:00.832: D/Circle2(30503): init()
+02-07 20:40:01.522: D/RECV(30503): bang notec
+02-07 20:40:02.012: D/Circle2(30503): init()
+02-07 20:40:02.562: D/RECV(30503): bang notec
+02-07 20:40:03.052: D/Circle2(30503): init()
+02-07 20:40:03.662: D/RECV(30503): bang notec
+02-07 20:40:04.152: D/Circle2(30503): init()
+02-07 20:40:04.412: D/RECV(30503): bang sonar
+02-07 20:40:04.512: D/SonarCircle2(30503): init()
+02-07 20:40:04.702: D/RECV(30503): bang notec
+02-07 20:40:05.192: D/Circle2(30503): init()
+02-07 20:40:05.532: D/RECV(30503): bang notec
+02-07 20:40:06.022: D/Circle2(30503): init()
+02-07 20:40:06.522: D/RECV(30503): bang notec
+02-07 20:40:07.012: D/Circle2(30503): init()
+02-07 20:40:07.482: D/RECV(30503): bang notec
+02-07 20:40:07.972: D/Circle2(30503): init()
+02-07 20:40:08.492: D/RECV(30503): bang notec
+02-07 20:40:08.812: D/isAlive(30503): thisisAlive false
+02-07 20:40:08.982: D/Circle2(30503): init()
+02-07 20:40:09.612: D/RECV(30503): bang notec
+02-07 20:40:10.102: D/Circle2(30503): init()
+02-07 20:40:10.852: D/RECV(30503): bang notec
+02-07 20:40:11.342: D/Circle2(30503): init()
+02-07 20:40:12.102: D/RECV(30503): bang notec
+02-07 20:40:12.592: D/Circle2(30503): init()
+02-07 20:40:13.152: D/RECV(30503): bang notec
+02-07 20:40:13.642: D/Circle2(30503): init()
+02-07 20:40:14.072: D/RECV(30503): bang notec
+02-07 20:40:14.562: D/Circle2(30503): init()
+02-07 20:40:15.122: D/RECV(30503): bang notec
+02-07 20:40:15.612: D/Circle2(30503): init()
+02-07 20:40:16.212: D/RECV(30503): bang notec
+02-07 20:40:16.702: D/Circle2(30503): init()
+02-07 20:40:17.152: D/RECV(30503): bang notec
+02-07 20:40:17.642: D/Circle2(30503): init()
+02-07 20:40:17.892: D/RECV(30503): bang sonar
+02-07 20:40:17.992: D/SonarCircle2(30503): init()
+02-07 20:40:18.092: D/RECV(30503): bang notec
+02-07 20:40:18.582: D/Circle2(30503): init()
+02-07 20:40:19.302: D/RECV(30503): bang notec
+02-07 20:40:19.792: D/Circle2(30503): init()
+02-07 20:40:20.382: D/RECV(30503): bang notec
+02-07 20:40:20.872: D/Circle2(30503): init()
+02-07 20:40:21.332: D/RECV(30503): bang notec
+02-07 20:40:21.542: D/isAlive(30503): thisisAlive false
+02-07 20:40:21.822: D/Circle2(30503): init()
+02-07 20:40:22.352: D/RECV(30503): bang notec
+02-07 20:40:22.842: D/Circle2(30503): init()
+02-07 20:40:23.582: D/RECV(30503): bang notec
+02-07 20:40:24.072: D/Circle2(30503): init()
+02-07 20:40:24.552: D/RECV(30503): bang notec
+02-07 20:40:24.672: D/dalvikvm(30503): GC_CONCURRENT freed 3257K, 27% free 9203K/12551K, paused 8ms+29ms
+02-07 20:40:25.042: D/Circle2(30503): init()
+02-07 20:40:25.212: D/RECV(30503): bang notec
+02-07 20:40:25.702: D/Circle2(30503): init()
+02-07 20:40:25.872: D/RECV(30503): bang notec
+02-07 20:40:26.362: D/Circle2(30503): init()
+02-07 20:40:26.692: D/RECV(30503): bang notec
+02-07 20:40:27.182: D/Circle2(30503): init()
+02-07 20:40:27.452: D/RECV(30503): bang notec
+02-07 20:40:27.952: D/Circle2(30503): init()
+02-07 20:40:28.232: D/RECV(30503): bang notec
+02-07 20:40:28.722: D/Circle2(30503): init()
+02-07 20:40:29.222: D/RECV(30503): bang notec
+02-07 20:40:29.712: D/Circle2(30503): init()
+02-07 20:40:29.882: D/RECV(30503): bang notec
+02-07 20:40:30.372: D/Circle2(30503): init()
+02-07 20:40:30.622: D/RECV(30503): bang notec
+02-07 20:40:31.112: D/Circle2(30503): init()
+02-07 20:40:31.352: D/RECV(30503): bang sonar
+02-07 20:40:31.452: D/SonarCircle2(30503): init()
+02-07 20:40:31.542: D/RECV(30503): bang notec
+02-07 20:40:32.032: D/Circle2(30503): init()
+02-07 20:40:32.172: D/RECV(30503): bang notec
+02-07 20:40:32.672: D/Circle2(30503): init()
+02-07 20:40:33.152: D/RECV(30503): bang notec
+02-07 20:40:33.572: D/RECV(30503): bang notec
+02-07 20:40:33.642: D/Circle2(30503): init()
+02-07 20:40:34.062: D/Circle2(30503): init()
+02-07 20:40:34.412: D/RECV(30503): bang notec
+02-07 20:40:34.902: D/Circle2(30503): init()
+02-07 20:40:34.982: D/RECV(30503): bang notec
+02-07 20:40:35.462: D/RECV(30503): bang notec
+02-07 20:40:35.472: D/Circle2(30503): init()
+02-07 20:40:35.952: D/Circle2(30503): init()
+02-07 20:40:36.182: D/isAlive(30503): thisisAlive false
+02-07 20:40:36.282: D/RECV(30503): bang notec
+02-07 20:40:36.772: D/Circle2(30503): init()
+02-07 20:40:36.942: D/RECV(30503): bang switchdir
+02-07 20:40:37.102: D/RECV(30503): bang notec
+02-07 20:40:37.592: D/Circle2(30503): init()
+02-07 20:40:37.772: D/RECV(30503): bang notec
+02-07 20:40:38.262: D/Circle2(30503): init()
+02-07 20:40:38.502: D/RECV(30503): bang notec
+02-07 20:40:38.992: D/Circle2(30503): init()
+02-07 20:40:39.162: D/RECV(30503): bang notec
+02-07 20:40:39.652: D/Circle2(30503): init()
+02-07 20:40:39.902: D/RECV(30503): bang notec
+02-07 20:40:40.392: D/Circle2(30503): init()
+02-07 20:40:40.462: D/RECV(30503): bang notec
+02-07 20:40:40.952: D/Circle2(30503): init()
+02-07 20:40:41.132: D/RECV(30503): bang notec
+02-07 20:40:41.622: D/Circle2(30503): init()
+02-07 20:40:41.942: D/RECV(30503): bang notec
+02-07 20:40:42.432: D/Circle2(30503): init()
+02-07 20:40:42.592: D/RECV(30503): bang notec
+02-07 20:40:43.082: D/Circle2(30503): init()
+02-07 20:40:43.412: D/RECV(30503): bang notec
+02-07 20:40:43.732: D/RECV(30503): bang notec
+02-07 20:40:43.902: D/Circle2(30503): init()
+02-07 20:40:44.222: D/Circle2(30503): init()
+02-07 20:40:44.302: D/RECV(30503): bang notec
+02-07 20:40:44.662: D/RECV(30503): bang notec
+02-07 20:40:44.792: D/Circle2(30503): init()
+02-07 20:40:44.802: D/RECV(30503): bang sonar
+02-07 20:40:44.912: D/SonarCircle2(30503): init()
+02-07 20:40:45.152: D/Circle2(30503): init()
+02-07 20:40:45.392: D/RECV(30503): bang notec
+02-07 20:40:45.882: D/Circle2(30503): init()
+02-07 20:40:45.942: D/RECV(30503): bang notec
+02-07 20:40:46.362: D/RECV(30503): bang notec
+02-07 20:40:46.432: D/Circle2(30503): init()
+02-07 20:40:46.792: D/RECV(30503): bang notec
+02-07 20:40:46.852: D/Circle2(30503): init()
+02-07 20:40:47.282: D/Circle2(30503): init()
+02-07 20:40:47.422: D/RECV(30503): bang notec
+02-07 20:40:47.912: D/Circle2(30503): init()
+02-07 20:40:47.982: D/RECV(30503): bang notec
+02-07 20:40:48.352: D/RECV(30503): bang notec
+02-07 20:40:48.472: D/Circle2(30503): init()
+02-07 20:40:48.722: D/RECV(30503): bang notec
+02-07 20:40:48.842: D/Circle2(30503): init()
+02-07 20:40:49.212: D/Circle2(30503): init()
+02-07 20:40:49.222: D/RECV(30503): bang notec
+02-07 20:40:49.642: D/RECV(30503): bang notec
+02-07 20:40:49.712: D/Circle2(30503): init()
+02-07 20:40:50.132: D/Circle2(30503): init()
+02-07 20:40:50.392: D/RECV(30503): bang notec
+02-07 20:40:50.592: D/isAlive(30503): thisisAlive false
+02-07 20:40:50.862: D/RECV(30503): bang notec
+02-07 20:40:50.882: D/Circle2(30503): init()
+02-07 20:40:51.352: D/Circle2(30503): init()
+02-07 20:40:51.432: D/RECV(30503): bang notec
+02-07 20:40:51.922: D/Circle2(30503): init()
+02-07 20:40:52.172: D/RECV(30503): bang notec
+02-07 20:40:52.662: D/Circle2(30503): init()
+02-07 20:40:52.742: D/RECV(30503): bang notec
+02-07 20:40:53.232: D/Circle2(30503): init()
+02-07 20:40:53.652: D/RECV(30503): bang notec
+02-07 20:40:54.142: D/Circle2(30503): init()
+02-07 20:40:54.232: D/RECV(30503): bang notec
+02-07 20:40:54.722: D/Circle2(30503): init()
+02-07 20:40:54.882: D/RECV(30503): bang notec
+02-07 20:40:55.372: D/Circle2(30503): init()
+02-07 20:40:55.532: D/RECV(30503): bang notec
+02-07 20:40:55.962: D/RECV(30503): bang notec
+02-07 20:40:56.022: D/Circle2(30503): init()
+02-07 20:40:56.452: D/Circle2(30503): init()
+02-07 20:40:56.922: D/RECV(30503): bang notec
+02-07 20:40:57.412: D/Circle2(30503): init()
+02-07 20:40:57.752: D/RECV(30503): bang notec
+02-07 20:40:58.242: D/Circle2(30503): init()
+02-07 20:40:58.312: D/RECV(30503): bang sonar
+02-07 20:40:58.412: D/SonarCircle2(30503): init()
+02-07 20:40:58.662: D/RECV(30503): bang notec
+02-07 20:40:59.152: D/Circle2(30503): init()
+02-07 20:40:59.422: D/RECV(30503): bang notec
+02-07 20:40:59.912: D/Circle2(30503): init()
+02-07 20:41:00.442: D/RECV(30503): bang notec
+02-07 20:41:00.932: D/Circle2(30503): init()
+02-07 20:41:01.202: D/RECV(30503): bang notec
+02-07 20:41:01.692: D/Circle2(30503): init()
+02-07 20:41:02.122: D/RECV(30503): bang notec
+02-07 20:41:02.612: D/Circle2(30503): init()
+02-07 20:41:02.942: D/RECV(30503): bang notec
+02-07 20:41:03.432: D/Circle2(30503): init()
+02-07 20:41:03.662: D/RECV(30503): bang notec
+02-07 20:41:04.152: D/Circle2(30503): init()
+02-07 20:41:04.802: D/RECV(30503): bang notec
+02-07 20:41:05.232: D/isAlive(30503): thisisAlive false
+02-07 20:41:05.292: D/Circle2(30503): init()
+02-07 20:41:05.642: D/RECV(30503): bang notec
+02-07 20:41:06.132: D/Circle2(30503): init()
+02-07 20:41:06.682: D/RECV(30503): bang notec
+02-07 20:41:07.172: D/Circle2(30503): init()
+02-07 20:41:07.522: D/RECV(30503): bang notec
+02-07 20:41:08.012: D/Circle2(30503): init()
+02-07 20:41:08.432: D/RECV(30503): bang notec
+02-07 20:41:08.922: D/Circle2(30503): init()
+02-07 20:41:09.462: D/RECV(30503): bang notec
+02-07 20:41:09.952: D/Circle2(30503): init()
+02-07 20:41:10.482: D/RECV(30503): bang notec
+02-07 20:41:10.972: D/Circle2(30503): init()
+02-07 20:41:11.512: D/RECV(30503): bang notec
+02-07 20:41:11.762: D/RECV(30503): bang sonar
+02-07 20:41:11.862: D/SonarCircle2(30503): init()
+02-07 20:41:12.002: D/Circle2(30503): init()
+02-07 20:41:12.682: D/RECV(30503): bang notec
+02-07 20:41:13.172: D/Circle2(30503): init()
+02-07 20:41:13.912: D/RECV(30503): bang notec
+02-07 20:41:14.402: D/Circle2(30503): init()
+02-07 20:41:15.202: D/RECV(30503): bang notec
+02-07 20:41:15.702: D/Circle2(30503): init()
+02-07 20:41:16.032: D/RECV(30503): bang notec
+02-07 20:41:16.532: D/Circle2(30503): init()
+02-07 20:41:16.992: D/RECV(30503): bang switchdir
+02-07 20:41:17.162: D/RECV(30503): bang notec
+02-07 20:41:17.662: D/Circle2(30503): init()
+02-07 20:41:18.262: D/RECV(30503): bang notec
+02-07 20:41:18.752: D/Circle2(30503): init()
+02-07 20:41:19.582: D/RECV(30503): bang notec
+02-07 20:41:19.762: D/isAlive(30503): thisisAlive false
+02-07 20:41:20.072: D/Circle2(30503): init()
+02-07 20:41:20.872: D/RECV(30503): bang notec
+02-07 20:41:21.362: D/Circle2(30503): init()
+02-07 20:41:22.182: D/RECV(30503): bang notec
+02-07 20:41:22.672: D/Circle2(30503): init()
+02-07 20:41:23.492: D/RECV(30503): bang notec
+02-07 20:41:23.982: D/Circle2(30503): init()
+02-07 20:41:24.712: D/RECV(30503): bang notec
+02-07 20:41:25.162: D/RECV(30503): bang sonar
+02-07 20:41:25.202: D/Circle2(30503): init()
+02-07 20:41:25.262: D/SonarCircle2(30503): init()
+02-07 20:41:25.982: D/RECV(30503): bang notec
+02-07 20:41:26.472: D/Circle2(30503): init()
+02-07 20:41:26.852: D/RECV(30503): bang notec
+02-07 20:41:27.342: D/Circle2(30503): init()
+02-07 20:41:27.762: D/RECV(30503): bang notec
+02-07 20:41:28.262: D/Circle2(30503): init()
+02-07 20:41:28.882: D/RECV(30503): bang notec
+02-07 20:41:29.372: D/Circle2(30503): init()
+02-07 20:41:29.902: D/RECV(30503): bang notec
+02-07 20:41:30.402: D/Circle2(30503): init()
+02-07 20:41:30.642: D/RECV(30503): bang notec
+02-07 20:41:31.132: D/Circle2(30503): init()
+02-07 20:41:31.552: D/RECV(30503): bang notec
+02-07 20:41:32.042: D/Circle2(30503): init()
+02-07 20:41:32.682: D/RECV(30503): bang notec
+02-07 20:41:33.172: D/Circle2(30503): init()
+02-07 20:41:33.442: D/isAlive(30503): thisisAlive false
+02-07 20:41:33.582: D/RECV(30503): bang notec
+02-07 20:41:34.072: D/Circle2(30503): init()
+02-07 20:41:34.252: D/RECV(30503): bang notec
+02-07 20:41:34.742: D/Circle2(30503): init()
+02-07 20:41:35.202: D/RECV(30503): bang notec
+02-07 20:41:35.692: D/Circle2(30503): init()
+02-07 20:41:35.852: D/RECV(30503): bang notec
+02-07 20:41:36.312: D/RECV(30503): bang notec
+02-07 20:41:36.342: D/Circle2(30503): init()
+02-07 20:41:36.802: D/Circle2(30503): init()
+02-07 20:41:37.122: D/RECV(30503): bang notec
+02-07 20:41:37.612: D/Circle2(30503): init()
+02-07 20:41:37.692: D/RECV(30503): bang notec
+02-07 20:41:38.172: D/RECV(30503): bang notec
+02-07 20:41:38.182: D/Circle2(30503): init()
+02-07 20:41:38.642: D/RECV(30503): bang sonar
+02-07 20:41:38.662: D/Circle2(30503): init()
+02-07 20:41:38.732: D/RECV(30503): bang notec
+02-07 20:41:38.752: D/SonarCircle2(30503): init()
+02-07 20:41:39.222: D/Circle2(30503): init()
+02-07 20:41:39.392: D/RECV(30503): bang notec
+02-07 20:41:39.882: D/Circle2(30503): init()
+02-07 20:41:39.912: D/RECV(30503): bang notec
+02-07 20:41:40.402: D/Circle2(30503): init()
+02-07 20:41:40.472: D/RECV(30503): bang notec
+02-07 20:41:40.962: D/Circle2(30503): init()
+02-07 20:41:41.312: D/RECV(30503): bang notec
+02-07 20:41:41.802: D/Circle2(30503): init()
+02-07 20:41:41.872: D/RECV(30503): bang notec
+02-07 20:41:42.362: D/Circle2(30503): init()
+02-07 20:41:42.432: D/RECV(30503): bang notec
+02-07 20:41:42.922: D/RECV(30503): bang notec
+02-07 20:41:42.922: D/Circle2(30503): init()
+02-07 20:41:43.412: D/Circle2(30503): init()
+02-07 20:41:43.492: D/RECV(30503): bang notec
+02-07 20:41:43.982: D/Circle2(30503): init()
+02-07 20:41:44.322: D/RECV(30503): bang notec
+02-07 20:41:44.812: D/Circle2(30503): init()
+02-07 20:41:44.962: D/RECV(30503): bang notec
+02-07 20:41:45.452: D/Circle2(30503): init()
+02-07 20:41:45.782: D/RECV(30503): bang notec
+02-07 20:41:46.272: D/Circle2(30503): init()
+02-07 20:41:46.342: D/RECV(30503): bang notec
+02-07 20:41:46.842: D/Circle2(30503): init()
+02-07 20:41:47.012: D/RECV(30503): bang notec
+02-07 20:41:47.252: D/isAlive(30503): thisisAlive false
+02-07 20:41:47.442: D/RECV(30503): bang notec
+02-07 20:41:47.502: D/Circle2(30503): init()
+02-07 20:41:47.932: D/Circle2(30503): init()
+02-07 20:41:48.012: D/RECV(30503): bang notec
+02-07 20:41:48.422: D/RECV(30503): bang notec
+02-07 20:41:48.502: D/Circle2(30503): init()
+02-07 20:41:48.912: D/Circle2(30503): init()
+02-07 20:41:49.142: D/RECV(30503): bang notec
+02-07 20:41:49.572: D/RECV(30503): bang notec
+02-07 20:41:49.632: D/Circle2(30503): init()
+02-07 20:41:49.962: D/RECV(30503): bang notec
+02-07 20:41:50.062: D/Circle2(30503): init()
+02-07 20:41:50.452: D/Circle2(30503): init()
+02-07 20:41:50.792: D/RECV(30503): bang notec
+02-07 20:41:51.282: D/Circle2(30503): init()
+02-07 20:41:51.542: D/RECV(30503): bang notec
+02-07 20:41:52.032: D/Circle2(30503): init()
+02-07 20:41:52.112: D/RECV(30503): bang notec
+02-07 20:41:52.112: D/RECV(30503): bang sonar
+02-07 20:41:52.212: D/SonarCircle2(30503): init()
+02-07 20:41:52.602: D/Circle2(30503): init()
+02-07 20:41:52.842: D/RECV(30503): bang notec
+02-07 20:41:53.332: D/RECV(30503): bang notec
+02-07 20:41:53.332: D/Circle2(30503): init()
+02-07 20:41:53.822: D/Circle2(30503): init()
+02-07 20:41:53.972: D/RECV(30503): bang notec
+02-07 20:41:54.462: D/Circle2(30503): init()
+02-07 20:41:54.792: D/RECV(30503): bang notec
+02-07 20:41:55.282: D/Circle2(30503): init()
+02-07 20:41:55.462: D/RECV(30503): bang notec
+02-07 20:41:55.952: D/Circle2(30503): init()
+02-07 20:41:56.012: D/RECV(30503): bang notec
+02-07 20:41:56.502: D/Circle2(30503): init()
+02-07 20:41:56.752: D/RECV(30503): bang notec
+02-07 20:41:56.942: D/RECV(30503): bang switchdir
+02-07 20:41:57.242: D/Circle2(30503): init()
+02-07 20:41:57.602: D/RECV(30503): bang notec
+02-07 20:41:58.092: D/Circle2(30503): init()
+02-07 20:41:58.152: D/RECV(30503): bang notec
+02-07 20:41:58.642: D/Circle2(30503): init()
+02-07 20:41:58.672: D/RECV(30503): bang notec
+02-07 20:41:59.162: D/Circle2(30503): init()
+02-07 20:41:59.242: D/RECV(30503): bang notec
+02-07 20:41:59.732: D/Circle2(30503): init()
+02-07 20:42:00.062: D/RECV(30503): bang notec
+02-07 20:42:00.532: D/isAlive(30503): thisisAlive false
+02-07 20:42:00.552: D/Circle2(30503): init()
+02-07 20:42:00.652: D/RECV(30503): bang notec
+02-07 20:42:01.142: D/Circle2(30503): init()
+02-07 20:42:01.592: D/RECV(30503): bang notec
+02-07 20:42:02.082: D/Circle2(30503): init()
+02-07 20:42:02.352: D/RECV(30503): bang notec
+02-07 20:42:02.842: D/Circle2(30503): init()
+02-07 20:42:03.252: D/RECV(30503): bang notec
+02-07 20:42:03.742: D/RECV(30503): bang notec
+02-07 20:42:03.742: D/Circle2(30503): init()
+02-07 20:42:04.232: D/Circle2(30503): init()
+02-07 20:42:04.252: D/RECV(30503): bang notec
+02-07 20:42:04.742: D/Circle2(30503): init()
+02-07 20:42:04.912: D/RECV(30503): bang notec
+02-07 20:42:05.402: D/Circle2(30503): init()
+02-07 20:42:05.572: D/RECV(30503): bang sonar
+02-07 20:42:05.672: D/SonarCircle2(30503): init()
+02-07 20:42:05.962: D/RECV(30503): bang notec
+02-07 20:42:06.452: D/Circle2(30503): init()
+02-07 20:42:06.792: D/RECV(30503): bang notec
+02-07 20:42:07.282: D/Circle2(30503): init()
+02-07 20:42:07.782: D/RECV(30503): bang notec
+02-07 20:42:08.272: D/Circle2(30503): init()
+02-07 20:42:08.642: D/RECV(30503): bang notec
+02-07 20:42:09.132: D/Circle2(30503): init()
+02-07 20:42:09.562: D/RECV(30503): bang notec
+02-07 20:42:10.012: D/dalvikvm(30503): GC_CONCURRENT freed 952K, 29% free 9022K/12551K, paused 5ms+29ms
+02-07 20:42:10.082: D/Circle2(30503): init()
+02-07 20:42:10.222: D/RECV(30503): bang notec
+02-07 20:42:10.712: D/Circle2(30503): init()
+02-07 20:42:11.242: D/RECV(30503): bang notec
+02-07 20:42:11.732: D/Circle2(30503): init()
+02-07 20:42:11.972: D/RECV(30503): bang notec
+02-07 20:42:12.462: D/Circle2(30503): init()
+02-07 20:42:12.832: D/RECV(30503): bang notec
+02-07 20:42:13.322: D/Circle2(30503): init()
+02-07 20:42:14.012: D/RECV(30503): bang notec
+02-07 20:42:14.502: D/Circle2(30503): init()
+02-07 20:42:14.822: D/isAlive(30503): thisisAlive false
+02-07 20:42:14.882: D/RECV(30503): bang notec
+02-07 20:42:15.372: D/Circle2(30503): init()
+02-07 20:42:16.152: D/RECV(30503): bang notec
+02-07 20:42:16.642: D/Circle2(30503): init()
+02-07 20:42:17.272: D/RECV(30503): bang notec
+02-07 20:42:17.762: D/Circle2(30503): init()
+02-07 20:42:18.582: D/RECV(30503): bang notec
+02-07 20:42:19.062: D/RECV(30503): bang sonar
+02-07 20:42:19.082: D/Circle2(30503): init()
+02-07 20:42:19.162: D/SonarCircle2(30503): init()
+02-07 20:42:19.502: D/RECV(30503): bang notec
+02-07 20:42:19.992: D/Circle2(30503): init()
+02-07 20:42:20.622: D/RECV(30503): bang notec
+02-07 20:42:21.112: D/Circle2(30503): init()
+02-07 20:42:21.642: D/RECV(30503): bang notec
+02-07 20:42:22.132: D/Circle2(30503): init()
+02-07 20:42:22.942: D/RECV(30503): bang notec
+02-07 20:42:23.432: D/Circle2(30503): init()
+02-07 20:42:24.082: D/RECV(30503): bang notec
+02-07 20:42:24.572: D/Circle2(30503): init()
+02-07 20:42:24.982: D/RECV(30503): bang notec
+02-07 20:42:25.472: D/Circle2(30503): init()
+02-07 20:42:25.912: D/RECV(30503): bang notec
+02-07 20:42:26.402: D/Circle2(30503): init()
+02-07 20:42:26.862: D/RECV(30503): bang notec
+02-07 20:42:27.352: D/Circle2(30503): init()
+02-07 20:42:27.962: D/RECV(30503): bang notec
+02-07 20:42:28.452: D/Circle2(30503): init()
+02-07 20:42:28.912: D/RECV(30503): bang notec
+02-07 20:42:29.382: D/isAlive(30503): thisisAlive false
+02-07 20:42:29.402: D/Circle2(30503): init()
+02-07 20:42:30.212: D/RECV(30503): bang notec
+02-07 20:42:30.712: D/Circle2(30503): init()
+02-07 20:42:31.292: D/RECV(30503): bang notec
+02-07 20:42:31.782: D/Circle2(30503): init()
+02-07 20:42:32.432: D/RECV(30503): bang notec
+02-07 20:42:32.522: D/RECV(30503): bang sonar
+02-07 20:42:32.622: D/SonarCircle2(30503): init()
+02-07 20:42:32.922: D/Circle2(30503): init()
+02-07 20:42:33.682: D/RECV(30503): bang notec
+02-07 20:42:34.172: D/Circle2(30503): init()
+02-07 20:42:34.912: D/RECV(30503): bang notec
+02-07 20:42:35.402: D/Circle2(30503): init()
+02-07 20:42:35.872: D/RECV(30503): bang notec
+02-07 20:42:36.362: D/Circle2(30503): init()
+02-07 20:42:36.602: D/RECV(30503): bang notec
+02-07 20:42:36.972: D/RECV(30503): bang switchdir
+02-07 20:42:37.102: D/Circle2(30503): init()
+02-07 20:42:37.852: D/RECV(30503): bang notec
+02-07 20:42:38.342: D/Circle2(30503): init()
+02-07 20:42:38.832: D/RECV(30503): bang notec
+02-07 20:42:39.322: D/Circle2(30503): init()
+02-07 20:42:39.742: D/RECV(30503): bang notec
+02-07 20:42:40.232: D/Circle2(30503): init()
+02-07 20:42:40.792: D/RECV(30503): bang notec
+02-07 20:42:41.282: D/Circle2(30503): init()
+02-07 20:42:41.822: D/RECV(30503): bang notec
+02-07 20:42:42.312: D/Circle2(30503): init()
+02-07 20:42:42.772: D/RECV(30503): bang notec
+02-07 20:42:43.262: D/Circle2(30503): init()
+02-07 20:42:43.592: D/RECV(30503): bang notec
+02-07 20:42:44.082: D/Circle2(30503): init()
+02-07 20:42:44.232: D/isAlive(30503): thisisAlive false
+02-07 20:42:44.332: D/RECV(30503): bang notec
+02-07 20:42:44.822: D/Circle2(30503): init()
+02-07 20:42:45.062: D/RECV(30503): bang notec
+02-07 20:42:45.552: D/Circle2(30503): init()
+02-07 20:42:45.902: D/RECV(30503): bang notec
+02-07 20:42:45.982: D/RECV(30503): bang sonar
+02-07 20:42:46.082: D/SonarCircle2(30503): init()
+02-07 20:42:46.392: D/Circle2(30503): init()
+02-07 20:42:46.712: D/RECV(30503): bang notec
+02-07 20:42:47.202: D/Circle2(30503): init()
+02-07 20:42:47.452: D/RECV(30503): bang notec
+02-07 20:42:47.942: D/RECV(30503): bang notec
+02-07 20:42:47.942: D/Circle2(30503): init()
+02-07 20:42:48.432: D/Circle2(30503): init()
+02-07 20:42:48.602: D/RECV(30503): bang notec
+02-07 20:42:49.072: D/RECV(30503): bang notec
+02-07 20:42:49.092: D/Circle2(30503): init()
+02-07 20:42:49.562: D/Circle2(30503): init()
+02-07 20:42:49.732: D/RECV(30503): bang notec
+02-07 20:42:50.082: D/RECV(30503): bang notec
+02-07 20:42:50.222: D/Circle2(30503): init()
+02-07 20:42:50.572: D/Circle2(30503): init()
+02-07 20:42:50.892: D/RECV(30503): bang notec
+02-07 20:42:51.382: D/Circle2(30503): init()
+02-07 20:42:51.472: D/RECV(30503): bang notec
+02-07 20:42:51.942: D/RECV(30503): bang notec
+02-07 20:42:51.962: D/Circle2(30503): init()
+02-07 20:42:52.312: D/RECV(30503): bang notec
+02-07 20:42:52.432: D/Circle2(30503): init()
+02-07 20:42:52.802: D/Circle2(30503): init()
+02-07 20:42:52.872: D/RECV(30503): bang notec
+02-07 20:42:53.362: D/Circle2(30503): init()
+02-07 20:42:53.602: D/RECV(30503): bang notec
+02-07 20:42:54.072: D/RECV(30503): bang notec
+02-07 20:42:54.102: D/Circle2(30503): init()
+02-07 20:42:54.562: D/Circle2(30503): init()
+02-07 20:42:54.832: D/RECV(30503): bang notec
+02-07 20:42:55.322: D/Circle2(30503): init()
+02-07 20:42:55.572: D/RECV(30503): bang notec
+02-07 20:42:56.062: D/Circle2(30503): init()
+02-07 20:42:56.122: D/RECV(30503): bang notec
+02-07 20:42:56.612: D/Circle2(30503): init()
+02-07 20:42:56.702: D/RECV(30503): bang notec
+02-07 20:42:57.192: D/Circle2(30503): init()
+02-07 20:42:57.212: D/RECV(30503): bang notec
+02-07 20:42:57.702: D/Circle2(30503): init()
+02-07 20:42:57.702: D/RECV(30503): bang notec
+02-07 20:42:58.092: D/RECV(30503): bang notec
+02-07 20:42:58.192: D/Circle2(30503): init()
+02-07 20:42:58.522: D/RECV(30503): bang notec
+02-07 20:42:58.582: D/Circle2(30503): init()
+02-07 20:42:59.012: D/RECV(30503): bang notec
+02-07 20:42:59.012: D/Circle2(30503): init()
+02-07 20:42:59.032: D/isAlive(30503): thisisAlive false
+02-07 20:42:59.472: D/RECV(30503): bang sonar
+02-07 20:42:59.502: D/Circle2(30503): init()
+02-07 20:42:59.572: D/SonarCircle2(30503): init()
+02-07 20:42:59.642: D/RECV(30503): bang notec
+02-07 20:43:00.142: D/Circle2(30503): init()
+02-07 20:43:00.402: D/RECV(30503): bang notec
+02-07 20:43:00.872: D/RECV(30503): bang notec
+02-07 20:43:00.902: D/Circle2(30503): init()
+02-07 20:43:01.362: D/Circle2(30503): init()
+02-07 20:43:01.612: D/RECV(30503): bang notec
+02-07 20:43:02.102: D/Circle2(30503): init()
+02-07 20:43:02.152: D/RECV(30503): bang notec
+02-07 20:43:02.642: D/Circle2(30503): init()
+02-07 20:43:02.782: D/RECV(30503): bang notec
+02-07 20:43:03.272: D/Circle2(30503): init()
+02-07 20:43:03.282: D/RECV(30503): bang notec
+02-07 20:43:03.752: D/RECV(30503): bang notec
+02-07 20:43:03.772: D/Circle2(30503): init()
+02-07 20:43:04.252: D/Circle2(30503): init()
+02-07 20:43:04.412: D/RECV(30503): bang notec
+02-07 20:43:04.842: D/RECV(30503): bang notec
+02-07 20:43:04.902: D/Circle2(30503): init()
+02-07 20:43:05.332: D/Circle2(30503): init()
+02-07 20:43:05.502: D/RECV(30503): bang notec
+02-07 20:43:05.962: D/RECV(30503): bang notec
+02-07 20:43:05.992: D/Circle2(30503): init()
+02-07 20:43:06.452: D/Circle2(30503): init()
+02-07 20:43:06.462: D/RECV(30503): bang notec
+02-07 20:43:06.952: D/Circle2(30503): init()
+02-07 20:43:07.372: D/RECV(30503): bang notec
+02-07 20:43:07.842: D/RECV(30503): bang notec
+02-07 20:43:07.862: D/Circle2(30503): init()
+02-07 20:43:08.332: D/Circle2(30503): init()
+02-07 20:43:08.502: D/RECV(30503): bang notec
+02-07 20:43:08.992: D/Circle2(30503): init()
+02-07 20:43:09.232: D/RECV(30503): bang notec
+02-07 20:43:09.722: D/Circle2(30503): init()
+02-07 20:43:09.972: D/RECV(30503): bang notec
+02-07 20:43:10.462: D/Circle2(30503): init()
+02-07 20:43:10.882: D/RECV(30503): bang notec
+02-07 20:43:11.372: D/Circle2(30503): init()
+02-07 20:43:11.452: D/RECV(30503): bang notec
+02-07 20:43:11.942: D/Circle2(30503): init()
+02-07 20:43:12.122: D/RECV(30503): bang notec
+02-07 20:43:12.622: D/Circle2(30503): init()
+02-07 20:43:12.762: D/RECV(30503): bang notec
+02-07 20:43:12.842: D/RECV(30503): bang sonar
+02-07 20:43:12.942: D/SonarCircle2(30503): init()
+02-07 20:43:13.252: D/Circle2(30503): init()
+02-07 20:43:13.522: D/RECV(30503): bang notec
+02-07 20:43:13.902: D/isAlive(30503): thisisAlive false
+02-07 20:43:14.012: D/Circle2(30503): init()
+02-07 20:43:14.582: D/RECV(30503): bang notec
+02-07 20:43:15.072: D/Circle2(30503): init()
+02-07 20:43:15.462: D/RECV(30503): bang notec
+02-07 20:43:15.952: D/Circle2(30503): init()
+02-07 20:43:16.192: D/RECV(30503): bang notec
+02-07 20:43:16.682: D/Circle2(30503): init()
+02-07 20:43:17.022: D/RECV(30503): bang notec
+02-07 20:43:17.052: D/RECV(30503): bang switchdir
+02-07 20:43:17.512: D/Circle2(30503): init()
+02-07 20:43:18.042: D/RECV(30503): bang notec
+02-07 20:43:18.532: D/Circle2(30503): init()
+02-07 20:43:18.992: D/RECV(30503): bang notec
+02-07 20:43:19.482: D/Circle2(30503): init()
+02-07 20:43:20.172: D/RECV(30503): bang notec
+02-07 20:43:20.662: D/Circle2(30503): init()
+02-07 20:43:21.302: D/RECV(30503): bang notec
+02-07 20:43:21.792: D/Circle2(30503): init()
+02-07 20:43:22.612: D/RECV(30503): bang notec
+02-07 20:43:23.102: D/Circle2(30503): init()
+02-07 20:43:23.912: D/RECV(30503): bang notec
+02-07 20:43:24.402: D/Circle2(30503): init()
+02-07 20:43:25.082: D/RECV(30503): bang notec
+02-07 20:43:25.572: D/Circle2(30503): init()
+02-07 20:43:26.122: D/RECV(30503): bang notec
+02-07 20:43:26.312: D/RECV(30503): bang sonar
+02-07 20:43:26.412: D/SonarCircle2(30503): init()
+02-07 20:43:26.612: D/Circle2(30503): init()
+02-07 20:43:27.342: D/RECV(30503): bang notec
+02-07 20:43:27.832: D/Circle2(30503): init()
+02-07 20:43:28.402: D/isAlive(30503): thisisAlive false
+02-07 20:43:28.542: D/RECV(30503): bang notec
+02-07 20:43:29.032: D/Circle2(30503): init()
+02-07 20:43:29.842: D/RECV(30503): bang notec
+02-07 20:43:30.332: D/Circle2(30503): init()
+02-07 20:43:31.132: D/RECV(30503): bang notec
+02-07 20:43:31.632: D/Circle2(30503): init()
+02-07 20:43:32.282: D/RECV(30503): bang notec
+02-07 20:43:32.772: D/Circle2(30503): init()
+02-07 20:43:33.282: D/RECV(30503): bang notec
+02-07 20:43:33.772: D/Circle2(30503): init()
+02-07 20:43:34.492: D/RECV(30503): bang notec
+02-07 20:43:34.982: D/Circle2(30503): init()
+02-07 20:43:35.502: D/RECV(30503): bang notec
+02-07 20:43:35.992: D/Circle2(30503): init()
+02-07 20:43:36.722: D/RECV(30503): bang notec
+02-07 20:43:37.212: D/Circle2(30503): init()
+02-07 20:43:37.842: D/RECV(30503): bang notec
+02-07 20:43:38.332: D/Circle2(30503): init()
+02-07 20:43:39.022: D/RECV(30503): bang notec
+02-07 20:43:39.512: D/Circle2(30503): init()
+02-07 20:43:39.762: D/RECV(30503): bang sonar
+02-07 20:43:39.862: D/SonarCircle2(30503): init()
+02-07 20:43:40.332: D/RECV(30503): bang notec
+02-07 20:43:40.822: D/Circle2(30503): init()
+02-07 20:43:41.372: D/RECV(30503): bang notec
+02-07 20:43:41.872: D/Circle2(30503): init()
+02-07 20:43:42.392: D/RECV(30503): bang notec
+02-07 20:43:42.882: D/Circle2(30503): init()
+02-07 20:43:42.952: D/isAlive(30503): thisisAlive false
+02-07 20:43:43.342: D/RECV(30503): bang notec
+02-07 20:43:43.832: D/Circle2(30503): init()
+02-07 20:43:44.422: D/RECV(30503): bang notec
+02-07 20:43:44.912: D/Circle2(30503): init()
+02-07 20:43:45.172: D/RECV(30503): bang notec
+02-07 20:43:45.662: D/Circle2(30503): init()
+02-07 20:43:46.122: D/RECV(30503): bang notec
+02-07 20:43:46.612: D/Circle2(30503): init()
+02-07 20:43:47.042: D/RECV(30503): bang notec
+02-07 20:43:47.532: D/Circle2(30503): init()
+02-07 20:43:47.952: D/RECV(30503): bang notec
+02-07 20:43:48.442: D/Circle2(30503): init()
+02-07 20:43:48.692: D/RECV(30503): bang notec
+02-07 20:43:49.182: D/Circle2(30503): init()
+02-07 20:43:49.732: D/RECV(30503): bang notec
+02-07 20:43:50.222: D/Circle2(30503): init()
+02-07 20:43:50.302: D/RECV(30503): bang notec
+02-07 20:43:50.792: D/Circle2(30503): init()
+02-07 20:43:51.222: D/RECV(30503): bang notec
+02-07 20:43:51.712: D/Circle2(30503): init()
+02-07 20:43:52.142: D/RECV(30503): bang notec
+02-07 20:43:52.632: D/Circle2(30503): init()
+02-07 20:43:52.802: D/RECV(30503): bang notec
+02-07 20:43:53.262: D/RECV(30503): bang sonar
+02-07 20:43:53.292: D/Circle2(30503): init()
+02-07 20:43:53.362: D/SonarCircle2(30503): init()
+02-07 20:43:53.572: D/dalvikvm(30503): GC_CONCURRENT freed 605K, 28% free 9128K/12551K, paused 6ms+29ms
+02-07 20:43:53.642: D/RECV(30503): bang notec
+02-07 20:43:54.082: D/RECV(30503): bang notec
+02-07 20:43:54.132: D/Circle2(30503): init()
+02-07 20:43:54.572: D/RECV(30503): bang notec
+02-07 20:43:54.582: D/Circle2(30503): init()
+02-07 20:43:55.062: D/Circle2(30503): init()
+02-07 20:43:55.092: D/RECV(30503): bang notec
+02-07 20:43:55.582: D/Circle2(30503): init()
+02-07 20:43:56.042: D/RECV(30503): bang notec
+02-07 20:43:56.402: D/RECV(30503): bang notec
+02-07 20:43:56.532: D/Circle2(30503): init()
+02-07 20:43:56.892: D/Circle2(30503): init()
+02-07 20:43:56.992: D/RECV(30503): bang switchdir
+02-07 20:43:57.142: D/RECV(30503): bang notec
+02-07 20:43:57.482: D/isAlive(30503): thisisAlive false
+02-07 20:43:57.632: D/Circle2(30503): init()
+02-07 20:43:57.882: D/RECV(30503): bang notec
+02-07 20:43:58.372: D/Circle2(30503): init()
+02-07 20:43:58.452: D/RECV(30503): bang notec
+02-07 20:43:58.942: D/Circle2(30503): init()
+02-07 20:43:59.192: D/RECV(30503): bang notec
+02-07 20:43:59.572: D/RECV(30503): bang notec
+02-07 20:43:59.682: D/Circle2(30503): init()
+02-07 20:44:00.062: D/Circle2(30503): init()
+02-07 20:44:00.322: D/RECV(30503): bang notec
+02-07 20:44:00.662: D/RECV(30503): bang notec
+02-07 20:44:00.812: D/Circle2(30503): init()
+02-07 20:44:00.972: D/RECV(30503): bang notec
+02-07 20:44:01.152: D/Circle2(30503): init()
+02-07 20:44:01.462: D/Circle2(30503): init()
+02-07 20:44:01.652: D/RECV(30503): bang notec
+02-07 20:44:02.142: D/Circle2(30503): init()
+02-07 20:44:02.202: D/RECV(30503): bang notec
+02-07 20:44:02.452: D/RECV(30503): bang notec
+02-07 20:44:02.692: D/Circle2(30503): init()
+02-07 20:44:02.942: D/Circle2(30503): init()
+02-07 20:44:03.112: D/RECV(30503): bang notec
+02-07 20:44:03.602: D/Circle2(30503): init()
+02-07 20:44:03.602: D/RECV(30503): bang notec
+02-07 20:44:04.092: D/Circle2(30503): init()
+02-07 20:44:04.122: D/RECV(30503): bang notec
+02-07 20:44:04.612: D/Circle2(30503): init()
+02-07 20:44:04.682: D/RECV(30503): bang notec
+02-07 20:44:05.172: D/Circle2(30503): init()
+02-07 20:44:05.422: D/RECV(30503): bang notec
+02-07 20:44:05.902: D/RECV(30503): bang notec
+02-07 20:44:05.912: D/Circle2(30503): init()
+02-07 20:44:06.392: D/Circle2(30503): init()
+02-07 20:44:06.462: D/RECV(30503): bang notec
+02-07 20:44:06.722: D/RECV(30503): bang sonar
+02-07 20:44:06.722: D/RECV(30503): bang notec
+02-07 20:44:06.822: D/SonarCircle2(30503): init()
+02-07 20:44:06.952: D/Circle2(30503): init()
+02-07 20:44:07.192: D/RECV(30503): bang notec
+02-07 20:44:07.212: D/Circle2(30503): init()
+02-07 20:44:07.642: D/RECV(30503): bang notec
+02-07 20:44:07.682: D/Circle2(30503): init()
+02-07 20:44:08.112: D/RECV(30503): bang notec
+02-07 20:44:08.132: D/Circle2(30503): init()
+02-07 20:44:08.512: D/RECV(30503): bang notec
+02-07 20:44:08.602: D/Circle2(30503): init()
+02-07 20:44:08.862: D/RECV(30503): bang notec
+02-07 20:44:09.012: D/Circle2(30503): init()
+02-07 20:44:09.332: D/RECV(30503): bang notec
+02-07 20:44:09.352: D/Circle2(30503): init()
+02-07 20:44:09.822: D/Circle2(30503): init()
+02-07 20:44:09.912: D/RECV(30503): bang notec
+02-07 20:44:10.412: D/Circle2(30503): init()
+02-07 20:44:10.652: D/RECV(30503): bang notec
+02-07 20:44:11.082: D/RECV(30503): bang notec
+02-07 20:44:11.142: D/Circle2(30503): init()
+02-07 20:44:11.152: D/isAlive(30503): thisisAlive false
+02-07 20:44:11.582: D/Circle2(30503): init()
+02-07 20:44:11.642: D/RECV(30503): bang notec
+02-07 20:44:12.122: D/RECV(30503): bang notec
+02-07 20:44:12.132: D/Circle2(30503): init()
+02-07 20:44:12.612: D/Circle2(30503): init()
+02-07 20:44:12.802: D/RECV(30503): bang notec
+02-07 20:44:13.292: D/Circle2(30503): init()
+02-07 20:44:13.442: D/RECV(30503): bang notec
+02-07 20:44:13.932: D/Circle2(30503): init()
+02-07 20:44:14.252: D/RECV(30503): bang notec
+02-07 20:44:14.742: D/Circle2(30503): init()
+02-07 20:44:14.922: D/RECV(30503): bang notec
+02-07 20:44:15.412: D/Circle2(30503): init()
+02-07 20:44:15.642: D/RECV(30503): bang notec
+02-07 20:44:16.132: D/Circle2(30503): init()
+02-07 20:44:16.492: D/RECV(30503): bang notec
+02-07 20:44:16.982: D/Circle2(30503): init()
+02-07 20:44:17.302: D/RECV(30503): bang notec
+02-07 20:44:17.792: D/Circle2(30503): init()
+02-07 20:44:18.262: D/RECV(30503): bang notec
+02-07 20:44:18.752: D/Circle2(30503): init()
+02-07 20:44:19.272: D/RECV(30503): bang notec
+02-07 20:44:19.762: D/Circle2(30503): init()
+02-07 20:44:19.822: D/RECV(30503): bang notec
+02-07 20:44:20.192: D/RECV(30503): bang sonar
+02-07 20:44:20.292: D/SonarCircle2(30503): init()
+02-07 20:44:20.322: D/Circle2(30503): init()
+02-07 20:44:20.482: D/RECV(30503): bang notec
+02-07 20:44:20.972: D/Circle2(30503): init()
+02-07 20:44:21.322: D/RECV(30503): bang notec
+02-07 20:44:21.812: D/Circle2(30503): init()
+02-07 20:44:22.452: D/RECV(30503): bang notec
+02-07 20:44:22.942: D/Circle2(30503): init()
+02-07 20:44:23.372: D/RECV(30503): bang notec
+02-07 20:44:23.622: D/isAlive(30503): thisisAlive false
+02-07 20:44:23.862: D/Circle2(30503): init()
+02-07 20:44:24.482: D/RECV(30503): bang notec
+02-07 20:44:24.982: D/Circle2(30503): init()
+02-07 20:44:25.422: D/RECV(30503): bang notec
+02-07 20:44:25.912: D/Circle2(30503): init()
+02-07 20:44:26.412: D/RECV(30503): bang notec
+02-07 20:44:26.902: D/Circle2(30503): init()
+02-07 20:44:27.452: D/RECV(30503): bang notec
+02-07 20:44:27.942: D/Circle2(30503): init()
+02-07 20:44:28.542: D/RECV(30503): bang notec
+02-07 20:44:29.032: D/Circle2(30503): init()
+02-07 20:44:29.762: D/RECV(30503): bang notec
+02-07 20:44:30.252: D/Circle2(30503): init()
+02-07 20:44:31.092: D/RECV(30503): bang notec
+02-07 20:44:31.582: D/Circle2(30503): init()
+02-07 20:44:31.992: D/RECV(30503): bang notec
+02-07 20:44:32.482: D/Circle2(30503): init()
+02-07 20:44:32.932: D/RECV(30503): bang notec
+02-07 20:44:33.422: D/Circle2(30503): init()
+02-07 20:44:33.692: D/RECV(30503): bang sonar
+02-07 20:44:33.792: D/SonarCircle2(30503): init()
+02-07 20:44:34.262: D/RECV(30503): bang notec
+02-07 20:44:34.752: D/Circle2(30503): init()
+02-07 20:44:35.422: D/isAlive(30503): thisisAlive false
+02-07 20:44:35.642: D/RECV(30503): bang notec
+02-07 20:44:36.132: D/Circle2(30503): init()
+02-07 20:44:36.812: D/RECV(30503): bang notec
+02-07 20:44:37.042: D/RECV(30503): bang switchdir
+02-07 20:44:37.302: D/Circle2(30503): init()
+02-07 20:44:37.862: D/RECV(30503): bang notec
+02-07 20:44:38.352: D/Circle2(30503): init()
+02-07 20:44:38.882: D/RECV(30503): bang notec
+02-07 20:44:39.372: D/Circle2(30503): init()
+02-07 20:44:39.912: D/RECV(30503): bang notec
+02-07 20:44:40.402: D/Circle2(30503): init()
+02-07 20:44:40.992: D/RECV(30503): bang notec
+02-07 20:44:41.482: D/Circle2(30503): init()
+02-07 20:44:41.962: D/RECV(30503): bang notec
+02-07 20:44:42.452: D/Circle2(30503): init()
+02-07 20:44:43.132: D/RECV(30503): bang notec
+02-07 20:44:43.622: D/Circle2(30503): init()
+02-07 20:44:44.352: D/RECV(30503): bang notec
+02-07 20:44:44.842: D/Circle2(30503): init()
+02-07 20:44:45.482: D/RECV(30503): bang notec
+02-07 20:44:45.972: D/Circle2(30503): init()
+02-07 20:44:46.482: D/RECV(30503): bang notec
+02-07 20:44:46.972: D/Circle2(30503): init()
+02-07 20:44:47.102: D/isAlive(30503): thisisAlive false
+02-07 20:44:47.132: D/RECV(30503): bang sonar
+02-07 20:44:47.232: D/SonarCircle2(30503): init()
+02-07 20:44:47.312: D/RECV(30503): bang notec
+02-07 20:44:47.802: D/Circle2(30503): init()
+02-07 20:44:48.282: D/RECV(30503): bang notec
+02-07 20:44:48.772: D/Circle2(30503): init()
+02-07 20:44:49.372: D/RECV(30503): bang notec
+02-07 20:44:49.862: D/Circle2(30503): init()
+02-07 20:44:50.092: D/RECV(30503): bang notec
+02-07 20:44:50.592: D/Circle2(30503): init()
+02-07 20:44:50.772: D/RECV(30503): bang notec
+02-07 20:44:51.262: D/Circle2(30503): init()
+02-07 20:44:51.622: D/RECV(30503): bang notec
+02-07 20:44:52.112: D/Circle2(30503): init()
+02-07 20:44:52.642: D/RECV(30503): bang notec
+02-07 20:44:53.132: D/Circle2(30503): init()
+02-07 20:44:53.472: D/RECV(30503): bang notec
+02-07 20:44:53.962: D/Circle2(30503): init()
+02-07 20:44:54.502: D/RECV(30503): bang notec
+02-07 20:44:54.992: D/Circle2(30503): init()
+02-07 20:44:55.042: D/RECV(30503): bang notec
+02-07 20:44:55.532: D/Circle2(30503): init()
+02-07 20:44:55.812: D/RECV(30503): bang notec
+02-07 20:44:56.302: D/Circle2(30503): init()
+02-07 20:44:56.712: D/RECV(30503): bang notec
+02-07 20:44:57.212: D/Circle2(30503): init()
+02-07 20:44:57.472: D/RECV(30503): bang notec
+02-07 20:44:57.962: D/Circle2(30503): init()
+02-07 20:44:58.372: D/RECV(30503): bang notec
+02-07 20:44:58.862: D/Circle2(30503): init()
+02-07 20:44:58.942: D/RECV(30503): bang notec
+02-07 20:44:59.432: D/Circle2(30503): init()
+02-07 20:44:59.982: D/RECV(30503): bang notec
+02-07 20:45:00.422: D/RECV(30503): bang notec
+02-07 20:45:00.472: D/Circle2(30503): init()
+02-07 20:45:00.502: D/RECV(30503): bang sonar
+02-07 20:45:00.602: D/SonarCircle2(30503): init()
+02-07 20:45:00.912: D/Circle2(30503): init()
+02-07 20:45:01.122: D/isAlive(30503): thisisAlive false
+02-07 20:45:01.372: D/RECV(30503): bang notec
+02-07 20:45:01.872: D/Circle2(30503): init()
+02-07 20:45:02.292: D/RECV(30503): bang notec
+02-07 20:45:02.782: D/Circle2(30503): init()
+02-07 20:45:03.032: D/RECV(30503): bang notec
+02-07 20:45:03.522: D/Circle2(30503): init()
+02-07 20:45:03.782: D/RECV(30503): bang notec
+02-07 20:45:04.272: D/Circle2(30503): init()
+02-07 20:45:04.342: D/RECV(30503): bang notec
+02-07 20:45:04.802: D/RECV(30503): bang notec
+02-07 20:45:04.832: D/Circle2(30503): init()
+02-07 20:45:05.252: D/RECV(30503): bang notec
+02-07 20:45:05.292: D/Circle2(30503): init()
+02-07 20:45:05.742: D/Circle2(30503): init()
+02-07 20:45:05.992: D/RECV(30503): bang notec
+02-07 20:45:06.482: D/Circle2(30503): init()
+02-07 20:45:06.642: D/RECV(30503): bang notec
+02-07 20:45:07.042: D/RECV(30503): bang notec
+02-07 20:45:07.132: D/Circle2(30503): init()
+02-07 20:45:07.532: D/Circle2(30503): init()
+02-07 20:45:07.702: D/RECV(30503): bang notec
+02-07 20:45:08.192: D/Circle2(30503): init()
+02-07 20:45:08.372: D/RECV(30503): bang notec
+02-07 20:45:08.782: D/RECV(30503): bang notec
+02-07 20:45:08.882: D/Circle2(30503): init()
+02-07 20:45:09.262: D/RECV(30503): bang notec
+02-07 20:45:09.272: D/Circle2(30503): init()
+02-07 20:45:09.612: D/RECV(30503): bang notec
+02-07 20:45:09.752: D/Circle2(30503): init()
+02-07 20:45:10.102: D/Circle2(30503): init()
+02-07 20:45:10.182: D/RECV(30503): bang notec
+02-07 20:45:10.672: D/Circle2(30503): init()
+02-07 20:45:11.012: D/RECV(30503): bang notec
+02-07 20:45:11.502: D/Circle2(30503): init()
+02-07 20:45:11.572: D/RECV(30503): bang notec
+02-07 20:45:12.062: D/Circle2(30503): init()
+02-07 20:45:12.312: D/RECV(30503): bang notec
+02-07 20:45:12.712: D/RECV(30503): bang notec
+02-07 20:45:12.802: D/Circle2(30503): init()
+02-07 20:45:13.202: D/Circle2(30503): init()
+02-07 20:45:13.262: D/RECV(30503): bang notec
+02-07 20:45:13.712: D/RECV(30503): bang notec
+02-07 20:45:13.752: D/Circle2(30503): init()
+02-07 20:45:14.022: D/RECV(30503): bang sonar
+02-07 20:45:14.122: D/SonarCircle2(30503): init()
+02-07 20:45:14.202: D/Circle2(30503): init()
+02-07 20:45:14.362: D/RECV(30503): bang notec
+02-07 20:45:14.852: D/Circle2(30503): init()
+02-07 20:45:15.112: D/RECV(30503): bang notec
+02-07 20:45:15.212: D/isAlive(30503): thisisAlive false
+02-07 20:45:15.602: D/Circle2(30503): init()
+02-07 20:45:15.832: D/RECV(30503): bang notec
+02-07 20:45:16.322: D/Circle2(30503): init()
+02-07 20:45:16.582: D/RECV(30503): bang notec
+02-07 20:45:17.052: D/RECV(30503): bang switchdir
+02-07 20:45:17.072: D/Circle2(30503): init()
+02-07 20:45:17.162: D/RECV(30503): bang notec
+02-07 20:45:17.652: D/Circle2(30503): init()
+02-07 20:45:17.712: D/RECV(30503): bang notec
+02-07 20:45:18.202: D/Circle2(30503): init()
+02-07 20:45:18.452: D/RECV(30503): bang notec
+02-07 20:45:18.942: D/Circle2(30503): init()
+02-07 20:45:19.192: D/RECV(30503): bang notec
+02-07 20:45:19.682: D/Circle2(30503): init()
+02-07 20:45:19.932: D/RECV(30503): bang notec
+02-07 20:45:20.422: D/Circle2(30503): init()
+02-07 20:45:20.512: D/RECV(30503): bang notec
+02-07 20:45:21.002: D/Circle2(30503): init()
+02-07 20:45:21.252: D/RECV(30503): bang notec
+02-07 20:45:21.742: D/Circle2(30503): init()
+02-07 20:45:21.902: D/RECV(30503): bang notec
+02-07 20:45:22.392: D/Circle2(30503): init()
+02-07 20:45:22.722: D/RECV(30503): bang notec
+02-07 20:45:23.212: D/Circle2(30503): init()
+02-07 20:45:23.312: D/RECV(30503): bang notec
+02-07 20:45:23.802: D/Circle2(30503): init()
+02-07 20:45:23.942: D/RECV(30503): bang notec
+02-07 20:45:24.432: D/Circle2(30503): init()
+02-07 20:45:24.782: D/RECV(30503): bang notec
+02-07 20:45:25.272: D/Circle2(30503): init()
+02-07 20:45:25.422: D/RECV(30503): bang notec
+02-07 20:45:25.912: D/Circle2(30503): init()
+02-07 20:45:26.352: D/RECV(30503): bang notec
+02-07 20:45:26.842: D/Circle2(30503): init()
+02-07 20:45:27.292: D/RECV(30503): bang notec
+02-07 20:45:27.482: D/RECV(30503): bang sonar
+02-07 20:45:27.582: D/SonarCircle2(30503): init()
+02-07 20:45:27.782: D/Circle2(30503): init()
+02-07 20:45:28.132: D/RECV(30503): bang notec
+02-07 20:45:28.222: D/isAlive(30503): thisisAlive false
+02-07 20:45:28.622: D/Circle2(30503): init()
+02-07 20:45:29.042: D/RECV(30503): bang notec
+02-07 20:45:29.532: D/Circle2(30503): init()
+02-07 20:45:29.622: D/dalvikvm(30503): GC_CONCURRENT freed 577K, 26% free 9296K/12551K, paused 9ms+24ms
+02-07 20:45:30.012: D/RECV(30503): bang notec
+02-07 20:45:30.502: D/Circle2(30503): init()
+02-07 20:45:30.842: D/RECV(30503): bang notec
+02-07 20:45:31.332: D/Circle2(30503): init()
+02-07 20:45:31.902: D/RECV(30503): bang notec
+02-07 20:45:32.392: D/Circle2(30503): init()
+02-07 20:45:32.962: D/RECV(30503): bang notec
+02-07 20:45:33.452: D/Circle2(30503): init()
+02-07 20:45:33.782: D/RECV(30503): bang notec
+02-07 20:45:34.272: D/Circle2(30503): init()
+02-07 20:45:34.912: D/RECV(30503): bang notec
+02-07 20:45:35.402: D/Circle2(30503): init()
+02-07 20:45:36.012: D/RECV(30503): bang notec
+02-07 20:45:36.502: D/Circle2(30503): init()
+02-07 20:45:37.312: D/RECV(30503): bang notec
+02-07 20:45:37.802: D/Circle2(30503): init()
+02-07 20:45:38.532: D/RECV(30503): bang notec
+02-07 20:45:39.022: D/Circle2(30503): init()
+02-07 20:45:39.742: D/RECV(30503): bang notec
+02-07 20:45:40.232: D/Circle2(30503): init()
+02-07 20:45:40.572: D/isAlive(30503): thisisAlive false
+02-07 20:45:40.602: D/RECV(30503): bang notec
+02-07 20:45:40.932: D/RECV(30503): bang sonar
+02-07 20:45:41.032: D/SonarCircle2(30503): init()
+02-07 20:45:41.092: D/Circle2(30503): init()
+02-07 20:45:41.882: D/RECV(30503): bang notec
+02-07 20:45:42.372: D/Circle2(30503): init()
+02-07 20:45:43.272: D/RECV(30503): bang notec
+02-07 20:45:43.762: D/Circle2(30503): init()
+02-07 20:45:44.192: D/RECV(30503): bang notec
+02-07 20:45:44.682: D/Circle2(30503): init()
+02-07 20:45:45.112: D/RECV(30503): bang notec
+02-07 20:45:45.602: D/Circle2(30503): init()
+02-07 20:45:46.242: D/RECV(30503): bang notec
+02-07 20:45:46.732: D/Circle2(30503): init()
+02-07 20:45:47.162: D/RECV(30503): bang notec
+02-07 20:45:47.652: D/Circle2(30503): init()
+02-07 20:45:48.202: D/RECV(30503): bang notec
+02-07 20:45:48.692: D/Circle2(30503): init()
+02-07 20:45:49.122: D/RECV(30503): bang notec
+02-07 20:45:49.612: D/Circle2(30503): init()
+02-07 20:45:50.332: D/RECV(30503): bang notec
+02-07 20:45:50.822: D/Circle2(30503): init()
+02-07 20:45:51.342: D/RECV(30503): bang notec
+02-07 20:45:51.832: D/Circle2(30503): init()
+02-07 20:45:52.462: D/isAlive(30503): thisisAlive false
+02-07 20:45:52.572: D/RECV(30503): bang notec
+02-07 20:45:53.062: D/Circle2(30503): init()
+02-07 20:45:53.862: D/RECV(30503): bang notec
+02-07 20:45:54.352: D/Circle2(30503): init()
+02-07 20:45:54.442: D/RECV(30503): bang sonar
+02-07 20:45:54.542: D/SonarCircle2(30503): init()
+02-07 20:45:55.092: D/RECV(30503): bang notec
+02-07 20:45:55.582: D/Circle2(30503): init()
+02-07 20:45:56.172: D/RECV(30503): bang notec
+02-07 20:45:56.662: D/Circle2(30503): init()
+02-07 20:45:56.912: D/RECV(30503): bang notec
+02-07 20:45:57.012: D/RECV(30503): bang switchdir
+02-07 20:45:57.402: D/Circle2(30503): init()
+02-07 20:45:58.042: D/RECV(30503): bang notec
+02-07 20:45:58.532: D/Circle2(30503): init()
+02-07 20:45:59.042: D/RECV(30503): bang notec
+02-07 20:45:59.532: D/Circle2(30503): init()
+02-07 20:45:59.922: D/RECV(30503): bang notec
+02-07 20:46:00.422: D/Circle2(30503): init()
+02-07 20:46:01.002: D/RECV(30503): bang notec
+02-07 20:46:01.492: D/Circle2(30503): init()
+02-07 20:46:01.832: D/RECV(30503): bang notec
+02-07 20:46:02.322: D/Circle2(30503): init()
+02-07 20:46:02.502: D/RECV(30503): bang notec
+02-07 20:46:02.992: D/Circle2(30503): init()
+02-07 20:46:03.442: D/RECV(30503): bang notec
+02-07 20:46:03.932: D/Circle2(30503): init()
+02-07 20:46:04.202: D/isAlive(30503): thisisAlive false
+02-07 20:46:04.262: D/RECV(30503): bang notec
+02-07 20:46:04.762: D/Circle2(30503): init()
+02-07 20:46:04.832: D/RECV(30503): bang notec
+02-07 20:46:05.322: D/Circle2(30503): init()
+02-07 20:46:05.362: D/RECV(30503): bang notec
+02-07 20:46:05.852: D/Circle2(30503): init()
+02-07 20:46:06.122: D/RECV(30503): bang notec
+02-07 20:46:06.612: D/Circle2(30503): init()
+02-07 20:46:06.672: D/RECV(30503): bang notec
+02-07 20:46:07.162: D/Circle2(30503): init()
+02-07 20:46:07.332: D/RECV(30503): bang notec
+02-07 20:46:07.822: D/Circle2(30503): init()
+02-07 20:46:07.882: D/RECV(30503): bang sonar
+02-07 20:46:07.982: D/SonarCircle2(30503): init()
+02-07 20:46:08.062: D/RECV(30503): bang notec
+02-07 20:46:08.562: D/Circle2(30503): init()
+02-07 20:46:08.712: D/RECV(30503): bang notec
+02-07 20:46:09.202: D/Circle2(30503): init()
+02-07 20:46:09.282: D/RECV(30503): bang notec
+02-07 20:46:09.762: D/RECV(30503): bang notec
+02-07 20:46:09.772: D/Circle2(30503): init()
+02-07 20:46:10.252: D/Circle2(30503): init()
+02-07 20:46:10.292: D/RECV(30503): bang notec
+02-07 20:46:10.782: D/Circle2(30503): init()
+02-07 20:46:10.942: D/RECV(30503): bang notec
+02-07 20:46:11.432: D/Circle2(30503): init()
+02-07 20:46:11.682: D/RECV(30503): bang notec
+02-07 20:46:12.072: D/RECV(30503): bang notec
+02-07 20:46:12.172: D/Circle2(30503): init()
+02-07 20:46:12.562: D/Circle2(30503): init()
+02-07 20:46:12.802: D/RECV(30503): bang notec
+02-07 20:46:13.292: D/Circle2(30503): init()
+02-07 20:46:13.562: D/RECV(30503): bang notec
+02-07 20:46:14.042: D/RECV(30503): bang notec
+02-07 20:46:14.052: D/Circle2(30503): init()
+02-07 20:46:14.472: D/RECV(30503): bang notec
+02-07 20:46:14.532: D/Circle2(30503): init()
+02-07 20:46:14.872: D/RECV(30503): bang notec
+02-07 20:46:14.962: D/Circle2(30503): init()
+02-07 20:46:15.332: D/RECV(30503): bang notec
+02-07 20:46:15.362: D/Circle2(30503): init()
+02-07 20:46:15.682: D/RECV(30503): bang notec
+02-07 20:46:15.822: D/Circle2(30503): init()
+02-07 20:46:16.112: D/isAlive(30503): thisisAlive false
+02-07 20:46:16.162: D/RECV(30503): bang notec
+02-07 20:46:16.172: D/Circle2(30503): init()
+02-07 20:46:16.652: D/Circle2(30503): init()
+02-07 20:46:16.732: D/RECV(30503): bang notec
+02-07 20:46:17.082: D/RECV(30503): bang notec
+02-07 20:46:17.222: D/Circle2(30503): init()
+02-07 20:46:17.572: D/Circle2(30503): init()
+02-07 20:46:17.742: D/RECV(30503): bang notec
+02-07 20:46:18.232: D/Circle2(30503): init()
+02-07 20:46:18.392: D/RECV(30503): bang notec
+02-07 20:46:18.882: D/Circle2(30503): init()
+02-07 20:46:19.122: D/RECV(30503): bang notec
+02-07 20:46:19.612: D/Circle2(30503): init()
+02-07 20:46:19.862: D/RECV(30503): bang notec
+02-07 20:46:20.352: D/Circle2(30503): init()
+02-07 20:46:20.532: D/RECV(30503): bang notec
+02-07 20:46:21.022: D/Circle2(30503): init()
+02-07 20:46:21.252: D/RECV(30503): bang notec
+02-07 20:46:21.342: D/RECV(30503): bang sonar
+02-07 20:46:21.452: D/SonarCircle2(30503): init()
+02-07 20:46:21.732: D/RECV(30503): bang notec
+02-07 20:46:21.742: D/Circle2(30503): init()
+02-07 20:46:22.222: D/Circle2(30503): init()
+02-07 20:46:22.302: D/RECV(30503): bang notec
+02-07 20:46:22.792: D/Circle2(30503): init()
+02-07 20:46:22.822: D/RECV(30503): bang notec
+02-07 20:46:23.302: D/RECV(30503): bang notec
+02-07 20:46:23.312: D/Circle2(30503): init()
+02-07 20:46:23.792: D/Circle2(30503): init()
+02-07 20:46:23.952: D/RECV(30503): bang notec
+02-07 20:46:24.442: D/Circle2(30503): init()
+02-07 20:46:24.622: D/RECV(30503): bang notec
+02-07 20:46:25.112: D/Circle2(30503): init()
+02-07 20:46:25.452: D/RECV(30503): bang notec
+02-07 20:46:25.942: D/Circle2(30503): init()
+02-07 20:46:26.172: D/RECV(30503): bang notec
+02-07 20:46:26.662: D/Circle2(30503): init()
+02-07 20:46:26.922: D/RECV(30503): bang notec
+02-07 20:46:27.412: D/Circle2(30503): init()
+02-07 20:46:27.662: D/RECV(30503): bang notec
+02-07 20:46:28.072: D/isAlive(30503): thisisAlive false
+02-07 20:46:28.152: D/Circle2(30503): init()
+02-07 20:46:28.312: D/RECV(30503): bang notec
+02-07 20:46:28.792: D/RECV(30503): bang notec
+02-07 20:46:28.802: D/Circle2(30503): init()
+02-07 20:46:29.282: D/Circle2(30503): init()
+02-07 20:46:29.442: D/RECV(30503): bang notec
+02-07 20:46:29.932: D/Circle2(30503): init()
+02-07 20:46:30.272: D/RECV(30503): bang notec
+02-07 20:46:30.762: D/Circle2(30503): init()
+02-07 20:46:30.842: D/RECV(30503): bang notec
+02-07 20:46:31.332: D/Circle2(30503): init()
+02-07 20:46:31.492: D/RECV(30503): bang notec
+02-07 20:46:31.982: D/Circle2(30503): init()
+02-07 20:46:32.232: D/RECV(30503): bang notec
+02-07 20:46:32.722: D/Circle2(30503): init()
+02-07 20:46:33.082: D/RECV(30503): bang notec
+02-07 20:46:33.572: D/Circle2(30503): init()
+02-07 20:46:34.112: D/RECV(30503): bang notec
+02-07 20:46:34.602: D/Circle2(30503): init()
+02-07 20:46:34.852: D/RECV(30503): bang sonar
+02-07 20:46:34.932: D/RECV(30503): bang notec
+02-07 20:46:34.952: D/SonarCircle2(30503): init()
+02-07 20:46:35.422: D/Circle2(30503): init()
+02-07 20:46:36.012: D/RECV(30503): bang notec
+02-07 20:46:36.502: D/Circle2(30503): init()
+02-07 20:46:37.002: D/RECV(30503): bang notec
+02-07 20:46:37.082: D/RECV(30503): bang switchdir
+02-07 20:46:37.492: D/Circle2(30503): init()
+02-07 20:46:38.072: D/RECV(30503): bang notec
+02-07 20:46:38.562: D/Circle2(30503): init()
+02-07 20:46:38.962: D/RECV(30503): bang notec
+02-07 20:46:39.452: D/Circle2(30503): init()
+02-07 20:46:40.192: D/RECV(30503): bang notec
+02-07 20:46:40.692: D/Circle2(30503): init()
+02-07 20:46:40.902: D/isAlive(30503): thisisAlive false
+02-07 20:46:41.342: D/RECV(30503): bang notec
+02-07 20:46:41.832: D/Circle2(30503): init()
+02-07 20:46:42.632: D/RECV(30503): bang notec
+02-07 20:46:43.132: D/Circle2(30503): init()
+02-07 20:46:43.732: D/RECV(30503): bang notec
+02-07 20:46:44.222: D/Circle2(30503): init()
+02-07 20:46:44.692: D/RECV(30503): bang notec
+02-07 20:46:45.182: D/Circle2(30503): init()
+02-07 20:46:45.912: D/RECV(30503): bang notec
+02-07 20:46:46.402: D/Circle2(30503): init()
+02-07 20:46:47.022: D/RECV(30503): bang notec
+02-07 20:46:47.512: D/Circle2(30503): init()
+02-07 20:46:48.212: D/RECV(30503): bang notec
+02-07 20:46:48.242: D/RECV(30503): bang sonar
+02-07 20:46:48.342: D/SonarCircle2(30503): init()
+02-07 20:46:48.702: D/Circle2(30503): init()
+02-07 20:46:49.532: D/RECV(30503): bang notec
+02-07 20:46:50.022: D/Circle2(30503): init()
+02-07 20:46:50.712: D/RECV(30503): bang notec
+02-07 20:46:51.202: D/Circle2(30503): init()
+02-07 20:46:52.012: D/RECV(30503): bang notec
+02-07 20:46:52.502: D/Circle2(30503): init()
+02-07 20:46:52.972: D/RECV(30503): bang notec
+02-07 20:46:53.462: D/Circle2(30503): init()
+02-07 20:46:54.042: D/RECV(30503): bang notec
+02-07 20:46:54.532: D/Circle2(30503): init()
+02-07 20:46:55.182: D/RECV(30503): bang notec
+02-07 20:46:55.192: D/isAlive(30503): thisisAlive false
+02-07 20:46:55.672: D/Circle2(30503): init()
+02-07 20:46:56.092: D/RECV(30503): bang notec
+02-07 20:46:56.582: D/Circle2(30503): init()
+02-07 20:46:57.222: D/RECV(30503): bang notec
+02-07 20:46:57.712: D/Circle2(30503): init()
+02-07 20:46:58.152: D/RECV(30503): bang notec
+02-07 20:46:58.642: D/Circle2(30503): init()
+02-07 20:46:59.072: D/RECV(30503): bang notec
+02-07 20:46:59.562: D/Circle2(30503): init()
+02-07 20:47:00.202: D/RECV(30503): bang notec
+02-07 20:47:00.692: D/Circle2(30503): init()
+02-07 20:47:01.422: D/RECV(30503): bang notec
+02-07 20:47:01.672: D/RECV(30503): bang sonar
+02-07 20:47:01.772: D/SonarCircle2(30503): init()
+02-07 20:47:01.912: D/Circle2(30503): init()
+02-07 20:47:02.262: D/RECV(30503): bang notec
+02-07 20:47:02.752: D/Circle2(30503): init()
+02-07 20:47:03.162: D/RECV(30503): bang notec
+02-07 20:47:03.652: D/Circle2(30503): init()
+02-07 20:47:04.052: D/RECV(30503): bang notec
+02-07 20:47:04.542: D/Circle2(30503): init()
+02-07 20:47:04.852: D/RECV(30503): bang notec
+02-07 20:47:05.342: D/Circle2(30503): init()
+02-07 20:47:05.672: D/RECV(30503): bang notec
+02-07 20:47:06.162: D/Circle2(30503): init()
+02-07 20:47:06.822: D/RECV(30503): bang notec
+02-07 20:47:07.312: D/Circle2(30503): init()
+02-07 20:47:07.422: D/RECV(30503): bang notec
+02-07 20:47:07.912: D/Circle2(30503): init()
+02-07 20:47:08.312: D/RECV(30503): bang notec
+02-07 20:47:08.802: D/Circle2(30503): init()
+02-07 20:47:09.032: D/RECV(30503): bang notec
+02-07 20:47:09.262: D/isAlive(30503): thisisAlive false
+02-07 20:47:09.522: D/Circle2(30503): init()
+02-07 20:47:10.032: D/RECV(30503): bang notec
+02-07 20:47:10.522: D/Circle2(30503): init()
+02-07 20:47:10.992: D/RECV(30503): bang notec
+02-07 20:47:11.482: D/Circle2(30503): init()
+02-07 20:47:11.622: D/RECV(30503): bang notec
+02-07 20:47:12.112: D/Circle2(30503): init()
+02-07 20:47:12.262: D/RECV(30503): bang notec
+02-07 20:47:12.732: D/RECV(30503): bang notec
+02-07 20:47:12.752: D/Circle2(30503): init()
+02-07 20:47:13.222: D/Circle2(30503): init()
+02-07 20:47:13.402: D/RECV(30503): bang notec
+02-07 20:47:13.892: D/Circle2(30503): init()
+02-07 20:47:14.042: D/RECV(30503): bang notec
+02-07 20:47:14.172: D/dalvikvm(30503): GC_CONCURRENT freed 598K, 25% free 9502K/12551K, paused 11ms+31ms
+02-07 20:47:14.531: D/Circle2(30503): init()
+02-07 20:47:14.601: D/RECV(30503): bang notec
+02-07 20:47:15.051: D/RECV(30503): bang notec
+02-07 20:47:15.091: D/Circle2(30503): init()
+02-07 20:47:15.171: D/RECV(30503): bang sonar
+02-07 20:47:15.271: D/SonarCircle2(30503): init()
+02-07 20:47:15.541: D/Circle2(30503): init()
+02-07 20:47:15.601: D/RECV(30503): bang notec
+02-07 20:47:16.091: D/Circle2(30503): init()
+02-07 20:47:16.261: D/RECV(30503): bang notec
+02-07 20:47:16.751: D/Circle2(30503): init()
+02-07 20:47:16.911: D/RECV(30503): bang notec
+02-07 20:47:17.101: D/RECV(30503): bang switchdir
+02-07 20:47:17.401: D/Circle2(30503): init()
+02-07 20:47:17.491: D/RECV(30503): bang notec
+02-07 20:47:17.961: D/RECV(30503): bang notec
+02-07 20:47:17.981: D/Circle2(30503): init()
+02-07 20:47:18.451: D/Circle2(30503): init()
+02-07 20:47:18.801: D/RECV(30503): bang notec
+02-07 20:47:19.291: D/Circle2(30503): init()
+02-07 20:47:19.631: D/RECV(30503): bang notec
+02-07 20:47:19.961: D/RECV(30503): bang notec
+02-07 20:47:20.121: D/Circle2(30503): init()
+02-07 20:47:20.451: D/Circle2(30503): init()
+02-07 20:47:20.631: D/RECV(30503): bang notec
+02-07 20:47:21.111: D/RECV(30503): bang notec
+02-07 20:47:21.121: D/Circle2(30503): init()
+02-07 20:47:21.601: D/Circle2(30503): init()
+02-07 20:47:21.661: D/RECV(30503): bang notec
+02-07 20:47:22.151: D/Circle2(30503): init()
+02-07 20:47:22.241: D/RECV(30503): bang notec
+02-07 20:47:22.731: D/Circle2(30503): init()
+02-07 20:47:22.751: D/RECV(30503): bang notec
+02-07 20:47:22.941: D/isAlive(30503): thisisAlive false
+02-07 20:47:23.071: D/RECV(30503): bang notec
+02-07 20:47:23.241: D/Circle2(30503): init()
+02-07 20:47:23.421: D/RECV(30503): bang notec
+02-07 20:47:23.561: D/Circle2(30503): init()
+02-07 20:47:23.811: D/RECV(30503): bang notec
+02-07 20:47:23.911: D/Circle2(30503): init()
+02-07 20:47:24.071: D/RECV(30503): bang notec
+02-07 20:47:24.301: D/Circle2(30503): init()
+02-07 20:47:24.541: D/RECV(30503): bang notec
+02-07 20:47:24.561: D/Circle2(30503): init()
+02-07 20:47:25.031: D/Circle2(30503): init()
+02-07 20:47:25.031: D/RECV(30503): bang notec
+02-07 20:47:25.471: D/RECV(30503): bang notec
+02-07 20:47:25.521: D/Circle2(30503): init()
+02-07 20:47:25.961: D/Circle2(30503): init()
+02-07 20:47:26.031: D/RECV(30503): bang notec
+02-07 20:47:26.521: D/Circle2(30503): init()
+02-07 20:47:26.771: D/RECV(30503): bang notec
+02-07 20:47:27.161: D/RECV(30503): bang notec
+02-07 20:47:27.261: D/Circle2(30503): init()
+02-07 20:47:27.651: D/Circle2(30503): init()
+02-07 20:47:27.801: D/RECV(30503): bang notec
+02-07 20:47:28.291: D/Circle2(30503): init()
+02-07 20:47:28.471: D/RECV(30503): bang notec
+02-07 20:47:28.631: D/RECV(30503): bang sonar
+02-07 20:47:28.731: D/SonarCircle2(30503): init()
+02-07 20:47:28.961: D/Circle2(30503): init()
+02-07 20:47:28.991: D/RECV(30503): bang notec
+02-07 20:47:29.481: D/Circle2(30503): init()
+02-07 20:47:29.631: D/RECV(30503): bang notec
+02-07 20:47:30.121: D/Circle2(30503): init()
+02-07 20:47:30.381: D/RECV(30503): bang notec
+02-07 20:47:30.861: D/RECV(30503): bang notec
+02-07 20:47:30.871: D/Circle2(30503): init()
+02-07 20:47:31.251: D/RECV(30503): bang notec
+02-07 20:47:31.351: D/Circle2(30503): init()
+02-07 20:47:31.741: D/Circle2(30503): init()
+02-07 20:47:31.981: D/RECV(30503): bang notec
+02-07 20:47:32.471: D/Circle2(30503): init()
+02-07 20:47:32.661: D/RECV(30503): bang notec
+02-07 20:47:33.071: D/RECV(30503): bang notec
+02-07 20:47:33.161: D/Circle2(30503): init()
+02-07 20:47:33.561: D/Circle2(30503): init()
+02-07 20:47:33.811: D/RECV(30503): bang notec
+02-07 20:47:34.301: D/Circle2(30503): init()
+02-07 20:47:34.691: D/RECV(30503): bang notec
+02-07 20:47:35.181: D/Circle2(30503): init()
+02-07 20:47:35.231: D/RECV(30503): bang notec
+02-07 20:47:35.721: D/Circle2(30503): init()
+02-07 20:47:35.861: D/RECV(30503): bang notec
+02-07 20:47:36.351: D/Circle2(30503): init()
+02-07 20:47:36.701: D/RECV(30503): bang notec
+02-07 20:47:37.131: D/isAlive(30503): thisisAlive false
+02-07 20:47:37.191: D/Circle2(30503): init()
+02-07 20:47:37.251: D/RECV(30503): bang notec
+02-07 20:47:37.741: D/Circle2(30503): init()
+02-07 20:47:38.231: D/RECV(30503): bang notec
+02-07 20:47:38.721: D/Circle2(30503): init()
+02-07 20:47:39.141: D/RECV(30503): bang notec
+02-07 20:47:39.631: D/Circle2(30503): init()
+02-07 20:47:39.781: D/RECV(30503): bang notec
+02-07 20:47:40.271: D/Circle2(30503): init()
+02-07 20:47:40.431: D/RECV(30503): bang notec
+02-07 20:47:40.921: D/Circle2(30503): init()
+02-07 20:47:41.441: D/RECV(30503): bang notec
+02-07 20:47:41.931: D/Circle2(30503): init()
+02-07 20:47:42.091: D/RECV(30503): bang sonar
+02-07 20:47:42.191: D/SonarCircle2(30503): init()
+02-07 20:47:42.591: D/RECV(30503): bang notec
+02-07 20:47:43.081: D/Circle2(30503): init()
+02-07 20:47:43.561: D/RECV(30503): bang notec
+02-07 20:47:44.061: D/Circle2(30503): init()
+02-07 20:47:44.701: D/RECV(30503): bang notec
+02-07 20:47:45.201: D/Circle2(30503): init()
+02-07 20:47:45.831: D/RECV(30503): bang notec
+02-07 20:47:46.321: D/Circle2(30503): init()
+02-07 20:47:46.761: D/RECV(30503): bang notec
+02-07 20:47:47.251: D/Circle2(30503): init()
+02-07 20:47:47.971: D/RECV(30503): bang notec
+02-07 20:47:48.461: D/Circle2(30503): init()
+02-07 20:47:48.961: D/RECV(30503): bang notec
+02-07 20:47:49.461: D/Circle2(30503): init()
+02-07 20:47:49.901: D/RECV(30503): bang notec
+02-07 20:47:50.391: D/Circle2(30503): init()
+02-07 20:47:51.191: D/RECV(30503): bang notec
+02-07 20:47:51.591: D/isAlive(30503): thisisAlive false
+02-07 20:47:51.681: D/Circle2(30503): init()
+02-07 20:47:52.031: D/RECV(30503): bang notec
+02-07 20:47:52.521: D/Circle2(30503): init()
+02-07 20:47:53.161: D/RECV(30503): bang notec
+02-07 20:47:53.651: D/Circle2(30503): init()
+02-07 20:47:54.461: D/RECV(30503): bang notec
+02-07 20:47:54.951: D/Circle2(30503): init()
+02-07 20:47:55.381: D/RECV(30503): bang notec
+02-07 20:47:55.591: D/RECV(30503): bang sonar
+02-07 20:47:55.691: D/SonarCircle2(30503): init()
+02-07 20:47:55.871: D/Circle2(30503): init()
+02-07 20:47:56.691: D/RECV(30503): bang notec
+02-07 20:47:57.081: D/RECV(30503): bang switchdir
+02-07 20:47:57.181: D/Circle2(30503): init()
+02-07 20:47:57.741: D/RECV(30503): bang notec
+02-07 20:47:58.231: D/Circle2(30503): init()
+02-07 20:47:58.901: D/RECV(30503): bang notec
+02-07 20:47:59.391: D/Circle2(30503): init()
+02-07 20:48:00.121: D/RECV(30503): bang notec
+02-07 20:48:00.611: D/Circle2(30503): init()
+02-07 20:48:01.271: D/RECV(30503): bang notec
+02-07 20:48:01.761: D/Circle2(30503): init()
+02-07 20:48:02.261: D/RECV(30503): bang notec
+02-07 20:48:02.751: D/Circle2(30503): init()
+02-07 20:48:03.301: D/RECV(30503): bang notec
+02-07 20:48:03.791: D/Circle2(30503): init()
+02-07 20:48:04.401: D/RECV(30503): bang notec
+02-07 20:48:04.891: D/Circle2(30503): init()
+02-07 20:48:05.701: D/RECV(30503): bang notec
+02-07 20:48:06.191: D/Circle2(30503): init()
+02-07 20:48:06.211: D/isAlive(30503): thisisAlive false
+02-07 20:48:07.001: D/RECV(30503): bang notec
+02-07 20:48:07.491: D/Circle2(30503): init()
+02-07 20:48:08.241: D/RECV(30503): bang notec
+02-07 20:48:08.731: D/Circle2(30503): init()
+02-07 20:48:09.061: D/RECV(30503): bang sonar
+02-07 20:48:09.161: D/SonarCircle2(30503): init()
+02-07 20:48:09.411: D/RECV(30503): bang notec
+02-07 20:48:09.901: D/Circle2(30503): init()
+02-07 20:48:10.281: D/RECV(30503): bang notec
+02-07 20:48:10.771: D/Circle2(30503): init()
+02-07 20:48:11.091: D/RECV(30503): bang notec
+02-07 20:48:11.581: D/Circle2(30503): init()
+02-07 20:48:12.031: D/RECV(30503): bang notec
+02-07 20:48:12.521: D/Circle2(30503): init()
+02-07 20:48:12.851: D/RECV(30503): bang notec
+02-07 20:48:13.341: D/Circle2(30503): init()
+02-07 20:48:13.581: D/RECV(30503): bang notec
+02-07 20:48:14.071: D/Circle2(30503): init()
+02-07 20:48:14.261: D/RECV(30503): bang notec
+02-07 20:48:14.751: D/Circle2(30503): init()
+02-07 20:48:14.901: D/RECV(30503): bang notec
+02-07 20:48:15.391: D/Circle2(30503): init()
+02-07 20:48:15.931: D/RECV(30503): bang notec
+02-07 20:48:16.421: D/Circle2(30503): init()
+02-07 20:48:16.671: D/RECV(30503): bang notec
+02-07 20:48:17.161: D/Circle2(30503): init()
+02-07 20:48:17.241: D/RECV(30503): bang notec
+02-07 20:48:17.731: D/Circle2(30503): init()
+02-07 20:48:17.911: D/RECV(30503): bang notec
+02-07 20:48:18.401: D/Circle2(30503): init()
+02-07 20:48:18.891: D/RECV(30503): bang notec
+02-07 20:48:19.381: D/Circle2(30503): init()
+02-07 20:48:19.381: D/RECV(30503): bang notec
+02-07 20:48:19.421: D/isAlive(30503): thisisAlive false
+02-07 20:48:19.871: D/Circle2(30503): init()
+02-07 20:48:20.211: D/RECV(30503): bang notec
+02-07 20:48:20.681: D/RECV(30503): bang notec
+02-07 20:48:20.711: D/Circle2(30503): init()
+02-07 20:48:21.171: D/Circle2(30503): init()
+02-07 20:48:21.291: D/RECV(30503): bang notec
+02-07 20:48:21.781: D/Circle2(30503): init()
+02-07 20:48:21.871: D/RECV(30503): bang notec
+02-07 20:48:22.361: D/Circle2(30503): init()
+02-07 20:48:22.521: D/RECV(30503): bang sonar
+02-07 20:48:22.601: D/RECV(30503): bang notec
+02-07 20:48:22.621: D/SonarCircle2(30503): init()
+02-07 20:48:23.091: D/Circle2(30503): init()
+02-07 20:48:23.171: D/RECV(30503): bang notec
+02-07 20:48:23.661: D/Circle2(30503): init()
+02-07 20:48:23.821: D/RECV(30503): bang notec
+02-07 20:48:24.311: D/Circle2(30503): init()
+02-07 20:48:24.391: D/RECV(30503): bang notec
+02-07 20:48:24.871: D/RECV(30503): bang notec
+02-07 20:48:24.881: D/Circle2(30503): init()
+02-07 20:48:25.361: D/Circle2(30503): init()
+02-07 20:48:25.471: D/RECV(30503): bang notec
+02-07 20:48:25.961: D/Circle2(30503): init()
+02-07 20:48:26.131: D/RECV(30503): bang notec
+02-07 20:48:26.521: D/RECV(30503): bang notec
+02-07 20:48:26.621: D/Circle2(30503): init()
+02-07 20:48:26.881: D/RECV(30503): bang notec
+02-07 20:48:27.011: D/Circle2(30503): init()
+02-07 20:48:27.371: D/Circle2(30503): init()
+02-07 20:48:27.541: D/RECV(30503): bang notec
+02-07 20:48:28.031: D/Circle2(30503): init()
+02-07 20:48:28.401: D/RECV(30503): bang notec
+02-07 20:48:28.891: D/Circle2(30503): init()
+02-07 20:48:29.141: D/RECV(30503): bang notec
+02-07 20:48:29.631: D/Circle2(30503): init()
+02-07 20:48:29.671: D/RECV(30503): bang notec
+02-07 20:48:30.161: D/Circle2(30503): init()
+02-07 20:48:30.301: D/RECV(30503): bang notec
+02-07 20:48:30.791: D/Circle2(30503): init()
+02-07 20:48:30.961: D/RECV(30503): bang notec
+02-07 20:48:31.451: D/Circle2(30503): init()
+02-07 20:48:31.621: D/RECV(30503): bang notec
+02-07 20:48:32.111: D/Circle2(30503): init()
+02-07 20:48:32.221: D/isAlive(30503): thisisAlive false
+02-07 20:48:32.451: D/RECV(30503): bang notec
+02-07 20:48:32.941: D/Circle2(30503): init()
+02-07 20:48:33.001: D/RECV(30503): bang notec
+02-07 20:48:33.491: D/Circle2(30503): init()
+02-07 20:48:33.831: D/RECV(30503): bang notec
+02-07 20:48:34.321: D/Circle2(30503): init()
+02-07 20:48:34.401: D/RECV(30503): bang notec
+02-07 20:48:34.791: D/RECV(30503): bang notec
+02-07 20:48:34.891: D/Circle2(30503): init()
+02-07 20:48:35.071: D/RECV(30503): bang notec
+02-07 20:48:35.281: D/Circle2(30503): init()
+02-07 20:48:35.561: D/Circle2(30503): init()
+02-07 20:48:35.791: D/RECV(30503): bang notec
+02-07 20:48:35.901: D/RECV(30503): bang sonar
+02-07 20:48:36.001: D/SonarCircle2(30503): init()
+02-07 20:48:36.281: D/Circle2(30503): init()
+02-07 20:48:36.541: D/RECV(30503): bang notec
+02-07 20:48:37.031: D/Circle2(30503): init()
+02-07 20:48:37.101: D/RECV(30503): bang switchdir
+02-07 20:48:37.291: D/RECV(30503): bang notec
+02-07 20:48:37.781: D/Circle2(30503): init()
+02-07 20:48:38.031: D/RECV(30503): bang notec
+02-07 20:48:38.521: D/Circle2(30503): init()
+02-07 20:48:38.881: D/RECV(30503): bang notec
+02-07 20:48:39.371: D/Circle2(30503): init()
+02-07 20:48:39.551: D/RECV(30503): bang notec
+02-07 20:48:39.991: D/RECV(30503): bang notec
+02-07 20:48:40.041: D/Circle2(30503): init()
+02-07 20:48:40.481: D/Circle2(30503): init()
+02-07 20:48:40.621: D/RECV(30503): bang notec
+02-07 20:48:41.111: D/Circle2(30503): init()
+02-07 20:48:41.451: D/RECV(30503): bang notec
+02-07 20:48:41.941: D/Circle2(30503): init()
+02-07 20:48:42.211: D/RECV(30503): bang notec
+02-07 20:48:42.701: D/Circle2(30503): init()
+02-07 20:48:43.071: D/RECV(30503): bang notec
+02-07 20:48:43.561: D/Circle2(30503): init()
+02-07 20:48:43.751: D/RECV(30503): bang notec
+02-07 20:48:44.241: D/Circle2(30503): init()
+02-07 20:48:44.461: D/isAlive(30503): thisisAlive false
+02-07 20:48:44.551: D/RECV(30503): bang notec
+02-07 20:48:45.041: D/Circle2(30503): init()
+02-07 20:48:45.551: D/RECV(30503): bang notec
+02-07 20:48:46.041: D/Circle2(30503): init()
+02-07 20:48:46.591: D/RECV(30503): bang notec
+02-07 20:48:47.091: D/Circle2(30503): init()
+02-07 20:48:47.611: D/RECV(30503): bang notec
+02-07 20:48:48.101: D/Circle2(30503): init()
+02-07 20:48:48.651: D/RECV(30503): bang notec
+02-07 20:48:49.141: D/Circle2(30503): init()
+02-07 20:48:49.391: D/RECV(30503): bang sonar
+02-07 20:48:49.491: D/SonarCircle2(30503): init()
+02-07 20:48:49.661: D/RECV(30503): bang notec
+02-07 20:48:50.151: D/Circle2(30503): init()
+02-07 20:48:50.781: D/RECV(30503): bang notec
+02-07 20:48:51.281: D/Circle2(30503): init()
+02-07 20:48:51.541: D/RECV(30503): bang notec
+02-07 20:48:52.031: D/Circle2(30503): init()
+02-07 20:48:52.601: D/RECV(30503): bang notec
+02-07 20:48:53.091: D/Circle2(30503): init()
+02-07 20:48:53.831: D/RECV(30503): bang notec
+02-07 20:48:54.321: D/Circle2(30503): init()
+02-07 20:48:55.061: D/RECV(30503): bang notec
+02-07 20:48:55.551: D/Circle2(30503): init()
+02-07 20:48:56.291: D/RECV(30503): bang notec
+02-07 20:48:56.781: D/Circle2(30503): init()
+02-07 20:48:57.121: D/isAlive(30503): thisisAlive false
+02-07 20:48:57.551: D/RECV(30503): bang notec
+02-07 20:48:58.041: D/Circle2(30503): init()
+02-07 20:48:58.671: D/RECV(30503): bang notec
+02-07 20:48:59.161: D/Circle2(30503): init()
+02-07 20:48:59.911: D/RECV(30503): bang notec
+02-07 20:49:00.401: D/Circle2(30503): init()
+02-07 20:49:01.141: D/RECV(30503): bang notec
+02-07 20:49:01.631: D/Circle2(30503): init()
+02-07 20:49:02.211: D/RECV(30503): bang notec
+02-07 20:49:02.701: D/Circle2(30503): init()
+02-07 20:49:02.871: D/RECV(30503): bang sonar
+02-07 20:49:02.971: D/SonarCircle2(30503): init()
+02-07 20:49:03.261: D/RECV(30503): bang notec
+02-07 20:49:03.751: D/Circle2(30503): init()
+02-07 20:49:04.431: D/RECV(30503): bang notec
+02-07 20:49:04.931: D/Circle2(30503): init()
+02-07 20:49:05.471: D/RECV(30503): bang notec
+02-07 20:49:05.961: D/Circle2(30503): init()
+02-07 20:49:06.701: D/RECV(30503): bang notec
+02-07 20:49:07.191: D/Circle2(30503): init()
+02-07 20:49:07.971: D/RECV(30503): bang notec
+02-07 20:49:08.461: D/Circle2(30503): init()
+02-07 20:49:09.181: D/RECV(30503): bang notec
+02-07 20:49:09.671: D/Circle2(30503): init()
+02-07 20:49:10.041: D/isAlive(30503): thisisAlive false
+02-07 20:49:10.391: D/RECV(30503): bang notec
+02-07 20:49:10.531: D/dalvikvm(30503): GC_CONCURRENT freed 676K, 23% free 9697K/12551K, paused 13ms+30ms
+02-07 20:49:10.881: D/Circle2(30503): init()
+02-07 20:49:11.611: D/RECV(30503): bang notec
+02-07 20:49:12.101: D/Circle2(30503): init()
+02-07 20:49:12.871: D/RECV(30503): bang notec
+02-07 20:49:13.361: D/Circle2(30503): init()
+02-07 20:49:13.761: D/RECV(30503): bang notec
+02-07 20:49:14.251: D/Circle2(30503): init()
+02-07 20:49:14.851: D/RECV(30503): bang notec
+02-07 20:49:15.341: D/Circle2(30503): init()
+02-07 20:49:15.881: D/RECV(30503): bang notec
+02-07 20:49:16.331: D/RECV(30503): bang sonar
+02-07 20:49:16.371: D/Circle2(30503): init()
+02-07 20:49:16.431: D/SonarCircle2(30503): init()
+02-07 20:49:16.721: D/RECV(30503): bang notec
+02-07 20:49:17.201: D/RECV(30503): bang switchdir
+02-07 20:49:17.211: D/Circle2(30503): init()
+02-07 20:49:17.541: D/RECV(30503): bang notec
+02-07 20:49:18.031: D/Circle2(30503): init()
+02-07 20:49:18.371: D/RECV(30503): bang notec
+02-07 20:49:18.861: D/Circle2(30503): init()
+02-07 20:49:19.101: D/RECV(30503): bang notec
+02-07 20:49:19.591: D/Circle2(30503): init()
+02-07 20:49:20.141: D/RECV(30503): bang notec
+02-07 20:49:20.631: D/Circle2(30503): init()
+02-07 20:49:20.971: D/RECV(30503): bang notec
+02-07 20:49:21.461: D/Circle2(30503): init()
+02-07 20:49:21.891: D/RECV(30503): bang notec
+02-07 20:49:22.381: D/Circle2(30503): init()
+02-07 20:49:22.641: D/RECV(30503): bang notec
+02-07 20:49:23.131: D/Circle2(30503): init()
+02-07 20:49:23.361: D/isAlive(30503): thisisAlive false
+02-07 20:49:23.411: D/RECV(30503): bang notec
+02-07 20:49:23.901: D/Circle2(30503): init()
+02-07 20:49:24.021: D/RECV(30503): bang notec
+02-07 20:49:24.511: D/Circle2(30503): init()
+02-07 20:49:24.511: D/RECV(30503): bang notec
+02-07 20:49:25.001: D/Circle2(30503): init()
+02-07 20:49:25.421: D/RECV(30503): bang notec
+02-07 20:49:25.911: D/Circle2(30503): init()
+02-07 20:49:26.301: D/RECV(30503): bang notec
+02-07 20:49:26.791: D/Circle2(30503): init()
+02-07 20:49:27.021: D/RECV(30503): bang notec
+02-07 20:49:27.471: D/RECV(30503): bang notec
+02-07 20:49:27.521: D/Circle2(30503): init()
+02-07 20:49:27.961: D/Circle2(30503): init()
+02-07 20:49:28.201: D/RECV(30503): bang notec
+02-07 20:49:28.691: D/Circle2(30503): init()
+02-07 20:49:29.091: D/RECV(30503): bang notec
+02-07 20:49:29.581: D/Circle2(30503): init()
+02-07 20:49:29.601: D/RECV(30503): bang notec
+02-07 20:49:29.831: D/RECV(30503): bang sonar
+02-07 20:49:29.931: D/SonarCircle2(30503): init()
+02-07 20:49:30.091: D/Circle2(30503): init()
+02-07 20:49:30.181: D/RECV(30503): bang notec
+02-07 20:49:30.671: D/Circle2(30503): init()
+02-07 20:49:30.991: D/RECV(30503): bang notec
+02-07 20:49:31.481: D/Circle2(30503): init()
+02-07 20:49:31.661: D/RECV(30503): bang notec
+02-07 20:49:32.151: D/Circle2(30503): init()
+02-07 20:49:32.221: D/RECV(30503): bang notec
+02-07 20:49:32.711: D/Circle2(30503): init()
+02-07 20:49:32.861: D/RECV(30503): bang notec
+02-07 20:49:33.361: D/Circle2(30503): init()
+02-07 20:49:33.521: D/RECV(30503): bang notec
+02-07 20:49:34.011: D/Circle2(30503): init()
+02-07 20:49:34.181: D/RECV(30503): bang notec
+02-07 20:49:34.661: D/RECV(30503): bang notec
+02-07 20:49:34.671: D/Circle2(30503): init()
+02-07 20:49:35.151: D/Circle2(30503): init()
+02-07 20:49:35.471: D/RECV(30503): bang notec
+02-07 20:49:35.961: D/Circle2(30503): init()
+02-07 20:49:36.131: D/RECV(30503): bang notec
+02-07 20:49:36.581: D/RECV(30503): bang notec
+02-07 20:49:36.621: D/Circle2(30503): init()
+02-07 20:49:36.861: D/isAlive(30503): thisisAlive false
+02-07 20:49:37.041: D/RECV(30503): bang notec
+02-07 20:49:37.071: D/Circle2(30503): init()
+02-07 20:49:37.531: D/Circle2(30503): init()
+02-07 20:49:37.541: D/RECV(30503): bang notec
+02-07 20:49:38.031: D/Circle2(30503): init()
+02-07 20:49:38.281: D/RECV(30503): bang notec
+02-07 20:49:38.771: D/Circle2(30503): init()
+02-07 20:49:39.011: D/RECV(30503): bang notec
+02-07 20:49:39.501: D/Circle2(30503): init()
+02-07 20:49:39.661: D/RECV(30503): bang notec
+02-07 20:49:40.151: D/Circle2(30503): init()
+02-07 20:49:40.491: D/RECV(30503): bang notec
+02-07 20:49:40.981: D/Circle2(30503): init()
+02-07 20:49:41.081: D/RECV(30503): bang notec
+02-07 20:49:41.571: D/Circle2(30503): init()
+02-07 20:49:41.721: D/RECV(30503): bang notec
+02-07 20:49:42.211: D/Circle2(30503): init()
+02-07 20:49:42.541: D/RECV(30503): bang notec
+02-07 20:49:43.011: D/RECV(30503): bang notec
+02-07 20:49:43.031: D/Circle2(30503): init()
+02-07 20:49:43.281: D/RECV(30503): bang sonar
+02-07 20:49:43.381: D/SonarCircle2(30503): init()
+02-07 20:49:43.501: D/Circle2(30503): init()
+02-07 20:49:43.671: D/RECV(30503): bang notec
+02-07 20:49:44.161: D/Circle2(30503): init()
+02-07 20:49:44.411: D/RECV(30503): bang notec
+02-07 20:49:44.771: D/RECV(30503): bang notec
+02-07 20:49:44.901: D/Circle2(30503): init()
+02-07 20:49:45.261: D/Circle2(30503): init()
+02-07 20:49:45.411: D/RECV(30503): bang notec
+02-07 20:49:45.901: D/Circle2(30503): init()
+02-07 20:49:45.971: D/RECV(30503): bang notec
+02-07 20:49:46.451: D/RECV(30503): bang notec
+02-07 20:49:46.461: D/Circle2(30503): init()
+02-07 20:49:46.941: D/Circle2(30503): init()
+02-07 20:49:47.291: D/RECV(30503): bang notec
+02-07 20:49:47.781: D/Circle2(30503): init()
+02-07 20:49:48.101: D/RECV(30503): bang notec
+02-07 20:49:48.601: D/Circle2(30503): init()
+02-07 20:49:48.931: D/RECV(30503): bang notec
+02-07 20:49:49.421: D/Circle2(30503): init()
+02-07 20:49:49.691: D/RECV(30503): bang notec
+02-07 20:49:50.181: D/Circle2(30503): init()
+02-07 20:49:50.251: D/RECV(30503): bang notec
+02-07 20:49:50.741: D/Circle2(30503): init()
+02-07 20:49:50.821: D/RECV(30503): bang notec
+02-07 20:49:51.031: D/isAlive(30503): thisisAlive false
+02-07 20:49:51.311: D/Circle2(30503): init()
+02-07 20:49:51.641: D/RECV(30503): bang notec
+02-07 20:49:52.141: D/Circle2(30503): init()
+02-07 20:49:52.141: D/RECV(30503): bang notec
+02-07 20:49:52.631: D/Circle2(30503): init()
+02-07 20:49:52.791: D/RECV(30503): bang notec
+02-07 20:49:53.281: D/Circle2(30503): init()
+02-07 20:49:53.601: D/RECV(30503): bang notec
+02-07 20:49:54.091: D/Circle2(30503): init()
+02-07 20:49:54.431: D/RECV(30503): bang notec
+02-07 20:49:54.921: D/Circle2(30503): init()
+02-07 20:49:55.181: D/RECV(30503): bang notec
+02-07 20:49:55.671: D/Circle2(30503): init()
+02-07 20:49:55.811: D/RECV(30503): bang notec
+02-07 20:49:56.301: D/Circle2(30503): init()
+02-07 20:49:56.741: D/RECV(30503): bang sonar
+02-07 20:49:56.741: D/RECV(30503): bang notec
+02-07 20:49:56.841: D/SonarCircle2(30503): init()
+02-07 20:49:57.151: D/RECV(30503): bang switchdir
+02-07 20:49:57.231: D/Circle2(30503): init()
+02-07 20:49:57.621: D/RECV(30503): bang notec
+02-07 20:49:58.111: D/Circle2(30503): init()
+02-07 20:49:58.451: D/RECV(30503): bang notec
+02-07 20:49:58.941: D/Circle2(30503): init()
+02-07 20:49:59.171: D/RECV(30503): bang notec
+02-07 20:49:59.661: D/Circle2(30503): init()
+02-07 20:50:00.261: D/RECV(30503): bang notec
+02-07 20:50:00.751: D/Circle2(30503): init()
+02-07 20:50:01.401: D/RECV(30503): bang notec
+02-07 20:50:01.891: D/Circle2(30503): init()
+02-07 20:50:02.621: D/RECV(30503): bang notec
+02-07 20:50:03.111: D/Circle2(30503): init()
+02-07 20:50:03.541: D/RECV(30503): bang notec
+02-07 20:50:04.031: D/Circle2(30503): init()
+02-07 20:50:04.581: D/RECV(30503): bang notec
+02-07 20:50:05.071: D/Circle2(30503): init()
+02-07 20:50:05.191: D/isAlive(30503): thisisAlive false
+02-07 20:50:05.761: D/RECV(30503): bang notec
+02-07 20:50:06.251: D/Circle2(30503): init()
+02-07 20:50:06.791: D/RECV(30503): bang notec
+02-07 20:50:07.281: D/Circle2(30503): init()
+02-07 20:50:08.021: D/RECV(30503): bang notec
+02-07 20:50:08.511: D/Circle2(30503): init()
+02-07 20:50:09.291: D/RECV(30503): bang notec
+02-07 20:50:09.781: D/Circle2(30503): init()
+02-07 20:50:10.231: D/RECV(30503): bang sonar
+02-07 20:50:10.331: D/SonarCircle2(30503): init()
+02-07 20:50:10.421: D/RECV(30503): bang notec
+02-07 20:50:10.911: D/Circle2(30503): init()
+02-07 20:50:11.631: D/RECV(30503): bang notec
+02-07 20:50:12.121: D/Circle2(30503): init()
+02-07 20:50:12.731: D/RECV(30503): bang notec
+02-07 20:50:13.221: D/Circle2(30503): init()
+02-07 20:50:13.681: D/RECV(30503): bang notec
+02-07 20:50:14.171: D/Circle2(30503): init()
+02-07 20:50:15.081: D/RECV(30503): bang notec
+02-07 20:50:15.571: D/Circle2(30503): init()
+02-07 20:50:15.911: D/RECV(30503): bang notec
+02-07 20:50:16.401: D/Circle2(30503): init()
+02-07 20:50:17.001: D/RECV(30503): bang notec
+02-07 20:50:17.491: D/Circle2(30503): init()
+02-07 20:50:18.131: D/RECV(30503): bang notec
+02-07 20:50:18.621: D/Circle2(30503): init()
+02-07 20:50:18.851: D/isAlive(30503): thisisAlive false
+02-07 20:50:19.041: D/RECV(30503): bang notec
+02-07 20:50:19.531: D/Circle2(30503): init()
+02-07 20:50:19.991: D/RECV(30503): bang notec
+02-07 20:50:20.491: D/Circle2(30503): init()
+02-07 20:50:21.161: D/RECV(30503): bang notec
+02-07 20:50:21.651: D/Circle2(30503): init()
+02-07 20:50:22.291: D/RECV(30503): bang notec
+02-07 20:50:22.791: D/Circle2(30503): init()
+02-07 20:50:23.241: D/RECV(30503): bang notec
+02-07 20:50:23.631: D/RECV(30503): bang sonar
+02-07 20:50:23.731: D/SonarCircle2(30503): init()
+02-07 20:50:23.741: D/Circle2(30503): init()
+02-07 20:50:24.101: D/RECV(30503): bang notec
+02-07 20:50:24.591: D/Circle2(30503): init()
+02-07 20:50:25.101: D/RECV(30503): bang notec
+02-07 20:50:25.591: D/Circle2(30503): init()
+02-07 20:50:25.741: D/RECV(30503): bang notec
+02-07 20:50:26.231: D/Circle2(30503): init()
+02-07 20:50:26.871: D/RECV(30503): bang notec
+02-07 20:50:27.361: D/Circle2(30503): init()
+02-07 20:50:27.621: D/RECV(30503): bang notec
+02-07 20:50:28.111: D/Circle2(30503): init()
+02-07 20:50:28.351: D/RECV(30503): bang notec
+02-07 20:50:28.841: D/Circle2(30503): init()
+02-07 20:50:28.911: D/RECV(30503): bang notec
+02-07 20:50:29.401: D/Circle2(30503): init()
+02-07 20:50:29.921: D/RECV(30503): bang notec
+02-07 20:50:30.411: D/Circle2(30503): init()
+02-07 20:50:30.501: D/RECV(30503): bang notec
+02-07 20:50:30.991: D/Circle2(30503): init()
+02-07 20:50:31.311: D/RECV(30503): bang notec
+02-07 20:50:31.801: D/Circle2(30503): init()
+02-07 20:50:32.141: D/RECV(30503): bang notec
+02-07 20:50:32.621: D/RECV(30503): bang notec
+02-07 20:50:32.631: D/Circle2(30503): init()
+02-07 20:50:33.111: D/Circle2(30503): init()
+02-07 20:50:33.431: D/isAlive(30503): thisisAlive false
+02-07 20:50:33.441: D/RECV(30503): bang notec
+02-07 20:50:33.941: D/Circle2(30503): init()
+02-07 20:50:34.191: D/RECV(30503): bang notec
+02-07 20:50:34.681: D/Circle2(30503): init()
+02-07 20:50:35.031: D/RECV(30503): bang notec
+02-07 20:50:35.421: D/RECV(30503): bang notec
+02-07 20:50:35.521: D/Circle2(30503): init()
+02-07 20:50:35.911: D/Circle2(30503): init()
+02-07 20:50:36.001: D/RECV(30503): bang notec
+02-07 20:50:36.491: D/Circle2(30503): init()
+02-07 20:50:36.731: D/RECV(30503): bang notec
+02-07 20:50:37.081: D/RECV(30503): bang sonar
+02-07 20:50:37.151: D/RECV(30503): bang switchdir
+02-07 20:50:37.181: D/SonarCircle2(30503): init()
+02-07 20:50:37.221: D/Circle2(30503): init()
+02-07 20:50:37.471: D/RECV(30503): bang notec
+02-07 20:50:37.961: D/Circle2(30503): init()
+02-07 20:50:38.021: D/RECV(30503): bang notec
+02-07 20:50:38.511: D/Circle2(30503): init()
+02-07 20:50:38.701: D/RECV(30503): bang notec
+02-07 20:50:39.191: D/Circle2(30503): init()
+02-07 20:50:39.511: D/RECV(30503): bang notec
+02-07 20:50:40.001: D/Circle2(30503): init()
+02-07 20:50:40.241: D/RECV(30503): bang notec
+02-07 20:50:40.731: D/Circle2(30503): init()
+02-07 20:50:40.901: D/RECV(30503): bang notec
+02-07 20:50:41.391: D/Circle2(30503): init()
+02-07 20:50:41.471: D/RECV(30503): bang notec
+02-07 20:50:41.961: D/Circle2(30503): init()
+02-07 20:50:42.011: D/RECV(30503): bang notec
+02-07 20:50:42.501: D/Circle2(30503): init()
+02-07 20:50:42.651: D/RECV(30503): bang notec
+02-07 20:50:43.041: D/RECV(30503): bang notec
+02-07 20:50:43.141: D/Circle2(30503): init()
+02-07 20:50:43.301: D/RECV(30503): bang notec
+02-07 20:50:43.531: D/Circle2(30503): init()
+02-07 20:50:43.791: D/Circle2(30503): init()
+02-07 20:50:43.961: D/RECV(30503): bang notec
+02-07 20:50:44.451: D/Circle2(30503): init()
+02-07 20:50:44.681: D/RECV(30503): bang notec
+02-07 20:50:45.171: D/Circle2(30503): init()
+02-07 20:50:45.361: D/RECV(30503): bang notec
+02-07 20:50:45.851: D/Circle2(30503): init()
+02-07 20:50:45.991: D/RECV(30503): bang notec
+02-07 20:50:46.481: D/RECV(30503): bang notec
+02-07 20:50:46.481: D/Circle2(30503): init()
+02-07 20:50:46.971: D/Circle2(30503): init()
+02-07 20:50:47.131: D/RECV(30503): bang notec
+02-07 20:50:47.621: D/Circle2(30503): init()
+02-07 20:50:47.651: D/RECV(30503): bang notec
+02-07 20:50:48.141: D/Circle2(30503): init()
+02-07 20:50:48.251: D/isAlive(30503): thisisAlive false
+02-07 20:50:48.301: D/RECV(30503): bang notec
+02-07 20:50:48.691: D/RECV(30503): bang notec
+02-07 20:50:48.791: D/Circle2(30503): init()
+02-07 20:50:49.181: D/Circle2(30503): init()
+02-07 20:50:49.271: D/RECV(30503): bang notec
+02-07 20:50:49.761: D/Circle2(30503): init()
+02-07 20:50:50.081: D/RECV(30503): bang notec
+02-07 20:50:50.461: D/RECV(30503): bang notec
+02-07 20:50:50.571: D/Circle2(30503): init()
+02-07 20:50:50.581: D/RECV(30503): bang sonar
+02-07 20:50:50.681: D/SonarCircle2(30503): init()
+02-07 20:50:50.951: D/Circle2(30503): init()
+02-07 20:50:51.311: D/RECV(30503): bang notec
+02-07 20:50:51.661: D/RECV(30503): bang notec
+02-07 20:50:51.801: D/Circle2(30503): init()
+02-07 20:50:52.151: D/Circle2(30503): init()
+02-07 20:50:52.491: D/RECV(30503): bang notec
+02-07 20:50:52.881: D/RECV(30503): bang notec
+02-07 20:50:52.981: D/Circle2(30503): init()
+02-07 20:50:53.371: D/Circle2(30503): init()
+02-07 20:50:53.441: D/RECV(30503): bang notec
+02-07 20:50:53.931: D/Circle2(30503): init()
+02-07 20:50:54.011: D/RECV(30503): bang notec
+02-07 20:50:54.441: D/RECV(30503): bang notec
+02-07 20:50:54.501: D/Circle2(30503): init()
+02-07 20:50:54.931: D/Circle2(30503): init()
+02-07 20:50:55.121: D/RECV(30503): bang notec
+02-07 20:50:55.611: D/Circle2(30503): init()
+02-07 20:50:55.761: D/RECV(30503): bang notec
+02-07 20:50:56.251: D/RECV(30503): bang notec
+02-07 20:50:56.251: D/Circle2(30503): init()
+02-07 20:50:56.741: D/Circle2(30503): init()
+02-07 20:50:56.981: D/RECV(30503): bang notec
+02-07 20:50:57.471: D/Circle2(30503): init()
+02-07 20:50:57.801: D/RECV(30503): bang notec
+02-07 20:50:58.291: D/Circle2(30503): init()
+02-07 20:50:58.551: D/RECV(30503): bang notec
+02-07 20:50:59.041: D/Circle2(30503): init()
+02-07 20:50:59.361: D/RECV(30503): bang notec
+02-07 20:50:59.851: D/Circle2(30503): init()
+02-07 20:51:00.061: D/RECV(30503): bang notec
+02-07 20:51:00.551: D/Circle2(30503): init()
+02-07 20:51:00.771: D/RECV(30503): bang notec
+02-07 20:51:01.261: D/Circle2(30503): init()
+02-07 20:51:01.721: D/RECV(30503): bang notec
+02-07 20:51:02.211: D/Circle2(30503): init()
+02-07 20:51:02.721: D/RECV(30503): bang notec
+02-07 20:51:03.091: D/isAlive(30503): thisisAlive false
+02-07 20:51:03.211: D/Circle2(30503): init()
+02-07 20:51:03.541: D/RECV(30503): bang notec
+02-07 20:51:04.031: D/Circle2(30503): init()
+02-07 20:51:04.041: D/RECV(30503): bang sonar
+02-07 20:51:04.141: D/SonarCircle2(30503): init()
+02-07 20:51:04.671: D/RECV(30503): bang notec
+02-07 20:51:05.171: D/Circle2(30503): init()
+02-07 20:51:05.771: D/RECV(30503): bang notec
+02-07 20:51:06.261: D/Circle2(30503): init()
+02-07 20:51:06.811: D/RECV(30503): bang notec
+02-07 20:51:07.311: D/Circle2(30503): init()
+02-07 20:51:07.941: D/RECV(30503): bang notec
+02-07 20:51:08.431: D/Circle2(30503): init()
+02-07 20:51:08.851: D/RECV(30503): bang notec
+02-07 20:51:09.341: D/Circle2(30503): init()
+02-07 20:51:09.681: D/RECV(30503): bang notec
+02-07 20:51:10.171: D/Circle2(30503): init()
+02-07 20:51:10.731: D/RECV(30503): bang notec
+02-07 20:51:11.221: D/Circle2(30503): init()
+02-07 20:51:11.741: D/RECV(30503): bang notec
+02-07 20:51:12.231: D/Circle2(30503): init()
+02-07 20:51:13.031: D/RECV(30503): bang notec
+02-07 20:51:13.521: D/Circle2(30503): init()
+02-07 20:51:14.351: D/RECV(30503): bang notec
+02-07 20:51:14.841: D/Circle2(30503): init()
+02-07 20:51:15.731: D/RECV(30503): bang notec
+02-07 20:51:16.221: D/Circle2(30503): init()
+02-07 20:51:16.831: D/RECV(30503): bang notec
+02-07 20:51:16.941: D/isAlive(30503): thisisAlive false
+02-07 20:51:17.211: D/RECV(30503): bang switchdir
+02-07 20:51:17.321: D/Circle2(30503): init()
+02-07 20:51:17.481: D/RECV(30503): bang sonar
+02-07 20:51:17.581: D/SonarCircle2(30503): init()
+02-07 20:51:17.791: D/RECV(30503): bang notec
+02-07 20:51:18.281: D/Circle2(30503): init()
+02-07 20:51:18.691: D/dalvikvm(30503): GC_CONCURRENT freed 719K, 22% free 9914K/12551K, paused 13ms+34ms
+02-07 20:51:18.961: D/RECV(30503): bang notec
+02-07 20:51:19.461: D/Circle2(30503): init()
+02-07 20:51:19.911: D/RECV(30503): bang notec
+02-07 20:51:20.401: D/Circle2(30503): init()
+02-07 20:51:21.001: D/RECV(30503): bang notec
+02-07 20:51:21.491: D/Circle2(30503): init()
+02-07 20:51:22.141: D/RECV(30503): bang notec
+02-07 20:51:22.631: D/Circle2(30503): init()
+02-07 20:51:23.361: D/RECV(30503): bang notec
+02-07 20:51:23.851: D/Circle2(30503): init()
+02-07 20:51:24.661: D/RECV(30503): bang notec
+02-07 20:51:25.151: D/Circle2(30503): init()
+02-07 20:51:25.841: D/RECV(30503): bang notec
+02-07 20:51:26.331: D/Circle2(30503): init()
+02-07 20:51:26.811: D/RECV(30503): bang notec
+02-07 20:51:27.301: D/Circle2(30503): init()
+02-07 20:51:27.891: D/RECV(30503): bang notec
+02-07 20:51:28.381: D/Circle2(30503): init()
+02-07 20:51:29.201: D/RECV(30503): bang notec
+02-07 20:51:29.701: D/Circle2(30503): init()
+02-07 20:51:30.111: D/RECV(30503): bang notec
+02-07 20:51:30.601: D/Circle2(30503): init()
+02-07 20:51:30.691: D/isAlive(30503): thisisAlive false
+02-07 20:51:30.981: D/RECV(30503): bang sonar
+02-07 20:51:31.081: D/SonarCircle2(30503): init()
+02-07 20:51:31.151: D/RECV(30503): bang notec
+02-07 20:51:31.641: D/Circle2(30503): init()
+02-07 20:51:32.001: D/RECV(30503): bang notec
+02-07 20:51:32.491: D/Circle2(30503): init()
+02-07 20:51:32.731: D/RECV(30503): bang notec
+02-07 20:51:33.221: D/Circle2(30503): init()
+02-07 20:51:33.641: D/RECV(30503): bang notec
+02-07 20:51:34.141: D/Circle2(30503): init()
+02-07 20:51:34.591: D/RECV(30503): bang notec
+02-07 20:51:35.081: D/Circle2(30503): init()
+02-07 20:51:35.161: D/RECV(30503): bang notec
+02-07 20:51:35.651: D/Circle2(30503): init()
+02-07 20:51:35.811: D/RECV(30503): bang notec
+02-07 20:51:36.301: D/Circle2(30503): init()
+02-07 20:51:36.831: D/RECV(30503): bang notec
+02-07 20:51:37.321: D/Circle2(30503): init()
+02-07 20:51:37.821: D/RECV(30503): bang notec
+02-07 20:51:38.311: D/Circle2(30503): init()
+02-07 20:51:38.471: D/RECV(30503): bang notec
+02-07 20:51:38.961: D/RECV(30503): bang notec
+02-07 20:51:38.961: D/Circle2(30503): init()
+02-07 20:51:39.451: D/Circle2(30503): init()
+02-07 20:51:39.531: D/RECV(30503): bang notec
+02-07 20:51:40.021: D/Circle2(30503): init()
+02-07 20:51:40.101: D/RECV(30503): bang notec
+02-07 20:51:40.591: D/Circle2(30503): init()
+02-07 20:51:40.841: D/RECV(30503): bang notec
+02-07 20:51:41.331: D/Circle2(30503): init()
+02-07 20:51:41.581: D/RECV(30503): bang notec
+02-07 20:51:42.071: D/Circle2(30503): init()
+02-07 20:51:42.321: D/RECV(30503): bang notec
+02-07 20:51:42.781: D/RECV(30503): bang notec
+02-07 20:51:42.811: D/Circle2(30503): init()
+02-07 20:51:43.271: D/Circle2(30503): init()
+02-07 20:51:43.631: D/RECV(30503): bang notec
+02-07 20:51:44.121: D/Circle2(30503): init()
+02-07 20:51:44.371: D/RECV(30503): bang notec
+02-07 20:51:44.431: D/RECV(30503): bang sonar
+02-07 20:51:44.531: D/SonarCircle2(30503): init()
+02-07 20:51:44.861: D/Circle2(30503): init()
+02-07 20:51:44.931: D/RECV(30503): bang notec
+02-07 20:51:45.421: D/Circle2(30503): init()
+02-07 20:51:45.441: D/isAlive(30503): thisisAlive false
+02-07 20:51:45.751: D/RECV(30503): bang notec
+02-07 20:51:46.241: D/Circle2(30503): init()
+02-07 20:51:46.501: D/RECV(30503): bang notec
+02-07 20:51:46.991: D/Circle2(30503): init()
+02-07 20:51:47.051: D/RECV(30503): bang notec
+02-07 20:51:47.501: D/RECV(30503): bang notec
+02-07 20:51:47.541: D/Circle2(30503): init()
+02-07 20:51:47.971: D/RECV(30503): bang notec
+02-07 20:51:47.991: D/Circle2(30503): init()
+02-07 20:51:48.461: D/Circle2(30503): init()
+02-07 20:51:48.621: D/RECV(30503): bang notec
+02-07 20:51:49.111: D/Circle2(30503): init()
+02-07 20:51:49.201: D/RECV(30503): bang notec
+02-07 20:51:49.691: D/Circle2(30503): init()
+02-07 20:51:49.761: D/RECV(30503): bang notec
+02-07 20:51:50.251: D/Circle2(30503): init()
+02-07 20:51:50.291: D/RECV(30503): bang notec
+02-07 20:51:50.781: D/Circle2(30503): init()
+02-07 20:51:51.151: D/RECV(30503): bang notec
+02-07 20:51:51.641: D/Circle2(30503): init()
+02-07 20:51:51.761: D/RECV(30503): bang notec
+02-07 20:51:52.251: D/Circle2(30503): init()
+02-07 20:51:52.551: D/RECV(30503): bang notec
+02-07 20:51:52.901: D/RECV(30503): bang notec
+02-07 20:51:53.041: D/Circle2(30503): init()
+02-07 20:51:53.381: D/RECV(30503): bang notec
+02-07 20:51:53.391: D/Circle2(30503): init()
+02-07 20:51:53.731: D/RECV(30503): bang notec
+02-07 20:51:53.871: D/Circle2(30503): init()
+02-07 20:51:54.221: D/Circle2(30503): init()
+02-07 20:51:54.361: D/RECV(30503): bang notec
+02-07 20:51:54.851: D/Circle2(30503): init()
+02-07 20:51:55.111: D/RECV(30503): bang notec
+02-07 20:51:55.601: D/Circle2(30503): init()
+02-07 20:51:55.691: D/RECV(30503): bang notec
+02-07 20:51:56.171: D/RECV(30503): bang notec
+02-07 20:51:56.181: D/Circle2(30503): init()
+02-07 20:51:56.511: D/RECV(30503): bang notec
+02-07 20:51:56.661: D/Circle2(30503): init()
+02-07 20:51:56.981: D/RECV(30503): bang notec
+02-07 20:51:57.001: D/Circle2(30503): init()
+02-07 20:51:57.171: D/RECV(30503): bang switchdir
+02-07 20:51:57.471: D/Circle2(30503): init()
+02-07 20:51:57.721: D/RECV(30503): bang notec
+02-07 20:51:57.891: D/RECV(30503): bang sonar
+02-07 20:51:57.991: D/SonarCircle2(30503): init()
+02-07 20:51:58.211: D/Circle2(30503): init()
+02-07 20:51:58.481: D/RECV(30503): bang notec
+02-07 20:51:58.971: D/Circle2(30503): init()
+02-07 20:51:59.141: D/RECV(30503): bang notec
+02-07 20:51:59.631: D/Circle2(30503): init()
+02-07 20:51:59.811: D/isAlive(30503): thisisAlive false
+02-07 20:51:59.941: D/RECV(30503): bang notec
+02-07 20:52:00.431: D/Circle2(30503): init()
+02-07 20:52:00.501: D/RECV(30503): bang notec
+02-07 20:52:00.991: D/Circle2(30503): init()
+02-07 20:52:01.091: D/RECV(30503): bang notec
+02-07 20:52:01.581: D/Circle2(30503): init()
+02-07 20:52:02.001: D/RECV(30503): bang notec
+02-07 20:52:02.491: D/Circle2(30503): init()
+02-07 20:52:02.821: D/RECV(30503): bang notec
+02-07 20:52:03.311: D/Circle2(30503): init()
+02-07 20:52:03.771: D/RECV(30503): bang notec
+02-07 20:52:04.261: D/Circle2(30503): init()
+02-07 20:52:04.301: D/RECV(30503): bang notec
+02-07 20:52:04.791: D/Circle2(30503): init()
+02-07 20:52:05.081: D/RECV(30503): bang notec
+02-07 20:52:05.571: D/Circle2(30503): init()
+02-07 20:52:05.821: D/RECV(30503): bang notec
+02-07 20:52:06.311: D/Circle2(30503): init()
+02-07 20:52:06.741: D/RECV(30503): bang notec
+02-07 20:52:07.231: D/Circle2(30503): init()
+02-07 20:52:07.471: D/RECV(30503): bang notec
+02-07 20:52:07.971: D/Circle2(30503): init()
+02-07 20:52:08.471: D/RECV(30503): bang notec
+02-07 20:52:08.971: D/Circle2(30503): init()
+02-07 20:52:09.351: D/RECV(30503): bang notec
+02-07 20:52:09.841: D/Circle2(30503): init()
+02-07 20:52:10.281: D/RECV(30503): bang notec
+02-07 20:52:10.771: D/Circle2(30503): init()
+02-07 20:52:11.281: D/RECV(30503): bang notec
+02-07 20:52:11.291: D/RECV(30503): bang sonar
+02-07 20:52:11.391: D/SonarCircle2(30503): init()
+02-07 20:52:11.781: D/Circle2(30503): init()
+02-07 20:52:12.491: D/RECV(30503): bang notec
+02-07 20:52:12.981: D/Circle2(30503): init()
+02-07 20:52:13.621: D/RECV(30503): bang notec
+02-07 20:52:13.631: D/isAlive(30503): thisisAlive false
+02-07 20:52:14.111: D/Circle2(30503): init()
+02-07 20:52:14.541: D/RECV(30503): bang notec
+02-07 20:52:15.031: D/Circle2(30503): init()
+02-07 20:52:15.661: D/RECV(30503): bang notec
+02-07 20:52:16.151: D/Circle2(30503): init()
+02-07 20:52:16.751: D/RECV(30503): bang notec
+02-07 20:52:17.241: D/Circle2(30503): init()
+02-07 20:52:18.061: D/RECV(30503): bang notec
+02-07 20:52:18.551: D/Circle2(30503): init()
+02-07 20:52:19.121: D/RECV(30503): bang notec
+02-07 20:52:19.611: D/Circle2(30503): init()
+02-07 20:52:20.021: D/RECV(30503): bang notec
+02-07 20:52:20.511: D/Circle2(30503): init()
+02-07 20:52:20.941: D/RECV(30503): bang notec
+02-07 20:52:21.431: D/Circle2(30503): init()
+02-07 20:52:21.981: D/RECV(30503): bang notec
+02-07 20:52:22.471: D/Circle2(30503): init()
+02-07 20:52:22.991: D/RECV(30503): bang notec
+02-07 20:52:23.481: D/Circle2(30503): init()
+02-07 20:52:24.281: D/RECV(30503): bang notec
+02-07 20:52:24.781: D/Circle2(30503): init()
+02-07 20:52:24.791: D/RECV(30503): bang sonar
+02-07 20:52:24.891: D/SonarCircle2(30503): init()
+02-07 20:52:25.421: D/RECV(30503): bang notec
+02-07 20:52:25.911: D/Circle2(30503): init()
+02-07 20:52:26.011: D/isAlive(30503): thisisAlive false
+02-07 20:52:26.731: D/RECV(30503): bang notec
+02-07 20:52:27.221: D/Circle2(30503): init()
+02-07 20:52:27.991: D/RECV(30503): bang notec
+02-07 20:52:28.481: D/Circle2(30503): init()
+02-07 20:52:28.961: D/RECV(30503): bang notec
+02-07 20:52:29.451: D/Circle2(30503): init()
+02-07 20:52:30.161: D/RECV(30503): bang notec
+02-07 20:52:30.651: D/Circle2(30503): init()
+02-07 20:52:31.101: D/RECV(30503): bang notec
+02-07 20:52:31.591: D/Circle2(30503): init()
+02-07 20:52:32.101: D/RECV(30503): bang notec
+02-07 20:52:32.591: D/Circle2(30503): init()
+02-07 20:52:33.391: D/RECV(30503): bang notec
+02-07 20:52:33.881: D/Circle2(30503): init()
+02-07 20:52:34.351: D/RECV(30503): bang notec
+02-07 20:52:34.841: D/Circle2(30503): init()
+02-07 20:52:35.091: D/RECV(30503): bang notec
+02-07 20:52:35.581: D/Circle2(30503): init()
+02-07 20:52:36.021: D/RECV(30503): bang notec
+02-07 20:52:36.511: D/Circle2(30503): init()
+02-07 20:52:37.131: D/RECV(30503): bang notec
+02-07 20:52:37.231: D/RECV(30503): bang switchdir
+02-07 20:52:37.621: D/Circle2(30503): init()
+02-07 20:52:37.791: D/isAlive(30503): thisisAlive false
+02-07 20:52:38.051: D/RECV(30503): bang notec
+02-07 20:52:38.241: D/RECV(30503): bang sonar
+02-07 20:52:38.341: D/SonarCircle2(30503): init()
+02-07 20:52:38.541: D/Circle2(30503): init()
+02-07 20:52:39.061: D/RECV(30503): bang notec
+02-07 20:52:39.551: D/Circle2(30503): init()
+02-07 20:52:39.711: D/RECV(30503): bang notec
+02-07 20:52:40.201: D/Circle2(30503): init()
+02-07 20:52:40.671: D/RECV(30503): bang notec
+02-07 20:52:41.161: D/Circle2(30503): init()
+02-07 20:52:41.581: D/RECV(30503): bang notec
+02-07 20:52:42.071: D/Circle2(30503): init()
+02-07 20:52:42.241: D/RECV(30503): bang notec
+02-07 20:52:42.731: D/Circle2(30503): init()
+02-07 20:52:43.141: D/RECV(30503): bang notec
+02-07 20:52:43.641: D/Circle2(30503): init()
+02-07 20:52:43.801: D/RECV(30503): bang notec
+02-07 20:52:44.291: D/Circle2(30503): init()
+02-07 20:52:44.561: D/RECV(30503): bang notec
+02-07 20:52:45.051: D/Circle2(30503): init()
+02-07 20:52:45.511: D/RECV(30503): bang notec
+02-07 20:52:45.941: D/RECV(30503): bang notec
+02-07 20:52:46.001: D/Circle2(30503): init()
+02-07 20:52:46.431: D/Circle2(30503): init()
+02-07 20:52:46.761: D/RECV(30503): bang notec
+02-07 20:52:47.251: D/Circle2(30503): init()
+02-07 20:52:47.431: D/RECV(30503): bang notec
+02-07 20:52:47.921: D/Circle2(30503): init()
+02-07 20:52:48.371: D/RECV(30503): bang notec
+02-07 20:52:48.861: D/Circle2(30503): init()
+02-07 20:52:49.131: D/RECV(30503): bang notec
+02-07 20:52:49.321: D/isAlive(30503): thisisAlive false
+02-07 20:52:49.621: D/Circle2(30503): init()
+02-07 20:52:50.031: D/RECV(30503): bang notec
+02-07 20:52:50.421: D/RECV(30503): bang notec
+02-07 20:52:50.521: D/Circle2(30503): init()
+02-07 20:52:50.911: D/Circle2(30503): init()
+02-07 20:52:51.081: D/RECV(30503): bang notec
+02-07 20:52:51.571: D/Circle2(30503): init()
+02-07 20:52:51.701: D/RECV(30503): bang sonar
+02-07 20:52:51.801: D/SonarCircle2(30503): init()
+02-07 20:52:51.811: D/RECV(30503): bang notec
+02-07 20:52:52.161: D/RECV(30503): bang notec
+02-07 20:52:52.301: D/Circle2(30503): init()
+02-07 20:52:52.641: D/RECV(30503): bang notec
+02-07 20:52:52.651: D/Circle2(30503): init()
+02-07 20:52:53.131: D/Circle2(30503): init()
+02-07 20:52:53.211: D/RECV(30503): bang notec
+02-07 20:52:53.641: D/RECV(30503): bang notec
+02-07 20:52:53.711: D/Circle2(30503): init()
+02-07 20:52:54.131: D/Circle2(30503): init()
+02-07 20:52:54.381: D/RECV(30503): bang notec
+02-07 20:52:54.871: D/Circle2(30503): init()
+02-07 20:52:55.121: D/RECV(30503): bang notec
+02-07 20:52:55.591: D/RECV(30503): bang notec
+02-07 20:52:55.611: D/Circle2(30503): init()
+02-07 20:52:56.011: D/RECV(30503): bang notec
+02-07 20:52:56.081: D/Circle2(30503): init()
+02-07 20:52:56.441: D/RECV(30503): bang notec
+02-07 20:52:56.501: D/Circle2(30503): init()
+02-07 20:52:56.931: D/Circle2(30503): init()
+02-07 20:52:57.091: D/RECV(30503): bang notec
+02-07 20:52:57.491: D/RECV(30503): bang notec
+02-07 20:52:57.581: D/Circle2(30503): init()
+02-07 20:52:57.981: D/Circle2(30503): init()
+02-07 20:52:58.051: D/RECV(30503): bang notec
+02-07 20:52:58.541: D/Circle2(30503): init()
+02-07 20:52:58.561: D/RECV(30503): bang notec
+02-07 20:52:59.051: D/Circle2(30503): init()
+02-07 20:52:59.211: D/RECV(30503): bang notec
+02-07 20:52:59.701: D/Circle2(30503): init()
+02-07 20:52:59.791: D/RECV(30503): bang notec
+02-07 20:53:00.281: D/Circle2(30503): init()
+02-07 20:53:00.351: D/RECV(30503): bang notec
+02-07 20:53:00.841: D/RECV(30503): bang notec
+02-07 20:53:00.841: D/Circle2(30503): init()
+02-07 20:53:01.271: D/RECV(30503): bang notec
+02-07 20:53:01.331: D/Circle2(30503): init()
+02-07 20:53:01.761: D/Circle2(30503): init()
+02-07 20:53:01.771: D/isAlive(30503): thisisAlive false
+02-07 20:53:02.001: D/RECV(30503): bang notec
+02-07 20:53:02.491: D/RECV(30503): bang notec
+02-07 20:53:02.491: D/Circle2(30503): init()
+02-07 20:53:02.961: D/RECV(30503): bang notec
+02-07 20:53:02.981: D/Circle2(30503): init()
+02-07 20:53:03.401: D/RECV(30503): bang notec
+02-07 20:53:03.451: D/Circle2(30503): init()
+02-07 20:53:03.791: D/RECV(30503): bang notec
+02-07 20:53:03.891: D/Circle2(30503): init()
+02-07 20:53:04.221: D/RECV(30503): bang notec
+02-07 20:53:04.281: D/Circle2(30503): init()
+02-07 20:53:04.711: D/Circle2(30503): init()
+02-07 20:53:04.881: D/RECV(30503): bang notec
+02-07 20:53:05.201: D/RECV(30503): bang sonar
+02-07 20:53:05.281: D/RECV(30503): bang notec
+02-07 20:53:05.301: D/SonarCircle2(30503): init()
+02-07 20:53:05.371: D/Circle2(30503): init()
+02-07 20:53:05.771: D/Circle2(30503): init()
+02-07 20:53:06.021: D/RECV(30503): bang notec
+02-07 20:53:06.491: D/RECV(30503): bang notec
+02-07 20:53:06.511: D/Circle2(30503): init()
+02-07 20:53:06.981: D/Circle2(30503): init()
+02-07 20:53:07.031: D/RECV(30503): bang notec
+02-07 20:53:07.521: D/Circle2(30503): init()
+02-07 20:53:07.591: D/RECV(30503): bang notec
+02-07 20:53:08.081: D/Circle2(30503): init()
+02-07 20:53:08.541: D/RECV(30503): bang notec
+02-07 20:53:09.031: D/Circle2(30503): init()
+02-07 20:53:09.201: D/RECV(30503): bang notec
+02-07 20:53:09.691: D/Circle2(30503): init()
+02-07 20:53:09.931: D/RECV(30503): bang notec
+02-07 20:53:10.431: D/Circle2(30503): init()
+02-07 20:53:10.671: D/RECV(30503): bang notec
+02-07 20:53:11.161: D/Circle2(30503): init()
+02-07 20:53:11.341: D/RECV(30503): bang notec
+02-07 20:53:11.831: D/Circle2(30503): init()
+02-07 20:53:12.091: D/RECV(30503): bang notec
+02-07 20:53:12.591: D/Circle2(30503): init()
+02-07 20:53:12.811: D/RECV(30503): bang notec
+02-07 20:53:13.301: D/Circle2(30503): init()
+02-07 20:53:13.571: D/RECV(30503): bang notec
+02-07 20:53:14.061: D/Circle2(30503): init()
+02-07 20:53:14.381: D/RECV(30503): bang notec
+02-07 20:53:14.811: D/isAlive(30503): thisisAlive false
+02-07 20:53:14.871: D/Circle2(30503): init()
+02-07 20:53:15.131: D/RECV(30503): bang notec
+02-07 20:53:15.621: D/Circle2(30503): init()
+02-07 20:53:15.951: D/RECV(30503): bang notec
+02-07 20:53:16.441: D/Circle2(30503): init()
+02-07 20:53:17.081: D/RECV(30503): bang notec
+02-07 20:53:17.251: D/RECV(30503): bang switchdir
+02-07 20:53:17.571: D/Circle2(30503): init()
+02-07 20:53:17.991: D/RECV(30503): bang notec
+02-07 20:53:18.481: D/Circle2(30503): init()
+02-07 20:53:18.651: D/RECV(30503): bang sonar
+02-07 20:53:18.751: D/SonarCircle2(30503): init()
+02-07 20:53:19.041: D/RECV(30503): bang notec
+02-07 20:53:19.531: D/Circle2(30503): init()
+02-07 20:53:19.871: D/RECV(30503): bang notec
+02-07 20:53:20.361: D/Circle2(30503): init()
+02-07 20:53:20.951: D/RECV(30503): bang notec
+02-07 20:53:21.441: D/Circle2(30503): init()
+02-07 20:53:22.171: D/RECV(30503): bang notec
+02-07 20:53:22.661: D/Circle2(30503): init()
+02-07 20:53:23.241: D/RECV(30503): bang notec
+02-07 20:53:23.731: D/Circle2(30503): init()
+02-07 20:53:24.141: D/RECV(30503): bang notec
+02-07 20:53:24.631: D/Circle2(30503): init()
+02-07 20:53:25.061: D/RECV(30503): bang notec
+02-07 20:53:25.551: D/Circle2(30503): init()
+02-07 20:53:26.091: D/RECV(30503): bang notec
+02-07 20:53:26.581: D/Circle2(30503): init()
+02-07 20:53:27.091: D/RECV(30503): bang notec
+02-07 20:53:27.581: D/Circle2(30503): init()
+02-07 20:53:28.401: D/RECV(30503): bang notec
+02-07 20:53:28.771: D/isAlive(30503): thisisAlive false
+02-07 20:53:28.901: D/Circle2(30503): init()
+02-07 20:53:29.611: D/RECV(30503): bang notec
+02-07 20:53:29.811: D/dalvikvm(30503): GC_CONCURRENT freed 754K, 19% free 10168K/12551K, paused 15ms+36ms
+02-07 20:53:30.111: D/Circle2(30503): init()
+02-07 20:53:30.621: D/RECV(30503): bang notec
+02-07 20:53:31.111: D/Circle2(30503): init()
+02-07 20:53:31.581: D/RECV(30503): bang notec
+02-07 20:53:32.071: D/Circle2(30503): init()
+02-07 20:53:32.101: D/RECV(30503): bang sonar
+02-07 20:53:32.201: D/SonarCircle2(30503): init()
+02-07 20:53:32.891: D/RECV(30503): bang notec
+02-07 20:53:33.381: D/Circle2(30503): init()
+02-07 20:53:33.901: D/RECV(30503): bang notec
+02-07 20:53:34.391: D/Circle2(30503): init()
+02-07 20:53:35.021: D/RECV(30503): bang notec
+02-07 20:53:35.511: D/Circle2(30503): init()
+02-07 20:53:36.031: D/RECV(30503): bang notec
+02-07 20:53:36.521: D/Circle2(30503): init()
+02-07 20:53:37.151: D/RECV(30503): bang notec
+02-07 20:53:37.641: D/Circle2(30503): init()
+02-07 20:53:38.241: D/RECV(30503): bang notec
+02-07 20:53:38.731: D/Circle2(30503): init()
+02-07 20:53:39.071: D/RECV(30503): bang notec
+02-07 20:53:39.561: D/Circle2(30503): init()
+02-07 20:53:40.301: D/RECV(30503): bang notec
+02-07 20:53:40.791: D/Circle2(30503): init()
+02-07 20:53:41.421: D/RECV(30503): bang notec
+02-07 20:53:41.911: D/Circle2(30503): init()
+02-07 20:53:42.241: D/RECV(30503): bang notec
+02-07 20:53:42.731: D/Circle2(30503): init()
+02-07 20:53:43.251: D/RECV(30503): bang notec
+02-07 20:53:43.461: D/isAlive(30503): thisisAlive false
+02-07 20:53:43.741: D/Circle2(30503): init()
+02-07 20:53:44.401: D/RECV(30503): bang notec
+02-07 20:53:44.891: D/Circle2(30503): init()
+02-07 20:53:45.441: D/RECV(30503): bang notec
+02-07 20:53:45.601: D/RECV(30503): bang sonar
+02-07 20:53:45.701: D/SonarCircle2(30503): init()
+02-07 20:53:45.931: D/Circle2(30503): init()
+02-07 20:53:46.441: D/RECV(30503): bang notec
+02-07 20:53:46.931: D/Circle2(30503): init()
+02-07 20:53:47.561: D/RECV(30503): bang notec
+02-07 20:53:48.051: D/Circle2(30503): init()
+02-07 20:53:48.471: D/RECV(30503): bang notec
+02-07 20:53:48.961: D/Circle2(30503): init()
+02-07 20:53:49.311: D/RECV(30503): bang notec
+02-07 20:53:49.801: D/Circle2(30503): init()
+02-07 20:53:50.161: D/RECV(30503): bang notec
+02-07 20:53:50.651: D/Circle2(30503): init()
+02-07 20:53:50.871: D/RECV(30503): bang notec
+02-07 20:53:51.361: D/Circle2(30503): init()
+02-07 20:53:51.431: D/RECV(30503): bang notec
+02-07 20:53:51.931: D/Circle2(30503): init()
+02-07 20:53:52.281: D/RECV(30503): bang notec
+02-07 20:53:52.771: D/Circle2(30503): init()
+02-07 20:53:53.001: D/RECV(30503): bang notec
+02-07 20:53:53.491: D/Circle2(30503): init()
+02-07 20:53:53.661: D/RECV(30503): bang notec
+02-07 20:53:54.151: D/Circle2(30503): init()
+02-07 20:53:54.311: D/RECV(30503): bang notec
+02-07 20:53:54.801: D/Circle2(30503): init()
+02-07 20:53:54.981: D/RECV(30503): bang notec
+02-07 20:53:55.471: D/Circle2(30503): init()
+02-07 20:53:55.721: D/RECV(30503): bang notec
+02-07 20:53:56.211: D/Circle2(30503): init()
+02-07 20:53:56.571: D/RECV(30503): bang notec
+02-07 20:53:57.061: D/Circle2(30503): init()
+02-07 20:53:57.161: D/isAlive(30503): thisisAlive false
+02-07 20:53:57.211: D/RECV(30503): bang switchdir
+02-07 20:53:57.331: D/RECV(30503): bang notec
+02-07 20:53:57.761: D/RECV(30503): bang notec
+02-07 20:53:57.821: D/Circle2(30503): init()
+02-07 20:53:58.161: D/RECV(30503): bang notec
+02-07 20:53:58.251: D/Circle2(30503): init()
+02-07 20:53:58.581: D/RECV(30503): bang notec
+02-07 20:53:58.651: D/Circle2(30503): init()
+02-07 20:53:58.991: D/RECV(30503): bang sonar
+02-07 20:53:59.071: D/Circle2(30503): init()
+02-07 20:53:59.091: D/SonarCircle2(30503): init()
+02-07 20:53:59.231: D/RECV(30503): bang notec
+02-07 20:53:59.711: D/RECV(30503): bang notec
+02-07 20:53:59.721: D/Circle2(30503): init()
+02-07 20:54:00.201: D/Circle2(30503): init()
+02-07 20:54:00.381: D/RECV(30503): bang notec
+02-07 20:54:00.871: D/Circle2(30503): init()
+02-07 20:54:00.941: D/RECV(30503): bang notec
+02-07 20:54:01.291: D/RECV(30503): bang notec
+02-07 20:54:01.431: D/Circle2(30503): init()
+02-07 20:54:01.781: D/Circle2(30503): init()
+02-07 20:54:01.941: D/RECV(30503): bang notec
+02-07 20:54:02.441: D/Circle2(30503): init()
+02-07 20:54:02.681: D/RECV(30503): bang notec
+02-07 20:54:03.181: D/Circle2(30503): init()
+02-07 20:54:03.431: D/RECV(30503): bang notec
+02-07 20:54:03.921: D/Circle2(30503): init()
+02-07 20:54:04.291: D/RECV(30503): bang notec
+02-07 20:54:04.631: D/RECV(30503): bang notec
+02-07 20:54:04.791: D/Circle2(30503): init()
+02-07 20:54:05.041: D/RECV(30503): bang notec
+02-07 20:54:05.131: D/Circle2(30503): init()
+02-07 20:54:05.401: D/RECV(30503): bang notec
+02-07 20:54:05.531: D/Circle2(30503): init()
+02-07 20:54:05.771: D/RECV(30503): bang notec
+02-07 20:54:05.891: D/Circle2(30503): init()
+02-07 20:54:06.261: D/Circle2(30503): init()
+02-07 20:54:06.431: D/RECV(30503): bang notec
+02-07 20:54:06.921: D/Circle2(30503): init()
+02-07 20:54:07.161: D/RECV(30503): bang notec
+02-07 20:54:07.651: D/Circle2(30503): init()
+02-07 20:54:07.901: D/RECV(30503): bang notec
+02-07 20:54:08.391: D/Circle2(30503): init()
+02-07 20:54:08.571: D/RECV(30503): bang notec
+02-07 20:54:09.061: D/Circle2(30503): init()
+02-07 20:54:09.221: D/RECV(30503): bang notec
+02-07 20:54:09.711: D/Circle2(30503): init()
+02-07 20:54:09.861: D/RECV(30503): bang notec
+02-07 20:54:10.241: D/isAlive(30503): thisisAlive false
+02-07 20:54:10.351: D/Circle2(30503): init()
+02-07 20:54:10.701: D/RECV(30503): bang notec
+02-07 20:54:11.191: D/Circle2(30503): init()
+02-07 20:54:11.251: D/RECV(30503): bang notec
+02-07 20:54:11.751: D/Circle2(30503): init()
+02-07 20:54:12.081: D/RECV(30503): bang notec
+02-07 20:54:12.431: D/RECV(30503): bang sonar
+02-07 20:54:12.541: D/SonarCircle2(30503): init()
+02-07 20:54:12.571: D/Circle2(30503): init()
+02-07 20:54:12.751: D/RECV(30503): bang notec
+02-07 20:54:13.241: D/Circle2(30503): init()
+02-07 20:54:13.401: D/RECV(30503): bang notec
+02-07 20:54:13.891: D/Circle2(30503): init()
+02-07 20:54:14.141: D/RECV(30503): bang notec
+02-07 20:54:14.581: D/RECV(30503): bang notec
+02-07 20:54:14.631: D/Circle2(30503): init()
+02-07 20:54:15.071: D/Circle2(30503): init()
+02-07 20:54:15.321: D/RECV(30503): bang notec
+02-07 20:54:15.811: D/Circle2(30503): init()
+02-07 20:54:15.881: D/RECV(30503): bang notec
+02-07 20:54:16.371: D/Circle2(30503): init()
+02-07 20:54:16.821: D/RECV(30503): bang notec
+02-07 20:54:17.311: D/Circle2(30503): init()
+02-07 20:54:17.351: D/RECV(30503): bang notec
+02-07 20:54:17.841: D/Circle2(30503): init()
+02-07 20:54:18.101: D/RECV(30503): bang notec
+02-07 20:54:18.591: D/Circle2(30503): init()
+02-07 20:54:18.761: D/RECV(30503): bang notec
+02-07 20:54:19.251: D/Circle2(30503): init()
+02-07 20:54:19.621: D/RECV(30503): bang notec
+02-07 20:54:20.111: D/Circle2(30503): init()
+02-07 20:54:20.531: D/RECV(30503): bang notec
+02-07 20:54:21.021: D/Circle2(30503): init()
+02-07 20:54:21.201: D/RECV(30503): bang notec
+02-07 20:54:21.691: D/Circle2(30503): init()
+02-07 20:54:22.211: D/RECV(30503): bang notec
+02-07 20:54:22.401: D/isAlive(30503): thisisAlive false
+02-07 20:54:22.701: D/Circle2(30503): init()
+02-07 20:54:23.151: D/RECV(30503): bang notec
+02-07 20:54:23.641: D/Circle2(30503): init()
+02-07 20:54:23.971: D/RECV(30503): bang notec
+02-07 20:54:24.461: D/Circle2(30503): init()
+02-07 20:54:24.711: D/RECV(30503): bang notec
+02-07 20:54:25.201: D/Circle2(30503): init()
+02-07 20:54:25.621: D/RECV(30503): bang notec
+02-07 20:54:25.941: D/RECV(30503): bang sonar
+02-07 20:54:26.041: D/SonarCircle2(30503): init()
+02-07 20:54:26.111: D/Circle2(30503): init()
+02-07 20:54:26.761: D/RECV(30503): bang notec
+02-07 20:54:27.251: D/Circle2(30503): init()
+02-07 20:54:27.591: D/RECV(30503): bang notec
+02-07 20:54:28.081: D/Circle2(30503): init()
+02-07 20:54:28.641: D/RECV(30503): bang notec
+02-07 20:54:29.131: D/Circle2(30503): init()
+02-07 20:54:29.541: D/RECV(30503): bang notec
+02-07 20:54:30.031: D/Circle2(30503): init()
+02-07 20:54:30.771: D/RECV(30503): bang notec
+02-07 20:54:31.261: D/Circle2(30503): init()
+02-07 20:54:31.941: D/RECV(30503): bang notec
+02-07 20:54:32.431: D/Circle2(30503): init()
+02-07 20:54:32.981: D/RECV(30503): bang notec
+02-07 20:54:33.481: D/Circle2(30503): init()
+02-07 20:54:33.911: D/RECV(30503): bang notec
+02-07 20:54:34.021: D/isAlive(30503): thisisAlive false
+02-07 20:54:34.401: D/Circle2(30503): init()
+02-07 20:54:34.951: D/RECV(30503): bang notec
+02-07 20:54:35.441: D/Circle2(30503): init()
+02-07 20:54:36.051: D/RECV(30503): bang notec
+02-07 20:54:36.541: D/Circle2(30503): init()
+02-07 20:54:37.271: D/RECV(30503): bang switchdir
+02-07 20:54:37.351: D/RECV(30503): bang notec
+02-07 20:54:37.841: D/Circle2(30503): init()
+02-07 20:54:38.571: D/RECV(30503): bang notec
+02-07 20:54:39.061: D/Circle2(30503): init()
+02-07 20:54:39.391: D/RECV(30503): bang sonar
+02-07 20:54:39.491: D/SonarCircle2(30503): init()
+02-07 20:54:39.651: D/RECV(30503): bang notec
+02-07 20:54:40.141: D/Circle2(30503): init()
+02-07 20:54:40.881: D/RECV(30503): bang notec
+02-07 20:54:41.371: D/Circle2(30503): init()
+02-07 20:54:42.001: D/RECV(30503): bang notec
+02-07 20:54:42.491: D/Circle2(30503): init()
+02-07 20:54:43.091: D/RECV(30503): bang notec
+02-07 20:54:43.581: D/Circle2(30503): init()
+02-07 20:54:43.961: D/RECV(30503): bang notec
+02-07 20:54:44.451: D/Circle2(30503): init()
+02-07 20:54:45.221: D/RECV(30503): bang notec
+02-07 20:54:45.381: D/isAlive(30503): thisisAlive false
+02-07 20:54:45.711: D/Circle2(30503): init()
+02-07 20:54:46.111: D/RECV(30503): bang notec
+02-07 20:54:46.601: D/Circle2(30503): init()
+02-07 20:54:47.351: D/RECV(30503): bang notec
+02-07 20:54:47.851: D/Circle2(30503): init()
+02-07 20:54:48.321: D/RECV(30503): bang notec
+02-07 20:54:48.811: D/Circle2(30503): init()
+02-07 20:54:49.141: D/RECV(30503): bang notec
+02-07 20:54:49.631: D/Circle2(30503): init()
+02-07 20:54:49.891: D/RECV(30503): bang notec
+02-07 20:54:50.381: D/Circle2(30503): init()
+02-07 20:54:50.941: D/RECV(30503): bang notec
+02-07 20:54:51.431: D/Circle2(30503): init()
+02-07 20:54:51.751: D/RECV(30503): bang notec
+02-07 20:54:52.241: D/Circle2(30503): init()
+02-07 20:54:52.761: D/RECV(30503): bang notec
+02-07 20:54:52.871: D/RECV(30503): bang sonar
+02-07 20:54:52.971: D/SonarCircle2(30503): init()
+02-07 20:54:53.251: D/Circle2(30503): init()
+02-07 20:54:53.591: D/RECV(30503): bang notec
+02-07 20:54:54.081: D/Circle2(30503): init()
+02-07 20:54:54.331: D/RECV(30503): bang notec
+02-07 20:54:54.821: D/Circle2(30503): init()
+02-07 20:54:55.391: D/RECV(30503): bang notec
+02-07 20:54:55.881: D/Circle2(30503): init()
+02-07 20:54:56.281: D/RECV(30503): bang notec
+02-07 20:54:56.781: D/Circle2(30503): init()
+02-07 20:54:56.941: D/RECV(30503): bang notec
+02-07 20:54:57.431: D/Circle2(30503): init()
+02-07 20:54:57.451: D/isAlive(30503): thisisAlive false
+02-07 20:54:57.611: D/RECV(30503): bang notec
+02-07 20:54:58.101: D/Circle2(30503): init()
+02-07 20:54:58.431: D/RECV(30503): bang notec
+02-07 20:54:58.921: D/Circle2(30503): init()
+02-07 20:54:58.991: D/RECV(30503): bang notec
+02-07 20:54:59.481: D/Circle2(30503): init()
+02-07 20:54:59.571: D/RECV(30503): bang notec
+02-07 20:55:00.061: D/Circle2(30503): init()
+02-07 20:55:00.311: D/RECV(30503): bang notec
+02-07 20:55:00.801: D/Circle2(30503): init()
+02-07 20:55:00.941: D/RECV(30503): bang notec
+02-07 20:55:01.431: D/Circle2(30503): init()
+02-07 20:55:01.791: D/RECV(30503): bang notec
+02-07 20:55:02.281: D/Circle2(30503): init()
+02-07 20:55:02.531: D/RECV(30503): bang notec
+02-07 20:55:03.021: D/Circle2(30503): init()
+02-07 20:55:03.351: D/RECV(30503): bang notec
+02-07 20:55:03.821: D/RECV(30503): bang notec
+02-07 20:55:03.841: D/Circle2(30503): init()
+02-07 20:55:04.311: D/Circle2(30503): init()
+02-07 20:55:04.471: D/RECV(30503): bang notec
+02-07 20:55:04.961: D/Circle2(30503): init()
+02-07 20:55:05.131: D/RECV(30503): bang notec
+02-07 20:55:05.621: D/RECV(30503): bang notec
+02-07 20:55:05.621: D/Circle2(30503): init()
+02-07 20:55:05.971: D/RECV(30503): bang notec
+02-07 20:55:06.111: D/Circle2(30503): init()
+02-07 20:55:06.351: D/RECV(30503): bang sonar
+02-07 20:55:06.451: D/SonarCircle2(30503): init()
+02-07 20:55:06.461: D/Circle2(30503): init()
+02-07 20:55:06.691: D/RECV(30503): bang notec
+02-07 20:55:07.181: D/RECV(30503): bang notec
+02-07 20:55:07.181: D/Circle2(30503): init()
+02-07 20:55:07.671: D/Circle2(30503): init()
+02-07 20:55:07.921: D/RECV(30503): bang notec
+02-07 20:55:08.411: D/Circle2(30503): init()
+02-07 20:55:08.421: D/RECV(30503): bang notec
+02-07 20:55:08.911: D/Circle2(30503): init()
+02-07 20:55:09.131: D/RECV(30503): bang notec
+02-07 20:55:09.421: D/RECV(30503): bang notec
+02-07 20:55:09.621: D/Circle2(30503): init()
+02-07 20:55:09.881: D/RECV(30503): bang notec
+02-07 20:55:09.911: D/Circle2(30503): init()
+02-07 20:55:10.371: D/Circle2(30503): init()
+02-07 20:55:10.461: D/RECV(30503): bang notec
+02-07 20:55:10.881: D/isAlive(30503): thisisAlive false
+02-07 20:55:10.951: D/Circle2(30503): init()
+02-07 20:55:11.271: D/RECV(30503): bang notec
+02-07 20:55:11.541: D/RECV(30503): bang notec
+02-07 20:55:11.761: D/Circle2(30503): init()
+02-07 20:55:12.011: D/RECV(30503): bang notec
+02-07 20:55:12.031: D/Circle2(30503): init()
+02-07 20:55:12.501: D/Circle2(30503): init()
+02-07 20:55:12.661: D/RECV(30503): bang notec
+02-07 20:55:13.041: D/RECV(30503): bang notec
+02-07 20:55:13.151: D/Circle2(30503): init()
+02-07 20:55:13.491: D/RECV(30503): bang notec
+02-07 20:55:13.531: D/Circle2(30503): init()
+02-07 20:55:13.981: D/Circle2(30503): init()
+02-07 20:55:14.061: D/RECV(30503): bang notec
+02-07 20:55:14.551: D/Circle2(30503): init()
+02-07 20:55:14.711: D/RECV(30503): bang notec
+02-07 20:55:15.161: D/RECV(30503): bang notec
+02-07 20:55:15.201: D/Circle2(30503): init()
+02-07 20:55:15.651: D/Circle2(30503): init()
+02-07 20:55:15.801: D/RECV(30503): bang notec
+02-07 20:55:16.291: D/Circle2(30503): init()
+02-07 20:55:16.541: D/RECV(30503): bang notec
+02-07 20:55:17.031: D/Circle2(30503): init()
+02-07 20:55:17.211: D/RECV(30503): bang notec
+02-07 20:55:17.291: D/RECV(30503): bang switchdir
+02-07 20:55:17.701: D/Circle2(30503): init()
+02-07 20:55:18.031: D/RECV(30503): bang notec
+02-07 20:55:18.521: D/Circle2(30503): init()
+02-07 20:55:18.591: D/RECV(30503): bang notec
+02-07 20:55:19.081: D/Circle2(30503): init()
+02-07 20:55:19.161: D/RECV(30503): bang notec
+02-07 20:55:19.651: D/Circle2(30503): init()
+02-07 20:55:19.811: D/RECV(30503): bang sonar
+02-07 20:55:19.891: D/RECV(30503): bang notec
+02-07 20:55:19.911: D/SonarCircle2(30503): init()
+02-07 20:55:20.381: D/Circle2(30503): init()
+02-07 20:55:20.721: D/RECV(30503): bang notec
+02-07 20:55:21.211: D/Circle2(30503): init()
+02-07 20:55:21.471: D/RECV(30503): bang notec
+02-07 20:55:21.961: D/Circle2(30503): init()
+02-07 20:55:22.211: D/RECV(30503): bang notec
+02-07 20:55:22.701: D/Circle2(30503): init()
+02-07 20:55:23.161: D/RECV(30503): bang notec
+02-07 20:55:23.651: D/Circle2(30503): init()
+02-07 20:55:24.001: D/RECV(30503): bang notec
+02-07 20:55:24.491: D/Circle2(30503): init()
+02-07 20:55:24.571: D/RECV(30503): bang notec
+02-07 20:55:24.591: D/isAlive(30503): thisisAlive false
+02-07 20:55:25.061: D/Circle2(30503): init()
+02-07 20:55:25.551: D/RECV(30503): bang notec
+02-07 20:55:26.041: D/Circle2(30503): init()
+02-07 20:55:26.051: D/RECV(30503): bang notec
+02-07 20:55:26.541: D/Circle2(30503): init()
+02-07 20:55:27.051: D/RECV(30503): bang notec
+02-07 20:55:27.541: D/Circle2(30503): init()
+02-07 20:55:28.001: D/RECV(30503): bang notec
+02-07 20:55:28.491: D/Circle2(30503): init()
+02-07 20:55:28.651: D/RECV(30503): bang notec
+02-07 20:55:29.141: D/Circle2(30503): init()
+02-07 20:55:29.581: D/RECV(30503): bang notec
+02-07 20:55:30.071: D/Circle2(30503): init()
+02-07 20:55:30.781: D/RECV(30503): bang notec
+02-07 20:55:31.271: D/Circle2(30503): init()
+02-07 20:55:31.781: D/RECV(30503): bang notec
+02-07 20:55:32.281: D/Circle2(30503): init()
+02-07 20:55:33.001: D/RECV(30503): bang notec
+02-07 20:55:33.271: D/RECV(30503): bang sonar
+02-07 20:55:33.371: D/SonarCircle2(30503): init()
+02-07 20:55:33.491: D/Circle2(30503): init()
+02-07 20:55:34.001: D/RECV(30503): bang notec
+02-07 20:55:34.491: D/Circle2(30503): init()
+02-07 20:55:35.221: D/RECV(30503): bang notec
+02-07 20:55:35.721: D/Circle2(30503): init()
+02-07 20:55:36.271: D/RECV(30503): bang notec
+02-07 20:55:36.761: D/Circle2(30503): init()
+02-07 20:55:37.281: D/RECV(30503): bang notec
+02-07 20:55:37.771: D/Circle2(30503): init()
+02-07 20:55:38.491: D/RECV(30503): bang notec
+02-07 20:55:38.811: D/isAlive(30503): thisisAlive false
+02-07 20:55:38.981: D/Circle2(30503): init()
+02-07 20:55:39.591: D/RECV(30503): bang notec
+02-07 20:55:40.081: D/Circle2(30503): init()
+02-07 20:55:40.631: D/RECV(30503): bang notec
+02-07 20:55:41.131: D/Circle2(30503): init()
+02-07 20:55:41.621: D/RECV(30503): bang notec
+02-07 20:55:42.111: D/Circle2(30503): init()
+02-07 20:55:42.511: D/RECV(30503): bang notec
+02-07 20:55:43.001: D/Circle2(30503): init()
+02-07 20:55:43.601: D/RECV(30503): bang notec
+02-07 20:55:44.091: D/Circle2(30503): init()
+02-07 20:55:44.981: D/RECV(30503): bang notec
+02-07 20:55:45.471: D/Circle2(30503): init()
+02-07 20:55:46.111: D/RECV(30503): bang notec
+02-07 20:55:46.601: D/Circle2(30503): init()
+02-07 20:55:46.681: D/RECV(30503): bang sonar
+02-07 20:55:46.781: D/SonarCircle2(30503): init()
+02-07 20:55:47.291: D/RECV(30503): bang notec
+02-07 20:55:47.791: D/Circle2(30503): init()
+02-07 20:55:48.431: D/RECV(30503): bang notec
+02-07 20:55:48.921: D/Circle2(30503): init()
+02-07 20:55:49.731: D/RECV(30503): bang notec
+02-07 20:55:50.221: D/Circle2(30503): init()
+02-07 20:55:50.871: D/RECV(30503): bang notec
+02-07 20:55:51.071: D/dalvikvm(30503): GC_CONCURRENT freed 828K, 17% free 10433K/12551K, paused 21ms+51ms
+02-07 20:55:51.361: D/Circle2(30503): init()
+02-07 20:55:51.791: D/RECV(30503): bang notec
+02-07 20:55:52.281: D/Circle2(30503): init()
+02-07 20:55:52.421: D/isAlive(30503): thisisAlive false
+02-07 20:55:52.801: D/RECV(30503): bang notec
+02-07 20:55:53.291: D/Circle2(30503): init()
+02-07 20:55:53.831: D/RECV(30503): bang notec
+02-07 20:55:54.321: D/Circle2(30503): init()
+02-07 20:55:54.751: D/RECV(30503): bang notec
+02-07 20:55:55.241: D/Circle2(30503): init()
+02-07 20:55:55.571: D/RECV(30503): bang notec
+02-07 20:55:56.061: D/Circle2(30503): init()
+02-07 20:55:56.711: D/RECV(30503): bang notec
+02-07 20:55:57.201: D/Circle2(30503): init()
+02-07 20:55:57.281: D/RECV(30503): bang switchdir
+02-07 20:55:57.711: D/RECV(30503): bang notec
+02-07 20:55:58.201: D/Circle2(30503): init()
+02-07 20:55:58.571: D/RECV(30503): bang notec
+02-07 20:55:59.061: D/Circle2(30503): init()
+02-07 20:55:59.311: D/RECV(30503): bang notec
+02-07 20:55:59.801: D/Circle2(30503): init()
+02-07 20:55:59.961: D/RECV(30503): bang notec
+02-07 20:56:00.191: D/RECV(30503): bang sonar
+02-07 20:56:00.291: D/SonarCircle2(30503): init()
+02-07 20:56:00.451: D/Circle2(30503): init()
+02-07 20:56:00.981: D/RECV(30503): bang notec
+02-07 20:56:01.471: D/Circle2(30503): init()
+02-07 20:56:01.791: D/RECV(30503): bang notec
+02-07 20:56:02.281: D/Circle2(30503): init()
+02-07 20:56:02.751: D/RECV(30503): bang notec
+02-07 20:56:03.241: D/Circle2(30503): init()
+02-07 20:56:03.401: D/RECV(30503): bang notec
+02-07 20:56:03.891: D/Circle2(30503): init()
+02-07 20:56:04.251: D/RECV(30503): bang notec
+02-07 20:56:04.741: D/Circle2(30503): init()
+02-07 20:56:04.901: D/RECV(30503): bang notec
+02-07 20:56:05.391: D/Circle2(30503): init()
+02-07 20:56:05.541: D/RECV(30503): bang notec
+02-07 20:56:06.031: D/Circle2(30503): init()
+02-07 20:56:06.451: D/RECV(30503): bang notec
+02-07 20:56:06.931: D/isAlive(30503): thisisAlive false
+02-07 20:56:06.941: D/Circle2(30503): init()
+02-07 20:56:07.111: D/RECV(30503): bang notec
+02-07 20:56:07.591: D/RECV(30503): bang notec
+02-07 20:56:07.601: D/Circle2(30503): init()
+02-07 20:56:08.081: D/Circle2(30503): init()
+02-07 20:56:08.211: D/RECV(30503): bang notec
+02-07 20:56:08.701: D/Circle2(30503): init()
+02-07 20:56:09.161: D/RECV(30503): bang notec
+02-07 20:56:09.651: D/Circle2(30503): init()
+02-07 20:56:09.711: D/RECV(30503): bang notec
+02-07 20:56:10.201: D/Circle2(30503): init()
+02-07 20:56:10.251: D/RECV(30503): bang notec
+02-07 20:56:10.741: D/Circle2(30503): init()
+02-07 20:56:10.821: D/RECV(30503): bang notec
+02-07 20:56:11.301: D/RECV(30503): bang notec
+02-07 20:56:11.311: D/Circle2(30503): init()
+02-07 20:56:11.791: D/Circle2(30503): init()
+02-07 20:56:11.851: D/RECV(30503): bang notec
+02-07 20:56:12.341: D/Circle2(30503): init()
+02-07 20:56:12.381: D/RECV(30503): bang notec
+02-07 20:56:12.871: D/Circle2(30503): init()
+02-07 20:56:13.171: D/RECV(30503): bang notec
+02-07 20:56:13.611: D/RECV(30503): bang sonar
+02-07 20:56:13.661: D/Circle2(30503): init()
+02-07 20:56:13.711: D/SonarCircle2(30503): init()
+02-07 20:56:13.771: D/RECV(30503): bang notec
+02-07 20:56:14.261: D/Circle2(30503): init()
+02-07 20:56:14.431: D/RECV(30503): bang notec
+02-07 20:56:14.901: D/RECV(30503): bang notec
+02-07 20:56:14.921: D/Circle2(30503): init()
+02-07 20:56:15.301: D/RECV(30503): bang notec
+02-07 20:56:15.391: D/Circle2(30503): init()
+02-07 20:56:15.641: D/RECV(30503): bang notec
+02-07 20:56:15.791: D/Circle2(30503): init()
+02-07 20:56:16.041: D/RECV(30503): bang notec
+02-07 20:56:16.131: D/Circle2(30503): init()
+02-07 20:56:16.391: D/RECV(30503): bang notec
+02-07 20:56:16.531: D/Circle2(30503): init()
+02-07 20:56:16.881: D/Circle2(30503): init()
+02-07 20:56:17.051: D/RECV(30503): bang notec
+02-07 20:56:17.521: D/RECV(30503): bang notec
+02-07 20:56:17.541: D/Circle2(30503): init()
+02-07 20:56:18.011: D/Circle2(30503): init()
+02-07 20:56:18.091: D/RECV(30503): bang notec
+02-07 20:56:18.581: D/Circle2(30503): init()
+02-07 20:56:18.731: D/RECV(30503): bang notec
+02-07 20:56:19.091: D/RECV(30503): bang notec
+02-07 20:56:19.221: D/Circle2(30503): init()
+02-07 20:56:19.561: D/RECV(30503): bang notec
+02-07 20:56:19.581: D/Circle2(30503): init()
+02-07 20:56:19.911: D/RECV(30503): bang notec
+02-07 20:56:20.051: D/Circle2(30503): init()
+02-07 20:56:20.301: D/RECV(30503): bang notec
+02-07 20:56:20.401: D/Circle2(30503): init()
+02-07 20:56:20.791: D/Circle2(30503): init()
+02-07 20:56:21.051: D/RECV(30503): bang notec
+02-07 20:56:21.361: D/isAlive(30503): thisisAlive false
+02-07 20:56:21.541: D/Circle2(30503): init()
+02-07 20:56:21.601: D/RECV(30503): bang notec
+02-07 20:56:22.051: D/RECV(30503): bang notec
+02-07 20:56:22.091: D/Circle2(30503): init()
+02-07 20:56:22.531: D/RECV(30503): bang notec
+02-07 20:56:22.541: D/Circle2(30503): init()
+02-07 20:56:23.021: D/Circle2(30503): init()
+02-07 20:56:23.261: D/RECV(30503): bang notec
+02-07 20:56:23.741: D/RECV(30503): bang notec
+02-07 20:56:23.751: D/Circle2(30503): init()
+02-07 20:56:24.181: D/RECV(30503): bang notec
+02-07 20:56:24.231: D/Circle2(30503): init()
+02-07 20:56:24.671: D/Circle2(30503): init()
+02-07 20:56:24.841: D/RECV(30503): bang notec
+02-07 20:56:25.311: D/RECV(30503): bang notec
+02-07 20:56:25.331: D/Circle2(30503): init()
+02-07 20:56:25.801: D/Circle2(30503): init()
+02-07 20:56:26.051: D/RECV(30503): bang notec
+02-07 20:56:26.531: D/RECV(30503): bang notec
+02-07 20:56:26.541: D/Circle2(30503): init()
+02-07 20:56:27.021: D/Circle2(30503): init()
+02-07 20:56:27.111: D/RECV(30503): bang sonar
+02-07 20:56:27.211: D/SonarCircle2(30503): init()
+02-07 20:56:27.381: D/RECV(30503): bang notec
+02-07 20:56:27.871: D/Circle2(30503): init()
+02-07 20:56:28.211: D/RECV(30503): bang notec
+02-07 20:56:28.701: D/Circle2(30503): init()
+02-07 20:56:28.751: D/RECV(30503): bang notec
+02-07 20:56:29.241: D/Circle2(30503): init()
+02-07 20:56:29.321: D/RECV(30503): bang notec
+02-07 20:56:29.811: D/Circle2(30503): init()
+02-07 20:56:30.061: D/RECV(30503): bang notec
+02-07 20:56:30.551: D/Circle2(30503): init()
+02-07 20:56:30.881: D/RECV(30503): bang notec
+02-07 20:56:31.371: D/Circle2(30503): init()
+02-07 20:56:31.721: D/RECV(30503): bang notec
+02-07 20:56:32.211: D/Circle2(30503): init()
+02-07 20:56:32.271: D/RECV(30503): bang notec
+02-07 20:56:32.761: D/Circle2(30503): init()
+02-07 20:56:33.121: D/RECV(30503): bang notec
+02-07 20:56:33.611: D/Circle2(30503): init()
+02-07 20:56:33.861: D/RECV(30503): bang notec
+02-07 20:56:34.351: D/Circle2(30503): init()
+02-07 20:56:34.681: D/RECV(30503): bang notec
+02-07 20:56:35.121: D/isAlive(30503): thisisAlive false
+02-07 20:56:35.171: D/Circle2(30503): init()
+02-07 20:56:35.341: D/RECV(30503): bang notec
+02-07 20:56:35.831: D/Circle2(30503): init()
+02-07 20:56:36.071: D/RECV(30503): bang notec
+02-07 20:56:36.561: D/Circle2(30503): init()
+02-07 20:56:36.861: D/RECV(30503): bang notec
+02-07 20:56:37.291: D/RECV(30503): bang switchdir
+02-07 20:56:37.351: D/Circle2(30503): init()
+02-07 20:56:37.471: D/RECV(30503): bang notec
+02-07 20:56:37.961: D/Circle2(30503): init()
+02-07 20:56:38.681: D/RECV(30503): bang notec
+02-07 20:56:39.171: D/Circle2(30503): init()
+02-07 20:56:39.731: D/RECV(30503): bang notec
+02-07 20:56:40.221: D/Circle2(30503): init()
+02-07 20:56:40.481: D/RECV(30503): bang notec
+02-07 20:56:40.561: D/RECV(30503): bang sonar
+02-07 20:56:40.661: D/SonarCircle2(30503): init()
+02-07 20:56:40.971: D/Circle2(30503): init()
+02-07 20:56:41.291: D/RECV(30503): bang notec
+02-07 20:56:41.781: D/Circle2(30503): init()
+02-07 20:56:42.121: D/RECV(30503): bang notec
+02-07 20:56:42.611: D/Circle2(30503): init()
+02-07 20:56:42.881: D/RECV(30503): bang notec
+02-07 20:56:43.371: D/Circle2(30503): init()
+02-07 20:56:43.991: D/RECV(30503): bang notec
+02-07 20:56:44.481: D/Circle2(30503): init()
+02-07 20:56:44.831: D/RECV(30503): bang notec
+02-07 20:56:45.321: D/Circle2(30503): init()
+02-07 20:56:45.741: D/RECV(30503): bang notec
+02-07 20:56:46.231: D/Circle2(30503): init()
+02-07 20:56:46.711: D/RECV(30503): bang notec
+02-07 20:56:47.201: D/Circle2(30503): init()
+02-07 20:56:47.691: D/RECV(30503): bang notec
+02-07 20:56:47.791: D/isAlive(30503): thisisAlive false
+02-07 20:56:48.181: D/Circle2(30503): init()
+02-07 20:56:49.011: D/RECV(30503): bang notec
+02-07 20:56:49.501: D/Circle2(30503): init()
+02-07 20:56:50.131: D/RECV(30503): bang notec
+02-07 20:56:50.621: D/Circle2(30503): init()
+02-07 20:56:51.231: D/RECV(30503): bang notec
+02-07 20:56:51.721: D/Circle2(30503): init()
+02-07 20:56:52.191: D/RECV(30503): bang notec
+02-07 20:56:52.681: D/Circle2(30503): init()
+02-07 20:56:53.381: D/RECV(30503): bang notec
+02-07 20:56:53.871: D/Circle2(30503): init()
+02-07 20:56:54.011: D/RECV(30503): bang sonar
+02-07 20:56:54.111: D/SonarCircle2(30503): init()
+02-07 20:56:54.581: D/RECV(30503): bang notec
+02-07 20:56:55.071: D/Circle2(30503): init()
+02-07 20:56:55.491: D/RECV(30503): bang notec
+02-07 20:56:55.981: D/Circle2(30503): init()
+02-07 20:56:56.881: D/RECV(30503): bang notec
+02-07 20:56:57.371: D/Circle2(30503): init()
+02-07 20:56:58.191: D/RECV(30503): bang notec
+02-07 20:56:58.691: D/Circle2(30503): init()
+02-07 20:56:59.031: D/RECV(30503): bang notec
+02-07 20:56:59.521: D/Circle2(30503): init()
+02-07 20:57:00.051: D/isAlive(30503): thisisAlive false
+02-07 20:57:00.171: D/RECV(30503): bang notec
+02-07 20:57:00.661: D/Circle2(30503): init()
+02-07 20:57:01.171: D/RECV(30503): bang notec
+02-07 20:57:01.661: D/Circle2(30503): init()
+02-07 20:57:02.121: D/RECV(30503): bang notec
+02-07 20:57:02.611: D/Circle2(30503): init()
+02-07 20:57:03.211: D/RECV(30503): bang notec
+02-07 20:57:03.701: D/Circle2(30503): init()
+02-07 20:57:04.071: D/RECV(30503): bang notec
+02-07 20:57:04.561: D/Circle2(30503): init()
+02-07 20:57:05.001: D/RECV(30503): bang notec
+02-07 20:57:05.491: D/Circle2(30503): init()
+02-07 20:57:05.991: D/RECV(30503): bang notec
+02-07 20:57:06.481: D/Circle2(30503): init()
+02-07 20:57:06.861: D/RECV(30503): bang notec
+02-07 20:57:07.351: D/Circle2(30503): init()
+02-07 20:57:07.521: D/RECV(30503): bang sonar
+02-07 20:57:07.621: D/SonarCircle2(30503): init()
+02-07 20:57:07.781: D/RECV(30503): bang notec
+02-07 20:57:08.271: D/Circle2(30503): init()
+02-07 20:57:08.511: D/RECV(30503): bang notec
+02-07 20:57:09.001: D/Circle2(30503): init()
+02-07 20:57:09.431: D/RECV(30503): bang notec
+02-07 20:57:09.921: D/Circle2(30503): init()
+02-07 20:57:10.011: D/RECV(30503): bang notec
+02-07 20:57:10.501: D/Circle2(30503): init()
+02-07 20:57:10.641: D/RECV(30503): bang notec
+02-07 20:57:11.131: D/Circle2(30503): init()
+02-07 20:57:11.401: D/RECV(30503): bang notec
+02-07 20:57:11.891: D/Circle2(30503): init()
+02-07 20:57:12.071: D/RECV(30503): bang notec
+02-07 20:57:12.561: D/Circle2(30503): init()
+02-07 20:57:13.091: D/RECV(30503): bang notec
+02-07 20:57:13.131: D/isAlive(30503): thisisAlive false
+02-07 20:57:13.531: D/RECV(30503): bang notec
+02-07 20:57:13.581: D/Circle2(30503): init()
+02-07 20:57:14.021: D/Circle2(30503): init()
+02-07 20:57:14.481: D/RECV(30503): bang notec
+02-07 20:57:14.971: D/Circle2(30503): init()
+02-07 20:57:15.231: D/RECV(30503): bang notec
+02-07 20:57:15.721: D/Circle2(30503): init()
+02-07 20:57:15.961: D/RECV(30503): bang notec
+02-07 20:57:16.451: D/Circle2(30503): init()
+02-07 20:57:16.491: D/RECV(30503): bang notec
+02-07 20:57:16.981: D/Circle2(30503): init()
+02-07 20:57:17.141: D/RECV(30503): bang notec
+02-07 20:57:17.371: D/RECV(30503): bang switchdir
+02-07 20:57:17.631: D/Circle2(30503): init()
+02-07 20:57:17.881: D/RECV(30503): bang notec
+02-07 20:57:18.361: D/RECV(30503): bang notec
+02-07 20:57:18.371: D/Circle2(30503): init()
+02-07 20:57:18.851: D/Circle2(30503): init()
+02-07 20:57:19.111: D/RECV(30503): bang notec
+02-07 20:57:19.591: D/RECV(30503): bang notec
+02-07 20:57:19.611: D/Circle2(30503): init()
+02-07 20:57:20.081: D/Circle2(30503): init()
+02-07 20:57:20.141: D/RECV(30503): bang notec
+02-07 20:57:20.581: D/RECV(30503): bang notec
+02-07 20:57:20.631: D/Circle2(30503): init()
+02-07 20:57:20.981: D/RECV(30503): bang sonar
+02-07 20:57:20.981: D/RECV(30503): bang notec
+02-07 20:57:21.071: D/Circle2(30503): init()
+02-07 20:57:21.081: D/SonarCircle2(30503): init()
+02-07 20:57:21.471: D/Circle2(30503): init()
+02-07 20:57:21.791: D/RECV(30503): bang notec
+02-07 20:57:22.191: D/RECV(30503): bang notec
+02-07 20:57:22.281: D/Circle2(30503): init()
+02-07 20:57:22.541: D/RECV(30503): bang notec
+02-07 20:57:22.681: D/Circle2(30503): init()
+02-07 20:57:23.031: D/Circle2(30503): init()
+02-07 20:57:23.201: D/RECV(30503): bang notec
+02-07 20:57:23.691: D/Circle2(30503): init()
+02-07 20:57:23.951: D/RECV(30503): bang notec
+02-07 20:57:24.441: D/Circle2(30503): init()
+02-07 20:57:24.601: D/RECV(30503): bang notec
+02-07 20:57:25.091: D/Circle2(30503): init()
+02-07 20:57:25.241: D/RECV(30503): bang notec
+02-07 20:57:25.731: D/Circle2(30503): init()
+02-07 20:57:25.901: D/RECV(30503): bang notec
+02-07 20:57:26.391: D/Circle2(30503): init()
+02-07 20:57:26.631: D/RECV(30503): bang notec
+02-07 20:57:27.021: D/RECV(30503): bang notec
+02-07 20:57:27.121: D/Circle2(30503): init()
+02-07 20:57:27.381: D/isAlive(30503): thisisAlive false
+02-07 20:57:27.511: D/Circle2(30503): init()
+02-07 20:57:27.771: D/RECV(30503): bang notec
+02-07 20:57:28.261: D/Circle2(30503): init()
+02-07 20:57:28.511: D/RECV(30503): bang notec
+02-07 20:57:29.001: D/Circle2(30503): init()
+02-07 20:57:29.041: D/RECV(30503): bang notec
+02-07 20:57:29.531: D/RECV(30503): bang notec
+02-07 20:57:29.531: D/Circle2(30503): init()
+02-07 20:57:29.891: D/RECV(30503): bang notec
+02-07 20:57:30.021: D/Circle2(30503): init()
+02-07 20:57:30.381: D/Circle2(30503): init()
+02-07 20:57:30.631: D/RECV(30503): bang notec
+02-07 20:57:31.131: D/Circle2(30503): init()
+02-07 20:57:31.211: D/RECV(30503): bang notec
+02-07 20:57:31.641: D/RECV(30503): bang notec
+02-07 20:57:31.701: D/Circle2(30503): init()
+02-07 20:57:32.061: D/RECV(30503): bang notec
+02-07 20:57:32.131: D/Circle2(30503): init()
+02-07 20:57:32.481: D/RECV(30503): bang notec
+02-07 20:57:32.551: D/Circle2(30503): init()
+02-07 20:57:32.971: D/Circle2(30503): init()
+02-07 20:57:32.971: D/RECV(30503): bang notec
+02-07 20:57:33.421: D/RECV(30503): bang notec
+02-07 20:57:33.461: D/Circle2(30503): init()
+02-07 20:57:33.911: D/Circle2(30503): init()
+02-07 20:57:34.081: D/RECV(30503): bang notec
+02-07 20:57:34.361: D/RECV(30503): bang sonar
+02-07 20:57:34.461: D/SonarCircle2(30503): init()
+02-07 20:57:34.571: D/Circle2(30503): init()
+02-07 20:57:34.821: D/RECV(30503): bang notec
+02-07 20:57:35.311: D/Circle2(30503): init()
+02-07 20:57:35.641: D/RECV(30503): bang notec
+02-07 20:57:36.131: D/Circle2(30503): init()
+02-07 20:57:36.321: D/RECV(30503): bang notec
+02-07 20:57:36.811: D/Circle2(30503): init()
+02-07 20:57:37.051: D/RECV(30503): bang notec
+02-07 20:57:37.541: D/Circle2(30503): init()
+02-07 20:57:37.601: D/RECV(30503): bang notec
+02-07 20:57:38.051: D/RECV(30503): bang notec
+02-07 20:57:38.091: D/Circle2(30503): init()
+02-07 20:57:38.541: D/Circle2(30503): init()
+02-07 20:57:38.611: D/RECV(30503): bang notec
+02-07 20:57:39.101: D/Circle2(30503): init()
+02-07 20:57:39.191: D/RECV(30503): bang notec
+02-07 20:57:39.681: D/Circle2(30503): init()
+02-07 20:57:40.091: D/RECV(30503): bang notec
+02-07 20:57:40.581: D/Circle2(30503): init()
+02-07 20:57:40.671: D/RECV(30503): bang notec
+02-07 20:57:41.161: D/Circle2(30503): init()
+02-07 20:57:41.721: D/RECV(30503): bang notec
+02-07 20:57:41.911: D/isAlive(30503): thisisAlive false
+02-07 20:57:42.211: D/Circle2(30503): init()
+02-07 20:57:42.711: D/RECV(30503): bang notec
+02-07 20:57:43.201: D/Circle2(30503): init()
+02-07 20:57:43.751: D/RECV(30503): bang notec
+02-07 20:57:44.241: D/Circle2(30503): init()
+02-07 20:57:44.671: D/RECV(30503): bang notec
+02-07 20:57:45.171: D/Circle2(30503): init()
+02-07 20:57:45.571: D/RECV(30503): bang notec
+02-07 20:57:46.061: D/Circle2(30503): init()
+02-07 20:57:46.311: D/RECV(30503): bang notec
+02-07 20:57:46.811: D/Circle2(30503): init()
+02-07 20:57:47.361: D/RECV(30503): bang notec
+02-07 20:57:47.801: D/RECV(30503): bang sonar
+02-07 20:57:47.851: D/Circle2(30503): init()
+02-07 20:57:47.901: D/SonarCircle2(30503): init()
+02-07 20:57:48.211: D/RECV(30503): bang notec
+02-07 20:57:48.701: D/Circle2(30503): init()
+02-07 20:57:49.501: D/RECV(30503): bang notec
+02-07 20:57:49.991: D/Circle2(30503): init()
+02-07 20:57:50.801: D/RECV(30503): bang notec
+02-07 20:57:51.291: D/Circle2(30503): init()
+02-07 20:57:51.901: D/RECV(30503): bang notec
+02-07 20:57:52.391: D/Circle2(30503): init()
+02-07 20:57:53.281: D/RECV(30503): bang notec
+02-07 20:57:53.771: D/Circle2(30503): init()
+02-07 20:57:54.601: D/RECV(30503): bang notec
+02-07 20:57:55.091: D/Circle2(30503): init()
+02-07 20:57:55.511: D/isAlive(30503): thisisAlive false
+02-07 20:57:55.831: D/RECV(30503): bang notec
+02-07 20:57:56.321: D/Circle2(30503): init()
+02-07 20:57:57.051: D/RECV(30503): bang notec
+02-07 20:57:57.301: D/RECV(30503): bang switchdir
+02-07 20:57:57.541: D/Circle2(30503): init()
+02-07 20:57:58.121: D/RECV(30503): bang notec
+02-07 20:57:58.611: D/Circle2(30503): init()
+02-07 20:57:59.091: D/RECV(30503): bang notec
+02-07 20:57:59.581: D/Circle2(30503): init()
+02-07 20:58:00.481: D/RECV(30503): bang notec
+02-07 20:58:00.971: D/Circle2(30503): init()
+02-07 20:58:01.301: D/RECV(30503): bang sonar
+02-07 20:58:01.401: D/SonarCircle2(30503): init()
+02-07 20:58:01.491: D/RECV(30503): bang notec
+02-07 20:58:01.981: D/Circle2(30503): init()
+02-07 20:58:02.781: D/RECV(30503): bang notec
+02-07 20:58:03.271: D/Circle2(30503): init()
+02-07 20:58:03.871: D/RECV(30503): bang notec
+02-07 20:58:04.361: D/Circle2(30503): init()
+02-07 20:58:04.821: D/RECV(30503): bang notec
+02-07 20:58:05.311: D/Circle2(30503): init()
+02-07 20:58:05.751: D/RECV(30503): bang notec
+02-07 20:58:06.241: D/Circle2(30503): init()
+02-07 20:58:06.681: D/RECV(30503): bang notec
+02-07 20:58:07.171: D/Circle2(30503): init()
+02-07 20:58:07.801: D/RECV(30503): bang notec
+02-07 20:58:08.291: D/Circle2(30503): init()
+02-07 20:58:08.631: D/RECV(30503): bang notec
+02-07 20:58:09.121: D/Circle2(30503): init()
+02-07 20:58:09.391: D/isAlive(30503): thisisAlive false
+02-07 20:58:09.581: D/RECV(30503): bang notec
+02-07 20:58:10.071: D/Circle2(30503): init()
+02-07 20:58:10.571: D/RECV(30503): bang notec
+02-07 20:58:11.061: D/Circle2(30503): init()
+02-07 20:58:11.711: D/RECV(30503): bang notec
+02-07 20:58:12.201: D/Circle2(30503): init()
+02-07 20:58:12.631: D/RECV(30503): bang notec
+02-07 20:58:13.121: D/Circle2(30503): init()
+02-07 20:58:13.461: D/RECV(30503): bang notec
+02-07 20:58:13.951: D/Circle2(30503): init()
+02-07 20:58:14.411: D/RECV(30503): bang notec
+02-07 20:58:14.761: D/RECV(30503): bang sonar
+02-07 20:58:14.861: D/SonarCircle2(30503): init()
+02-07 20:58:14.901: D/Circle2(30503): init()
+02-07 20:58:15.421: D/RECV(30503): bang notec
+02-07 20:58:15.911: D/Circle2(30503): init()
+02-07 20:58:16.161: D/RECV(30503): bang notec
+02-07 20:58:16.651: D/Circle2(30503): init()
+02-07 20:58:16.901: D/RECV(30503): bang notec
+02-07 20:58:17.391: D/Circle2(30503): init()
+02-07 20:58:17.561: D/RECV(30503): bang notec
+02-07 20:58:18.051: D/Circle2(30503): init()
+02-07 20:58:18.111: D/RECV(30503): bang notec
+02-07 20:58:18.601: D/Circle2(30503): init()
+02-07 20:58:18.941: D/RECV(30503): bang notec
+02-07 20:58:19.431: D/Circle2(30503): init()
+02-07 20:58:19.501: D/RECV(30503): bang notec
+02-07 20:58:19.991: D/Circle2(30503): init()
+02-07 20:58:19.991: D/RECV(30503): bang notec
+02-07 20:58:20.481: D/Circle2(30503): init()
+02-07 20:58:20.731: D/RECV(30503): bang notec
+02-07 20:58:21.221: D/Circle2(30503): init()
+02-07 20:58:21.471: D/RECV(30503): bang notec
+02-07 20:58:21.971: D/Circle2(30503): init()
+02-07 20:58:22.001: D/RECV(30503): bang notec
+02-07 20:58:22.391: D/RECV(30503): bang notec
+02-07 20:58:22.491: D/Circle2(30503): init()
+02-07 20:58:22.881: D/Circle2(30503): init()
+02-07 20:58:23.211: D/RECV(30503): bang notec
+02-07 20:58:23.321: D/isAlive(30503): thisisAlive false
+02-07 20:58:23.701: D/Circle2(30503): init()
+02-07 20:58:23.871: D/RECV(30503): bang notec
+02-07 20:58:24.261: D/RECV(30503): bang notec
+02-07 20:58:24.361: D/Circle2(30503): init()
+02-07 20:58:24.751: D/Circle2(30503): init()
+02-07 20:58:24.781: D/RECV(30503): bang notec
+02-07 20:58:25.271: D/Circle2(30503): init()
+02-07 20:58:25.271: D/RECV(30503): bang notec
+02-07 20:58:25.771: D/Circle2(30503): init()
+02-07 20:58:26.021: D/RECV(30503): bang notec
+02-07 20:58:26.411: D/RECV(30503): bang notec
+02-07 20:58:26.511: D/Circle2(30503): init()
+02-07 20:58:26.901: D/Circle2(30503): init()
+02-07 20:58:27.131: D/RECV(30503): bang notec
+02-07 20:58:27.621: D/Circle2(30503): init()
+02-07 20:58:27.901: D/dalvikvm(30503): GC_CONCURRENT freed 905K, 15% free 10710K/12551K, paused 25ms+60ms
+02-07 20:58:27.991: D/RECV(30503): bang notec
+02-07 20:58:28.221: D/RECV(30503): bang sonar
+02-07 20:58:28.221: D/RECV(30503): bang notec
+02-07 20:58:28.321: D/SonarCircle2(30503): init()
+02-07 20:58:28.481: D/Circle2(30503): init()
+02-07 20:58:28.721: D/Circle2(30503): init()
+02-07 20:58:28.971: D/RECV(30503): bang notec
+02-07 20:58:29.461: D/Circle2(30503): init()
+02-07 20:58:29.751: D/RECV(30503): bang notec
+02-07 20:58:30.191: D/RECV(30503): bang notec
+02-07 20:58:30.241: D/Circle2(30503): init()
+02-07 20:58:30.581: D/RECV(30503): bang notec
+02-07 20:58:30.681: D/Circle2(30503): init()
+02-07 20:58:31.071: D/Circle2(30503): init()
+02-07 20:58:31.151: D/RECV(30503): bang notec
+02-07 20:58:31.641: D/Circle2(30503): init()
+02-07 20:58:31.871: D/RECV(30503): bang notec
+02-07 20:58:32.151: D/RECV(30503): bang notec
+02-07 20:58:32.361: D/Circle2(30503): init()
+02-07 20:58:32.641: D/Circle2(30503): init()
+02-07 20:58:32.701: D/RECV(30503): bang notec
+02-07 20:58:33.051: D/RECV(30503): bang notec
+02-07 20:58:33.191: D/Circle2(30503): init()
+02-07 20:58:33.451: D/RECV(30503): bang notec
+02-07 20:58:33.541: D/Circle2(30503): init()
+02-07 20:58:33.941: D/Circle2(30503): init()
+02-07 20:58:34.281: D/RECV(30503): bang notec
+02-07 20:58:34.751: D/RECV(30503): bang notec
+02-07 20:58:34.771: D/Circle2(30503): init()
+02-07 20:58:35.241: D/Circle2(30503): init()
+02-07 20:58:35.491: D/RECV(30503): bang notec
+02-07 20:58:35.981: D/Circle2(30503): init()
+02-07 20:58:36.331: D/RECV(30503): bang notec
+02-07 20:58:36.701: D/RECV(30503): bang notec
+02-07 20:58:36.821: D/Circle2(30503): init()
+02-07 20:58:37.161: D/isAlive(30503): thisisAlive false
+02-07 20:58:37.191: D/Circle2(30503): init()
+02-07 20:58:37.311: D/RECV(30503): bang switchdir
+02-07 20:58:37.461: D/RECV(30503): bang notec
+02-07 20:58:37.891: D/RECV(30503): bang notec
+02-07 20:58:37.951: D/Circle2(30503): init()
+02-07 20:58:38.381: D/Circle2(30503): init()
+02-07 20:58:38.641: D/RECV(30503): bang notec
+02-07 20:58:39.121: D/RECV(30503): bang notec
+02-07 20:58:39.131: D/Circle2(30503): init()
+02-07 20:58:39.611: D/Circle2(30503): init()
+02-07 20:58:40.021: D/RECV(30503): bang notec
+02-07 20:58:40.511: D/RECV(30503): bang notec
+02-07 20:58:40.511: D/Circle2(30503): init()
+02-07 20:58:41.001: D/Circle2(30503): init()
+02-07 20:58:41.091: D/RECV(30503): bang notec
+02-07 20:58:41.581: D/Circle2(30503): init()
+02-07 20:58:41.731: D/RECV(30503): bang sonar
+02-07 20:58:41.811: D/RECV(30503): bang notec
+02-07 20:58:41.831: D/SonarCircle2(30503): init()
+02-07 20:58:42.301: D/Circle2(30503): init()
+02-07 20:58:42.371: D/RECV(30503): bang notec
+02-07 20:58:42.861: D/Circle2(30503): init()
+02-07 20:58:43.021: D/RECV(30503): bang notec
+02-07 20:58:43.511: D/Circle2(30503): init()
+02-07 20:58:43.551: D/RECV(30503): bang notec
+02-07 20:58:44.041: D/Circle2(30503): init()
+02-07 20:58:44.211: D/RECV(30503): bang notec
+02-07 20:58:44.701: D/Circle2(30503): init()
+02-07 20:58:44.851: D/RECV(30503): bang notec
+02-07 20:58:45.341: D/Circle2(30503): init()
+02-07 20:58:45.681: D/RECV(30503): bang notec
+02-07 20:58:46.181: D/Circle2(30503): init()
+02-07 20:58:46.551: D/RECV(30503): bang notec
+02-07 20:58:47.041: D/Circle2(30503): init()
+02-07 20:58:47.211: D/RECV(30503): bang notec
+02-07 20:58:47.701: D/Circle2(30503): init()
+02-07 20:58:48.131: D/RECV(30503): bang notec
+02-07 20:58:48.621: D/Circle2(30503): init()
+02-07 20:58:48.771: D/RECV(30503): bang notec
+02-07 20:58:49.261: D/Circle2(30503): init()
+02-07 20:58:49.701: D/RECV(30503): bang notec
+02-07 20:58:50.111: D/isAlive(30503): thisisAlive false
+02-07 20:58:50.191: D/Circle2(30503): init()
+02-07 20:58:50.341: D/RECV(30503): bang notec
+02-07 20:58:50.831: D/Circle2(30503): init()
+02-07 20:58:51.401: D/RECV(30503): bang notec
+02-07 20:58:51.891: D/Circle2(30503): init()
+02-07 20:58:52.221: D/RECV(30503): bang notec
+02-07 20:58:52.711: D/Circle2(30503): init()
+02-07 20:58:53.041: D/RECV(30503): bang notec
+02-07 20:58:53.531: D/Circle2(30503): init()
+02-07 20:58:54.041: D/RECV(30503): bang notec
+02-07 20:58:54.531: D/Circle2(30503): init()
+02-07 20:58:55.171: D/RECV(30503): bang sonar
+02-07 20:58:55.271: D/SonarCircle2(30503): init()
+02-07 20:58:55.281: D/RECV(30503): bang notec
+02-07 20:58:55.771: D/Circle2(30503): init()
+02-07 20:58:56.491: D/RECV(30503): bang notec
+02-07 20:58:56.981: D/Circle2(30503): init()
+02-07 20:58:57.701: D/RECV(30503): bang notec
+02-07 20:58:58.191: D/Circle2(30503): init()
+02-07 20:58:58.611: D/RECV(30503): bang notec
+02-07 20:58:59.101: D/Circle2(30503): init()
+02-07 20:58:59.441: D/RECV(30503): bang notec
+02-07 20:58:59.931: D/Circle2(30503): init()
+02-07 20:59:00.681: D/RECV(30503): bang notec
+02-07 20:59:01.171: D/Circle2(30503): init()
+02-07 20:59:02.081: D/RECV(30503): bang notec
+02-07 20:59:02.571: D/Circle2(30503): init()
+02-07 20:59:03.291: D/isAlive(30503): thisisAlive false
+02-07 20:59:03.371: D/RECV(30503): bang notec
+02-07 20:59:03.861: D/Circle2(30503): init()
+02-07 20:59:04.371: D/RECV(30503): bang notec
+02-07 20:59:04.861: D/Circle2(30503): init()
+02-07 20:59:05.341: D/RECV(30503): bang notec
+02-07 20:59:05.831: D/Circle2(30503): init()
+02-07 20:59:06.341: D/RECV(30503): bang notec
+02-07 20:59:06.831: D/Circle2(30503): init()
+02-07 20:59:07.641: D/RECV(30503): bang notec
+02-07 20:59:08.131: D/Circle2(30503): init()
+02-07 20:59:08.651: D/RECV(30503): bang sonar
+02-07 20:59:08.651: D/RECV(30503): bang notec
+02-07 20:59:08.751: D/SonarCircle2(30503): init()
+02-07 20:59:09.141: D/Circle2(30503): init()
+02-07 20:59:09.531: D/RECV(30503): bang notec
+02-07 20:59:10.021: D/Circle2(30503): init()
+02-07 20:59:10.771: D/RECV(30503): bang notec
+02-07 20:59:11.261: D/Circle2(30503): init()
+02-07 20:59:12.001: D/RECV(30503): bang notec
+02-07 20:59:12.491: D/Circle2(30503): init()
+02-07 20:59:12.831: D/RECV(30503): bang notec
+02-07 20:59:13.321: D/Circle2(30503): init()
+02-07 20:59:13.961: D/RECV(30503): bang notec
+02-07 20:59:14.451: D/Circle2(30503): init()
+02-07 20:59:15.081: D/RECV(30503): bang notec
+02-07 20:59:15.571: D/Circle2(30503): init()
+02-07 20:59:16.201: D/isAlive(30503): thisisAlive false
+02-07 20:59:16.351: D/RECV(30503): bang notec
+02-07 20:59:16.841: D/Circle2(30503): init()
+02-07 20:59:17.301: D/RECV(30503): bang notec
+02-07 20:59:17.391: D/RECV(30503): bang switchdir
+02-07 20:59:17.791: D/Circle2(30503): init()
+02-07 20:59:18.391: D/RECV(30503): bang notec
+02-07 20:59:18.881: D/Circle2(30503): init()
+02-07 20:59:19.261: D/RECV(30503): bang notec
+02-07 20:59:19.751: D/Circle2(30503): init()
+02-07 20:59:20.101: D/RECV(30503): bang notec
+02-07 20:59:20.591: D/Circle2(30503): init()
+02-07 20:59:20.931: D/RECV(30503): bang notec
+02-07 20:59:21.421: D/Circle2(30503): init()
+02-07 20:59:21.751: D/RECV(30503): bang notec
+02-07 20:59:22.051: D/RECV(30503): bang sonar
+02-07 20:59:22.151: D/SonarCircle2(30503): init()
+02-07 20:59:22.241: D/Circle2(30503): init()
+02-07 20:59:22.571: D/RECV(30503): bang notec
+02-07 20:59:23.061: D/Circle2(30503): init()
+02-07 20:59:23.461: D/RECV(30503): bang notec
+02-07 20:59:23.951: D/Circle2(30503): init()
+02-07 20:59:24.181: D/RECV(30503): bang notec
+02-07 20:59:24.671: D/Circle2(30503): init()
+02-07 20:59:25.111: D/RECV(30503): bang notec
+02-07 20:59:25.601: D/Circle2(30503): init()
+02-07 20:59:26.031: D/RECV(30503): bang notec
+02-07 20:59:26.521: D/Circle2(30503): init()
+02-07 20:59:26.581: D/RECV(30503): bang notec
+02-07 20:59:27.071: D/RECV(30503): bang notec
+02-07 20:59:27.071: D/Circle2(30503): init()
+02-07 20:59:27.511: D/RECV(30503): bang notec
+02-07 20:59:27.561: D/Circle2(30503): init()
+02-07 20:59:28.001: D/Circle2(30503): init()
+02-07 20:59:28.301: D/RECV(30503): bang notec
+02-07 20:59:28.791: D/Circle2(30503): init()
+02-07 20:59:29.121: D/RECV(30503): bang notec
+02-07 20:59:29.541: D/RECV(30503): bang notec
+02-07 20:59:29.611: D/Circle2(30503): init()
+02-07 20:59:29.701: D/isAlive(30503): thisisAlive false
+02-07 20:59:29.941: D/RECV(30503): bang notec
+02-07 20:59:30.031: D/Circle2(30503): init()
+02-07 20:59:30.431: D/Circle2(30503): init()
+02-07 20:59:30.681: D/RECV(30503): bang notec
+02-07 20:59:31.171: D/Circle2(30503): init()
+02-07 20:59:31.321: D/RECV(30503): bang notec
+02-07 20:59:31.681: D/RECV(30503): bang notec
+02-07 20:59:31.811: D/Circle2(30503): init()
+02-07 20:59:32.171: D/Circle2(30503): init()
+02-07 20:59:32.471: D/RECV(30503): bang notec
+02-07 20:59:32.961: D/Circle2(30503): init()
+02-07 20:59:33.201: D/RECV(30503): bang notec
+02-07 20:59:33.551: D/RECV(30503): bang notec
+02-07 20:59:33.691: D/Circle2(30503): init()
+02-07 20:59:34.041: D/Circle2(30503): init()
+02-07 20:59:34.191: D/RECV(30503): bang notec
+02-07 20:59:34.671: D/RECV(30503): bang notec
+02-07 20:59:34.691: D/Circle2(30503): init()
+02-07 20:59:34.941: D/RECV(30503): bang notec
+02-07 20:59:35.161: D/Circle2(30503): init()
+02-07 20:59:35.411: D/RECV(30503): bang notec
+02-07 20:59:35.431: D/Circle2(30503): init()
+02-07 20:59:35.531: D/RECV(30503): bang sonar
+02-07 20:59:35.631: D/SonarCircle2(30503): init()
+02-07 20:59:35.681: D/RECV(30503): bang notec
+02-07 20:59:35.911: D/Circle2(30503): init()
+02-07 20:59:36.151: D/RECV(30503): bang notec
+02-07 20:59:36.171: D/Circle2(30503): init()
+02-07 20:59:36.651: D/Circle2(30503): init()
+02-07 20:59:36.821: D/RECV(30503): bang notec
+02-07 20:59:37.261: D/RECV(30503): bang notec
+02-07 20:59:37.321: D/Circle2(30503): init()
+02-07 20:59:37.751: D/Circle2(30503): init()
+02-07 20:59:37.901: D/RECV(30503): bang notec
+02-07 20:59:38.391: D/Circle2(30503): init()
+02-07 20:59:38.571: D/RECV(30503): bang notec
+02-07 20:59:39.061: D/Circle2(30503): init()
+02-07 20:59:39.301: D/RECV(30503): bang notec
+02-07 20:59:39.791: D/RECV(30503): bang notec
+02-07 20:59:39.791: D/Circle2(30503): init()
+02-07 20:59:40.281: D/Circle2(30503): init()
+02-07 20:59:40.611: D/RECV(30503): bang notec
+02-07 20:59:41.081: D/RECV(30503): bang notec
+02-07 20:59:41.101: D/Circle2(30503): init()
+02-07 20:59:41.571: D/Circle2(30503): init()
+02-07 20:59:41.821: D/RECV(30503): bang notec
+02-07 20:59:42.311: D/Circle2(30503): init()
+02-07 20:59:42.651: D/RECV(30503): bang notec
+02-07 20:59:43.121: D/RECV(30503): bang notec
+02-07 20:59:43.141: D/Circle2(30503): init()
+02-07 20:59:43.621: D/Circle2(30503): init()
+02-07 20:59:43.701: D/RECV(30503): bang notec
+02-07 20:59:43.821: D/isAlive(30503): thisisAlive false
+02-07 20:59:44.051: D/RECV(30503): bang notec
+02-07 20:59:44.191: D/Circle2(30503): init()
+02-07 20:59:44.541: D/Circle2(30503): init()
+02-07 20:59:44.691: D/RECV(30503): bang notec
+02-07 20:59:45.101: D/RECV(30503): bang notec
+02-07 20:59:45.181: D/Circle2(30503): init()
+02-07 20:59:45.591: D/Circle2(30503): init()
+02-07 20:59:45.911: D/RECV(30503): bang notec
+02-07 20:59:46.401: D/Circle2(30503): init()
+02-07 20:59:46.491: D/RECV(30503): bang notec
+02-07 20:59:46.981: D/Circle2(30503): init()
+02-07 20:59:47.141: D/RECV(30503): bang notec
+02-07 20:59:47.631: D/Circle2(30503): init()
+02-07 20:59:47.671: D/RECV(30503): bang notec
+02-07 20:59:48.161: D/Circle2(30503): init()
+02-07 20:59:48.521: D/RECV(30503): bang notec
+02-07 20:59:48.981: D/RECV(30503): bang sonar
+02-07 20:59:49.011: D/Circle2(30503): init()
+02-07 20:59:49.081: D/SonarCircle2(30503): init()
+02-07 20:59:49.191: D/RECV(30503): bang notec
+02-07 20:59:49.681: D/Circle2(30503): init()
+02-07 20:59:49.791: D/RECV(30503): bang notec
+02-07 20:59:50.281: D/Circle2(30503): init()
+02-07 20:59:50.371: D/RECV(30503): bang notec
+02-07 20:59:50.861: D/Circle2(30503): init()
+02-07 20:59:50.931: D/RECV(30503): bang notec
+02-07 20:59:51.421: D/Circle2(30503): init()
+02-07 20:59:51.581: D/RECV(30503): bang notec
+02-07 20:59:52.071: D/Circle2(30503): init()
+02-07 20:59:52.491: D/RECV(30503): bang notec
+02-07 20:59:52.981: D/Circle2(30503): init()
+02-07 20:59:53.551: D/RECV(30503): bang notec
+02-07 20:59:54.041: D/Circle2(30503): init()
+02-07 20:59:54.191: D/RECV(30503): bang notec
+02-07 20:59:54.681: D/Circle2(30503): init()
+02-07 20:59:55.131: D/RECV(30503): bang notec
+02-07 20:59:55.621: D/Circle2(30503): init()
+02-07 20:59:56.161: D/RECV(30503): bang notec
+02-07 20:59:56.651: D/Circle2(30503): init()
+02-07 20:59:56.891: D/isAlive(30503): thisisAlive false
+02-07 20:59:57.061: D/RECV(30503): bang notec
+02-07 20:59:57.331: D/RECV(30503): bang switchdir
+02-07 20:59:57.551: D/Circle2(30503): init()
+02-07 20:59:57.971: D/RECV(30503): bang notec
+02-07 20:59:58.481: D/Circle2(30503): init()
+02-07 20:59:58.721: D/RECV(30503): bang notec
+02-07 20:59:59.211: D/Circle2(30503): init()
+02-07 20:59:59.461: D/RECV(30503): bang notec
+02-07 20:59:59.951: D/Circle2(30503): init()
+02-07 21:00:00.601: D/RECV(30503): bang notec
+02-07 21:00:01.091: D/Circle2(30503): init()
+02-07 21:00:01.721: D/RECV(30503): bang notec
+02-07 21:00:02.221: D/Circle2(30503): init()
+02-07 21:00:02.461: D/RECV(30503): bang sonar
+02-07 21:00:02.561: D/SonarCircle2(30503): init()
+02-07 21:00:02.631: D/RECV(30503): bang notec
+02-07 21:00:03.141: D/Circle2(30503): init()
+02-07 21:00:03.641: D/RECV(30503): bang notec
+02-07 21:00:04.131: D/Circle2(30503): init()
+02-07 21:00:04.781: D/RECV(30503): bang notec
+02-07 21:00:05.271: D/Circle2(30503): init()
+02-07 21:00:05.791: D/RECV(30503): bang notec
+02-07 21:00:06.281: D/Circle2(30503): init()
+02-07 21:00:07.021: D/RECV(30503): bang notec
+02-07 21:00:07.511: D/Circle2(30503): init()
+02-07 21:00:08.141: D/RECV(30503): bang notec
+02-07 21:00:08.631: D/Circle2(30503): init()
+02-07 21:00:09.191: D/isAlive(30503): thisisAlive false
+02-07 21:00:09.301: D/RECV(30503): bang notec
+02-07 21:00:09.791: D/Circle2(30503): init()
+02-07 21:00:10.431: D/RECV(30503): bang notec
+02-07 21:00:10.921: D/Circle2(30503): init()
+02-07 21:00:11.751: D/RECV(30503): bang notec
+02-07 21:00:12.241: D/Circle2(30503): init()
+02-07 21:00:12.751: D/RECV(30503): bang notec
+02-07 21:00:13.241: D/Circle2(30503): init()
+02-07 21:00:13.961: D/RECV(30503): bang notec
+02-07 21:00:14.451: D/Circle2(30503): init()
+02-07 21:00:15.191: D/RECV(30503): bang notec
+02-07 21:00:15.681: D/Circle2(30503): init()
+02-07 21:00:15.931: D/RECV(30503): bang sonar
+02-07 21:00:16.031: D/SonarCircle2(30503): init()
+02-07 21:00:16.121: D/RECV(30503): bang notec
+02-07 21:00:16.611: D/Circle2(30503): init()
+02-07 21:00:17.141: D/RECV(30503): bang notec
+02-07 21:00:17.631: D/Circle2(30503): init()
+02-07 21:00:18.311: D/RECV(30503): bang notec
+02-07 21:00:18.801: D/Circle2(30503): init()
+02-07 21:00:19.551: D/RECV(30503): bang notec
+02-07 21:00:20.041: D/Circle2(30503): init()
+02-07 21:00:20.861: D/RECV(30503): bang notec
+02-07 21:00:21.361: D/Circle2(30503): init()
+02-07 21:00:21.671: D/RECV(30503): bang notec
+02-07 21:00:22.161: D/Circle2(30503): init()
+02-07 21:00:22.481: D/isAlive(30503): thisisAlive false
+02-07 21:00:22.801: D/RECV(30503): bang notec
+02-07 21:00:23.301: D/Circle2(30503): init()
+02-07 21:00:23.561: D/RECV(30503): bang notec
+02-07 21:00:24.061: D/Circle2(30503): init()
+02-07 21:00:24.631: D/RECV(30503): bang notec
+02-07 21:00:25.121: D/Circle2(30503): init()
+02-07 21:00:25.681: D/RECV(30503): bang notec
+02-07 21:00:26.171: D/Circle2(30503): init()
+02-07 21:00:26.611: D/RECV(30503): bang notec
+02-07 21:00:27.101: D/Circle2(30503): init()
+02-07 21:00:27.551: D/RECV(30503): bang notec
+02-07 21:00:28.041: D/Circle2(30503): init()
+02-07 21:00:28.391: D/RECV(30503): bang notec
+02-07 21:00:28.881: D/Circle2(30503): init()
+02-07 21:00:29.301: D/RECV(30503): bang notec
+02-07 21:00:29.391: D/RECV(30503): bang sonar
+02-07 21:00:29.491: D/SonarCircle2(30503): init()
+02-07 21:00:29.791: D/Circle2(30503): init()
+02-07 21:00:30.201: D/RECV(30503): bang notec
+02-07 21:00:30.691: D/Circle2(30503): init()
+02-07 21:00:31.181: D/RECV(30503): bang notec
+02-07 21:00:31.671: D/Circle2(30503): init()
+02-07 21:00:31.901: D/RECV(30503): bang notec
+02-07 21:00:32.391: D/Circle2(30503): init()
+02-07 21:00:32.411: D/RECV(30503): bang notec
+02-07 21:00:32.901: D/Circle2(30503): init()
+02-07 21:00:33.121: D/RECV(30503): bang notec
+02-07 21:00:33.611: D/Circle2(30503): init()
+02-07 21:00:33.771: D/RECV(30503): bang notec
+02-07 21:00:34.221: D/RECV(30503): bang notec
+02-07 21:00:34.261: D/Circle2(30503): init()
+02-07 21:00:34.711: D/Circle2(30503): init()
+02-07 21:00:35.041: D/RECV(30503): bang notec
+02-07 21:00:35.531: D/RECV(30503): bang notec
+02-07 21:00:35.541: D/Circle2(30503): init()
+02-07 21:00:36.001: D/RECV(30503): bang notec
+02-07 21:00:36.021: D/Circle2(30503): init()
+02-07 21:00:36.491: D/Circle2(30503): init()
+02-07 21:00:36.741: D/RECV(30503): bang notec
+02-07 21:00:37.091: D/RECV(30503): bang notec
+02-07 21:00:37.171: D/isAlive(30503): thisisAlive false
+02-07 21:00:37.231: D/Circle2(30503): init()
+02-07 21:00:37.411: D/RECV(30503): bang switchdir
+02-07 21:00:37.561: D/RECV(30503): bang notec
+02-07 21:00:37.581: D/Circle2(30503): init()
+02-07 21:00:38.051: D/Circle2(30503): init()
+02-07 21:00:38.231: D/RECV(30503): bang notec
+02-07 21:00:38.731: D/Circle2(30503): init()
+02-07 21:00:38.791: D/RECV(30503): bang notec
+02-07 21:00:39.231: D/RECV(30503): bang notec
+02-07 21:00:39.281: D/Circle2(30503): init()
+02-07 21:00:39.721: D/Circle2(30503): init()
+02-07 21:00:39.791: D/RECV(30503): bang notec
+02-07 21:00:40.261: D/RECV(30503): bang notec
+02-07 21:00:40.281: D/Circle2(30503): init()
+02-07 21:00:40.741: D/RECV(30503): bang notec
+02-07 21:00:40.761: D/Circle2(30503): init()
+02-07 21:00:41.231: D/Circle2(30503): init()
+02-07 21:00:41.501: D/RECV(30503): bang notec
+02-07 21:00:41.741: D/RECV(30503): bang notec
+02-07 21:00:41.991: D/Circle2(30503): init()
+02-07 21:00:42.141: D/RECV(30503): bang notec
+02-07 21:00:42.241: D/Circle2(30503): init()
+02-07 21:00:42.581: D/RECV(30503): bang notec
+02-07 21:00:42.631: D/Circle2(30503): init()
+02-07 21:00:42.891: D/RECV(30503): bang sonar
+02-07 21:00:42.991: D/SonarCircle2(30503): init()
+02-07 21:00:43.071: D/Circle2(30503): init()
+02-07 21:00:43.161: D/RECV(30503): bang notec
+02-07 21:00:43.651: D/Circle2(30503): init()
+02-07 21:00:43.711: D/RECV(30503): bang notec
+02-07 21:00:44.071: D/RECV(30503): bang notec
+02-07 21:00:44.071: E/dalvikvm(30503): Thread creation failed (err=Out of memory)
+02-07 21:00:44.071: D/AndroidRuntime(30503): Shutting down VM
+02-07 21:00:44.071: W/dalvikvm(30503): threadid=1: thread exiting with uncaught exception (group=0x409ef1f8)
+02-07 21:00:44.081: E/AndroidRuntime(30503): FATAL EXCEPTION: main
+02-07 21:00:44.081: E/AndroidRuntime(30503): java.lang.OutOfMemoryError: thread creation failed
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.lang.VMThread.create(Native Method)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.lang.Thread.start(Thread.java:1050)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:909)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.util.concurrent.ThreadPoolExecutor.prestartCoreThread(ThreadPoolExecutor.java:1510)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(ScheduledThreadPoolExecutor.java:305)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.util.concurrent.ScheduledThreadPoolExecutor.schedule(ScheduledThreadPoolExecutor.java:502)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.util.concurrent.Executors$DelegatedScheduledExecutorService.schedule(Executors.java:661)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at nz.kapsy.okobotoke.OkobotokeActivity$1.DelayLights(OkobotokeActivity.java:378)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at nz.kapsy.okobotoke.OkobotokeActivity$1.receiveBang(OkobotokeActivity.java:310)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at org.puredata.core.PdBase.pollPdMessageQueue(Native Method)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at org.puredata.android.io.PdAudio$1.run(PdAudio.java:37)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at android.os.Handler.handleCallback(Handler.java:605)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at android.os.Looper.loop(Looper.java:137)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at android.app.ActivityThread.main(ActivityThread.java:4424)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.lang.reflect.Method.invokeNative(Native Method)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at java.lang.reflect.Method.invoke(Method.java:511)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:784)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:551)
+02-07 21:00:44.081: E/AndroidRuntime(30503): 	at dalvik.system.NativeStart.main(Native Method)
+02-07 21:00:44.201: D/Circle2(30503): init()
+02-07 21:00:44.621: I/dalvikvm(30503): threadid=3: reacting to signal 3
+02-07 21:00:47.851: I/dalvikvm(30503): Wrote stack traces to '/data/anr/traces.txt'
+02-07 21:00:55.151: D/isAlive(30503): thisisAlive false
+02-07 21:01:06.441: D/isAlive(30503): thisisAlive false
+02-07 21:01:14.201: D/dalvikvm(30503): GC_CONCURRENT freed 989K, 13% free 10994K/12551K, paused 31ms+50ms
+02-07 21:01:17.141: D/isAlive(30503): thisisAlive false
+02-07 21:01:27.221: D/isAlive(30503): thisisAlive false
+02-07 21:01:37.081: D/isAlive(30503): thisisAlive false
+02-07 21:01:46.861: D/isAlive(30503): thisisAlive false
+02-07 21:01:56.671: D/isAlive(30503): thisisAlive false
+02-07 21:02:06.501: D/isAlive(30503): thisisAlive false
+02-07 21:02:16.291: D/isAlive(30503): thisisAlive false
+02-07 21:02:26.031: D/isAlive(30503): thisisAlive false
+02-07 21:02:35.771: D/isAlive(30503): thisisAlive false
+02-07 21:02:45.231: D/isAlive(30503): thisisAlive false
+02-07 21:02:54.791: D/isAlive(30503): thisisAlive false
+02-07 21:03:04.311: D/isAlive(30503): thisisAlive false
+02-07 21:03:13.941: D/isAlive(30503): thisisAlive false
+02-07 21:03:23.491: D/isAlive(30503): thisisAlive false
+02-07 21:03:33.001: D/isAlive(30503): thisisAlive false
+02-07 21:03:42.541: D/isAlive(30503): thisisAlive false
+02-07 21:03:52.051: D/isAlive(30503): thisisAlive false
+02-07 21:04:01.551: D/isAlive(30503): thisisAlive false
+02-07 21:04:10.941: D/isAlive(30503): thisisAlive false
+02-07 21:04:16.011: D/dalvikvm(30503): GC_CONCURRENT freed 904K, 9% free 11459K/12551K, paused 19ms+61ms
+02-07 21:04:20.601: D/isAlive(30503): thisisAlive false
+02-07 21:04:30.041: D/isAlive(30503): thisisAlive false
+02-07 21:04:39.451: D/isAlive(30503): thisisAlive false
+02-07 21:04:48.901: D/isAlive(30503): thisisAlive false
+02-07 21:04:58.331: D/isAlive(30503): thisisAlive false
+02-07 21:05:07.751: D/isAlive(30503): thisisAlive false
+02-07 21:05:17.141: D/isAlive(30503): thisisAlive false
+02-07 21:05:26.451: D/isAlive(30503): thisisAlive false

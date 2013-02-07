@@ -38,7 +38,7 @@ public class SampledSines {
 	
 	
 	public static float getPosSineVal(float angle) {
-		
+		outOfRangeAng(angle);
 		return possampsine[(int)(angle * (possampsine.length / 360))];
 	}
 	
@@ -59,9 +59,17 @@ public class SampledSines {
 	
 	
 	public static float getPosNegSineVal(float angle) {
-		
+		outOfRangeAng(angle);
 		return posnegsampsine[(int)(angle * (posnegsampsine.length / 360))];
 	}
-
+	
+	private static void outOfRangeAng(float angle) {
+		
+		if (angle < 0F || angle > 360F ) {
+				
+			Log.d("SampledSines", "Angle " + angle 
+					+ "is out of range, null exception likely");
+		}
+	}
 	
 }
