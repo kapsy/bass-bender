@@ -83,6 +83,8 @@ public class OkobotokeActivity extends Activity {
 
 	FrameLayout framelayout;
 	MySurfaceView mysurfview;
+	
+	TouchView touchview;
 
 	LinearLayout dev_master_btns;
 	LinearLayout dev_pref_pg1;
@@ -132,7 +134,9 @@ public class OkobotokeActivity extends Activity {
 		
 				
 		mysurfview = new MySurfaceView(getApplication());
+		touchview = new TouchView(getApplication());
 		
+		touchview.init(mysurfview, mysurfview.framerec);
 				
 		framelayout = new FrameLayout(this);
 						
@@ -146,11 +150,16 @@ public class OkobotokeActivity extends Activity {
 		framelayout.addView(mysurfview, 
 				new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		
-		//dev panel
+		//framelayout.addView(touchview);
+
 		framelayout.addView(dev_master_btns);
 		
 		
+		
 		setContentView(framelayout);
+		
+
+		
 		
 		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
 		
@@ -708,30 +717,4 @@ public class OkobotokeActivity extends Activity {
          
 }
 
-/*class TestDelayThread extends Thread {
-	
-	MySurfaceView s;
-	
-	*//**
-	 * @param s
-	 *//*
-	public TestDelayThread(MySurfaceView s) {
-		super();
-		this.s = s;
-	}
 
-
-	
-	public void run() {
-		try {
-			sleep(100);
-
-			s.sonarcircle2.init();
-		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
-		
-	}
-}*/

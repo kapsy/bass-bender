@@ -149,9 +149,39 @@ xフェーダー動くの記録→第二目方法
 
 2013年2月7日
 
-別のViewクラスを使うと操作が早くなるかな
+ｘ別のViewクラスを使うと操作が早くなるかな
+	→ 結果：あまり変化ない
 
-NullPointer問題？解決しなきゃ。
+xNullPointer問題？解決しなきゃ。
+
+2013年2月8日
+
+ｘ仕方ないと思う、event()が起きるとき全部無視してはいけない…	
+
+x解決しなきゃ問題点
+
+x閉める「問題発生」メッセージ
+	threadid=11: thread exiting with uncaught exception (group=0x409ef1f8)
+	FATAL EXCEPTION: Thread-6720
+	java.lang.NullPointerException
+	at nz.kapsy.okobotoke.MySurfaceView.draw(MySurfaceView.java:470)
+	at nz.kapsy.okobotoke.MySurfaceView$1.run(MySurfaceView.java:203)
+	at java.lang.Thread.run(Thread.java:856)
+	
+
+起動時の処理、ロード画面でどうだ？
+
+音声フェードイン、画面フェードイン
+
+テーマ
+
+x主なフレームレート値
+
+ボタンおと
+
+時間差どうやって計算すればいいのか
+
+
 
 ＝＝＝＝＝ここまでにしました＝＝＝＝＝
 

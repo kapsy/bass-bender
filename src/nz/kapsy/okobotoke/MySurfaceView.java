@@ -17,7 +17,9 @@ public class MySurfaceView extends SurfaceView implements
 	
 
 	private Thread drawthread = null;
-	private boolean isAttached = true;
+	private boolean isattached = true;
+	private long timestr = 0, timefin = 0;
+	private int threadinterval = 28; //1000/ 28 = 35.714fps
 	
 	
 	private SurfaceHolder holder;
@@ -33,17 +35,11 @@ public class MySurfaceView extends SurfaceView implements
     
     public SonarCircle2 sonarcircle2;
     
-    
-    
-    
-    
-   // private static boolean parentdirswitchon = true;
+
 	private boolean initbackground;
 	
     public RecordBar recbar;
-	public FrameRecorder framerec;
-	
-	
+	public FrameRecorder framerec = new FrameRecorder();
 
 	Rect screensizerect;
 	public Canvas canvas;
@@ -57,7 +53,7 @@ public class MySurfaceView extends SurfaceView implements
     
     // タッチ処理
     final static int MULTI_TOUCH_MAX = 2;
-    private PointF [] touchpoints = new PointF[MULTI_TOUCH_MAX];
+   // private PointF [] touchpoints = new PointF[MULTI_TOUCH_MAX];
     
     int oneintwo = 0;
     int oneinfour = 0;
@@ -87,12 +83,6 @@ public class MySurfaceView extends SurfaceView implements
     	    	
     }
     
-    
-    
-    
-    
-
-
 	public MySurfaceView(Context context) {
         super(context);
         MySurfaceViewInit();
@@ -113,22 +103,28 @@ public class MySurfaceView extends SurfaceView implements
         holder = getHolder();
         holder.setFormat(PixelFormat.OPAQUE);
         holder.addCallback(this);
-        
+//        
         setFocusable(true);
-        //requestFocus();
-        
-        for (int i = 0; i < MULTI_TOUCH_MAX; i++) {
-        	touchpoints[i] = new PointF(-1.0F, -1.0F);
-        }
-        
+        //requestFocus();        
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder,
             int format, int width, int height) {}
+    
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+    	isattached = false;
+    	this.drawthread = null;
+   
+    }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+    	
+    	//this.holder = holder;
+    	
+    	
     	
 //        int h = backg_bitmap.getHeight();
 //        int w = backg_bitmap.getWidth();
@@ -137,19 +133,8 @@ public class MySurfaceView extends SurfaceView implements
 //float ratio = (float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth();
     	
     	// creates rectangle at ratio of source bitmap to fit screen
-       
-
-
-    	
-    	
-    	
     	int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
     	
-       
-       
-       //trec = new TouchRecorder();
-       framerec = new FrameRecorder();
-       
        // new Rect(l, t, r, b);
 		screensizerect = new Rect(0, 0, getWidth(), rectheight);
 		   
@@ -169,21 +154,14 @@ public class MySurfaceView extends SurfaceView implements
         circtouchsecond = new NormalCircle();
            
         initbackground = true;
-        recbar = new RecordBar(this.screenwidth, this.screenheight, 10000, 26, this.framerec);
+        recbar = new RecordBar(this.screenwidth, this.screenheight, 10000, threadinterval, this.framerec);
         
         rainstars = new RainStar[40];
         for(int i = 0; i < rainstars.length; i++) {
         	rainstars[i] = new RainStar();
         }
         
-        
-        
         startThread();
-        
-
-        
-                
-       // startnow(); // ★追加
 
     }
     
@@ -196,16 +174,27 @@ public class MySurfaceView extends SurfaceView implements
 			@Override
 			public void run() {
 				
-				while(isAttached) {
-					//		Log.d("THREAD", "run()");
-				draw();
-			    	try {
-						Thread.sleep(18);
-					} catch (InterruptedException e) {
+				while(isattached) {
+					
+					timestr = System.currentTimeMillis();
+										
+					draw();
+			    	
+					timefin = System.currentTimeMillis();
+					
+					long diff = timefin - timestr;
+					
+					if (diff <= threadinterval) {
+											
+						try {
+							Thread.sleep(threadinterval - diff);
+						} 
+						catch (InterruptedException e) {}
+					}
+					else {
+						Log.d("time per cycle", "timefin - timestr: " + diff);	
 					}
 				}
-				
-				
 			}
 		});
 
@@ -214,13 +203,10 @@ public class MySurfaceView extends SurfaceView implements
     }
     
 
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-    	
-    	isAttached = false;
-    	this.drawthread = null;
-    }
 
+
+    // could use MotionEvent.Obtain for copying events
+    // listarray is faster though
     @Override
     public boolean onTouchEvent(MotionEvent event) {
     	
@@ -286,31 +272,27 @@ public class MySurfaceView extends SurfaceView implements
 	 	    
 	    	
 		    		if (pts == MULTI_TOUCH_MAX) {
-//		    			if (oneInTwo()) {
-	    	    			
+
 	    	    			this.faderline.setLinePoints
 		    	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
 	    	    		
 	    	    			this.circtouchsecond.setPosX(event.getX(1));
 		    	    		this.circtouchsecond.setPosY(event.getY(1));
 		    	    				    	    		
-//		    	    		if (oneInFour()) {
-		    	    			
+
 		    	    			OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM(
 		    	    			this.faderline.calcDistance(), screendiag));
 		    	    			
 	//	    	    			Log.d("sendFloat", "fm_index " + "faderline.calcDistance() " 
 	//    	    					+ this.faderline.calcDistance() + " screendiag " + screendiag + " calcToRangeFM " + OkobotokeActivity.calcToRangeFM(
 	//    	    							this.faderline.calcDistance(), screendiag)); 
-//		    	    		}
-//	    	    		}
+
 		    			
 		    		}
 	    		}	    		    	    		
 	    		break;
     		
 	    	case MotionEvent.ACTION_POINTER_UP:
-	    		// フェードアウト・アニメーション
 //    	    		Log.v("MotionEvent", "ACTION_POINTER_UP");
 
 	    		if (index == 1) {
@@ -420,9 +402,26 @@ public class MySurfaceView extends SurfaceView implements
 //
 //    }
     
-    
-    
-    public int rndCol(int scope) {
+
+	protected static int getMultiTouchMax() {
+		return MULTI_TOUCH_MAX;
+	}
+
+
+	protected float getScreendiag() {
+		return screendiag;
+	}
+
+
+	protected void setScreendiag(float screendiag) {
+		this.screendiag = screendiag;
+	}
+
+
+
+
+
+	public int rndCol(int scope) {
     	return (255 - rnd.nextInt(scope));
     }
     
@@ -444,9 +443,14 @@ public class MySurfaceView extends SurfaceView implements
     public void draw() {
     	
 
-    	
-    	
+
     	canvas  = holder.lockCanvas();
+    	    //	Log.d("endproblem", "draw() called");
+    	if (canvas != null) {
+    		
+    		
+
+
         
         if(initbackground) {
 
@@ -464,20 +468,21 @@ public class MySurfaceView extends SurfaceView implements
             
         }
         //RectF r = new RectF(left, top, right, bottom);
-
+     // ここ問題ない
         for (int i = 0; i < rainstars.length; i++) {
         	rainstars[i].drawSequence(canvas);
         }
         
         this.sonarcircle2.drawSequence(canvas);  
 
+     // ここ問題ない
         for(int i = 0; i < maincircles.length; i++) {
         	maincircles[i].drawSequence(canvas);
         }
         
         NormalCircleMultiTouch ct1 = this.circtouchfirst;
         NormalCircle ct2 = this.circtouchsecond;
-       
+       // ここ問題ない
     	this.framerec.setFrame(
     			ct1.isAlive(),
     			ct1.getPosX(), ct1.getPosY(),
@@ -485,6 +490,7 @@ public class MySurfaceView extends SurfaceView implements
     			ct2.getPosX(), ct2.getPosY());
 
         
+    	// ここ問題ない
     	if (this.framerec.isPlayingback()) {
     		
     		
@@ -592,14 +598,8 @@ public class MySurfaceView extends SurfaceView implements
 	       				ct2.setAlive(false);
 	       				ct1.relAnimOn();
 	       				this.faderline.setAlive(false);
-    					
-    					
-    					
     				}
-    				    	
-    				
-    				
-    				
+    				    				
     				break;
 
     		
@@ -614,21 +614,12 @@ public class MySurfaceView extends SurfaceView implements
     			
     			this.faderline.setAlive(false);
         	}
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
+    		    		
     	}
     	
     	
 
-			
+    	// ここ問題ない
 		ct1.drawSequence(canvas);
 		ct2.drawSequence(canvas);
 		this.faderline.drawSequence(canvas);
@@ -639,6 +630,7 @@ public class MySurfaceView extends SurfaceView implements
 
     
         holder.unlockCanvasAndPost(canvas);
+    	}
     }
     
 
