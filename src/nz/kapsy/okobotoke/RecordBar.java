@@ -27,14 +27,16 @@ public class RecordBar extends NormalCircle {
 	
 	
 	
-	FrameRecorder framerec;
-	
+	private FrameRecorder framerec;
+	private MySurfaceView mysurfv;
 	
 	
 	public RecordBar
-		(float swidth, float sheight, long totaltime, int frameinterval, FrameRecorder fr) {
+		(float swidth, float sheight, long totaltime, int frameinterval, 
+				FrameRecorder fr, MySurfaceView mysurfv) {
 		
-		this.setAlive(false);
+
+		
 		
 		Paint p = this.getPaint();
 		
@@ -53,7 +55,16 @@ public class RecordBar extends NormalCircle {
         this.calcIncPerFrame();
         
 		this.framerec = fr;
-
+		this.mysurfv = mysurfv;
+		
+		// if restoring after home button pressed
+		if (!fr.isPlayingback() && !fr.isRecordingnow()) {
+			this.setAlive(false);	
+		}
+		else {
+			this.init();
+			fr.startPlayBack();
+		}
 	}
 	
 	public void calcIncPerFrame() {
@@ -100,6 +111,9 @@ public class RecordBar extends NormalCircle {
 	@Override
 	public void drawSequence(Canvas c) {
 		if (this.isAlive()) {
+			
+			
+		
 			this.progressAnim();
 			this.drawProgressBar(c);
 		}
@@ -127,11 +141,18 @@ public class RecordBar extends NormalCircle {
 		else {
 		
 			
+			
 			if (this.framerec.isRecordingnow()) {
+								
+				//タッチ無効する
+				this.mysurfv.setTouchenabled(false);
+				this.mysurfv.releaseAllTouchAnims();
+				//this.framerec.forceLastFrameOff();
 				this.framerec.startPlayBack();
 			}
 			// 再生ループ
 			if (this.framerec.isPlayingback()) {
+				this.mysurfv.releaseAllTouchAnims();
 				this.framerec.startPlayBack();
 			}
 			

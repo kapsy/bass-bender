@@ -164,22 +164,57 @@ x閉める「問題発生」メッセージ
 	threadid=11: thread exiting with uncaught exception (group=0x409ef1f8)
 	FATAL EXCEPTION: Thread-6720
 	java.lang.NullPointerException
-	at nz.kapsy.okobotoke.MySurfaceView.draw(MySurfaceView.java:470)
+	at nz.kapsy.okobotroke.MySurfaceView.draw(MySurfaceView.java:470)
 	at nz.kapsy.okobotoke.MySurfaceView$1.run(MySurfaceView.java:203)
 	at java.lang.Thread.run(Thread.java:856)
-	
+
+x主なフレームレート値	
+
+2013年2月9日
+優先順位：
+
+xホームボタン押して復帰・何も描いてなかった
+
+
+X録音終了と当時の操作を強制的に終了してしまう
+
+X再生中タッチ操作したら記録を強制的に始める
+
+XServiceか普通のアプリで実行すれば…どっちがいいか全くわからない
+いま、何もしなくていいのですが、多分サービス無しのほうがいいのかも
+
+2013年2月11日
+4.2問題
+→4.2問題じゃなくてResource問題だよ→Making Musical Apps　P46　Finding Resources
+02-11 14:57:32.049: D/PdReceiver(27035): print: rev1-stage
+02-11 14:57:32.049: D/PdReceiver(27035): print: rev1-final
+
+電源ボタン処理
+
+時間差どうやって計算すればいいのか　CDNに聞いた
+
+
+GBに対応しなきゃ
+
+ボタンおと
 
 起動時の処理、ロード画面でどうだ？
 
 音声フェードイン、画面フェードイン
 
+android.permission.READ_PHONE_STATE
+
 テーマ
 
-x主なフレームレート値
+	public void releaseAllTouchAnims() {
+		
+		OkobotokeActivity.sendFloat("fm_index", 12F);
+		this.circtouchsecond.setAlive(false);
+		this.circtouchfirst.relAnimOn();
+		this.faderline.setAlive(false);
+				
+	}
 
-ボタンおと
-
-時間差どうやって計算すればいいのか
 
 
 

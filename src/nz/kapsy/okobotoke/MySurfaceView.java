@@ -17,7 +17,7 @@ public class MySurfaceView extends SurfaceView implements
 	
 
 	private Thread drawthread = null;
-	private boolean isattached = true;
+	private boolean isattached = false;
 	private long timestr = 0, timefin = 0;
 	private int threadinterval = 28; //1000/ 28 = 35.714fps
 	
@@ -35,12 +35,15 @@ public class MySurfaceView extends SurfaceView implements
     
     public SonarCircle2 sonarcircle2;
     
+    public BlackFadeLayer blackfadelyr;
 
 	private boolean initbackground;
 	
     public RecordBar recbar;
 	public FrameRecorder framerec = new FrameRecorder();
 
+	private boolean touchenabled = true;
+	
 	Rect screensizerect;
 	public Canvas canvas;
 	    
@@ -49,14 +52,17 @@ public class MySurfaceView extends SurfaceView implements
 	
     private Random rnd = new Random();
     
-    private static Random srnd = new Random();
+    
+    
+    //private static Random srnd = new Random();
     
     // タッチ処理
     final static int MULTI_TOUCH_MAX = 2;
-   // private PointF [] touchpoints = new PointF[MULTI_TOUCH_MAX];
     
-    int oneintwo = 0;
-    int oneinfour = 0;
+    
+    
+//    int oneintwo = 0;
+//    int oneinfour = 0;
     
     private float screendiag;
     private float screenwidth;
@@ -110,10 +116,13 @@ public class MySurfaceView extends SurfaceView implements
 
     @Override
     public void surfaceChanged(SurfaceHolder holder,
-            int format, int width, int height) {}
+            int format, int width, int height) {
+		Log.d("Pd Debug", "surfaceChanged");	
+    }
     
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+		Log.d("Pd Debug", "surfaceDestroyed");	
     	isattached = false;
     	this.drawthread = null;
    
@@ -121,10 +130,9 @@ public class MySurfaceView extends SurfaceView implements
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+		Log.d("Pd Debug", "surfaceCreated");	
     	
     	//this.holder = holder;
-    	
-    	
     	
 //        int h = backg_bitmap.getHeight();
 //        int w = backg_bitmap.getWidth();
@@ -133,15 +141,23 @@ public class MySurfaceView extends SurfaceView implements
 //float ratio = (float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth();
     	
     	// creates rectangle at ratio of source bitmap to fit screen
-    	int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
+
+		if (this.isattached == false) {
+					int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
     	
        // new Rect(l, t, r, b);
-		screensizerect = new Rect(0, 0, getWidth(), rectheight);
+		
+    	blackfadelyr = new BlackFadeLayer();
+    	blackfadelyr.init();
+    	
+    	screensizerect = new Rect(0, 0, getWidth(), rectheight);
 		   
 		screendiag = this.getScreenDiag();
 		screenwidth = (float)this.getWidth();
 		screenheight = (float)this.getHeight(); 
-               
+        
+		
+		
       	maincircles = new Circle2[6];
         for(int i = 0; i < maincircles.length; i++) {
         	maincircles[i] = new Circle2();
@@ -154,21 +170,27 @@ public class MySurfaceView extends SurfaceView implements
         circtouchsecond = new NormalCircle();
            
         initbackground = true;
-        recbar = new RecordBar(this.screenwidth, this.screenheight, 10000, threadinterval, this.framerec);
+        recbar = new RecordBar
+        		(this.screenwidth, this.screenheight, 10000, 
+        				threadinterval, this.framerec, this);
         
         rainstars = new RainStar[40];
         for(int i = 0; i < rainstars.length; i++) {
         	rainstars[i] = new RainStar();
         }
         
+        this.isattached = true;
         startThread();
+		}
+		
+
 
     }
     
     
     public void startThread() {
     	
-    	
+		Log.d("Pd Debug", "startThread()");	
         this.drawthread = new Thread(new Runnable() {
 			
 			@Override
@@ -177,7 +199,8 @@ public class MySurfaceView extends SurfaceView implements
 				while(isattached) {
 					
 					timestr = System.currentTimeMillis();
-										
+//					Log.d("Pd Debug", "draw() called from drawthread " 
+//							+ Thread.currentThread().getName().toString());				
 					draw();
 			    	
 					timefin = System.currentTimeMillis();
@@ -201,8 +224,6 @@ public class MySurfaceView extends SurfaceView implements
         this.drawthread.start();
     	    	
     }
-    
-
 
 
     // could use MotionEvent.Obtain for copying events
@@ -210,178 +231,162 @@ public class MySurfaceView extends SurfaceView implements
     @Override
     public boolean onTouchEvent(MotionEvent event) {
     	
+    	
+    	Log.d("Touch Prob", "this.touchenabled " + this.touchenabled);
 
     	int pts = event.getPointerCount();
-    	
-
    		framerec.setTouchpts(pts);
 
+   		
     	
     	int index = event.getActionIndex();
 //    	Log.v("MotionEvent", "event.getActionIndex() " + event.getActionIndex());
 
-		 switch (event.getAction() & MotionEvent.ACTION_MASK) {
-		 
-		 	case MotionEvent.ACTION_DOWN:
-//	 	        	Log.v("MotionEvent", "ACTION_DOWN");
-    			 
-   	    		this.circtouchfirst.setPosX(event.getX(0));
- 	    		this.circtouchfirst.setPosY(event.getY(0));
- 	    		
- 	        	this.circtouchfirst.init(0, rndCol(130), rndCol(130), rndCol(130));
- 	        	this.circtouchfirst.initRad(80F);
- 	        
- 	        	framerec.setMotionevent(MotionEvent.ACTION_DOWN);
- 	        	
- 	        	break;
+//		 if (this.touchenabled) {
 			 
-	 
-	        case MotionEvent.ACTION_POINTER_DOWN:
-//    	        	Log.v("MotionEvent", "ACTION_POINTER_DOWN");
-	        	// ここで必要ないかも
-	    		if (this.circtouchfirst.getRelAnim() == false) {  	
-		        	this.faderline.setLinePoints
-	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-				    	    			
-	    			this.circtouchsecond.setPosX(event.getX(1));
-		    		this.circtouchsecond.setPosY(event.getY(1));
-		    	   
-		    		this.faderline.init();	
-		    	    
-		    		this.circtouchsecond.init(7, rndCol(130), rndCol(130), rndCol(130));
-		        	this.circtouchsecond.initRad(80F);
-		        	
-	 	        	framerec.setMotionevent(MotionEvent.ACTION_POINTER_DOWN);
-	 	    
-		        	
-	    		}
-	    		break;
-	        	
-	    	case MotionEvent.ACTION_MOVE:
-//    	    		Log.v("MotionEvent", "ACTION_MOVE");
-	    		
-	    		if (this.circtouchfirst.getRelAnim() == false) {
-	    			this.circtouchfirst.setPosX(event.getX(0));
-    	    		this.circtouchfirst.setPosY(event.getY(0));
-	    	    	    			
-    	    		OkobotokeActivity.sendFloat("cntr_freq", 
-    	    				OkobotokeActivity.calcToRangeCentFreq(event.getY(0), this.screenheight));
-    	    			
-    	    		 	    
-	 	        	framerec.setMotionevent(MotionEvent.ACTION_MOVE);
-	 	    
-	    	
-		    		if (pts == MULTI_TOUCH_MAX) {
+			 
+			switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
-	    	    			this.faderline.setLinePoints
-		    	    			(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-	    	    		
-	    	    			this.circtouchsecond.setPosX(event.getX(1));
-		    	    		this.circtouchsecond.setPosY(event.getY(1));
-		    	    				    	    		
+			case MotionEvent.ACTION_DOWN:
+				//	 	        	Log.v("MotionEvent", "ACTION_DOWN");
 
-		    	    			OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM(
-		    	    			this.faderline.calcDistance(), screendiag));
-		    	    			
-	//	    	    			Log.d("sendFloat", "fm_index " + "faderline.calcDistance() " 
-	//    	    					+ this.faderline.calcDistance() + " screendiag " + screendiag + " calcToRangeFM " + OkobotokeActivity.calcToRangeFM(
-	//    	    							this.faderline.calcDistance(), screendiag)); 
+				this.touchenabled = true;
+				
+				if (this.framerec.isPlayingback()
+						|| !this.framerec.isRecordingnow()) {
 
-		    			
-		    		}
-	    		}	    		    	    		
-	    		break;
-    		
-	    	case MotionEvent.ACTION_POINTER_UP:
-//    	    		Log.v("MotionEvent", "ACTION_POINTER_UP");
+					this.releaseAllTouchAnims();
+					
+					this.framerec.startRecord();
+					this.recbar.init();
+				}
 
-	    		if (index == 1) {
-	    			
-		    		OkobotokeActivity.sendFloat("fm_index", 12F);
-	    	    	this.circtouchsecond.setAlive(false);
-	    	    	this.faderline.setAlive(false);
-	 	       
-	 	       		framerec.setMotionevent(MotionEvent.ACTION_POINTER_UP);
-	 	       	    	    	
-	    		}
-	    		
-   	    		if (index == 0) {
-   	    			
-       	 			OkobotokeActivity.sendFloat("fm_index", 12F);
-       				this.circtouchsecond.setAlive(false);
-       				this.circtouchfirst.relAnimOn();
-       				this.faderline.setAlive(false);
- 	 	       
-	 	       		framerec.setMotionevent(MotionEvent.ACTION_POINTER_UP);
-	       				
-	    		}
-	    		
-	    		break;
-	    		
-	    	case MotionEvent.ACTION_UP:
-//    	    		Log.v("MotionEvent", "ACTION_UP");
-	    		
-	    		if (index == 0) {
-	    			this.circtouchfirst.relAnimOn();
-	    			
-	 	       		framerec.setMotionevent(MotionEvent.ACTION_UP);
-	 	      		framerec.setTouchpts(0);
-	 	       	    			
-	    		}
-	    			    	    		
-	    		break;
+				this.circtouchfirst.setPosX(event.getX(0));
+				this.circtouchfirst.setPosY(event.getY(0));
 
-		 }
-    		 
-		// 指三本処理
-    	if (pts > MULTI_TOUCH_MAX) {
-    		
-			OkobotokeActivity.sendFloat("fm_index", 12F);
-			this.circtouchsecond.setAlive(false);
-			this.circtouchfirst.relAnimOn();
-			
-			this.faderline.setAlive(false);
-    	}
-    	
-    	
-//		invalidate();
+				this.circtouchfirst.init(0, rndCol(130), rndCol(130), rndCol(130));
+				this.circtouchfirst.initRad(80F);
+
+				framerec.setMotionevent(MotionEvent.ACTION_DOWN);
+
+				break;
+
+			case MotionEvent.ACTION_POINTER_DOWN:
+				//    	        	Log.v("MotionEvent", "ACTION_POINTER_DOWN");
+
+
+				
+				if (this.touchenabled) {
+					if (this.circtouchfirst.getRelAnim() == false) {
+						this.faderline.setLinePoints(event.getX(0),
+								event.getY(0), event.getX(1), event.getY(1));
+
+						this.circtouchsecond.setPosX(event.getX(1));
+						this.circtouchsecond.setPosY(event.getY(1));
+
+						this.faderline.init();
+
+						this.circtouchsecond.init(7, rndCol(130), rndCol(130),
+								rndCol(130));
+						this.circtouchsecond.initRad(80F);
+
+						framerec.setMotionevent(MotionEvent.ACTION_POINTER_DOWN);
+
+					}
+				}
+				break;
+
+			case MotionEvent.ACTION_MOVE:
+				//    	    		Log.v("MotionEvent", "ACTION_MOVE");
+
+				if (this.touchenabled) {
+					if (this.circtouchfirst.getRelAnim() == false) {
+						this.circtouchfirst.setPosX(event.getX(0));
+						this.circtouchfirst.setPosY(event.getY(0));
+
+						OkobotokeActivity.sendFloat(
+								"cntr_freq",
+								OkobotokeActivity.calcToRangeCentFreq(
+										event.getY(0), this.screenheight));
+
+						framerec.setMotionevent(MotionEvent.ACTION_MOVE);
+
+						if (pts == MULTI_TOUCH_MAX) {
+
+							this.faderline
+									.setLinePoints(event.getX(0),
+											event.getY(0), event.getX(1),
+											event.getY(1));
+
+							this.circtouchsecond.setPosX(event.getX(1));
+							this.circtouchsecond.setPosY(event.getY(1));
+
+							OkobotokeActivity.sendFloat("fm_index",
+									OkobotokeActivity.calcToRangeFM(
+											this.faderline.calcDistance(),
+											screendiag));
+
+						}
+					}
+				}
+				break;
+
+			case MotionEvent.ACTION_POINTER_UP:
+				//    	    		Log.v("MotionEvent", "ACTION_POINTER_UP");
+
+				if (this.touchenabled) {
+					if (index == 1) {
+
+						OkobotokeActivity.sendFloat("fm_index", 12F);
+						this.circtouchsecond.setAlive(false);
+						this.faderline.setAlive(false);
+
+						framerec.setMotionevent(MotionEvent.ACTION_POINTER_UP);
+
+					}
+					if (index == 0) {
+
+						this.releaseAllTouchAnims();
+
+						framerec.setMotionevent(MotionEvent.ACTION_POINTER_UP);
+
+					}
+				}
+				break;
+
+			case MotionEvent.ACTION_UP:
+				// Log.v("MotionEvent", "ACTION_UP");
+
+				
+				
+				if (index == 0) {
+	
+					if (this.touchenabled) {
+						this.circtouchfirst.relAnimOn();
+	
+						framerec.setMotionevent(MotionEvent.ACTION_UP);
+						framerec.setTouchpts(0);
+					} else {
+						this.touchenabled = false;
+					}
+				}
+	
+				break;
+
+			}
+			// 指三本処理
+			if (pts > MULTI_TOUCH_MAX) {
+
+				this.releaseAllTouchAnims();
+			}
+
+		 
 		return true;
-        //return super.onTouchEvent(event);
     }
     
  
 
-/*    public boolean oneInTwo() {
-    	
-    	if (oneintwo == 2) {
-    		oneintwo = 0;
-    	}
-    	if (oneintwo == 0) {
-    		//Log.v("oneInX", "TRUE " + oneinx);
-    		oneintwo++;
-    		return true;
-    	}
-    	else {	
-    		//Log.v("oneInX", "FALSE " + oneinx);
-    		oneintwo++;
-    		return false;
-    	}
-    }
-    
-    // nested as in oneInTwo, hence oneInFour
-    public boolean oneInFour() {
-    	if (oneinfour == 2) {
-    		oneinfour = 0;
-    	}
-    	if (oneinfour == 0) {
-    		oneinfour++;
-    		return true;
-    	}
-    	else {	
-    		oneinfour++;
-    		return false;
-    	}
-    }*/
+
     
 //    // ★追加メソッド
 //    public void startnow(){
@@ -390,23 +395,40 @@ public class MySurfaceView extends SurfaceView implements
 //        executor.scheduleAtFixedRate(new Runnable() {
 //            @Override
 //            public void run() {
-//
-//            	
-//            	
 //            	draw();
-//            	
-//            	
-//            	
 //            }
 //        }, 26, 26, TimeUnit.MILLISECONDS); // 28だった
 //
 //    }
-    
+
+	protected boolean isTouchenabled() {
+		return touchenabled;
+	}
+
+	protected void setTouchenabled(boolean touchenabled) {
+		this.touchenabled = touchenabled;
+	}
 
 	protected static int getMultiTouchMax() {
 		return MULTI_TOUCH_MAX;
 	}
 
+
+	protected float getScreenwidth() {
+		return screenwidth;
+	}
+
+	protected float getScreenheight() {
+		return screenheight;
+	}
+
+	protected void setScreenwidth(float screenwidth) {
+		this.screenwidth = screenwidth;
+	}
+
+	protected void setScreenheight(float screenheight) {
+		this.screenheight = screenheight;
+	}
 
 	protected float getScreendiag() {
 		return screendiag;
@@ -447,7 +469,7 @@ public class MySurfaceView extends SurfaceView implements
     	canvas  = holder.lockCanvas();
     	    //	Log.d("endproblem", "draw() called");
     	if (canvas != null) {
-    		
+
     		
 
 
@@ -458,184 +480,152 @@ public class MySurfaceView extends SurfaceView implements
             
            //canvas.drawBitmap(backg_bitmap, null, screensizerect, null);
         	
-//        	Paint p1 = new Paint();
-//            p1.setColor(Color.RED);
-//            Path path = new Path();
-//            path.moveTo(100, 300);
-//            path.lineTo(10, 350);
-//            path.lineTo(80, 330);
-//            canvas.drawPath(path, p1);
             
         }
-        //RectF r = new RectF(left, top, right, bottom);
-     // ここ問題ない
+    
         for (int i = 0; i < rainstars.length; i++) {
         	rainstars[i].drawSequence(canvas);
         }
         
         this.sonarcircle2.drawSequence(canvas);  
 
-     // ここ問題ない
+ 
         for(int i = 0; i < maincircles.length; i++) {
         	maincircles[i].drawSequence(canvas);
         }
         
         NormalCircleMultiTouch ct1 = this.circtouchfirst;
         NormalCircle ct2 = this.circtouchsecond;
-       // ここ問題ない
+
     	this.framerec.setFrame(
     			ct1.isAlive(),
     			ct1.getPosX(), ct1.getPosY(),
     			ct2.isAlive(),
     			ct2.getPosX(), ct2.getPosY());
 
-        
-    	// ここ問題ない
-    	if (this.framerec.isPlayingback()) {
-    		
-    		
-    		
-    		
-    		FrameRecUnit fru = this.framerec.getPlaybackFrame();
-    		
-
-    		
-    		
-    		switch (fru.getMotionevent()) {
-    		
-//    			case MotionEvent.ACTION_CANCEL:
-//    				ct1.setAlive(false);
-//    				ct2.setAlive(false);
-//    				
-//    				break;
-    			
-    			case MotionEvent.ACTION_DOWN:
-    				
-    				ct1.setPosX(fru.getCirtfirstx());
-    				ct1.setPosY(fru.getCirtfirsty());
-    				
-	 	        	ct1.init(0, rndCol(130), rndCol(130), rndCol(130));
-	 	        	ct1.initRad(80F);
-	 	        	
-    				break;
-    			
-    			case MotionEvent.ACTION_POINTER_DOWN:
-    				
-		    		if (ct1.getRelAnim() == false) {  	
-			        	this.faderline.setLinePoints
-			    			(fru.getCirtfirstx(), fru.getCirtfirsty(), 
-			    					fru.getCirtsecondx(), fru.getCirtsecondy());
-					    	    			
-		    			ct2.setPosX(fru.getCirtsecondx());
-			    		ct2.setPosY(fru.getCirtsecondy());
-			    	   
-			    		this.faderline.init();	
-			    	    
-			    		ct2.init(7, rndCol(130), rndCol(130), rndCol(130));
-			        	ct2.initRad(80F);
-
-		    		}
-    				
-    				
-    				break;
-    				
-    			case MotionEvent.ACTION_MOVE:
-
-    				
-		    		if (ct1.getRelAnim() == false) {
-		    			ct1.setPosX(fru.getCirtfirstx());
-	    	    		ct1.setPosY(fru.getCirtfirsty());
-		    	    	    			
-	    	    		OkobotokeActivity.sendFloat("cntr_freq", 
-	    	    				OkobotokeActivity.calcToRangeCentFreq
-	    	    				(fru.getCirtfirsty(), this.screenheight));
-	    	    			
-		    	    	if (fru.getTouchpts() == 2) {
-		    	    		
-			    			ct2.setPosX(fru.getCirtsecondx());
-				    		ct2.setPosY(fru.getCirtsecondy());
-		    	    		
-		    	    		
-				        	this.faderline.setLinePoints
-			    			(fru.getCirtfirstx(), fru.getCirtfirsty(), 
-			    					fru.getCirtsecondx(), fru.getCirtsecondy());
-	    	    			
-				        	OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity.calcToRangeFM
-				        			(this.faderline.calcDistance(), screendiag));
-		    	    				    	    		
-		    	    	}
-    					    	    		
-		    		}
-		    		
-    				break;
-    				
-    			case MotionEvent.ACTION_POINTER_UP:
-    				
-		    		if (!fru.isCirtsecondisalive()) {
-		    			
-			    		OkobotokeActivity.sendFloat("fm_index", 12F);
-		    	    	ct2.setAlive(false);
-		    	    	this.faderline.setAlive(false);
-		    	    	
-		    		}
-		    		else if (fru.getTouchpts() <= 2) {
-	   	    			
-	       	 			OkobotokeActivity.sendFloat("fm_index", 12F);
-	       				ct2.setAlive(false);
-	       				ct1.relAnimOn();
-	       				this.faderline.setAlive(false);
-
-		    		}
-    				
-    				break;
-    			
-    			case MotionEvent.ACTION_UP:
-				
-    				if (fru.getTouchpts() == 0) {
-    					
-
-	       	 			OkobotokeActivity.sendFloat("fm_index", 12F);
-	       				ct2.setAlive(false);
-	       				ct1.relAnimOn();
-	       				this.faderline.setAlive(false);
-    				}
-    				    				
-    				break;
-
-    		
-    		}
-    		
-    		// 指三本処理
-        	if (fru.getTouchpts() > MULTI_TOUCH_MAX) {
-        		
-    			OkobotokeActivity.sendFloat("fm_index", 12F);
-    			ct2.setAlive(false);
-    			ct1.relAnimOn();
-    			
-    			this.faderline.setAlive(false);
-        	}
-    		    		
-    	}
-    	
-    	
-
-    	// ここ問題ない
+    //	this.framerec.playBackRecording(ct1, ct2, faderline, this);
+    	this.playBackRecording();
+   	
 		ct1.drawSequence(canvas);
 		ct2.drawSequence(canvas);
 		this.faderline.drawSequence(canvas);
-      
+
 		
 		recbar.drawSequence(canvas);
         
-
+		blackfadelyr.drawSequence(canvas);
     
         holder.unlockCanvasAndPost(canvas);
     	}
     }
     
 
+	public void playBackRecording() {
 
-    
+		NormalCircleMultiTouch ct1 = this.circtouchfirst;
+		NormalCircle ct2 = this.circtouchsecond;
+
+		if (this.framerec.isPlayingback()) {
+
+			FrameRecUnit fru = this.framerec.getPlaybackFrame();
+			
+			switch (fru.getMotionevent()) {
+
+			// case MotionEvent.ACTION_CANCEL:
+			// ct1.setAlive(false);
+			// ct2.setAlive(false);
+			//
+			// break;
+
+			case MotionEvent.ACTION_DOWN:
+
+				ct1.setPosX(fru.getCirtfirstx());
+				ct1.setPosY(fru.getCirtfirsty());
+
+				ct1.init(0, rndCol(130), rndCol(130), rndCol(130));
+				ct1.initRad(80F);
+
+				break;
+
+			case MotionEvent.ACTION_POINTER_DOWN:
+				if (ct1.getRelAnim() == false) {
+					this.faderline.setLinePoints(fru.getCirtfirstx(),
+							fru.getCirtfirsty(), fru.getCirtsecondx(),
+							fru.getCirtsecondy());
+
+					ct2.setPosX(fru.getCirtsecondx());
+					ct2.setPosY(fru.getCirtsecondy());
+
+					this.faderline.init();
+
+					ct2.init(7, rndCol(130), rndCol(130), rndCol(130));
+					ct2.initRad(80F);
+				}
+				break;
+
+			case MotionEvent.ACTION_MOVE:
+
+				if (ct1.getRelAnim() == false) {
+					ct1.setPosX(fru.getCirtfirstx());
+					ct1.setPosY(fru.getCirtfirsty());
+
+					OkobotokeActivity.sendFloat(
+							"cntr_freq",
+							OkobotokeActivity.calcToRangeCentFreq(
+									fru.getCirtfirsty(), this.screenheight));
+
+					if (fru.getTouchpts() == 2) {
+
+						ct2.setPosX(fru.getCirtsecondx());
+						ct2.setPosY(fru.getCirtsecondy());
+
+						this.faderline.setLinePoints(fru.getCirtfirstx(),
+								fru.getCirtfirsty(), fru.getCirtsecondx(),
+								fru.getCirtsecondy());
+
+						OkobotokeActivity.sendFloat("fm_index",
+								OkobotokeActivity.calcToRangeFM(
+										this.faderline.calcDistance(),
+										screendiag));
+					}
+				}
+				break;
+
+			case MotionEvent.ACTION_POINTER_UP:
+
+				if (!fru.isCirtsecondisalive()) {
+					OkobotokeActivity.sendFloat("fm_index", 12F);
+					ct2.setAlive(false);
+					this.faderline.setAlive(false);
+				} 
+				else if (fru.getTouchpts() <= 2) {
+					releaseAllTouchAnims();
+				}
+				break;
+
+			case MotionEvent.ACTION_UP:
+				if (fru.getTouchpts() == 0) {
+					releaseAllTouchAnims();
+				}
+				break;
+			}
+
+			// 指三本処理
+			if (fru.getTouchpts() > MULTI_TOUCH_MAX) {
+				releaseAllTouchAnims();
+			}
+		}
+	}
+	
+	public void releaseAllTouchAnims() {
+		
+		OkobotokeActivity.sendFloat("fm_index", 12F);
+		this.circtouchsecond.setAlive(false);
+		this.circtouchfirst.relAnimOn();
+		this.faderline.setAlive(false);
+				
+	}
+  
 
 	public void nextCirc() {
 	
@@ -945,6 +935,52 @@ public class MySurfaceView extends SurfaceView implements
     	
 
     	
+    	
+    }
+    
+    public class BlackFadeLayer extends NormalCircle {
+    	
+    	
+    	@Override
+    	public void init() {
+    		    		
+    		this.setARGB(255, 255, 255, 255);
+
+    		super.init();
+    	}
+    	
+    	
+    	@Override
+    	public void drawSequence(Canvas c) {
+    		if (this.isAlive()) {
+    			this.fadeAnim();
+    	        this.drawScreenBlack(c);
+    		}
+    	}
+    	
+    	public void drawScreenBlack(Canvas c) {
+    		c.drawARGB(this.getAlpha(), this.getRed(), this.getGrn(), this.getBlu());
+    	}
+    	
+    	public void fadeAnim() {
+    		
+        	int cf = this.getCurrframe();
+    		
+        	if (cf < 60){
+        		this.alphaDecrement(8.7F, 0F);
+        		
+        		//Log.d("BlackFadeLayer", "this.getAlpha() " + this.getAlpha());
+    			this.frameAdvance();
+    		
+        	}
+        	
+        	if (cf == 60) {
+        		this.setAlive(false);
+        	}
+        	
+    		
+    	}
+    	 
     	
     }
     

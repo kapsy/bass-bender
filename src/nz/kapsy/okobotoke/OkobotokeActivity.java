@@ -3,72 +3,43 @@ package nz.kapsy.okobotoke;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-
-
-import org.puredata.android.service.PdPreferences;
+import org.puredata.android.io.PdAudio;
 import org.puredata.android.service.PdService;
-
 import org.puredata.core.PdBase;
 import org.puredata.core.PdReceiver;
 import org.puredata.core.utils.IoUtils;
 
-//import android.R.string;
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.os.IBinder;
-import android.preference.PreferenceManager;
-import android.text.method.ScrollingMovementMethod;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 public class OkobotokeActivity extends Activity {
 
 	private static final String TAG = "Pd Test";
 	private static final String TAG1 = "Pd Debug";
+	private static final String RCV = "PdReceiver";
 
-	private PdService pdService = null;
+	//private PdService pdService = null;
 
-	//float bufferSize = 250;
 	float bufferSize = 50;
 	
-	//int sampleRate = 22050;
 	int sampleRate = 11025;
+	//int sampleRate = 22050;
 		
 	int inChan = 0;
 	int outChan = 2;
@@ -79,16 +50,15 @@ public class OkobotokeActivity extends Activity {
 	private static final float CF_FADE_RNG = 5.5F;
 	private static final float CF_FADE_MIN = 1.5F;
 	
-	//string test;
-
 	FrameLayout framelayout;
 	MySurfaceView mysurfview;
 	
-	TouchView touchview;
+	//TouchView touchview;
 
 	LinearLayout dev_master_btns;
 	LinearLayout dev_pref_pg1;
 	
+	private View blackfade;
 	
 	private ScheduledExecutorService lightsdelay;
 	private Runnable lightrun;
@@ -98,13 +68,21 @@ public class OkobotokeActivity extends Activity {
 	private Toast toast = null;
 
 	@Override
-	protected void onCreate(android.os.Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		Log.d(TAG1, "onCreate() " + System.currentTimeMillis());
 
+	//	bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
 
-				
+		try {
+			initPd();
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+		Log.d(TAG1, "onCreate() mark 0 " + System.currentTimeMillis());
 		SampledSines.init(3600);
 		
 		
@@ -124,27 +102,23 @@ public class OkobotokeActivity extends Activity {
 			public void run() {	
 				mysurfview.sonarcircle2.init();
 				rainStarsInitAll();
-//				for(int i = 0; i < mysurfview.rainstars.length; i++) {
-//					mysurfview.rainstars[i].init();
-//				}
+
 			}
 		};
 		
-		
-		
+		Log.d(TAG1, "onCreate() mark 1 " + System.currentTimeMillis());
 				
 		mysurfview = new MySurfaceView(getApplication());
-		touchview = new TouchView(getApplication());
-		
-		touchview.init(mysurfview, mysurfview.framerec);
+//		touchview = new TouchView(getApplication());
+//		
+//		touchview.init(mysurfview, mysurfview.framerec);
 				
 		framelayout = new FrameLayout(this);
 						
 		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
-		
 		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
 		
-						
+		
 		//----====----====----====----====----====----
 		
 		framelayout.addView(mysurfview, 
@@ -153,18 +127,13 @@ public class OkobotokeActivity extends Activity {
 		//framelayout.addView(touchview);
 
 		framelayout.addView(dev_master_btns);
-		
-		
-		
-		setContentView(framelayout);
+	
 		
 
-		
-		
-		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
+		setContentView(framelayout);
+		Log.d(TAG1, "onCreate() mark 2 " + System.currentTimeMillis());
 		
 		//----====----====----====----====----====----
-		
 		
 		Button dprefbtn_pg1 = (Button)findViewById(R.id.dprefbtn_pg1);
 			dprefbtn_pg1.setOnClickListener(new OnClickListener() {
@@ -197,10 +166,7 @@ public class OkobotokeActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					//mysurfview.trec.startRecording();
-					
-					
-					
+
 					mysurfview.framerec.startRecord();
 					mysurfview.recbar.init();
 					
@@ -221,7 +187,7 @@ public class OkobotokeActivity extends Activity {
 			
 			
 			
-			
+			Log.d(TAG1, "onCreate() mark 3 " + System.currentTimeMillis());
 			
 			
 			
@@ -279,34 +245,44 @@ public class OkobotokeActivity extends Activity {
 				
 	}
 	
+
+	@Override
+	protected void onStart() {
+		Log.d(TAG1, "onStart() " + System.currentTimeMillis());
+		super.onStart();
+		PdAudio.startAudio(this);
+	}
+
+	@Override
+	protected void onStop() {
+		Log.d(TAG1, "onStop() " + System.currentTimeMillis());
+		
+		PdAudio.stopAudio();
+		super.onStop();
+	}
+
 	@Override
 	protected void onPause() {
 		Log.d(TAG1, "onPause() " + System.currentTimeMillis());
 		super.onPause();
+		PdAudio.stopAudio();
 	}
 
 	@Override
 	protected void onResume() {
 		Log.d(TAG1, "onResume() " + System.currentTimeMillis());
 		super.onResume();
+		PdAudio.startAudio(this);
 	}
-	@Override
-	protected void onStart() {
-		Log.d(TAG1, "onStart() " + System.currentTimeMillis());
-		super.onStart();
-	}
-
-	@Override
-	protected void onStop() {
-		Log.d(TAG1, "onStop() " + System.currentTimeMillis());
-		super.onStop();
-	}
-
+	
 	@Override
 	protected void onDestroy() {
 		Log.d(TAG1, "onDestroy() " + System.currentTimeMillis());
 		super.onDestroy();
-		cleanup();
+		PdAudio.release();
+		PdBase.release();
+		
+	//	cleanup();
 	}
 		
 	
@@ -340,74 +316,65 @@ public class OkobotokeActivity extends Activity {
 	private PdReceiver receiver = new PdReceiver() {
 
 		private void pdPost(String msg) {
-			toast("Pure Data says, \"" + msg + "\"");
+			//toast("Pure Data says, \"" + msg + "\"");
+			
+			Log.d(RCV, msg);
 		}
 
 		@Override
 		public void print(String s) {
-			//pdPost(s);
+			pdPost("print: " + s);
 		}
 
 		@Override
 		public void receiveBang(String source) {
 				
 			if (source.equals("notec")){
-				Log.d("RECV", "bang " + source);
+				//Log.d("RECV", "bang " + source);
 				//mysurfview.circle2.init();//.circle.initCircle();
 				DelayLights();
 				
 			}
 			
 			if (source.equals("sonar")){
-				Log.d("RECV", "bang " + source);
+				//Log.d("RECV", "bang " + source);
 					DelaySonar();
 
 			}
 			
 			if (source.equals("switchdir")) { 
 
-				Log.d("RECV", "bang " + source);
+				//Log.d("RECV", "bang " + source);
 				
 				mysurfview.dirSwitchCalled();
 			}
+			
+			pdPost("receiveBang: " + source);
 									
 		}
 
 		@Override
 		public void receiveFloat(String source, float x) {
-			//pdPost("float: " + x);
+			pdPost("receiveFloat: " + x);
 		}
 
 		@Override
 		public void receiveList(String source, Object... args) {
-			//pdPost("list: " + Arrays.toString(args));
+			pdPost("receiveList: " + Arrays.toString(args));
 		}
 
 		@Override
 		public void receiveMessage(String source, String symbol, Object... args) {
-			//pdPost("message: " + Arrays.toString(args));
+			pdPost("receiveMessage: " + Arrays.toString(args));
 		}
 
 		@Override
 		public void receiveSymbol(String source, String symbol) {
-			//pdPost("symbol: " + symbol);
+			pdPost("receiveSymbol: " + symbol);
 		}
 		
 		
-/*	    public void DelaySonar(){
-	    	sonardelay.schedule(new Runnable() {
-				
-				@Override
-				public void run() {	
-					mysurfview.sonarcircle2.init();
-					
-					for(int i = 0; i < mysurfview.rainstars.length; i++) {
-						mysurfview.rainstars[i].init();
-					}
-					
-				}
-	        }, 100L, TimeUnit.MILLISECONDS);
-	    }*/
+
 	    
 	    public void DelaySonar(){
 	    	sonardelay.schedule(sonarrun, 100L, TimeUnit.MILLISECONDS);
@@ -421,28 +388,9 @@ public class OkobotokeActivity extends Activity {
 	    
 	};
 
-	private final ServiceConnection pdConnection = new ServiceConnection() {
-		@Override
-		public void onServiceConnected(ComponentName name, IBinder service) {
-			Log.d(TAG, "onServiceConnected");
-			pdService = ((PdService.PdBinder)service).getService();
-			initPd();
-		}
-
-		@Override
-		public void onServiceDisconnected(ComponentName name) {
-			// this method will never be called
-		}
-	};
 
 
-	
 
-//	public void gfxStartClick(View v) {
-//		
-//		
-//		
-//	}
 	
 /*	class ValChangeAdapter implements OnSeekBarChangeListener {
 
@@ -489,7 +437,7 @@ public class OkobotokeActivity extends Activity {
 //		logs.setMovementMethod(new ScrollingMovementMethod());
 //	}
 
-	private void initPd() {
+/*	private void initPd() {
 		//Resources res = getResources();
 		//File patchFile = null;
 
@@ -502,9 +450,6 @@ public class OkobotokeActivity extends Activity {
 			PdBase.subscribe("sonar");
 			PdBase.subscribe("switchdir");
 			
-//			InputStream in = res.openRawResource(R.raw.test);
-//			patchFile = IoUtils.extractResource(in, "test.pd", getCacheDir());
-//			PdBase.openPatch(patchFile);
 
 			File dir = getFilesDir();
 			File patchFile = new File(dir, "test.pd");
@@ -521,10 +466,51 @@ public class OkobotokeActivity extends Activity {
 //		finally {
 //			if (patchFile != null) patchFile.delete();
 //		}
+	}*/
+
+	private void initPd() throws IOException {
+		
+		Log.d("initPd", "initPD() called");
+		
+//		Resources res = getResources();
+//		File patchfile = null;
+		
+//		AudioParameters.init(this);
+//		int srate = Math.max(MIN_SAMPLE_RATE, AudioParameters.suggestSampleRate());
+				File dir = getFilesDir();
+		File patchFile = new File(dir, "test.pd");
+		
+		
+		//PdBase.addToSearchPath(dir.getAbsolutePath());
+		PdBase.addToSearchPath("/data/data/" + getPackageName() + "/lib");
+		//PdBase.addToSearchPath("/data/app-lib/" + getPackageName());
+		PdAudio.initAudio(sampleRate, inChan, outChan, 1, true);
+		
+		
+
+		
+
+		
+		PdBase.setReceiver(receiver);
+		PdBase.subscribe("notec");
+
+		PdBase.subscribe("sonar");
+		PdBase.subscribe("switchdir");
+		
+
+		IoUtils.extractZipResource(getResources().openRawResource(R.raw.patch), dir, true);
+		PdBase.openPatch(patchFile.getAbsolutePath());
+		
+		
+//		InputStream in = res.openRawResource(R.raw.count_1);
+//		patchfile = IoUtils.extractResource(in, "count_1.pd", getCacheDir());
+//		PdBase.openPatch(patchfile);
+		
 	}
+	
+	
 
-
-	private void startAudio() {
+/*	private void startAudio() {
 		String name = getResources().getString(R.string.app_name);
 		try {
 			pdService.initAudio(sampleRate, inChan, outChan, bufferSize);   
@@ -535,16 +521,16 @@ public class OkobotokeActivity extends Activity {
 			//toast(e.toString());
 			Log.d(TAG, e.toString());
 		}
-	}
+	}*/
 
-	private void cleanup() {
+/*	private void cleanup() {
 		try {
 			unbindService(pdConnection);
 		} catch (IllegalArgumentException e) {
 			// already unbound
 			pdService = null;
 		}
-	}
+	}*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -701,20 +687,6 @@ public class OkobotokeActivity extends Activity {
 //	  PdBase.sendList(dest, list);
 //	}
 	
-//	public void TrigDelayTest() {Thread thread = new Thread(); thread.start(); {
-//		@Override
-//		public void run() {
-//	
-//				
-//		}
-//	}
-//	}
 
 
-         
-         
-         
-         
 }
-
-

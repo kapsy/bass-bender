@@ -41,10 +41,10 @@
             android:screenOrientation="portrait"
              android:theme="@style/AppTheme">    
         </activity>
-
+<!-- 
 		<service android:name="org.puredata.android.service.PdService"></service>
         
-
+ -->
 		
     </application>
 

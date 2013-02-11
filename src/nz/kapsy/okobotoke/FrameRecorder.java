@@ -1,6 +1,7 @@
 package nz.kapsy.okobotoke;
 
 import java.util.ArrayList;
+
 import android.util.Log;
 import android.view.MotionEvent;
 
@@ -42,6 +43,9 @@ public class FrameRecorder {
 	
 	public void startPlayBack() {
 	
+		
+		
+		// 強制的にタッチ処理を終了ってこと
 		this.setRecordingnow(false);
 		this.setPlayingback(true);
 		this.setCurrentframe(0);
@@ -101,6 +105,17 @@ public class FrameRecorder {
 				
 	}
 	
+	public void forceLastFrameOff () {
+		
+		FrameRecUnit f = this.recording.get(this.recording.size() - 1);
+		
+		f.setCirtfirstisalive(false);
+		f.setCirtsecondisalive(false);
+		f.setTouchpts(0);
+		
+		
+	}
+	
 
 	public void frameAdvance() {
 				
@@ -114,6 +129,7 @@ public class FrameRecorder {
 		}
 				
 	}
+	
 	
 	protected boolean isRecordingnow() {
 		return recordingnow;
@@ -176,5 +192,8 @@ public class FrameRecorder {
     	// Log.d("recording", "pts" + touchpts);
 		}
 	}
+
+
+
 	
 }

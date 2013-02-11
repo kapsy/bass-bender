@@ -1,5 +1,7 @@
 package nz.kapsy.okobotoke;
 
+import java.util.Random;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,6 +19,8 @@ public class NormalCircle {
 	private int red;
 	private int grn;
 	private int blu;
+	
+	  //private Random rnd = new Random();
 	
 	private Paint paint = new Paint();
     
@@ -71,27 +75,13 @@ public class NormalCircle {
 		currframe = 1;
 		playrelanim = false;
 		
-//		this.setPosX(x);
-//		this.setPosY(y);
-//		this.setRad(r);
-		
-		
-//		alpha = 7;
-//		red = 255 - rnd.nextInt(130);
-//		grn = 255 - rnd.nextInt(130);
-//		blu = 255 - rnd.nextInt(130);
-		
+
 		alpha = a;
 		alphaf = (float)alpha;
 		
 		red = r;
 		grn = g;
 		blu = b;
-		
-		// このメソッドを描く直前に呼ぶ筈だ
-		//this.setColor(paint);
-		
-		//this.setRad(80F);
 		
 	}
 	
@@ -417,6 +407,10 @@ public class NormalCircle {
 		return blu;
 	}
 
+/*	public int rndCol(int scope) {
+    	return (255 - rnd.nextInt(scope));
+    }*/
+	
 	protected int getCurrframe() {
 		return currframe;
 	}
@@ -429,7 +423,6 @@ public class NormalCircle {
 		this.currframe++;
 	}
 
-
 	protected float getAlphaf() {
 		return alphaf;
 	}
@@ -441,7 +434,6 @@ public class NormalCircle {
 	protected boolean isPlayrelanim() {
 		return playrelanim;
 	}
-
 
 	protected void setPlayrelanim(boolean playrelanim) {
 		this.playrelanim = playrelanim;
