@@ -183,40 +183,154 @@ X再生中タッチ操作したら記録を強制的に始める
 XServiceか普通のアプリで実行すれば…どっちがいいか全くわからない
 いま、何もしなくていいのですが、多分サービス無しのほうがいいのかも
 
-2013年2月11日
-4.2問題
-→4.2問題じゃなくてResource問題だよ→Making Musical Apps　P46　Finding Resources
-02-11 14:57:32.049: D/PdReceiver(27035): print: rev1-stage
-02-11 14:57:32.049: D/PdReceiver(27035): print: rev1-final
-
-電源ボタン処理
-
-時間差どうやって計算すればいいのか　CDNに聞いた
-
-
-GBに対応しなきゃ
-
-ボタンおと
-
-起動時の処理、ロード画面でどうだ？
-
-音声フェードイン、画面フェードイン
-
-android.permission.READ_PHONE_STATE
-
-テーマ
-
 	public void releaseAllTouchAnims() {
-		
 		OkobotokeActivity.sendFloat("fm_index", 12F);
 		this.circtouchsecond.setAlive(false);
 		this.circtouchfirst.relAnimOn();
 		this.faderline.setAlive(false);
-				
 	}
 
+2013年2月11日
+X4.2問題
+	→4.2問題じゃなくてResource問題だよ→Making Musical Apps　P46　Finding Resources
+	02-11 14:57:32.049: D/PdReceiver(27035): print: rev1-stage
+	02-11 14:57:32.049: D/PdReceiver(27035): print: rev1-final
+
+xGBに対応しなきゃ
+xテーマ
+xautodim
 
 
+
+2013年2月12日
+ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー
+
+x電源ボタン処理
+2.3.3
+一回
+02-11 06:46:18.541: D/Pd Debug(400): onSaveInstanceState() 1360565178542
+02-11 06:46:18.541: D/Pd Debug(400): onPause() 1360565178542
+二回
+02-11 06:46:21.841: D/Pd Debug(400): onResume() 1360565181847
+ロック解除できる
+
+4.2 仮想デバイス
+一回
+02-11 19:51:28.923: D/Pd Debug(785): onPause() 1360565488927
+02-11 19:51:29.013: D/Pd Debug(785): onSaveInstanceState() 1360565489022
+02-11 19:51:29.053: D/Pd Debug(785): onStop() 1360565489055
+
+二回
+ロック解除できる
+02-11 19:51:41.966: D/Pd Debug(785): onStart() 1360565501972
+02-11 19:51:42.033: D/Pd Debug(785): onResume() 1360565502041
+
+4.2 (Samsung S)
+一回
+02-11 19:55:17.718: D/Pd Debug(13438): onPause() 1360565717722
+02-11 19:55:17.840: D/Pd Debug(13438): onSaveInstanceState() 1360565717843
+02-11 19:55:17.840: D/Pd Debug(13438): onStop() 1360565717845
+二回
+ロック解除
+02-11 19:55:27.215: D/Pd Debug(13438): onStart() 1360565727218
+02-11 19:55:27.222: D/Pd Debug(13438): onResume() 1360565727226
+
+4.04 (APad)
+一回
+02-11 20:15:03.119: D/Pd Debug(30308): onPause() 1360566903130
+02-11 20:15:03.179: D/Pd Debug(30308): onSaveInstanceState() 1360566903191
+02-11 20:15:03.179: D/Pd Debug(30308): onStop() 1360566903192
+02-11 20:15:03.419: D/Pd Debug(30308): onDestroy() 1360566903429
+02-11 20:15:03.669: D/Pd Debug(30308): onCreate() 1360566903686
+02-11 20:15:04.399: D/Pd Debug(30308): onStart() 1360566904418
+02-11 20:15:04.409: D/Pd Debug(30308): onRestoreInstanceState() 1360566904427
+02-11 20:15:04.409: D/Pd Debug(30308): onResume() 1360566904427
+02-11 20:15:04.449: D/Pd Debug(30308): onPause() 1360566904463
+
+二回
+02-11 20:15:17.099: D/Pd Debug(30308): onResume() 1360566917109
+02-11 20:15:17.969: D/Pd Debug(30308): onPause() 1360566917982
+02-11 20:15:18.069: D/Pd Debug(30308): onSaveInstanceState() 1360566918084
+02-11 20:15:18.069: D/Pd Debug(30308): onStop() 1360566918084
+02-11 20:15:18.069: D/Pd Debug(30308): onDestroy() 1360566918084
+02-11 20:15:18.289: D/Pd Debug(30308): onCreate() 1360566918307
+02-11 20:15:18.879: D/Pd Debug(30308): onStart() 1360566918892
+02-11 20:15:18.889: D/Pd Debug(30308): onRestoreInstanceState() 1360566918900
+02-11 20:15:18.889: D/Pd Debug(30308): onResume() 1360566918901
+ロック解除
+???? - 画面回転のせいかも
+
+ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー
+
+ホーム
+
+4.04 (APad)
+ホームボタン
+02-11 22:23:32.725: D/Pd Debug(30308): onPause() 1360574612736
+02-11 22:23:33.425: D/Pd Debug(30308): onSaveInstanceState() 1360574613433
+02-11 22:23:33.425: D/Pd Debug(30308): onStop() 1360574613433
+メニューやアイコンをクリック
+02-11 22:23:39.875: D/Pd Debug(30308): onStart() 1360574619886
+02-11 22:23:39.875: D/Pd Debug(30308): onResume() 1360574619887
+
+2.3.3 (仮想デバイスNexus S)
+02-11 09:26:45.689: D/Pd Debug(330): onSaveInstanceState() 1360574805693
+02-11 09:26:45.689: D/Pd Debug(330): onPause() 1360574805694
+02-11 09:26:46.379: D/Pd Debug(330): onStop() 1360574806380
+
+02-11 09:27:13.829: D/Pd Debug(330): onStart() 1360574833834
+02-11 09:27:13.829: D/Pd Debug(330): onResume() 1360574833837
+
+4.2 (Galaxy S)
+02-11 22:30:54.172: D/Pd Debug(15903): onPause() 1360575054178
+02-11 22:30:54.746: D/Pd Debug(15903): onSaveInstanceState() 1360575054749
+02-11 22:30:54.746: D/Pd Debug(15903): onStop() 1360575054750
+
+02-11 22:31:12.121: D/Pd Debug(15903): onStart() 1360575072127
+02-11 22:31:12.125: D/Pd Debug(15903): onResume() 1360575072129
+
+ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー
+
+起動時の処理、ロード画面でどうだ？
+
+
+記録中途とホームボタンを押して記録を強制的に終了？
+	→記録を終わりまでに終了して再生モードに設定してしまう
+
+音声フェードイン、画面フェードイン
+
+
+記録が始まると背景が赤くなって再生と青い
+
+
+
+
+ボタンおと・音声再生が続くべき
+
+
+
+時間差どうやって計算すればいいのか　CDNに聞いた
+
+垂直位置の値→逆のほうがいいかな
+
+垂直フェーダーのいちによって主な明かりの色が変化してしまう
+
+
+
+
+
+
+android.permission.READ_PHONE_STATE
+
+
+
+MainCirc 速度15-45
+
+試してみよう：　http://stackoverflow.com/questions/5391089/how-to-make-surfaceview-transparent
+SurfaceView sfvTrack = (SurfaceView)findViewById(R.id.sfvTrack);
+sfvTrack.setZOrderOnTop(true);    // necessary
+sfhTrack = sfvTrack.getHolder();
+sfhTrack.setFormat(PixelFormat.TRANSPARENT);
 
 ＝＝＝＝＝ここまでにしました＝＝＝＝＝
 

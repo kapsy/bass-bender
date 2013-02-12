@@ -109,7 +109,9 @@ public final class R {
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
+         <item name="android:windowIsFloating">false</item>
+        
+        <item name="android:backgroundDimEnabled">false</item> 
          */
         public static final int AppTheme=0x7f090001;
         public static final int DisableSoundEffects=0x7f090000;

@@ -1,5 +1,10 @@
 package nz.kapsy.okobotoke;
 
+//Please note: this method is now defunct keeping here for ref purposes only.
+
+//ご注意：このクラスは廃止されて使用を推奨されなくなりました。
+
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;

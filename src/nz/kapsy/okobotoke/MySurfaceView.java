@@ -87,6 +87,8 @@ public class MySurfaceView extends SurfaceView implements
     
     public void dirSwitchCalled() {
     	    	
+    	
+    	//速度15-45
     }
     
 	public MySurfaceView(Context context) {
@@ -106,6 +108,8 @@ public class MySurfaceView extends SurfaceView implements
     }
 
     public void MySurfaceViewInit() {
+    	
+    	//this.setZOrderOnTop(true);
         holder = getHolder();
         holder.setFormat(PixelFormat.OPAQUE);
         holder.addCallback(this);
@@ -117,12 +121,12 @@ public class MySurfaceView extends SurfaceView implements
     @Override
     public void surfaceChanged(SurfaceHolder holder,
             int format, int width, int height) {
-		Log.d("Pd Debug", "surfaceChanged");	
+		//Log.d("Pd Debug", "surfaceChanged");	
     }
     
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-		Log.d("Pd Debug", "surfaceDestroyed");	
+		//Log.d("Pd Debug", "surfaceDestroyed");	
     	isattached = false;
     	this.drawthread = null;
    
@@ -130,7 +134,7 @@ public class MySurfaceView extends SurfaceView implements
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-		Log.d("Pd Debug", "surfaceCreated");	
+		//Log.d("Pd Debug", "surfaceCreated");	
     	
     	//this.holder = holder;
     	
@@ -190,7 +194,7 @@ public class MySurfaceView extends SurfaceView implements
     
     public void startThread() {
     	
-		Log.d("Pd Debug", "startThread()");	
+		//Log.d("Pd Debug", "startThread()");	
         this.drawthread = new Thread(new Runnable() {
 			
 			@Override
@@ -232,7 +236,7 @@ public class MySurfaceView extends SurfaceView implements
     public boolean onTouchEvent(MotionEvent event) {
     	
     	
-    	Log.d("Touch Prob", "this.touchenabled " + this.touchenabled);
+    	//Log.d("Touch Prob", "this.touchenabled " + this.touchenabled);
 
     	int pts = event.getPointerCount();
    		framerec.setTouchpts(pts);
@@ -803,13 +807,13 @@ public class MySurfaceView extends SurfaceView implements
     		int cf = this.getCurrframe();
     		//Log.d("SonarAnim", "current frame " + cf);
     		
-	    	if (cf < 50){
+	    	if (cf < 25){
 	    		
 	    		this.radIncrement();
     			this.frameAdvance();
     			
 	    	}
-	    	else if (cf == 50) { 
+	    	else if (cf == 25) { 
 	    		this.setAlive(false);
 	    	}
     	}

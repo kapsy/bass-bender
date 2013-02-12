@@ -9,6 +9,14 @@
     <!-- Application theme. -->
 	<style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        
+        
+<!--         <item name="android:windowIsFloating">false</item>
+        
+        <item name="android:backgroundDimEnabled">false</item> -->
+        
     </style>
     
     
