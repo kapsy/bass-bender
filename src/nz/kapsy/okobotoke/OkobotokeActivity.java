@@ -16,16 +16,25 @@ import org.puredata.core.utils.IoUtils;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.KeyguardManager.OnKeyguardExitResult;
+import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.EventLog.Event;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -57,19 +66,44 @@ public class OkobotokeActivity extends Activity {
 	FrameLayout framelayout;
 	MySurfaceView mysurfview;
 	
-	SplashSurfView splashsurfview;
+	//SplashSurfView splashsurfview;
+	
+	
 	
 	//TouchView touchview;
 
 	LinearLayout dev_master_btns;
 	LinearLayout dev_pref_pg1;
 	
-	private View blackfade;
+	private View splashtest;
+	
+	private boolean splashinitnosound = true;
+	
+	
+	//private SplashSurfView splashtest;
+	
+	
+	AlphaAnimation fadein;
+	
+	AlphaAnimation fadeout; 
+	
+	Context context = this.getApplication();
+	
+	
 	
 	private ScheduledExecutorService lightsdelay;
 	private Runnable lightrun;
 	private ScheduledExecutorService sonardelay;
     private Runnable sonarrun; 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	
 	private Toast toast = null;
 	
@@ -81,7 +115,7 @@ public class OkobotokeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 
-		
+	
 		
 		Log.d(TAG1, "onCreate() " + System.currentTimeMillis());
 
@@ -118,26 +152,121 @@ public class OkobotokeActivity extends Activity {
 			}
 		};
 		
+		framelayout = new FrameLayout(this);
+		//framelayout.setBackgroundColor(Color.GRAY);
+		setContentView(framelayout);
+		
+
+		//splashtest = new View(getApplicationContext());
+		splashtest = new SplashView(getApplicationContext());
+		
+		
+		//splashtest.setBackgroundColor(Color.LTGRAY);
+		
+		
+		
+		
+		splashtest.setSoundEffectsEnabled(false);
+		
+		fadein = new AlphaAnimation(0.0F, 1F);
+		fadein.setDuration(900);
+		fadein.setStartOffset(500);
+		fadein.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {	}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+			}
+		});
+		
+		
+		
+		
+		
+		
+		fadeout = new AlphaAnimation(1F, 0.0F);
+		fadeout.setDuration(750);
+		fadeout.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {	}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				framelayout.removeView(splashtest);
+				mysurfview.setClickable(true);				
+				mysurfview.initDrawables();
+				OkobotokeActivity.this.startAudioFade();
+				splashinitnosound = false;
+			}
+		});
+		
+		
+		
+		//alpha.get
+		
+		splashtest.startAnimation(fadein);
+		
+		
+
+		
+		
 		
 		mysurfview = new MySurfaceView(getApplication());
 
+		mysurfview.setSoundEffectsEnabled(false);
+		
+		
+		splashtest.setClickable(true);
+		mysurfview.setClickable(false);
+		
+		
+		
+		framelayout.addView(mysurfview);
+
+		framelayout.addView(splashtest);
+		
+		
+		
+		
+		
+		
+		
+		splashtest.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+
+				splashtest.startAnimation(fadeout);
+
+				return false;
+			}
+		});
+	
 				
-		framelayout = new FrameLayout(this);
+
 						
-		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
-		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
-		
-		
+//		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
+//		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
+//		
+//		
 		//----====----====----====----====----====----
 		
-		framelayout.addView(mysurfview, 
-				new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+//		framelayout.addView(mysurfview, 
+//				new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
 	//	framelayout.addView(dev_master_btns);
 				
 
-		setContentView(framelayout);
-		
+
 		
 //		splashsurfview = new SplashSurfView(getApplication());
 //		
@@ -149,7 +278,11 @@ public class OkobotokeActivity extends Activity {
 		
 		
 		
+		
+		
 		this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		
+		
 		
 //		dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 //		dialog.getWindow().setAttributes(WindowManager.LayoutParams..FLAG_DIM_BEHIND);
@@ -289,6 +422,13 @@ public class OkobotokeActivity extends Activity {
 //        return super.dispatchKeyEvent(event);
 //    }
 	
+	private void startAudioFade() {
+		PdAudio.startAudio(this);
+		OkobotokeActivity.sendFloat("fm_index", 12F);
+		this.sendBang("fade_in");
+
+	}
+	
 
 	@Override
 	protected void onPause() {
@@ -333,44 +473,32 @@ public class OkobotokeActivity extends Activity {
 	protected void onResume() {
 		Log.d(TAG1, "onResume() " + System.currentTimeMillis());
 
-		
-		
-		
-		
+		if (!splashinitnosound) {
+			this.startAudioFade();
+		}
 
-		PdAudio.startAudio(this);
-		
-		OkobotokeActivity.sendFloat("fm_index", 12F);
-		
 		super.onResume();
-		this.sendBang("fade_in");
 
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		Log.d(TAG1, "onDestroy() " + System.currentTimeMillis());
 		// this.destroycalled = true;
 
-		this.getWindow().clearFlags(
-				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		this.getWindow().clearFlags
+			(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-		
 		this.sendBang("fade_out");
-		
+
 		try {
 			Thread.sleep(900);
 		} catch (InterruptedException e) {
-					e.printStackTrace();
+			e.printStackTrace();
 		}
-		
-		
+
 		PdAudio.stopAudio();
-		
-		
-		
-		
-		
+
 		PdAudio.release();
 		PdBase.release();
 
@@ -403,18 +531,18 @@ public class OkobotokeActivity extends Activity {
 		}
 	}
 	
-	private void toast(final String msg) {
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				if (toast == null) {
-					toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
-				}
-				toast.setText(TAG + ": " + msg);
-				toast.show();
-			}
-		});
-	}
+//	private void toast(final String msg) {
+//		runOnUiThread(new Runnable() {
+//			@Override
+//			public void run() {
+//				if (toast == null) {
+//					toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
+//				}
+//				toast.setText(TAG + ": " + msg);
+//				toast.show();
+//			}
+//		});
+//	}
 
 //	private void post(final String s) {
 //		runOnUiThread(new Runnable() {
@@ -512,11 +640,12 @@ public class OkobotokeActivity extends Activity {
 	    
 	};
 	
-	public static void pdStopAudio() {
-    	PdAudio.stopAudio();
-    	Log.d(TAG1, "pdStopAudio() called via bang");
-
-	}
+	//削除しよう
+//	public static void pdStopAudio() {
+//    	PdAudio.stopAudio();
+//    	Log.d(TAG1, "pdStopAudio() called via bang");
+//
+//	}
 
 
 
@@ -803,4 +932,4 @@ public class OkobotokeActivity extends Activity {
 	
 
 
-}
+} 

@@ -2,6 +2,7 @@ package nz.kapsy.okobotoke;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.util.AttributeSet;
@@ -45,10 +46,10 @@ public class SplashSurfView extends SurfaceView implements
 
     public void MySurfaceViewInit() {
     	
-        this.setZOrderOnTop(true);
+        //this.setZOrderOnTop(true);
 
         holder = getHolder();
-        holder.setFormat(PixelFormat.TRANSPARENT);
+        holder.setFormat(PixelFormat.OPAQUE);
         holder.addCallback(this);
         
        
@@ -138,15 +139,33 @@ public class SplashSurfView extends SurfaceView implements
 	// overidden
 	public void draw() {
 
-		//canvas.drawARGB(155, 0, 0, 0);
+		//canvas.drawARGB(155, 255, 0, 0);
 		Paint p = new Paint();
 		
 		p.setStyle(Paint.Style.FILL);
+		p.setColor(Color.RED);
         p.setAntiAlias(false);
         p.setDither(false);		
+        p.setTextSize(100F);
 		
-		canvas.drawCircle(200F, 200F, 100, p);
+		canvas.drawText("KAPSY", 100F, 100F, p);
+		
+		
 	}
+	
+//	public float widthRatioToPixels() {
+//	
+//		
+//		
+//	}
+//	
+//	public float heightRatioToPixels() {
+//		
+//	}
+	
+	
+	
+	
 	
 	
 	

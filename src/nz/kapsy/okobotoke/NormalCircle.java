@@ -55,7 +55,7 @@ public class NormalCircle {
 	    
 		this.setAlive(false);
 		
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStyle(Paint.Style.FILL);
         //paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
         paint.setAntiAlias(false);
         paint.setDither(false);

@@ -23,6 +23,9 @@ public class MySurfaceView extends SurfaceView implements
 	
 	
 	private SurfaceHolder holder;
+	
+	//private BackGround bground;
+	private int bgcolor = Color.BLACK;
     
     public Circle2[] maincircles;
     private int curmaincircle = 0;
@@ -37,7 +40,7 @@ public class MySurfaceView extends SurfaceView implements
     
     public BlackFadeLayer blackfadelyr;
 
-	private boolean initbackground;
+	//private boolean initbackground;
 	
     public RecordBar recbar;
 	public FrameRecorder framerec = new FrameRecorder();
@@ -146,50 +149,56 @@ public class MySurfaceView extends SurfaceView implements
     	
     	// creates rectangle at ratio of source bitmap to fit screen
 
-		if (this.isattached == false) {
-					int rectheight = (int)((float)getWidth()*((float)backg_bitmap.getHeight() / (float)backg_bitmap.getWidth()));
-    	
-       // new Rect(l, t, r, b);
-		
-    	blackfadelyr = new BlackFadeLayer();
-    	blackfadelyr.init();
-    	
-    	screensizerect = new Rect(0, 0, getWidth(), rectheight);
-		   
-		screendiag = this.getScreenDiag();
-		screenwidth = (float)this.getWidth();
-		screenheight = (float)this.getHeight(); 
-        
-		
-		
-      	maincircles = new Circle2[6];
-        for(int i = 0; i < maincircles.length; i++) {
-        	maincircles[i] = new Circle2();
-        }
-        
-        sonarcircle2 = new SonarCircle2();
-                
-        faderline = new NormalLineFader();
-        circtouchfirst = new NormalCircleMultiTouch();
-        circtouchsecond = new NormalCircle();
-           
-        initbackground = true;
-        recbar = new RecordBar
-        		(this.screenwidth, this.screenheight, 10000, 
-        				threadinterval, this.framerec, this);
-        
-        rainstars = new RainStar[40];
-        for(int i = 0; i < rainstars.length; i++) {
-        	rainstars[i] = new RainStar();
-        }
-        
-        this.isattached = true;
-        startThread();
-		}
+
 		
 
 
     }
+    
+	public void initDrawables() {
+
+		if (this.isattached == false) {
+			int rectheight = (int) ((float) getWidth() * ((float) backg_bitmap
+					.getHeight() / (float) backg_bitmap.getWidth()));
+
+			// new Rect(l, t, r, b);
+
+			//bground = new BackGround();
+			
+//			blackfadelyr = new BlackFadeLayer();
+//			blackfadelyr.init();
+
+			screensizerect = new Rect(0, 0, getWidth(), rectheight);
+
+			screendiag = this.getScreenDiag();
+			screenwidth = (float) this.getWidth();
+			screenheight = (float) this.getHeight();
+
+			maincircles = new Circle2[6];
+			for (int i = 0; i < maincircles.length; i++) {
+				maincircles[i] = new Circle2();
+			}
+
+			sonarcircle2 = new SonarCircle2();
+
+			faderline = new NormalLineFader();
+			circtouchfirst = new NormalCircleMultiTouch();
+			circtouchsecond = new NormalCircle();
+
+			//initbackground = true;
+			recbar = new RecordBar(this.screenwidth, this.screenheight, 10000,
+					threadinterval, this.framerec, this);
+
+			rainstars = new RainStar[40];
+			for (int i = 0; i < rainstars.length; i++) {
+				rainstars[i] = new RainStar();
+			}
+
+			this.isattached = true;
+			startThread();
+		}
+
+	}
     
     
     public void startThread() {
@@ -231,6 +240,7 @@ public class MySurfaceView extends SurfaceView implements
 
 
     // could use MotionEvent.Obtain for copying events
+    // and dispatchTouchEvent(event) for playing back
     // listarray is faster though
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -477,15 +487,18 @@ public class MySurfaceView extends SurfaceView implements
     		
 
 
+        canvas.drawColor(this.bgcolor); 
+//        if(initbackground) {
+//
+//        	
+//            
+//           //canvas.drawBitmap(backg_bitmap, null, screensizerect, null);
+//        	
+//            
+//        }
         
-        if(initbackground) {
-
-        	canvas.drawColor(Color.BLACK); 
-            
-           //canvas.drawBitmap(backg_bitmap, null, screensizerect, null);
-        	
-            
-        }
+        //bground.drawBackground(canvas);
+        
     
         for (int i = 0; i < rainstars.length; i++) {
         	rainstars[i].drawSequence(canvas);
@@ -517,7 +530,7 @@ public class MySurfaceView extends SurfaceView implements
 		
 		recbar.drawSequence(canvas);
         
-		blackfadelyr.drawSequence(canvas);
+		//blackfadelyr.drawSequence(canvas);
     
         holder.unlockCanvasAndPost(canvas);
     	}
@@ -644,7 +657,22 @@ public class MySurfaceView extends SurfaceView implements
     protected int getCurmaincircle() {
 		return curmaincircle;
 	}
-
+    
+    
+    protected void setBackGrBlack() {
+		this.bgcolor = Color.BLACK;
+	}
+    
+    protected void setBackGrBlue() {
+		this.bgcolor = Color.BLUE;
+	}
+    
+    protected void setBackGrRed() {
+		this.bgcolor = Color.RED;
+	}
+    
+    
+    
 	public class Circle2 extends NormalCircle {
 		
 		//private boolean acceldir;
@@ -689,7 +717,7 @@ public class MySurfaceView extends SurfaceView implements
     		this.spdaccel3 = spdaccel3_prf - ((float)rnd.nextInt(20));
     		this.spdaccel4 = spdaccel4_prf;
     		
-    		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+    		this.getPaint().setStyle(Paint.Style.FILL);
     		this.getPaint().setDither(false);
 //    		this.getPaint().setAntiAlias(true);
     		
@@ -874,7 +902,7 @@ public class MySurfaceView extends SurfaceView implements
     		
     		this.setARGB(45, rndCol(30), rndCol(30), rndCol(30));
     		
-    		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+    		this.getPaint().setStyle(Paint.Style.STROKE);
     		this.getPaint().setStrokeWidth(2F);
     		//this.getPaint().setDither(true);
     		    		
@@ -913,7 +941,7 @@ public class MySurfaceView extends SurfaceView implements
     		
     		this.setARGB(rnd.nextInt(100), 255, 255, 255);
     		
-    		this.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
+    		this.getPaint().setStyle(Paint.Style.FILL);
     		this.getPaint().setStrokeWidth(2F);
     		
     		super.init();
@@ -942,52 +970,94 @@ public class MySurfaceView extends SurfaceView implements
     	
     }
     
-    public class BlackFadeLayer extends NormalCircle {
-    	
-    	
-    	@Override
-    	public void init() {
-    		    		
-    		this.setARGB(255, 255, 255, 255);
+	public class BlackFadeLayer extends NormalCircle {
 
-    		super.init();
-    	}
-    	
-    	
-    	@Override
-    	public void drawSequence(Canvas c) {
-    		if (this.isAlive()) {
-    			this.fadeAnim();
-    	        this.drawScreenBlack(c);
-    		}
-    	}
-    	
-    	public void drawScreenBlack(Canvas c) {
-    		c.drawARGB(this.getAlpha(), this.getRed(), this.getGrn(), this.getBlu());
-    	}
-    	
-    	public void fadeAnim() {
-    		
-        	int cf = this.getCurrframe();
-    		
-        	if (cf < 60){
-        		this.alphaDecrement(8.7F, 0F);
-        		
-        		//Log.d("BlackFadeLayer", "this.getAlpha() " + this.getAlpha());
-    			this.frameAdvance();
-    		
-        	}
-        	
-        	if (cf == 60) {
-        		this.setAlive(false);
-        	}
-        	
-    		
-    	}
-    	 
-    	
-    }
-    
+		@Override
+		public void init() {
+
+			this.setARGB(255, 255, 255, 255);
+
+			super.init();
+		}
+
+		@Override
+		public void drawSequence(Canvas c) {
+			if (this.isAlive()) {
+				this.fadeAnim();
+				this.drawScreenBlack(c);
+			}
+		}
+
+		public void drawScreenBlack(Canvas c) {
+			c.drawARGB(this.getAlpha(), this.getRed(), this.getGrn(),
+					this.getBlu());
+		}
+
+		public void fadeAnim() {
+
+			int cf = this.getCurrframe();
+
+			if (cf < 60) {
+				this.alphaDecrement(8.7F, 0F);
+
+				// Log.d("BlackFadeLayer", "this.getAlpha() " +
+				// this.getAlpha());
+				this.frameAdvance();
+
+			}
+
+			if (cf == 60) {
+				this.setAlive(false);
+			}
+
+		}
+
+	}
+	
+//	public class BackGround {
+//		
+//	
+//		private int a = 255;
+//		private int r = 0;
+//		private int g = 0;
+//		private int b = 0;
+//		
+//
+//		public void drawBackground(Canvas c) {
+//			
+//			c.drawARGB(a, r, g, b);
+//			
+//		}
+//		
+//		
+//		public void setBlack() {
+//			r = 0; g = 0; b = 0;
+//		}
+//		
+//		public void setRed() {
+//			r = 255; g = 0; b = 0;
+//		}
+//		
+//		public void setBlue() {
+//			r = 0; g = 0; b = 255;
+//		}
+//		
+//
+//		
+//		
+//	}
+//
+//	protected BackGround getBground() {
+//		return bground;
+//	}
+	
+	
+	
+	
+	
+	
+	
+
 }
 
 

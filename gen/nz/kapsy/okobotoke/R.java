@@ -38,7 +38,8 @@ public final class R {
         public static final int dprefbtn_pg5=0x7f0b0005;
         public static final int dprefbtn_play=0x7f0b0007;
         public static final int dprefbtn_rec=0x7f0b0006;
-        public static final int menu_settings=0x7f0b0016;
+        public static final int imageView1=0x7f0b0016;
+        public static final int menu_settings=0x7f0b0017;
         public static final int pg1_applybtn_radfade=0x7f0b000c;
         public static final int pg1_applybtn_speedaccelsamp=0x7f0b0011;
         public static final int pg1_et_radfade_arg1=0x7f0b0008;
@@ -59,6 +60,7 @@ public final class R {
         public static final int dev_pref_pg1=0x7f030002;
         public static final int main=0x7f030003;
         public static final int splash=0x7f030004;
+        public static final int splashview=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -109,9 +111,12 @@ public final class R {
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
  Application theme. 
-         <item name="android:windowIsFloating">false</item>
+         <item name="android:windowIsTranslucent">true</item> 
+
+             <item name="android:windowIsFloating">false</item>
         
-        <item name="android:backgroundDimEnabled">false</item> 
+        <item name="android:backgroundDimEnabled">false</item>
+        
          */
         public static final int AppTheme=0x7f090001;
         public static final int DisableSoundEffects=0x7f090000;

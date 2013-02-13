@@ -19,7 +19,8 @@ int id dprefbtn_pg4 0x7f0b0004
 int id dprefbtn_pg5 0x7f0b0005
 int id dprefbtn_play 0x7f0b0007
 int id dprefbtn_rec 0x7f0b0006
-int id menu_settings 0x7f0b0016
+int id imageView1 0x7f0b0016
+int id menu_settings 0x7f0b0017
 int id pg1_applybtn_radfade 0x7f0b000c
 int id pg1_applybtn_speedaccelsamp 0x7f0b0011
 int id pg1_et_radfade_arg1 0x7f0b0008
@@ -38,6 +39,7 @@ int layout dev_master_btns 0x7f030001
 int layout dev_pref_pg1 0x7f030002
 int layout main 0x7f030003
 int layout splash 0x7f030004
+int layout splashview 0x7f030005
 int menu main 0x7f0a0000
 int raw extra_abs 0x7f060000
 int raw patch 0x7f060001

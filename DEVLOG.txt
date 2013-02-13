@@ -203,6 +203,10 @@ xautodim
 
 
 2013年2月12日
+
+
+x音声フェードイン、画面フェードイン
+
 ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー
 
 x電源ボタン処理
@@ -291,23 +295,40 @@ x電源ボタン処理
 
 ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー＝＝＝ーーー
 
-起動時の処理、ロード画面でどうだ？
+2013年2月13日
+
+
+x起動時の処理、ロード画面でどうだ？
+
+x試してみよう：　http://stackoverflow.com/questions/5391089/how-to-make-surfaceview-transparent
+SurfaceView sfvTrack = (SurfaceView)findViewById(R.id.sfvTrack);
+sfvTrack.setZOrderOnTop(true);    // necessary
+sfhTrack = sfvTrack.getHolder();
+sfhTrack.setFormat(PixelFormat.TRANSPARENT);
+
+ボタンおと・音声再生が続くべき
+
+
+
+
+X記録が始まると背景が赤くなって再生と青い
+再生と録音の象徴のほうがいいかも
+
 
 
 記録中途とホームボタンを押して記録を強制的に終了？
 	→記録を終わりまでに終了して再生モードに設定してしまう
 
-音声フェードイン、画面フェードイン
 
 
-記録が始まると背景が赤くなって再生と青い
+MySurfaceViewのpublic void initDrawables()スプラシュのフェードインアニメーションが終わると実行すべき
+フェードアウト時にstartThread();を呼ぶだけでいいじゃない
 
 
 
 
-ボタンおと・音声再生が続くべき
 
-
+4.2ボリュームフェーダー問題
 
 時間差どうやって計算すればいいのか　CDNに聞いた
 
@@ -326,11 +347,6 @@ android.permission.READ_PHONE_STATE
 
 MainCirc 速度15-45
 
-試してみよう：　http://stackoverflow.com/questions/5391089/how-to-make-surfaceview-transparent
-SurfaceView sfvTrack = (SurfaceView)findViewById(R.id.sfvTrack);
-sfvTrack.setZOrderOnTop(true);    // necessary
-sfhTrack = sfvTrack.getHolder();
-sfhTrack.setFormat(PixelFormat.TRANSPARENT);
 
 ＝＝＝＝＝ここまでにしました＝＝＝＝＝
 
