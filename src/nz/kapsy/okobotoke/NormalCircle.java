@@ -31,6 +31,7 @@ public class NormalCircle {
 	// アニメーションのためパラメーター
 	private float radchgspd = 0F;
 	private float ychgspd = 0.674375F;
+	private float xchgspd = 0F;
 
 	private int currframe;
 	
@@ -40,7 +41,7 @@ public class NormalCircle {
 	private float accelangle = 0F;
 	
 	private float radfadeangle = 0F;
-	private float baserad = 0F; //original radius before fadein
+	private float baserad = 0F; //original radius before any modulation modifiers
 	
 	
 	private float radmodsinangle = 0F;
@@ -192,7 +193,7 @@ public class NormalCircle {
     	else {
     		this.radmodsinangle  = 0;	
     	}
-    	
+    	// returns -1 to 1
     	float sinval = SampledSines.getPosNegSineVal(this.radmodsinangle);
     	//this.rad = this.rad + (sinval * modamplitude); 
     	this.rad = this.baserad + (sinval * modamplitude);
@@ -348,6 +349,18 @@ public class NormalCircle {
 	protected void setYchgspd(float ychgspd) {
 		this.ychgspd = ychgspd;
 	}
+	
+	protected void xIncrement() {
+		this.posx = this.posx + this.xchgspd;
+	}
+
+	protected float getXchgspd() {
+		return xchgspd;
+	}
+
+	protected void setXchgspd(float xchgspd) {
+		this.xchgspd = xchgspd;
+	}
 
 	protected float getAccelangle() {
 		return accelangle;
@@ -394,6 +407,13 @@ public class NormalCircle {
 		this.grn = g;
 		this.blu = b;
 	}
+	
+	public void setRGB (int r, int g, int b) {
+		this.red = r;
+		this.grn = g;
+		this.blu = b;
+	}
+
 
 	public int getRed() {
 		return red;

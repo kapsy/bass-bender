@@ -18,6 +18,7 @@ public class FrameRecorder {
 	private int[] mustrecvals = {MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN,
 			MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_UP};
 	private boolean mustreclastevent = false;
+	private boolean mustrecactiondownfirst = false; // if true, an action down MUST be recorded that frame - two touch issue
 	private int lastmustrec;
 		
 	private int touchpts = 0;
@@ -42,14 +43,16 @@ public class FrameRecorder {
 	}
 	
 	public void startPlayBack() {
-	
-		
-		
+
 		// 強制的にタッチ処理を終了ってこと
+
 		this.setRecordingnow(false);
-		this.setPlayingback(true);
-		this.setCurrentframe(0);
 		
+		if (this.recording.size() > 0) {
+			this.setPlayingback(true);
+		}
+		this.setCurrentframe(0);
+
 	}
 			
 	public void setFrame(boolean cirtfirstisalive, float cirtfirstx, float cirtfirsty,
@@ -63,13 +66,23 @@ public class FrameRecorder {
 			
 			// crucial values that could fall between frames are forced to the next frame
 			if (this.mustreclastevent) {
-				this.recording.get(this.recording.size() - 1).setMotionevent(this.lastmustrec);
-				this.mustreclastevent = false;
+			
+				// solves two touch at same time issue
+				if(this.mustrecactiondownfirst) {
+					
+					this.recording.get(this.recording.size() - 1).setMotionevent(MotionEvent.ACTION_DOWN);
+					this.mustreclastevent = true;
+					this.mustrecactiondownfirst = false;
+				} 
+				else {
+					this.recording.get(this.recording.size() - 1).setMotionevent(this.lastmustrec);
+					this.mustreclastevent = false;
+				}
 			}
 			
-			FrameRecUnit fl = this.recording.get(this.recording.size() - 1);
+/*			FrameRecUnit fl = this.recording.get(this.recording.size() - 1);
 			
-/*			Log.d("recording",
+			Log.d("recording",
 					"・・・録音した値・・・"
 					+ "\n" + "isCirtfirstisalive()" + fl.isCirtfirstisalive()
 					+ "\n" + "getCirtfirstx " + fl.getCirtfirstx() 
@@ -80,8 +93,8 @@ public class FrameRecorder {
 					+ "\n" + "getTouchpts " + fl.getTouchpts() 
 					+ "\n" + "getMotionevent " + fl.getMotionevent()
 
-					+ "\n" + "recording.size() " + recording.size());
-*/					
+					+ "\n" + "recording.size() " + recording.size());*/
+					
 			if (this.motionevent == MotionEvent.ACTION_UP) {
 				this.motionevent = MotionEvent.ACTION_CANCEL;
 			}
@@ -105,6 +118,8 @@ public class FrameRecorder {
 				
 	}
 	
+	
+	//not needed?
 	public void forceLastFrameOff () {
 		
 		FrameRecUnit f = this.recording.get(this.recording.size() - 1);
@@ -129,6 +144,9 @@ public class FrameRecorder {
 		}
 				
 	}
+	
+	
+
 	
 	
 	protected boolean isRecordingnow() {
@@ -168,6 +186,10 @@ public class FrameRecorder {
 			for(int i = 0; i < mustrecvals.length; i++) {
 				
 				if (motionevent == mustrecvals[i]) {
+					
+					if (motionevent == MotionEvent.ACTION_DOWN) {
+						this.mustrecactiondownfirst = true;
+					}
 					
 					this.mustreclastevent = true;
 					this.lastmustrec = mustrecvals[i];

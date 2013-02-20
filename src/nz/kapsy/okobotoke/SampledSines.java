@@ -68,7 +68,7 @@ public class SampledSines {
 		if (angle < 0F || angle > 360F ) {
 				
 			Log.d("SampledSines", "Angle " + angle 
-					+ "is out of range, null exception likely");
+					+ "is out of range.");
 		}
 	}
 	

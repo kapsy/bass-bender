@@ -6,7 +6,7 @@
     -->
     
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="@android:style/Theme.Black">
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:windowContentOverlay">@null</item>
@@ -19,10 +19,23 @@
         
         <item name="android:backgroundDimEnabled">false</item>
         -->
+        
+        
+        <item name="android:textColor">@android:color/white</item>
 
     </style>
     
-
+    
+    <style name="ButtonTheme" parent="AppBaseTheme">
+    
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    
     
     
     <style name="SplashTheme" parent="AppBaseTheme">

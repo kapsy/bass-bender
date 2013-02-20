@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
+import android.view.MotionEvent;
 
 public class RecordBar extends NormalCircle {
 	
@@ -24,9 +25,7 @@ public class RecordBar extends NormalCircle {
 	
 	private int frameinterval;//アニメーションの間隔
 	private float incperframe;
-	
-	
-	
+		
 	private FrameRecorder framerec;
 	private MySurfaceView mysurfv;
 	
@@ -34,10 +33,7 @@ public class RecordBar extends NormalCircle {
 	public RecordBar
 		(float swidth, float sheight, long totaltime, int frameinterval, 
 				FrameRecorder fr, MySurfaceView mysurfv) {
-		
-
-		
-		
+				
 		Paint p = this.getPaint();
 		
         p.setStyle(Paint.Style.FILL);
@@ -134,13 +130,12 @@ public class RecordBar extends NormalCircle {
 
 		if (this.rec_right == 0 && this.framerec.isRecordingnow()) {
 
-			// this.mysurfv.getBground().setRed();
-			this.mysurfv.setBackGrRed();
-
+			// this.mysurfv.setBackGrRed();
+			this.mysurfv.recsymbol.init();
 		}
 		if (this.rec_right == this.incperframe) {
-			// this.mysurfv.getBground().setBlack();
-			this.mysurfv.setBackGrBlack();
+
+			// this.mysurfv.setBackGrBlack();
 		}
 
 		if (this.rec_right < this.totalwidth) {
@@ -156,13 +151,17 @@ public class RecordBar extends NormalCircle {
 				this.mysurfv.releaseAllTouchAnims();
 				// this.framerec.forceLastFrameOff();
 				this.framerec.startPlayBack();
-				// this.mysurfv.getBground().setBlue();
-				this.mysurfv.setBackGrBlue();
+				
+				//大きの方がいい
+				this.mysurfv.playsymbol.init();
+				
+				//this.mysurfv.setBackGrBlue();
 			}
 			// 再生ループ
 			if (this.framerec.isPlayingback()) {
 				this.mysurfv.releaseAllTouchAnims();
 				this.framerec.startPlayBack();
+				this.mysurfv.playsymbol.init();
 			}
 
 			this.init();
@@ -174,7 +173,36 @@ public class RecordBar extends NormalCircle {
 		
 		this.rec_right = (this.rec_right + this.incperframe);
 	}
+	
+	
+	// fills all rec frames from current frame till the correct list array size
+	// (only used when home button is pressed while recording)
+	
+	public void fillFramesEmpty() {
 
+		if (this.framerec.isRecordingnow()) {
+			int totalframes = 0;
+
+			for (float f = 0F; f < this.totalwidth; f = f + this.incperframe) {
+				totalframes++;
+			}
+
+			this.framerec.setMotionevent(MotionEvent.ACTION_CANCEL);
+			this.framerec.setTouchpts(0);
+
+			float c1_x = mysurfv.circtouchfirst[mysurfv.getCurcirctouchfirst()].getPosX();
+			float c1_y = mysurfv.circtouchfirst[mysurfv.getCurcirctouchfirst()].getPosY();
+			float c2_x = mysurfv.circtouchsecond[mysurfv.getCurcirctouchsecond()].getPosX();
+			float c2_y = mysurfv.circtouchsecond[mysurfv.getCurcirctouchsecond()].getPosY();
+
+			int remaining = totalframes - this.framerec.getCurrentframe();
+
+			for (int i = 0; i < remaining; i++) {
+				framerec.setFrame(false, c1_x, c1_y, false, c2_x, c2_y);
+			}
+		}
+
+	}
 	
 	
 

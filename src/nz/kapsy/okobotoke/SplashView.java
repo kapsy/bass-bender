@@ -5,8 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+
+import android.text.style.AlignmentSpan;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 public class SplashView extends View{
 
@@ -14,6 +17,7 @@ public class SplashView extends View{
 	
 	Canvas maincanvas = new Canvas();
 	
+	TextView instructions = new TextView(this.getContext());
 	
 	protected SplashView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -35,11 +39,12 @@ public class SplashView extends View{
 	
 	
 	private void initView() {
-		this.setBackgroundColor(Color.DKGRAY);
+		this.setBackgroundColor(Color.argb(255, 180, 180, 180));
+		
 		
 		onDraw(maincanvas);
 		
-		
+	
 	}
 	
 	
@@ -54,15 +59,23 @@ public class SplashView extends View{
             c.drawOval(new RectF(25f * i, 25f * i, 25f * i + 100f,
                     25f * i + 100f), fill_paint);
         }
-        
+    
         
         Paint p = new Paint();
         p.setStyle(Paint.Style.FILL);
-        p.setColor(Color.argb(50, 255, 0, 0));
+      //  p.setStrokeWidth(5F);
+        p.setAntiAlias(true);
+        p.setColor(Color.argb(255, 0, 0, 0));
         
-        p.setTextSize(100F);
+        p.setTextSize(30F);
         
-        c.drawText("KAPSY", 200F, 200F, p);
+        
+        c.drawText("@KAPSY198" +
+        		"\nshort tap to sound sonar" +
+        		"\n one finger drag to change pitch" +
+        		"\ntwo finger pinch to growl" +
+        		"\nall movements recorded and looped!" +
+        		"\nheadphones recommended", 100F, 200F, p);
         
         
         

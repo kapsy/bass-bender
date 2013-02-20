@@ -90,38 +90,31 @@ public final class R {
         public static final int textview_init2=0x7f08000f;
     }
     public static final class style {
-        public static final int Animations=0x7f090004;
-        public static final int Animations_MainScreen=0x7f090006;
-        public static final int Animations_SplashScreen=0x7f090005;
+        public static final int Animations=0x7f090005;
+        public static final int Animations_MainScreen=0x7f090007;
+        public static final int Animations_SplashScreen=0x7f090006;
         /** 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
- API 11 theme customizations can go here. 
 
         Base application theme for API 14+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     
- API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f090007;
+        public static final int AppBaseTheme=0x7f090008;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
  Application theme. 
-         <item name="android:windowIsTranslucent">true</item> 
-
-             <item name="android:windowIsFloating">false</item>
-        
-        <item name="android:backgroundDimEnabled">false</item>
-        
          */
         public static final int AppTheme=0x7f090001;
+        public static final int ButtonTheme=0x7f090002;
         public static final int DisableSoundEffects=0x7f090000;
-        public static final int NullTheme=0x7f090003;
-        public static final int SplashTheme=0x7f090002;
+        public static final int NullTheme=0x7f090004;
+        public static final int SplashTheme=0x7f090003;
     }
     public static final class xml {
         public static final int preferences=0x7f050000;

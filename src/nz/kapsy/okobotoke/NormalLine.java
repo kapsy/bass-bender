@@ -1,5 +1,7 @@
 package nz.kapsy.okobotoke;
 
+import nz.kapsy.okobotoke.MySurfaceView.AccelTouch;
+import nz.kapsy.okobotoke.MySurfaceView.PlainTouchCirc;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.Log;
@@ -8,71 +10,48 @@ public class NormalLine extends NormalCircle {
 
 	private float[] linepoints = new float[4];
 	
-/*	@Override
-	public void init() {
-		// setPos メソッドの方がいいかも???
-//		posx = (float)rnd.nextInt(getWidth());
-//		posy = (float)rnd.nextInt(getHeight());
-		
-		//rad = 20;
-		//alpha = 100;
-		alphaslower = 0F;
-		red = 255 - rnd.nextInt(130);
-		grn = 255 - rnd.nextInt(130);
-		blu = 255 - rnd.nextInt(130);
-		
-		//alphaslower = 0;
-		
-//		rspd = (float)45;
-//		yspd = (float)0.674375;
-		
-		frame = 1;
-		
-		alive = true;
-		
-		//initbackground = false;
-		
-		
-//		sinangle = 0;
-//		sinanglechangerate = (float)4.5;
-//		modamplitude = (float).8;
-		
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
-        paint.setAntiAlias(false);
-        paint.setDither(false);
-        paint.setColor(Color.argb(150, red, grn, blu));
-	}
-	*/
+	// snagpoints used to ensure line is always attached to something
+	// therefore a 'disconnect' between line and circle cannot occur
+	
+	private AccelTouch snagpoint1;
+	private AccelTouch snagpoint2;
 	
 	@Override
 	public void drawSequence(Canvas c) {
 		if (this.isAlive()) {
 			//this.circleAnim();
 			//this.circleRadiusMod();
+			//this.setLineBySnags();
 			this.drawLineOnce(c);
 		}
 	}
 	
 	public void drawLineOnce(Canvas c) {
-		
-    	this.getPaint().setColor(Color.argb
-    			(this.getAlpha(), this.getRed(), this.getGrn(), this.getBlu()));
-        
-		c.drawLine(linepoints[0], linepoints[1], linepoints[2], linepoints[3], this.getPaint());
-		
-//        Log.d("drawCircleOnce", "Colors " + "a " + alpha + " r " + red + " g " + grn+ " b " + blu);
-//        Log.d("drawCircleOnce", "Dimens " + "x " + posx + " y " + posy + " r " + rad);
 
-}
-	
+		this.getPaint().setColor(
+				Color.argb(this.getAlpha(), this.getRed(), this.getGrn(),
+						this.getBlu()));
+
+		// c.clipRegion(region)
+
+		c.drawLine(linepoints[0], linepoints[1], linepoints[2], linepoints[3],
+				this.getPaint());
+	}
 	
 	public void setLinePoints(float x1, float y1, float x2, float y2) {
 		linepoints[0] = x1;
 		linepoints[1] = y1;
 		linepoints[2] = x2;
 		linepoints[3] = y2;
-
+	}
+	
+	public void setLineBySnags() {
+		if (snagpoint1 != null && snagpoint2 != null) {
+			linepoints[0] = snagpoint1.getPosX();
+			linepoints[1] = snagpoint1.getPosY();
+			linepoints[2] = snagpoint2.getPosX();
+			linepoints[3] = snagpoint2.getPosY();
+		}
 	}
 	
 	public float calcDistance() {
@@ -87,9 +66,25 @@ public class NormalLine extends NormalCircle {
 		
 	    float dist = (float)Math.sqrt(Math.pow(xdiff, 2D) + Math.pow(ydiff, 2D));
 		
-	   // Log.d("calcDistance", "dist " + dist);
+	   // Log.d("calcDistance", "dist: " + dist);
 	    return dist;
 
+	}
+
+	protected AccelTouch getSnagpoint1() {
+		return snagpoint1;
+	}
+
+	protected AccelTouch getSnagpoint2() {
+		return snagpoint2;
+	}
+
+	protected void setSnagpoint1(AccelTouch snagpoint1) {
+		this.snagpoint1 = snagpoint1;
+	}
+
+	protected void setSnagpoint2(AccelTouch snagpoint2) {
+		this.snagpoint2 = snagpoint2;
 	}
 	
 }

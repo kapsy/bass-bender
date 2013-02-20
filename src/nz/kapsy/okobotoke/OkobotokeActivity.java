@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;
 import org.puredata.android.service.PdService;
 import org.puredata.core.PdBase;
@@ -20,6 +21,10 @@ import android.app.KeyguardManager.OnKeyguardExitResult;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
+import android.net.rtp.AudioStream;
 import android.os.Bundle;
 import android.util.EventLog.Event;
 import android.util.Log;
@@ -48,283 +53,189 @@ public class OkobotokeActivity extends Activity {
 	private static final String RCV = "PdReceiver";
 
 	//private PdService pdService = null;
+	
+	private int samplerate = 11025;
+	private int latencymillis = 100;
+	private int inchan = 0;
+	private int outchan = 2;
 
-	float bufferSize = 50;
-	
-	int sampleRate = 11025;
-	//int sampleRate = 22050;
-		
-	int inChan = 0;
-	int outChan = 2;
-	
-	private static final float FM_FADE_RNG = 80F;
+	private static final float FM_FADE_RNG = 70F;
 	private static final float FM_FADE_MIN = 0F;
 		
-	private static final float CF_FADE_RNG = 6.5F;
-	private static final float CF_FADE_MIN = 1.5F;
+	private static final float CF_FADE_RNG = -6.5F;//6.5F;
+	private static final float CF_FADE_MIN = 8.0F;//1.5F;
+	
+	private static final float CF_BENDER_RNG = 220F;
+	private static final float CF_BENDER_MIN = 70F;
+	
+		
+	private static final int COL_FADE_RNG = 510;
 	
 	FrameLayout framelayout;
 	MySurfaceView mysurfview;
 	
-	//SplashSurfView splashsurfview;
-	
-	
-	
-	//TouchView touchview;
 
 	LinearLayout dev_master_btns;
 	LinearLayout dev_pref_pg1;
 	
-	private View splashtest;
+
 	
 	private boolean splashinitnosound = true;
 	
-	
-	//private SplashSurfView splashtest;
-	
-	
-	AlphaAnimation fadein;
-	
-	AlphaAnimation fadeout; 
-	
-	Context context = this.getApplication();
-	
-	
-	
+	// splash 画面
+	private View splashtest;
+	private AlphaAnimation fadein;
+	private AlphaAnimation fadeout; 
+		
 	private ScheduledExecutorService lightsdelay;
 	private Runnable lightrun;
 	private ScheduledExecutorService sonardelay;
     private Runnable sonarrun; 
     
-    
-    
-    
-    
-    
-    
-    
-    
-	
-	private Toast toast = null;
-	
-	
-	public static boolean destroycalled = false;
+    //	public static boolean destroycalled = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-
-	
-		
 		Log.d(TAG1, "onCreate() " + System.currentTimeMillis());
 
-	//	bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
+		AudioParameters.init(this);
 
+		this.updateLatency();
+		SampledSines.init(3600);
 		try {
 			initPd();
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		
-		
-		SampledSines.init(3600);
-		
-		
-        lightsdelay = Executors.newSingleThreadScheduledExecutor();
-        lightrun = new Runnable() {
-        	@Override
+
+		lightsdelay = Executors.newSingleThreadScheduledExecutor();
+		lightrun = new Runnable() {
+			@Override
 			public void run() {
 				mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
 				mysurfview.nextCirc();
 				mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
 			}
 		};
-        
-        sonardelay = Executors.newSingleThreadScheduledExecutor();
-        sonarrun = new Runnable() {
+
+		sonardelay = Executors.newSingleThreadScheduledExecutor();
+		sonarrun = new Runnable() {
 			@Override
-			public void run() {	
+			public void run() {
 				mysurfview.sonarcircle2.init();
 				rainStarsInitAll();
-
 			}
 		};
 		
 		framelayout = new FrameLayout(this);
-		//framelayout.setBackgroundColor(Color.GRAY);
 		setContentView(framelayout);
 		
-
-		//splashtest = new View(getApplicationContext());
 		splashtest = new SplashView(getApplicationContext());
-		
-		
-		//splashtest.setBackgroundColor(Color.LTGRAY);
-		
-		
-		
-		
 		splashtest.setSoundEffectsEnabled(false);
+				
+		mysurfview = new MySurfaceView(getApplication());
+		mysurfview.setSoundEffectsEnabled(false);
+
+		mysurfview.setClickable(false);
+		splashtest.setClickable(true);
+
+		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
+		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
 		
+		framelayout.addView(mysurfview);
+		framelayout.addView(splashtest);
+
 		fadein = new AlphaAnimation(0.0F, 1F);
 		fadein.setDuration(900);
 		fadein.setStartOffset(500);
 		fadein.setAnimationListener(new AnimationListener() {
-
 			@Override
 			public void onAnimationStart(Animation animation) {}
-
 			@Override
-			public void onAnimationRepeat(Animation animation) {	}
-
+			public void onAnimationRepeat(Animation animation) {}
 			@Override
 			public void onAnimationEnd(Animation animation) {
+				// any gfx pre-processing/loading should go here
+				mysurfview.initDrawables();
 			}
 		});
 		
-		
-		
-		
-		
+		splashtest.startAnimation(fadein);
 		
 		fadeout = new AlphaAnimation(1F, 0.0F);
 		fadeout.setDuration(750);
 		fadeout.setAnimationListener(new AnimationListener() {
-
 			@Override
 			public void onAnimationStart(Animation animation) {}
-
 			@Override
-			public void onAnimationRepeat(Animation animation) {	}
-
+			public void onAnimationRepeat(Animation animation) {}
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				framelayout.removeView(splashtest);
-				mysurfview.setClickable(true);				
-				mysurfview.initDrawables();
+				mysurfview.setClickable(true);	
 				OkobotokeActivity.this.startAudioFade();
+				mysurfview.startThread();
 				splashinitnosound = false;
+				//==== dev 設定
+//				framelayout.addView(dev_master_btns);
+//				devBtnsInit();
 			}
 		});
 		
-		
-		
-		//alpha.get
-		
-		splashtest.startAnimation(fadein);
-		
-		
-
-		
-		
-		
-		mysurfview = new MySurfaceView(getApplication());
-
-		mysurfview.setSoundEffectsEnabled(false);
-		
-		
-		splashtest.setClickable(true);
-		mysurfview.setClickable(false);
-		
-		
-		
-		framelayout.addView(mysurfview);
-
-		framelayout.addView(splashtest);
-		
-		
-		
-		
-		
-		
-		
 		splashtest.setOnTouchListener(new OnTouchListener() {
-
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-
 				splashtest.startAnimation(fadeout);
-
 				return false;
 			}
 		});
-	
-				
-
-						
-//		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
-//		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
-//		
-//		
-		//----====----====----====----====----====----
-		
-//		framelayout.addView(mysurfview, 
-//				new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
-	//	framelayout.addView(dev_master_btns);
-				
-
-
-		
-//		splashsurfview = new SplashSurfView(getApplication());
-//		
-//		this.setContentView(splashsurfview);
-//		
-		
-		
-		
-		
-		
-		
-		
 		
 		this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
-		
-		
-//		dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-//		dialog.getWindow().setAttributes(WindowManager.LayoutParams..FLAG_DIM_BEHIND);
-//		myLoadingDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHI‌​ND);
-//		Window w = this.getWindow().setAttributes(WindowManager.LayoutParams.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
 		//----====----====----====----====----====----
 		
-/*		Button dprefbtn_pg1 = (Button)findViewById(R.id.dprefbtn_pg1);
-			dprefbtn_pg1.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-				
-					Log.d("dprefbtn_pg1", "dev_master_btns.getChildCount()" + dev_master_btns.getChildCount());
-					if (dev_master_btns.getChildCount() == 2) {
-						
-						dev_master_btns.addView(dev_pref_pg1);
-										
-						devPrefPg1Init();
 
-					}
-					
-					else if(dev_master_btns.getChildCount() > 2) {
-						
-						dev_master_btns.removeViews(2, 1);
-					}
-	
-	
-				}
-			});	
 			
 		//----====----====----====----====----====----====----
 		
-		Button dprefbtn_rec = (Button)findViewById(R.id.dprefbtn_rec);
+
+			
+			
+			
+		}
+	
+	
+	public void devBtnsInit() {
+
+		Button dprefbtn_pg1 = (Button) findViewById(R.id.dprefbtn_pg1);
+		dprefbtn_pg1.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				Log.d("dprefbtn_pg1", "dev_master_btns.getChildCount()"
+						+ dev_master_btns.getChildCount());
+				if (dev_master_btns.getChildCount() == 2) {
+					dev_master_btns.addView(dev_pref_pg1);
+					devPrefPg1Init();
+				}
+
+				else if (dev_master_btns.getChildCount() > 2) {
+					dev_master_btns.removeViews(2, 1);
+				}
+			}
+		});
+		
+		
+/*		Button dprefbtn_rec = (Button)findViewById(R.id.dprefbtn_rec);
 			dprefbtn_rec.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 
-					mysurfview.framerec.startRecord();
-					mysurfview.recbar.init();
+					//mysurfview.framerec.startRecord();
+					//mysurfview.recbar.init();
 					
 				}
 			});
@@ -340,15 +251,7 @@ public class OkobotokeActivity extends Activity {
 					//mysurfview.framerec.startPlayBack();
 				}
 			});*/
-			
-			
-			
-	
-		
-		
-		
-			
-		}
+	}
 	
 
 	
@@ -422,6 +325,33 @@ public class OkobotokeActivity extends Activity {
 //        return super.dispatchKeyEvent(event);
 //    }
 	
+	
+	private void updateLatency() {
+		// bytes
+
+		// apad returns 7680
+		// galaxy s returns 3168
+		float buffersizebytes = (float) AudioTrack.getMinBufferSize
+				(this.samplerate, AudioFormat.CHANNEL_OUT_STEREO,
+				AudioFormat.ENCODING_PCM_16BIT);
+
+		// * 2 * 2 - ステリオと１６ビット
+		this.latencymillis = (int) (buffersizebytes * 
+				(1000F / ((float) this.samplerate * 2F * 2F)));
+		
+		
+		
+		/*		//apad returns 1024
+		//galaxy s returns 512
+		int buffersize = AudioParameters.suggestOutputBufferSize(11025);
+		
+		//apad returns 1024 
+		//galaxy s returns 512
+		buffersize = AudioParameters.suggestOutputBufferSize(22050);
+		*/
+		
+	}
+	
 	private void startAudioFade() {
 		PdAudio.startAudio(this);
 		OkobotokeActivity.sendFloat("fm_index", 12F);
@@ -435,46 +365,50 @@ public class OkobotokeActivity extends Activity {
 		Log.d(TAG1, "onPause() " + System.currentTimeMillis());
 
 		this.sendBang("fade_out");
-		
+
 		try {
 			Thread.sleep(900);
 		} catch (InterruptedException e) {
-					e.printStackTrace();
+			e.printStackTrace();
 		}
-		
-		
+
 		PdAudio.stopAudio();
+				
+		mysurfview.releaseAllTouchAnims();
+		mysurfview.recbar.fillFramesEmpty();
+		mysurfview.framerec.startPlayBack();
+		
+//		
 		super.onPause();
 
 	}
-	
+
 	@Override
 	protected void onStop() {
 		Log.d(TAG1, "onStop() " + System.currentTimeMillis());
-		
+
 		this.sendBang("fade_out");
 		PdAudio.stopAudio();
 		super.onStop();
 
 	}
-	
+
 	@Override
 	protected void onStart() {
 		Log.d(TAG1, "onStart() " + System.currentTimeMillis());
 
-
 		super.onStart();
-		
-		
 
 	}
-	
+
 	@Override
 	protected void onResume() {
 		Log.d(TAG1, "onResume() " + System.currentTimeMillis());
 
 		if (!splashinitnosound) {
 			this.startAudioFade();
+			mysurfview.initDrawables();
+			mysurfview.startThread();
 		}
 
 		super.onResume();
@@ -486,8 +420,8 @@ public class OkobotokeActivity extends Activity {
 		Log.d(TAG1, "onDestroy() " + System.currentTimeMillis());
 		// this.destroycalled = true;
 
-		this.getWindow().clearFlags
-			(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		this.getWindow().clearFlags(
+				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 		this.sendBang("fade_out");
 
@@ -506,43 +440,26 @@ public class OkobotokeActivity extends Activity {
 
 		// cleanup();
 	}
-			
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		Log.d(TAG1, "onSaveInstanceState() " + System.currentTimeMillis());
 		super.onSaveInstanceState(outState);
 	}
-	
+
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		Log.d(TAG1, "onRestoreInstanceState() " + System.currentTimeMillis());
 		super.onRestoreInstanceState(savedInstanceState);
 	}
 
-
-
-
-
-
-
 	private void rainStarsInitAll() {
-		for(int i = 0; i < mysurfview.rainstars.length; i++) {
+		for (int i = 0; i < mysurfview.rainstars.length; i++) {
 			mysurfview.rainstars[i].init();
 		}
 	}
-	
-//	private void toast(final String msg) {
-//		runOnUiThread(new Runnable() {
-//			@Override
-//			public void run() {
-//				if (toast == null) {
-//					toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
-//				}
-//				toast.setText(TAG + ": " + msg);
-//				toast.show();
-//			}
-//		});
-//	}
+
+
 
 //	private void post(final String s) {
 //		runOnUiThread(new Runnable() {
@@ -614,41 +531,27 @@ public class OkobotokeActivity extends Activity {
 		public void receiveSymbol(String source, String symbol) {
 			pdPost("receiveSymbol: " + symbol);
 		}
-	    
-	    public void delaySonar(){
-	    	sonardelay.schedule(sonarrun, 100L, TimeUnit.MILLISECONDS);
-	    }
-	    
-	    public void delayLights(){
-	        lightsdelay.schedule(lightrun, 490L, TimeUnit.MILLISECONDS);
-	    }
-	    
-//	    public void pdStopAudio() {
-//	    	PdAudio.stopAudio();
-//	    	Log.d(TAG1, "pdStopAudio() called via bang");
-//	    	
-////	    	if (OkobotokeActivity.destroycalled) {
-////	    		
-////				PdAudio.release();
-////				PdBase.release();
-////				Log.d(TAG1, "PdAudio.release() and PdBase.release() called via bang");
-////	    		
-////	    	}
-//	    	
-//		}
 
-	    
+		public void delaySonar() {
+			Log.d(TAG1, "OkobotokeActivity.this.latencymillis "
+					+ OkobotokeActivity.this.latencymillis);
+			Log.d(TAG1, "(int)(OkobotokeActivity.this.latencymillis * 0.7) "
+					+ (int) (OkobotokeActivity.this.latencymillis * 0.7));
+
+			sonardelay.schedule(sonarrun,
+					(int) (OkobotokeActivity.this.latencymillis * 0.6),
+					TimeUnit.MILLISECONDS);
+		}
+
+		// 490Lだった
+		public void delayLights() {
+			lightsdelay.schedule(lightrun,
+					(int) (OkobotokeActivity.this.latencymillis * 2.4),
+					TimeUnit.MILLISECONDS);
+		}
+
 	};
 	
-	//削除しよう
-//	public static void pdStopAudio() {
-//    	PdAudio.stopAudio();
-//    	Log.d(TAG1, "pdStopAudio() called via bang");
-//
-//	}
-
-
-
 
 
 	
@@ -681,21 +584,7 @@ public class OkobotokeActivity extends Activity {
 //		startAudio();
 //	}
 
-//	private void initGui() {
-//		setContentView(R.layout.main);
-//		left = (CheckBox) findViewById(R.id.left_box);
-//		left.setOnClickListener(this);
-//		right = (CheckBox) findViewById(R.id.right_box);
-//		right.setOnClickListener(this);
-//		mic = (CheckBox) findViewById(R.id.mic_box);
-//		mic.setOnClickListener(this);
-//		msg = (EditText) findViewById(R.id.msg_box);
-//		msg.setOnEditorActionListener(this);
-//		prefs = (Button) findViewById(R.id.pref_button);
-//		prefs.setOnClickListener(this);
-//		logs = (TextView) findViewById(R.id.log_box);
-//		logs.setMovementMethod(new ScrollingMovementMethod());
-//	}
+
 
 /*	private void initPd() {
 		//Resources res = getResources();
@@ -729,43 +618,41 @@ public class OkobotokeActivity extends Activity {
 	}*/
 
 	private void initPd() throws IOException {
-		
+
 		Log.d("initPd", "initPD() called");
+
+		// Resources res = getResources();
+		// File patchfile = null;
+
+		// AudioParameters.init(this);
+		// int srate = Math.max(MIN_SAMPLE_RATE,
+		// AudioParameters.suggestSampleRate());
 		
-//		Resources res = getResources();
-//		File patchfile = null;
 		
-//		AudioParameters.init(this);
-//		int srate = Math.max(MIN_SAMPLE_RATE, AudioParameters.suggestSampleRate());
-				File dir = getFilesDir();
+				
+		File dir = getFilesDir();
 		File patchFile = new File(dir, "test.pd");
-		
-		
-		//PdBase.addToSearchPath(dir.getAbsolutePath());
+
+		// PdBase.addToSearchPath(dir.getAbsolutePath());
 		PdBase.addToSearchPath("/data/data/" + getPackageName() + "/lib");
-		//PdBase.addToSearchPath("/data/app-lib/" + getPackageName());
-		PdAudio.initAudio(sampleRate, inChan, outChan, 1, true);
-		
-		
+		// PdBase.addToSearchPath("/data/app-lib/" + getPackageName());
+		PdAudio.initAudio(samplerate, inchan, outchan, 1, true);
 
-		
-
-		
 		PdBase.setReceiver(receiver);
 		PdBase.subscribe("notec");
 
 		PdBase.subscribe("sonar");
 		PdBase.subscribe("switchdir");
-		//PdBase.subscribe("fadeoutbang");
+		// PdBase.subscribe("fadeoutbang");
 
-		IoUtils.extractZipResource(getResources().openRawResource(R.raw.patch), dir, true);
+		IoUtils.extractZipResource(getResources().openRawResource(R.raw.patch),
+				dir, true);
 		PdBase.openPatch(patchFile.getAbsolutePath());
-		
-		
-//		InputStream in = res.openRawResource(R.raw.count_1);
-//		patchfile = IoUtils.extractResource(in, "count_1.pd", getCacheDir());
-//		PdBase.openPatch(patchfile);
-		
+
+		// InputStream in = res.openRawResource(R.raw.count_1);
+		// patchfile = IoUtils.extractResource(in, "count_1.pd", getCacheDir());
+		// PdBase.openPatch(patchfile);
+
 	}
 	
 	
@@ -913,6 +800,22 @@ public class OkobotokeActivity extends Activity {
 		
 		float rtnval =(sndrval * (CF_FADE_RNG/sndrrng)) + CF_FADE_MIN;
 		return rtnval;
+	}
+	
+	public static float calcToRangeBender(float sndrval, float sndrrng) {
+		
+		float rtnval =(sndrval * (CF_BENDER_RNG/sndrrng)) + CF_BENDER_MIN;
+		return rtnval;
+	}
+	
+	public static int calcToRangeColor(float sndrval, float sndrrng) {
+		
+		int rtnval = (int)(sndrval * (COL_FADE_RNG/sndrrng));
+		
+		//Log.d(TAG1, "calcToRangeColor rtnval" + rtnval);
+		return rtnval;
+		
+		
 	}
 
 //	public void send(String dest, String s) {
