@@ -4,6 +4,10 @@ import nz.kapsy.okobotoke.MySurfaceView.AccelTouch;
 import nz.kapsy.okobotoke.MySurfaceView.PlainTouchCirc;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.PorterDuffColorFilter;
 import android.util.Log;
 
 public class NormalLine extends NormalCircle {
@@ -34,6 +38,9 @@ public class NormalLine extends NormalCircle {
 
 		// c.clipRegion(region)
 
+		
+		//this.getPaint().setColorFilter(new PorterDuffColorFilter(Color.rgb(0, 255, 0), Mode.SRC_OUT));
+		
 		c.drawLine(linepoints[0], linepoints[1], linepoints[2], linepoints[3],
 				this.getPaint());
 	}
@@ -85,6 +92,10 @@ public class NormalLine extends NormalCircle {
 
 	protected void setSnagpoint2(AccelTouch snagpoint2) {
 		this.snagpoint2 = snagpoint2;
+	}
+
+	protected float[] getLinepoints() {
+		return linepoints;
 	}
 	
 }

@@ -68,13 +68,18 @@ public class FrameRecorder {
 			if (this.mustreclastevent) {
 			
 				// solves two touch at same time issue
+				// this could and should be done much better 
+				//ACTION_DOWN should not be in mustrecvals, as it requires special treatment
+				
+				// 他のいい方法がきっとあるはず
+				// mustrecvalsの中にACTION_DOWNないほうがいいかも。特別な値だから。
 				if(this.mustrecactiondownfirst) {
 					
 					this.recording.get(this.recording.size() - 1).setMotionevent(MotionEvent.ACTION_DOWN);
 					this.mustreclastevent = true;
 					this.mustrecactiondownfirst = false;
 				} 
-				else {
+				else if (this.lastmustrec != MotionEvent.ACTION_DOWN) {
 					this.recording.get(this.recording.size() - 1).setMotionevent(this.lastmustrec);
 					this.mustreclastevent = false;
 				}
@@ -83,7 +88,7 @@ public class FrameRecorder {
 /*			FrameRecUnit fl = this.recording.get(this.recording.size() - 1);
 			
 			Log.d("recording",
-					"・・・録音した値・・・"
+					"RECORDED FRAME"
 					+ "\n" + "isCirtfirstisalive()" + fl.isCirtfirstisalive()
 					+ "\n" + "getCirtfirstx " + fl.getCirtfirstx() 
 					+ "\n" + "getCirtfirsty " +  fl.getCirtfirsty() 
@@ -92,7 +97,6 @@ public class FrameRecorder {
 					+ "\n" + "getCirtsecondy " + fl.getCirtsecondy() 
 					+ "\n" + "getTouchpts " + fl.getTouchpts() 
 					+ "\n" + "getMotionevent " + fl.getMotionevent()
-
 					+ "\n" + "recording.size() " + recording.size());*/
 					
 			if (this.motionevent == MotionEvent.ACTION_UP) {

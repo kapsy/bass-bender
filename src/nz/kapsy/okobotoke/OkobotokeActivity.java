@@ -54,7 +54,8 @@ public class OkobotokeActivity extends Activity {
 
 	//private PdService pdService = null;
 	
-	private int samplerate = 11025;
+	//private int samplerate = 11025;
+	private int samplerate = 22050;
 	private int latencymillis = 100;
 	private int inchan = 0;
 	private int outchan = 2;
@@ -115,7 +116,10 @@ public class OkobotokeActivity extends Activity {
 			public void run() {
 				mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
 				mysurfview.nextCirc();
+				mysurfview.maincircles[mysurfview.getCurmaincircle()].setTargetpoint1(mysurfview.acceltouchfirst[mysurfview.getCuracceltouchfirst()]);
+
 				mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
+
 			}
 		};
 

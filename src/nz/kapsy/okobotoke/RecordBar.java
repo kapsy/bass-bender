@@ -143,26 +143,29 @@ public class RecordBar extends NormalCircle {
 			this.incBar();
 
 		} else {
-
-			if (this.framerec.isRecordingnow()) {
-
+			
+			
+			
+			if (this.framerec.isPlayingback()) {
+				Log.d("ProgressAnim", "this.framerec.isPlayingback() is true");
+				
+				this.mysurfv.releaseAllTouchAnims();
+				//this.mysurfv.nextAllTouchObjs();
+				this.framerec.startPlayBack();
+				this.mysurfv.playsymbol.init();
+			}else if (this.framerec.isRecordingnow()) {
+				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
 				// タッチ無効する
 				this.mysurfv.setTouchenabled(false);
 				this.mysurfv.releaseAllTouchAnims();
-				// this.framerec.forceLastFrameOff();
+				//this.mysurfv.nextAllTouchObjs();
+
 				this.framerec.startPlayBack();
 				
 				//大きの方がいい
-				this.mysurfv.playsymbol.init();
-				
-				//this.mysurfv.setBackGrBlue();
+				this.mysurfv.playsymbolcntr.init();
 			}
-			// 再生ループ
-			if (this.framerec.isPlayingback()) {
-				this.mysurfv.releaseAllTouchAnims();
-				this.framerec.startPlayBack();
-				this.mysurfv.playsymbol.init();
-			}
+
 
 			this.init();
 		}

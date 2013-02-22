@@ -19,9 +19,7 @@ public class NormalCircle {
 	private int red;
 	private int grn;
 	private int blu;
-	
-	  //private Random rnd = new Random();
-	
+		
 	private Paint paint = new Paint();
     
 	private float posx;
@@ -30,11 +28,24 @@ public class NormalCircle {
 	
 	// アニメーションのためパラメーター
 	private float radchgspd = 0F;
+	// linear accel/decel
+	private float linearyaccelfactor = 1F;
+	private float linearxaccelfactor = 1F;
+	
+	// linear speed holders
 	private float ychgspd = 0.674375F;
 	private float xchgspd = 0F;
 
-	private int currframe;
+	// target decel vals
+	private float maxaccelspeedx = 45F;
+	private float maxaccelspeedy = 45F;
+	private float acceltargetx;
+	private float acceltargety;
 	
+
+
+	
+	private int currframe;
 	private boolean playrelanim = false;
 	    	
 	// mod フィルド
@@ -42,61 +53,51 @@ public class NormalCircle {
 	
 	private float radfadeangle = 0F;
 	private float baserad = 0F; //original radius before any modulation modifiers
-	
-	
 	private float radmodsinangle = 0F;
 	
-	
-/*	// delete these once sample working
-	private float sinangle = 0F;
-	private float sinanglechangerate = 4.5F;
-	private float modamplitude = 0.8F;*/
-	
-	public NormalCircle () {
-	    
-		this.setAlive(false);
-		
-        paint.setStyle(Paint.Style.FILL);
-        //paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
-        paint.setAntiAlias(false);
-        paint.setDither(false);
-        
-       
-		
-	}
 
 	
+	public NormalCircle() {
+
+		this.setAlive(false);
+
+		paint.setStyle(Paint.Style.FILL);
+		// paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
+		paint.setAntiAlias(false);
+		paint.setDither(false);
+
+	}
+
 	// 初期化
 	// 円形を描く前、このメソッドを呼びなくて駄目
 	public void init(int a, int r, int g, int b) {
-		//float x, float y, float r
-		
+		// float x, float y, float r
+
 		// 必要処理
 		alive = true;
 		currframe = 1;
 		playrelanim = false;
-		
 
 		alpha = a;
-		alphaf = (float)alpha;
-		
+		alphaf = (float) alpha;
+
 		red = r;
 		grn = g;
 		blu = b;
-		
+
 	}
-	
+
 	public void init() {
 
 		// 必要処理
 		alive = true;
 		currframe = 1;
 		playrelanim = false;
-		
-		alphaf = (float)alpha;
-		
+
+		alphaf = (float) alpha;
+
 	}
-	
+
 	public void drawSequence(Canvas c) {
 		if (this.isAlive()) {
 			//this.circleAnim();
@@ -139,81 +140,45 @@ public class NormalCircle {
 		
         	paint.setColor(Color.argb(alpha, red, grn, blu));
             c.drawCircle(posx, posy, rad, this.getPaint());
-            
-//            Log.d("drawCircleOnce", "Colors " + "a " + alpha + " r " + red + " g " + grn+ " b " + blu);
-//            Log.d("drawCircleOnce", "Dimens " + "x " + posx + " y " + posy + " r " + rad);
-
+           
 	}
-   	    
+
 	// currframeによって色、形を変える処理
-    public void circleAnim() {	
-    	
-    	int cf = this.getCurrframe();
-		
-    	if (cf < 200){
-    		
-    		//rad = rad + rspd;
-    		//posy = posy - yspd;
-			
+	public void circleAnim() {
+
+		int cf = this.getCurrframe();
+
+		if (cf < 200) {
+
 			this.alphaIncrement(1.3F, 7F);
-			
+
 			this.frameAdvance();
-		
-    	}
-    	else if (cf >= 500 && cf < 600) {
-    		this.frameAdvance();
-		}		
-    	else if (cf == 600) { //アニメーション終了
-    		this.setAlive(false);
-    		
-    		// ループなら this.setCurrframe(1);
-    	}
-    }
-    
-/*    public void circleRadiusMod() {
 
-    		if(sinangle < 360F - sinanglechangerate) {
-    			sinangle = sinangle + sinanglechangerate;
-	    	}
-	    	else {
-	    		sinangle = 0;
-	    	}
-	    	rad = rad + ((float)Math.sin(Math.toRadians((double)sinangle)) * modamplitude);
+		} else if (cf >= 500 && cf < 600) {
+			this.frameAdvance();
+		} else if (cf == 600) { // アニメーション終了
+			this.setAlive(false);
 
-	    	Log.d("sinval", "sine angle: " + sinangle + "result: " + (float)Math.sin(Math.toRadians((double)sinangle)));
+			// ループなら this.setCurrframe(1);
+		}
+	}
+    
 
-    }*/
     
-    //modamplitude %
-    public void cirRadModSamp(float anglechgrate, float modamplitude) {
-    	
-    	if (this.radmodsinangle < 360F - anglechgrate) {
-    		this.radmodsinangle = this.radmodsinangle + anglechgrate;
-    	}
-    	else {
-    		this.radmodsinangle  = 0;	
-    	}
-    	// returns -1 to 1
-    	float sinval = SampledSines.getPosNegSineVal(this.radmodsinangle);
-    	//this.rad = this.rad + (sinval * modamplitude); 
-    	this.rad = this.baserad + (sinval * modamplitude);
-//    	Log.d("cirRadModSamp", "radmodsinangle: " + radmodsinangle 
-//    			+ " mod values: " + (sinval * modamplitude));
-    }
-    
-/*    public void speedAccel(float changeangle, float initialspeed, float targetspeed, float startangle) {
-    	    	
-    	float targetdiff = targetspeed - initialspeed;
-    	this.accelangle = this.accelangle + changeangle;
-    	
-    	if((accelangle + startangle) < 360F - changeangle) {
-    		this.setYchgspd(initialspeed + (targetdiff * (((float)Math.sin(Math.toRadians((double)accelangle + startangle))) + 1F)));
-//    		Log.d("sineq", "accelangel into sin: " + ((double)accelangle + startangle) 
-//    				+ " sin eq: " + ((((float)Math.sin(Math.toRadians((double)accelangle + startangle))) + 1F) / 2));
-//    		Log.d("speedAccelif", "initialspeed " + initialspeed + " targetdiff " + targetdiff 
-//    				+ " accelangle " + accelangle + " ySpeed " + this.getYchgspd());
-    	}
-	}*/
+	// mod amplitude %
+	public void cirRadModSamp(float anglechgrate, float modamplitude) {
+
+		if (this.radmodsinangle < 360F - anglechgrate) {
+			this.radmodsinangle = this.radmodsinangle + anglechgrate;
+		} else {
+			this.radmodsinangle = 0;
+		}
+		// returns -1 to 1
+		float sinval = SampledSines.getPosNegSineVal(this.radmodsinangle);
+		this.rad = this.baserad + (sinval * modamplitude);
+		// Log.d("cirRadModSamp", "radmodsinangle: " + radmodsinangle
+		// + " mod values: " + (sinval * modamplitude));
+	}
     
     public void speedAccelSamp(float changeangle, float initialspeed, float targetspeed, float startangle) {
     	
@@ -229,7 +194,59 @@ public class NormalCircle {
     	}
     }
     
-    //curveの方はどうだ？
+    
+    
+	public void linearXAccel() {
+
+		this.setXchgspd(this.getXchgspd() * this.linearxaccelfactor);
+	}
+
+	public void linearYAccel() {
+
+		this.setYchgspd(this.getYchgspd() * this.linearyaccelfactor);
+	}
+
+	// deccelerates towards whatever target is set to
+	public void xCalcSpeed(float width) {
+
+		this.setXchgspd(((this.acceltargetx - this.getPosX()) / width)
+				* this.maxaccelspeedx);
+	}
+
+	public void yCalcSpeed(float height) {
+
+		this.setYchgspd(((this.acceltargety - this.getPosY()) / height)
+				* this.maxaccelspeedy);
+	}
+
+
+	
+	
+	// target for decel
+	protected void setTargetXy(float targetx, float targety) {
+		this.acceltargetx = targetx;
+		this.acceltargety = targety;
+	}
+    
+    
+    
+    protected float getMaxaccelspeedx() {
+		return maxaccelspeedx;
+	}
+
+	protected float getMaxaccelspeedy() {
+		return maxaccelspeedy;
+	}
+
+	protected void setMaxaccelspeedx(float maxaccelspeedx) {
+		this.maxaccelspeedx = maxaccelspeedx;
+	}
+
+	protected void setMaxaccelspeedy(float maxaccelspeedy) {
+		this.maxaccelspeedy = maxaccelspeedy;
+	}
+
+	//curveの方はどうだ？
     // 180 -> 270
     public void radFade(float angchgrate, float startang, float finang, float raddiff) {
 
@@ -350,6 +367,22 @@ public class NormalCircle {
 		this.ychgspd = ychgspd;
 	}
 	
+	protected float getLinearxaccelfactor() {
+		return linearxaccelfactor;
+	}
+
+	protected void setLinearxaccelfactor(float linearxaccelfactor) {
+		this.linearxaccelfactor = linearxaccelfactor;
+	}
+
+	protected float getLinearyaccelfactor() {
+		return linearyaccelfactor;
+	}
+
+	protected void setLinearyaccelfactor(float linearyaccelfactor) {
+		this.linearyaccelfactor = linearyaccelfactor;
+	}
+
 	protected void xIncrement() {
 		this.posx = this.posx + this.xchgspd;
 	}
@@ -426,10 +459,6 @@ public class NormalCircle {
 	public int getBlu() {
 		return blu;
 	}
-
-/*	public int rndCol(int scope) {
-    	return (255 - rnd.nextInt(scope));
-    }*/
 	
 	protected int getCurrframe() {
 		return currframe;
