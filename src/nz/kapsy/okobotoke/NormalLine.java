@@ -1,14 +1,8 @@
 package nz.kapsy.okobotoke;
 
 import nz.kapsy.okobotoke.MySurfaceView.AccelTouch;
-import nz.kapsy.okobotoke.MySurfaceView.PlainTouchCirc;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.PorterDuffColorFilter;
-import android.util.Log;
 
 public class NormalLine extends NormalCircle {
 

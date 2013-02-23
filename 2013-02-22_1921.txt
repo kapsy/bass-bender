@@ -1,0 +1,103 @@
+02-22 18:59:53.379: D/MotionEvent(31243): this.secondtouchdisabledframes2
+02-22 18:59:53.398: D/MotionEvent(31243): this.secondtouchdisabledframes3
+02-22 18:59:53.418: D/MotionEvent(31243): this.secondtouchdisabledframes4
+02-22 19:13:46.238: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.238: V/MotionEvent(32240): ACTION_DOWN
+02-22 19:13:46.332: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.332: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.347: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.347: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.378: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.378: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.386: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.386: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.402: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.406: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.421: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.421: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.441: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.441: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.457: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.457: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.476: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.476: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.492: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.492: V/MotionEvent(32240): ACTION_MOVE
+02-22 19:13:46.511: V/MotionEvent(32240): event.getActionIndex() 0
+02-22 19:13:46.511: V/MotionEvent(32240): ACTION_MOVE
+
+
+
+
+02-22 19:13:46.250: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.250: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.250: D/recording(32240): getCirtfirstx 139.21875
+02-22 19:13:46.250: D/recording(32240): getCirtfirsty 396.375
+02-22 19:13:46.250: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.250: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.250: D/recording(32240): getCirtsecondy 0.0
+02-22 19:13:46.250: D/recording(32240): getTouchpts 0
+02-22 19:13:46.250: D/recording(32240): getMotionevent 0
+02-22 19:13:46.250: D/recording(32240): recording.size() 1
+02-22 19:13:46.269: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.269: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.269: D/recording(32240): getCirtfirstx 139.21875
+02-22 19:13:46.269: D/recording(32240): getCirtfirsty 396.375
+02-22 19:13:46.269: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.269: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.269: D/recording(32240): getCirtsecondy 0.0
+02-22 19:13:46.269: D/recording(32240): getTouchpts 0
+02-22 19:13:46.269: D/recording(32240): getMotionevent 0
+02-22 19:13:46.269: D/recording(32240): recording.size() 2
+02-22 19:13:46.289: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.289: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.289: D/recording(32240): getCirtfirstx 139.21875
+02-22 19:13:46.289: D/recording(32240): getCirtfirsty 396.375
+02-22 19:13:46.289: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.289: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.289: D/recording(32240): getCirtsecondy 0.0
+02-22 19:13:46.289: D/recording(32240): getTouchpts 0
+02-22 19:13:46.289: D/recording(32240): getMotionevent 0
+02-22 19:13:46.289: D/recording(32240): recording.size() 3
+02-22 19:13:46.308: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.308: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.308: D/recording(32240): getCirtfirstx 139.21875
+02-22 19:13:46.308: D/recording(32240): getCirtfirsty 396.375
+02-22 19:13:46.308: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.308: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.308: D/recording(32240): getCirtsecondy 0.0
+02-22 19:13:46.308: D/recording(32240): getTouchpts 0
+02-22 19:13:46.308: D/recording(32240): getMotionevent 0
+02-22 19:13:46.308: D/recording(32240): recording.size() 4
+02-22 19:13:46.328: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.328: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.328: D/recording(32240): getCirtfirstx 139.21875
+02-22 19:13:46.328: D/recording(32240): getCirtfirsty 396.375
+02-22 19:13:46.328: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.328: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.328: D/recording(32240): getCirtsecondy 0.0
+02-22 19:13:46.328: D/recording(32240): getTouchpts 0
+02-22 19:13:46.328: D/recording(32240): getMotionevent 0
+02-22 19:13:46.328: D/recording(32240): recording.size() 5
+02-22 19:13:46.347: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.347: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.347: D/recording(32240): getCirtfirstx 162.47322
+02-22 19:13:46.347: D/recording(32240): getCirtfirsty 378.18274
+02-22 19:13:46.347: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.347: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.347: D/recording(32240): getCirtsecondy 0.0
+02-22 19:13:46.347: D/recording(32240): getTouchpts 1
+02-22 19:13:46.347: D/recording(32240): getMotionevent 2
+02-22 19:13:46.347: D/recording(32240): recording.size() 6
+02-22 19:13:46.375: D/recording(32240): RECORDED FRAME
+02-22 19:13:46.375: D/recording(32240): isCirtfirstisalive()true
+02-22 19:13:46.375: D/recording(32240): getCirtfirstx 179.79086
+02-22 19:13:46.375: D/recording(32240): getCirtfirsty 360.1959
+02-22 19:13:46.375: D/recording(32240): isCirtsecondisalive()false
+02-22 19:13:46.375: D/recording(32240): getCirtsecondx 0.0
+02-22 19:13:46.375: D/recording(32240): getCirtsecondy 0.0
+
+
+
+
+

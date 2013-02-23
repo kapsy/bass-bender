@@ -284,6 +284,9 @@ public class NormalCircle {
 			alphaf += inc;
 			this.alpha = (int)alphaf;
 		}
+		else {
+			this.alpha = (int)max;
+		}
 	}
 
 	protected void alphaIncrement(float inc) {

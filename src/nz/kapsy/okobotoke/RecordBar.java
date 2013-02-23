@@ -193,15 +193,15 @@ public class RecordBar extends NormalCircle {
 			this.framerec.setMotionevent(MotionEvent.ACTION_CANCEL);
 			this.framerec.setTouchpts(0);
 
-			float c1_x = mysurfv.circtouchfirst[mysurfv.getCurcirctouchfirst()].getPosX();
-			float c1_y = mysurfv.circtouchfirst[mysurfv.getCurcirctouchfirst()].getPosY();
-			float c2_x = mysurfv.circtouchsecond[mysurfv.getCurcirctouchsecond()].getPosX();
-			float c2_y = mysurfv.circtouchsecond[mysurfv.getCurcirctouchsecond()].getPosY();
+			float c1_x = mysurfv.targtouchfirst[mysurfv.getCurtargtouchfirst()].getPosX();
+			float c1_y = mysurfv.targtouchfirst[mysurfv.getCurtargtouchfirst()].getPosY();
+			float c2_x = mysurfv.targtouchsecond[mysurfv.getCurtargtouchsecond()].getPosX();
+			float c2_y = mysurfv.targtouchsecond[mysurfv.getCurtargtouchsecond()].getPosY();
 
 			int remaining = totalframes - this.framerec.getCurrentframe();
 
 			for (int i = 0; i < remaining; i++) {
-				framerec.setFrame(false, c1_x, c1_y, false, c2_x, c2_y);
+				framerec.setFrame(c1_x, c1_y, c2_x, c2_y);
 			}
 		}
 

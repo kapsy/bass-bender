@@ -56,11 +56,12 @@ public class OkobotokeActivity extends Activity {
 	
 	//private int samplerate = 11025;
 	private int samplerate = 22050;
+	
 	private int latencymillis = 100;
 	private int inchan = 0;
 	private int outchan = 2;
 
-	private static final float FM_FADE_RNG = 70F;
+	private static final float FM_FADE_RNG = 90F;
 	private static final float FM_FADE_MIN = 0F;
 		
 	private static final float CF_FADE_RNG = -6.5F;//6.5F;
@@ -70,7 +71,11 @@ public class OkobotokeActivity extends Activity {
 	private static final float CF_BENDER_MIN = 70F;
 	
 		
-	private static final int COL_FADE_RNG = 510;
+	public static final int COL_FADE_RNG = 510;
+	
+	private static final float COL_SAT_RNG = -1F;
+	private static final float COL_SAT_MIN = 1F;
+		
 	
 	FrameLayout framelayout;
 	MySurfaceView mysurfview;
@@ -799,6 +804,14 @@ public class OkobotokeActivity extends Activity {
 		return rtnval;
 		
 	}
+	
+	public static float calcToRangeSaturation(float sndrval, float sndrrng) {
+		
+		float rtnval =(sndrval * (COL_SAT_RNG/sndrrng)) + COL_SAT_MIN;
+		return rtnval;
+		
+	}
+	
 
 	public static float calcToRangeCentFreq(float sndrval, float sndrrng) {
 		

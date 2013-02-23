@@ -11,21 +11,23 @@ public class FrameRecorder {
 	private boolean playingback;
 		
 	private int currentframe;
-		
+	// records last motion event obtained from touch
 	private int motionevent = MotionEvent.ACTION_CANCEL;
 		
 	// values that could fall between frames are forced to the next frame
-	private int[] mustrecvals = {MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN,
+	private int[] mustrecvals = {MotionEvent.ACTION_POINTER_DOWN,
 			MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_UP};
+	
+	// if true, an action down MUST be recorded that frame
+	private boolean actiondownevent = false;
 	private boolean mustreclastevent = false;
-	private boolean mustrecactiondownfirst = false; // if true, an action down MUST be recorded that frame - two touch issue
 	private int lastmustrec;
-		
+	
 	private int touchpts = 0;
 	
-	private ArrayList<FrameRecUnit> recording = new ArrayList<FrameRecUnit>();
+	private ArrayList<FrameRecUnit> recording = 
+			new ArrayList<FrameRecUnit>();
 		
-	//---===---===---===---===---===---
 	
 	
 	public void startRecord() {
@@ -55,35 +57,70 @@ public class FrameRecorder {
 
 	}
 			
-	public void setFrame(boolean cirtfirstisalive, float cirtfirstx, float cirtfirsty,
-			boolean cirtsecondisalive, float cirtsecondx, float cirtsecondy) {
+//	public void setFrame(boolean cirtfirstisalive, float cirtfirstx, float cirtfirsty,
+//			boolean cirtsecondisalive, float cirtsecondx, float cirtsecondy) {
+//		
+	public void setFrame(float cirtfirstx, float cirtfirsty,
+			float cirtsecondx, float cirtsecondy) {
+				
 		
 		if (this.isRecordingnow()) {
 			
 			
-			this.recording.add(new FrameRecUnit(cirtfirstisalive, cirtfirstx, cirtfirsty, 
-				cirtsecondisalive, cirtsecondx, cirtsecondy, this.motionevent, this.touchpts));
+//			this.recording.add(new FrameRecUnit(cirtfirstisalive, cirtfirstx, cirtfirsty, 
+//				cirtsecondisalive, cirtsecondx, cirtsecondy, this.getMotionevent(), this.getTouchpts()));
+		
+			this.recording.add(new FrameRecUnit(
+					cirtfirstx, cirtfirsty, 
+					cirtsecondx, cirtsecondy, 
+					this.getMotionevent(), this.getTouchpts()));
 			
-			// crucial values that could fall between frames are forced to the next frame
-			if (this.mustreclastevent) {
 			
-				// solves two touch at same time issue
-				// this could and should be done much better 
-				//ACTION_DOWN should not be in mustrecvals, as it requires special treatment
+/*			Log.d("RECORDING INPUT",
+					"RECORDING INPUT"
+					+ "\n" + "cirtfirstisalive " + cirtfirstisalive
+					+ "\n" + "cirtfirstx " + cirtfirstx 
+					+ "\n" + "cirtfirsty " +  cirtfirsty 
+					+ "\n" + "cirtsecondisalive " + cirtsecondisalive
+					+ "\n" + "cirtsecondx " + cirtsecondx
+					+ "\n" + "cirtsecondy " + cirtsecondy
+					+ "\n" + "this.motionevent " + this.motionevent
+					+ "\n" + "this.touchpts " + this.touchpts
+					+ "\n" + "recording.size() " + recording.size());*/
+			
+			
+		// crucial values that could fall between frames are forced to the next frame
+
+
+			if (this.actiondownevent && !this.mustreclastevent) {
 				
-				// 他のいい方法がきっとあるはず
-				// mustrecvalsの中にACTION_DOWNないほうがいいかも。特別な値だから。
-				if(this.mustrecactiondownfirst) {
-					
-					this.recording.get(this.recording.size() - 1).setMotionevent(MotionEvent.ACTION_DOWN);
-					this.mustreclastevent = true;
-					this.mustrecactiondownfirst = false;
-				} 
-				else if (this.lastmustrec != MotionEvent.ACTION_DOWN) {
-					this.recording.get(this.recording.size() - 1).setMotionevent(this.lastmustrec);
-					this.mustreclastevent = false;
-				}
+				this.recording.get(this.recording.size() - 1)
+						.setMotionevent(MotionEvent.ACTION_DOWN);
+				this.actiondownevent = false;
+				// ensures that only one action down is recorded 
+				// ACTION_CANCEL is safe - it wont do anything on playback
+				// こうすれば必ずACTION_DOWN一つしか録音されてない
+				this.motionevent = MotionEvent.ACTION_CANCEL;
+
+			} else if (this.actiondownevent && this.mustreclastevent) {
+				// this if solves the two touch at same time issue
+				this.recording.get(this.recording.size() - 1)
+						.setMotionevent(MotionEvent.ACTION_DOWN);
+				this.actiondownevent = false;
+
+				this.mustreclastevent = true;
+
+			} else if (this.mustreclastevent) {
+				
+				this.recording.get(this.recording.size() - 1)
+						.setMotionevent(this.lastmustrec);
+				this.mustreclastevent = false;
+				// こうすれば必ずACTION_DOWN一つしか録音されてない
+				this.motionevent = MotionEvent.ACTION_CANCEL;
 			}
+			
+			
+			
 			
 /*			FrameRecUnit fl = this.recording.get(this.recording.size() - 1);
 			
@@ -102,6 +139,9 @@ public class FrameRecorder {
 			if (this.motionevent == MotionEvent.ACTION_UP) {
 				this.motionevent = MotionEvent.ACTION_CANCEL;
 			}
+			
+			
+			
 		}
 					
 	}
@@ -128,11 +168,9 @@ public class FrameRecorder {
 		
 		FrameRecUnit f = this.recording.get(this.recording.size() - 1);
 		
-		f.setCirtfirstisalive(false);
-		f.setCirtsecondisalive(false);
+//		f.setCirtfirstisalive(false);
+//		f.setCirtsecondisalive(false);
 		f.setTouchpts(0);
-		
-		
 	}
 	
 
@@ -146,12 +184,7 @@ public class FrameRecorder {
 			this.setCurrentframe(0);
 			//this.setPlayingback(false);
 		}
-				
 	}
-	
-	
-
-	
 	
 	protected boolean isRecordingnow() {
 		return recordingnow;
@@ -182,27 +215,22 @@ public class FrameRecorder {
 	}
 
 	protected void setMotionevent(int motionevent) {
-	
-		if(this.isRecordingnow()) {
-				
-			//this.mustreclastevent = false;
-				
-			for(int i = 0; i < mustrecvals.length; i++) {
-				
+
+		if (this.isRecordingnow()) {
+
+			if (motionevent == MotionEvent.ACTION_DOWN) {
+				this.actiondownevent = true;
+			}
+
+			for (int i = 0; i < mustrecvals.length; i++) {
 				if (motionevent == mustrecvals[i]) {
-					
-					if (motionevent == MotionEvent.ACTION_DOWN) {
-						this.mustrecactiondownfirst = true;
-					}
-					
 					this.mustreclastevent = true;
 					this.lastmustrec = mustrecvals[i];
-				
 				}
 			}
-			
+
 			this.motionevent = motionevent;
-		
+
 		}
 	}
 
@@ -213,7 +241,6 @@ public class FrameRecorder {
 	protected void setTouchpts(int touchpts) {
 		
 		if(this.isRecordingnow()) {
-			
 			this.touchpts = touchpts;	
     	// Log.d("recording", "pts" + touchpts);
 		}

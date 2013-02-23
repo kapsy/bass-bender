@@ -407,32 +407,39 @@ x再生象徴は画面の真ん中に置いといて
 2013年2月22日
 
 xタッチ円形がないと明かり円形が生み出して・最後の円形の位置で
+xFrameRecorderのmustrecvals配列の中にACTION_MOVEないほうがいいかも
+x円形の位置によって色を変える
+ｘ霧のような明かり・加速度／減速度つくてみて・今必要ないかも複雑過ぎる
+xPitchBendないほうがいいかも???
+xPd側のline時間は短く
 
 
-FrameRecorderのmustrecvals配列の中にACTION_MOVEないほうがいいかも
+2013年2月23日
+xタッチが終わるとフェードアウト
 
-円形の位置によって色を変える
+x色が変わるメソド→MySurfaceViewへ
+
+xPlainTouchCirclesを点に変更へ
+
+ｘframerec.setframeのブールを除去
+
+
+
+
+
+
+touchenabledの名前はtouchenabledafterrec
+
+一般なtouchenabled...記録後に有効...
+
+
+
+
+
 
 
 
 タッチ円形の間の線が長くなると明かりが燃やしている見えるように白くなる
-
-PlainTouchCirclesを点に変更へ
-
-
-ｘ霧のような明かり・加速度／減速度つくてみて・今必要ないかも複雑過ぎる
-
-
-
-
-
-
-
-PitchBendないほうがいいかも???
-
-
-
-Pd側のline時間は短く
 
 
 記録象徴を修正
@@ -441,10 +448,6 @@ Pd側のline時間は短く
 背景レイヤー・Tailsを書くため？できるかな
 
 スプラシュ画面のテキスト
-
-x速度・最後の時に処理しなきゃ
-
-calcToRangeCentFreqによってline時間は短い方が良い(Pd側)
 
 
 ---
