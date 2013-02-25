@@ -424,20 +424,22 @@ xPlainTouchCirclesを点に変更へ
 ｘframerec.setframeのブールを除去
 
 
+2013年2月24日
+
+
+ｘスレッド二倍問題
+
+2013年2月25日
+
+xtouchenabledの名前はtouchenabledon touchenabledafterrec
+
+x一般なtouchenabled...記録後に有効...
 
 
 
+再生と記録の時、AccelTouchの色を変わる
 
-touchenabledの名前はtouchenabledafterrec
-
-一般なtouchenabled...記録後に有効...
-
-
-
-
-
-
-
+電源ボタン処理・MySurfViewが消えないといけない
 
 タッチ円形の間の線が長くなると明かりが燃やしている見えるように白くなる
 

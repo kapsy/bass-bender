@@ -375,6 +375,14 @@ public class OkobotokeActivity extends Activity {
 
 		this.sendBang("fade_out");
 
+		
+		//mysurfview.invalidate();
+		mysurfview.releaseAllTouchAnims();
+		mysurfview.recbar.fillFramesEmpty();
+				mysurfview.framerec.startPlayBack();
+		mysurfview.stopThread();
+		
+		
 		try {
 			Thread.sleep(900);
 		} catch (InterruptedException e) {
@@ -383,10 +391,7 @@ public class OkobotokeActivity extends Activity {
 
 		PdAudio.stopAudio();
 				
-		mysurfview.releaseAllTouchAnims();
-		mysurfview.recbar.fillFramesEmpty();
-		mysurfview.framerec.startPlayBack();
-		
+
 //		
 		super.onPause();
 
@@ -396,8 +401,8 @@ public class OkobotokeActivity extends Activity {
 	protected void onStop() {
 		Log.d(TAG1, "onStop() " + System.currentTimeMillis());
 
-		this.sendBang("fade_out");
-		PdAudio.stopAudio();
+//		this.sendBang("fade_out");
+//		PdAudio.stopAudio();
 		super.onStop();
 
 	}
@@ -431,20 +436,22 @@ public class OkobotokeActivity extends Activity {
 
 		this.getWindow().clearFlags(
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		this.sendBang("fade_out");
+// 必要ないかもonPauseはkならず呼ぶから
+//		this.sendBang("fade_out");
 
 		try {
-			Thread.sleep(900);
+			Thread.sleep(950);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		PdAudio.stopAudio();
+//		PdAudio.stopAudio();
 
 		PdAudio.release();
 		PdBase.release();
 
+		
+		//mysurfview.stopThread();
 		super.onDestroy();
 
 		// cleanup();

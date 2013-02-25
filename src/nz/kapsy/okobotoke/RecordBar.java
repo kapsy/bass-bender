@@ -156,11 +156,14 @@ public class RecordBar extends NormalCircle {
 			}else if (this.framerec.isRecordingnow()) {
 				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
 				// タッチ無効する
-				this.mysurfv.setTouchenabled(false);
+				this.mysurfv.setTouchenabledafterrec(false);
+				this.framerec.startPlayBack();
 				this.mysurfv.releaseAllTouchAnims();
+				
+				
 				//this.mysurfv.nextAllTouchObjs();
 
-				this.framerec.startPlayBack();
+			//	this.framerec.startPlayBack();
 				
 				//大きの方がいい
 				this.mysurfv.playsymbolcntr.init();
