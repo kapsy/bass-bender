@@ -150,21 +150,18 @@ public class RecordBar extends NormalCircle {
 				Log.d("ProgressAnim", "this.framerec.isPlayingback() is true");
 				
 				this.mysurfv.releaseAllTouchAnims();
-				//this.mysurfv.nextAllTouchObjs();
 				this.framerec.startPlayBack();
 				this.mysurfv.playsymbol.init();
-			}else if (this.framerec.isRecordingnow()) {
+				
+			} else if (this.framerec.isRecordingnow()) {
 				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
+				
 				// タッチ無効する
 				this.mysurfv.setTouchenabledafterrec(false);
+			//	this.framerec.logAllRecordedFrames();
 				this.framerec.startPlayBack();
 				this.mysurfv.releaseAllTouchAnims();
-				
-				
-				//this.mysurfv.nextAllTouchObjs();
-
-			//	this.framerec.startPlayBack();
-				
+								
 				//大きの方がいい
 				this.mysurfv.playsymbolcntr.init();
 			}
@@ -204,7 +201,7 @@ public class RecordBar extends NormalCircle {
 			int remaining = totalframes - this.framerec.getCurrentframe();
 
 			for (int i = 0; i < remaining; i++) {
-				framerec.setFrame(c1_x, c1_y, c2_x, c2_y);
+				framerec.setFrameMovement(c1_x, c1_y, c2_x, c2_y);
 			}
 		}
 

@@ -16,6 +16,7 @@ public class FrameRecUnit {
 	private int motionevent;
 	
 	private int touchpts;
+	private int index;
 	
 	/**
 	 * @param cirtfirstisalive
@@ -32,7 +33,7 @@ public class FrameRecUnit {
 	protected FrameRecUnit(
 			float cirtfirstx, float cirtfirsty,
 			float cirtsecondx, float cirtsecondy, 
-			int motionevent, int touchpts) {
+			int motionevent, int touchpts, int index) {
 		super();
 //		this.cirtfirstisalive = cirtfirstisalive;
 		this.cirtfirstx = cirtfirstx;
@@ -44,6 +45,7 @@ public class FrameRecUnit {
 		
 		this.motionevent = motionevent;
 		this.touchpts = touchpts;
+		this.index = index;
 	}
 
 //	protected boolean isCirtfirstisalive() {
@@ -108,6 +110,14 @@ public class FrameRecUnit {
 
 	protected void setTouchpts(int touchpts) {
 		this.touchpts = touchpts;
+	}
+
+	protected int getIndex() {
+		return index;
+	}
+
+	protected void setIndex(int index) {
+		this.index = index;
 	}
 
 
