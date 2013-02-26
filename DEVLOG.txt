@@ -432,22 +432,26 @@ xPlainTouchCirclesを点に変更へ
 2013年2月25日
 
 xtouchenabledの名前はtouchenabledon touchenabledafterrec
-
 x一般なtouchenabled...記録後に有効...
+x再生と記録の時、AccelTouchの色を変わる
+
+
+指二本タッチリリース問題
 
 
 
-再生と記録の時、AccelTouchの色を変わる
+
 
 電源ボタン処理・MySurfViewが消えないといけない
 
-タッチ円形の間の線が長くなると明かりが燃やしている見えるように白くなる
+タッチ円形の間の線が長くなると明かりが燃やしている見えるように白くなる？
 
 
 記録象徴を修正
 
 
 背景レイヤー・Tailsを書くため？できるかな
+AccelTouchアニメーション
 
 スプラシュ画面のテキスト
 

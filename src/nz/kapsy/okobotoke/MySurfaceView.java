@@ -84,7 +84,7 @@ public class MySurfaceView extends SurfaceView implements
     public float radFadearg2 = 220F;
     public float radFadearg3 = 320F;
     public float radFadearg4 = 250F;
-    //not needed
+    // not needed
     public float spdaccel1_prf = 1F;
     public float spdaccel2_prf = -.1F;
     public float spdaccel3_prf = -20F;
@@ -1077,9 +1077,28 @@ public class MySurfaceView extends SurfaceView implements
     	
     	@Override
     	public void init() {
-    		this.setARGB(0, 0, 255, 0);
+//    		this.setARGB(0, 0, 255, 0);
+    		
+    		
+    		
+    		
+    		
     		this.getPaint().setStyle(Paint.Style.STROKE);
     		this.getPaint().setStrokeWidth(4F);
+    		
+    		
+			if (MySurfaceView.this.framerec.isRecordingnow()) {
+				this.setRGB(0, 255, 0);
+				
+			} else if (MySurfaceView.this.framerec.isPlayingback()) {
+				this.setRGB(0, 0, 255);
+			}
+    		
+    		
+    		
+    		
+    		
+    		
     		super.init();
     	}
     	    	
@@ -1390,8 +1409,11 @@ public class MySurfaceView extends SurfaceView implements
 
 			if (MySurfaceView.this.framerec.isRecordingnow()) {
 				this.initwhilerecording = true;
+				this.setRGB(0, 255, 0);
+				
 			} else if (MySurfaceView.this.framerec.isPlayingback()) {
 				this.initwhilerecording = false;
+				this.setRGB(0, 0, 255);
 			}
 
 
