@@ -429,24 +429,60 @@ xPlainTouchCirclesを点に変更へ
 
 ｘスレッド二倍問題
 
-2013年2月25日
+2013年2月25日,26日
 
 xtouchenabledの名前はtouchenabledon touchenabledafterrec
 x一般なtouchenabled...記録後に有効...
 x再生と記録の時、AccelTouchの色を変わる
+x指二本タッチリリース問題
+xAccelTouch.init()の時ちょっと中心から無作為に離れて
+
+
+2013年2月27日
+
+xピクセルからパーセント方式
+Apad
+02-26 23:34:09.226: D/ScreenDims(2045): this.screenwidth 480.0
+02-26 23:34:09.226: D/ScreenDims(2045):  this.screenheight 752.0
+02-26 23:34:09.226: D/ScreenDims(2045):  this.screendiag 892.1345
+
+galaxy
+02-26 23:29:34.789: D/ScreenDims(27680): this.screenwidth 480.0
+02-26 23:29:34.789: D/ScreenDims(27680):  this.screenheight 762.0
+02-26 23:29:34.789: D/ScreenDims(27680):  this.screendiag 900.57983
+
+xタッチが動かないとAccelTouchとCircle都の間の距離を無作為に大きくなる
+
+2013年2月28日
+x背景レイヤー・Tailsを書くため？できるかな
+
+2013年3月1日
+ｘ円計画順番を修正
+
+2013年3月2日
+ｘSonar音を鳴らす方法を見つけて
+xFirsttouchenabled==falseなら、必ずsecondtouch無効する
+xsecondtouchだけを現れる問題.
+xタッチ問題解決しなきゃ
+xフレクスにメール・名前をかんげ得て
+
+2013年3月3日
+
+Acceltouch2rel問題
+
+円形を生み出す問題
+
+raindrops/泡AccelTouchから生み出す
+
+起動するときソナー音のADSRを初期化
 
 
 
 
-指二本タッチリリース問題
+これで終わりしようか
+
 
 タッチ無効時間を短くする・リリースの時、再生の時
-
-タッチが動かないとAccelTouchとCircle都の間の距離を無作為に大きくなる
-
-
-
-
 
 
 電源ボタン処理・MySurfViewが消えないといけない
@@ -457,7 +493,6 @@ x再生と記録の時、AccelTouchの色を変わる
 記録象徴を修正
 
 
-背景レイヤー・Tailsを書くため？できるかな
 AccelTouchアニメーション
 
 スプラシュ画面のテキスト

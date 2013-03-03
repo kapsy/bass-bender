@@ -3,8 +3,6 @@ package nz.kapsy.okobotoke;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.Log;
 import android.view.MotionEvent;
 
@@ -71,29 +69,29 @@ public class RecordBar extends NormalCircle {
 	@Override
 	public void init() {
 				
-		rec_left = 0F;
-		rec_top = totalheight - 6F;
-		
-		rec_right = 0F;
-		rec_bottom = totalheight;
-			
-		
+//		rec_left = 0F;
+//		rec_top = totalheight - mysurfv.percToPixY(1F);
+//		rec_right = 0F;
+//		rec_bottom = totalheight;
+		this.initDimensions();
 		if (this.framerec.isRecordingnow()) {
 			this.setARGB(127, 255, 0, 0);
-			
 		}
 		if (this.framerec.isPlayingback()) {
 			this.setARGB(127, 0, 0, 255);
-			
 		}
-		
-		
-		
 		super.init();
-		
-		
 	}
 
+	public void initDimensions() {
+		
+		this.setRec_left(0F);
+		this.setRec_top(this.getTotalheight() - this.getMysurfv().percToPixY(1F));
+		
+		this.setRec_right(0F);
+		this.setRec_bottom(this.getTotalheight());
+	}
+	
 	
 	public void startFrameRecorder() {
 		
@@ -149,7 +147,8 @@ public class RecordBar extends NormalCircle {
 			if (this.framerec.isPlayingback()) {
 				Log.d("ProgressAnim", "this.framerec.isPlayingback() is true");
 				
-				this.mysurfv.releaseAllTouchAnims();
+				//this.mysurfv.releaseAllTouchAnims();
+				this.mysurfv.releaseAllTouchPlayAnims();
 				this.framerec.startPlayBack();
 				this.mysurfv.playsymbol.init();
 				
@@ -160,7 +159,10 @@ public class RecordBar extends NormalCircle {
 				this.mysurfv.setTouchenabledafterrec(false);
 			//	this.framerec.logAllRecordedFrames();
 				this.framerec.startPlayBack();
-				this.mysurfv.releaseAllTouchAnims();
+				//this.mysurfv.releaseAllTouchAnims();
+				
+				this.mysurfv.releaseAllTouchRecAnims();
+				this.mysurfv.setFmrecmode(false);
 								
 				//大きの方がいい
 				this.mysurfv.playsymbolcntr.init();
@@ -205,6 +207,94 @@ public class RecordBar extends NormalCircle {
 			}
 		}
 
+	}
+
+	protected long getTotaltime() {
+		return totaltime;
+	}
+
+	protected float getRec_left() {
+		return rec_left;
+	}
+
+	protected float getRec_top() {
+		return rec_top;
+	}
+
+	protected float getRec_right() {
+		return rec_right;
+	}
+
+	protected float getRec_bottom() {
+		return rec_bottom;
+	}
+
+	protected float getTotalheight() {
+		return totalheight;
+	}
+
+	protected float getTotalwidth() {
+		return totalwidth;
+	}
+
+	protected int getFrameinterval() {
+		return frameinterval;
+	}
+
+	protected float getIncperframe() {
+		return incperframe;
+	}
+
+	protected FrameRecorder getFramerec() {
+		return framerec;
+	}
+
+	protected MySurfaceView getMysurfv() {
+		return mysurfv;
+	}
+
+	protected void setTotaltime(long totaltime) {
+		this.totaltime = totaltime;
+	}
+
+	protected void setRec_left(float rec_left) {
+		this.rec_left = rec_left;
+	}
+
+	protected void setRec_top(float rec_top) {
+		this.rec_top = rec_top;
+	}
+
+	protected void setRec_right(float rec_right) {
+		this.rec_right = rec_right;
+	}
+
+	protected void setRec_bottom(float rec_bottom) {
+		this.rec_bottom = rec_bottom;
+	}
+
+	protected void setTotalheight(float totalheight) {
+		this.totalheight = totalheight;
+	}
+
+	protected void setTotalwidth(float totalwidth) {
+		this.totalwidth = totalwidth;
+	}
+
+	protected void setFrameinterval(int frameinterval) {
+		this.frameinterval = frameinterval;
+	}
+
+	protected void setIncperframe(float incperframe) {
+		this.incperframe = incperframe;
+	}
+
+	protected void setFramerec(FrameRecorder framerec) {
+		this.framerec = framerec;
+	}
+
+	protected void setMysurfv(MySurfaceView mysurfv) {
+		this.mysurfv = mysurfv;
 	}
 	
 	

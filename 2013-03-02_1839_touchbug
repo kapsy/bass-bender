@@ -1,0 +1,262 @@
+03-02 18:40:40.028: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:40:40.038: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.038: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.038: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:40:40.048: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:40:40.068: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.068: V/MotionEvent(14277): ACTION_UP
+03-02 18:40:40.458: V/MotionEvent(14277): ACTION_DOWN
+03-02 18:40:40.468: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:40:40.478: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.498: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.508: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.518: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.548: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.558: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.568: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.588: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.598: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.608: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.638: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.638: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:40:40.638: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:40.638: V/MotionEvent(14277): ACTION_UP
+
+03-02 18:40:41.388: V/MotionEvent(14277): ACTION_DOWN
+03-02 18:40:41.398: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:40:41.418: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:40:41.418: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:42.498: V/MotionEvent(14277): ACTION_DOWN
+03-02 18:40:42.498: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:40:42.508: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:42.518: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:42.528: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:42.548: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:42.558: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:40:46.118: V/MotionEvent(14277): ACTION_DOWN
+
+
+
+=======================================================
+
+
+
+03-02 18:45:43.118: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:45:43.118: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:45:43.958: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:43.978: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:43.988: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:43.998: V/MotionEvent(14277): ACTION_UP
+03-02 18:45:44.238: V/MotionEvent(14277): ACTION_DOWN
+03-02 18:45:44.248: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:45:44.258: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.268: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.278: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.288: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.308: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.318: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.328: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.348: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.358: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.358: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:45:44.378: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.388: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:44.398: V/MotionEvent(14277): ACTION_UP
+
+
+
+03-02 18:45:45.208: V/MotionEvent(14277): ACTION_DOWN
+03-02 18:45:45.218: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:45:45.228: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.248: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:45:45.258: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.258: V/MotionEvent(14277): ACTION_POINTER_DOWN
+03-02 18:45:45.268: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.278: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.288: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.308: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.318: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.328: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.348: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.358: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.388: V/MotionEvent(14277): ACTION_POINTER_UP
+03-02 18:45:45.388: V/MotionEvent(14277): ACTION_MOVE
+03-02 18:45:45.388: V/MotionEvent(14277): ACTION_UP
+
+
+
+
+
+==================================================================
+
+
+03-02 18:58:04.608: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.618: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.648: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.648: V/MotionEvent(14361): ACTION_POINTER_DOWN, index: 1
+03-02 18:58:04.668: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.688: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.688: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.708: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.738: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.738: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.748: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.768: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.778: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.778: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.798: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.808: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.818: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.838: V/MotionEvent(14361): ACTION_POINTER_UP, index: 1
+03-02 18:58:04.858: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.858: V/MotionEvent(14361): ACTION_POINTER_DOWN, index: 1
+03-02 18:58:04.858: V/MotionEvent(14361): ACTION_POINTER_UP, index: 1
+03-02 18:58:04.868: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.878: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.898: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.908: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.928: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.938: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 18:58:04.948: V/MotionEvent(14361): ACTION_UP, index: 0
+
+
+=================================================================
+
+03-02 19:13:11.107: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.117: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.137: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.147: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.157: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.167: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.177: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.197: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.207: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.227: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.237: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.257: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.287: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.297: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.317: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.337: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.337: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.357: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.377: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.397: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.397: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.417: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.447: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.457: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.467: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.487: V/MotionEvent(14361): ACTION_POINTER_UP, index: 0
+03-02 19:13:11.967: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:11.987: V/MotionEvent(14361): ACTION_POINTER_UP, index: 1
+03-02 19:13:11.997: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.007: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.017: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.027: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.057: V/MotionEvent(14361): ACTION_UP, index: 0
+03-02 19:13:12.287: V/MotionEvent(14361): ACTION_DOWN, index: 0
+03-02 19:13:12.297: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.327: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.327: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.357: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.377: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.377: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.377: V/MotionEvent(14361): ACTION_POINTER_DOWN, index: 1
+03-02 19:13:12.387: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.397: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.417: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.437: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.457: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.467: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.477: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.487: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.497: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.517: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.527: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.547: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.557: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.577: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.587: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.597: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.617: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.637: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.637: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.667: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.677: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.687: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.707: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.727: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.737: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.737: V/MotionEvent(14361): ACTION_POINTER_UP, index: 1
+03-02 19:13:12.747: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.757: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.757: V/MotionEvent(14361): ACTION_POINTER_DOWN, index: 1
+03-02 19:13:12.767: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.777: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.797: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.807: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.827: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.837: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.857: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.867: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.887: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.897: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.907: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.927: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.937: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.947: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.967: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.977: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:12.987: V/MotionEvent(14361): ACTION_POINTER_UP, index: 0
+03-02 19:13:13.007: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.017: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.027: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.047: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.067: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.087: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.087: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.107: V/MotionEvent(14361): ACTION_MOVE, index: 0
+03-02 19:13:13.107: V/MotionEvent(14361): ACTION_UP, index: 0
+
+======================================================================
+
+03-02 23:41:18.179: V/MotionEvent(20208): ACTION_DOWN, index: 0
+03-02 23:41:18.189: V/MotionEvent(20208): ACTION_POINTER_DOWN, index: 1
+03-02 23:41:18.209: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:18.219: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:18.229: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:18.249: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:18.259: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:18.269: V/MotionEvent(20208): ACTION_POINTER_UP, index: 0
+03-02 23:41:18.269: V/MotionEvent(20208): (this.secondtouchenabled && this.touchenabledafterrec)
+03-02 23:41:18.269: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.079: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.089: V/MotionEvent(20208): ACTION_POINTER_UP, index: 1
+03-02 23:41:19.089: V/MotionEvent(20208): (this.secondtouchenabled && this.touchenabledafterrec)
+03-02 23:41:19.099: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.109: V/MotionEvent(20208): ACTION_UP, index: 0
+03-02 23:41:19.469: V/MotionEvent(20208): ACTION_DOWN, index: 0
+03-02 23:41:19.469: V/MotionEvent(20208): ACTION_POINTER_DOWN, index: 1
+03-02 23:41:19.489: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.499: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.509: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.529: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.539: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.549: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.569: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.579: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.589: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.599: V/MotionEvent(20208): ACTION_POINTER_UP, index: 1
+03-02 23:41:19.599: V/MotionEvent(20208): (this.secondtouchenabled && this.touchenabledafterrec)
+03-02 23:41:19.659: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.659: V/MotionEvent(20208): ACTION_UP, index: 0
+03-02 23:41:19.659: V/MotionEvent(20208): ACTION_DOWN, index: 0
+03-02 23:41:19.679: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:19.689: V/MotionEvent(20208): ACTION_MOVE, index: 0
+03-02 23:41:20.369: V/MotionEvent(20208): ACTION_UP, index: 0
+
+====================================================================
+
+
+

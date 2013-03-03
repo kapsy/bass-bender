@@ -3,10 +3,6 @@ package nz.kapsy.okobotoke;
 public class FrameRecUnit {
 	
 
-	
-//	private boolean cirtfirstisalive;
-//	private boolean cirtsecondisalive;
-		
 	private float cirtfirstx;
 	private float cirtfirsty;
 	
@@ -26,20 +22,15 @@ public class FrameRecUnit {
 	 * @param cirtsecondx
 	 * @param cirtsecondy
 	 */
-//	protected FrameRecUnit(boolean cirtfirstisalive, float cirtfirstx, float cirtfirsty,
-//			boolean cirtsecondisalive, float cirtsecondx, float cirtsecondy, 
-//			int motionevent, int touchpts)
 	
 	protected FrameRecUnit(
 			float cirtfirstx, float cirtfirsty,
 			float cirtsecondx, float cirtsecondy, 
 			int motionevent, int touchpts, int index) {
 		super();
-//		this.cirtfirstisalive = cirtfirstisalive;
 		this.cirtfirstx = cirtfirstx;
 		this.cirtfirsty = cirtfirsty;			
 
-//		this.cirtsecondisalive = cirtsecondisalive;
 		this.cirtsecondx = cirtsecondx;
 		this.cirtsecondy = cirtsecondy;
 		
@@ -47,14 +38,6 @@ public class FrameRecUnit {
 		this.touchpts = touchpts;
 		this.index = index;
 	}
-
-//	protected boolean isCirtfirstisalive() {
-//		return cirtfirstisalive;
-//	}
-//
-//	protected boolean isCirtsecondisalive() {
-//		return cirtsecondisalive;
-//	}
 
 	protected float getCirtfirstx() {
 		return cirtfirstx;
@@ -71,14 +54,6 @@ public class FrameRecUnit {
 	protected float getCirtsecondy() {
 		return cirtsecondy;
 	}
-
-//	protected void setCirtfirstisalive(boolean cirtfirstisalive) {
-//		this.cirtfirstisalive = cirtfirstisalive;
-//	}
-//
-//	protected void setCirtsecondisalive(boolean cirtsecondisalive) {
-//		this.cirtsecondisalive = cirtsecondisalive;
-//	}
 
 	protected void setCirtfirstx(float cirtfirstx) {
 		this.cirtfirstx = cirtfirstx;

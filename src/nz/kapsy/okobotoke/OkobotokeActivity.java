@@ -72,22 +72,24 @@ public class OkobotokeActivity extends Activity {
 	
 		
 	public static final int COL_FADE_RNG = 510;
-	
+
 	private static final float COL_SAT_RNG = -1F;
 	private static final float COL_SAT_MIN = 1F;
-		
-	
+
+	private static final float PUL_PAN_RNG = 1F;
+	private static final float PUL_PAN_MIN = 0F;
+
+	private static final float PUL_FRQ_RNG = -900F;
+	private static final float PUL_FRQ_MIN = 1700F;
+
 	FrameLayout framelayout;
 	MySurfaceView mysurfview;
-	
 
 	LinearLayout dev_master_btns;
 	LinearLayout dev_pref_pg1;
-	
 
-	
 	private boolean splashinitnosound = true;
-	
+
 	// splash 画面
 	private View splashtest;
 	private AlphaAnimation fadein;
@@ -227,7 +229,7 @@ public class OkobotokeActivity extends Activity {
 						+ dev_master_btns.getChildCount());
 				if (dev_master_btns.getChildCount() == 2) {
 					dev_master_btns.addView(dev_pref_pg1);
-					devPrefPg1Init();
+					//devPrefPg1Init();
 				}
 
 				else if (dev_master_btns.getChildCount() > 2) {
@@ -264,7 +266,7 @@ public class OkobotokeActivity extends Activity {
 	
 
 	
-	public void devPrefPg1Init() {
+/*	public void devPrefPg1Init() {
 		
 		final EditText radarg1 = (EditText)findViewById(R.id.pg1_et_radfade_arg1);
 		final EditText radarg2 = (EditText)findViewById(R.id.pg1_et_radfade_arg2);
@@ -312,7 +314,7 @@ public class OkobotokeActivity extends Activity {
 			}
 		});
 				
-	}
+	}*/
 	
 
 
@@ -377,7 +379,12 @@ public class OkobotokeActivity extends Activity {
 
 		
 		//mysurfview.invalidate();
-		mysurfview.releaseAllTouchAnims();
+		//mysurfview.releaseAllTouchAnims();
+		
+		mysurfview.releaseAllTouchPlayAnims();
+		mysurfview.releaseAllTouchRecAnims();
+		
+		
 		mysurfview.recbar.fillFramesEmpty();
 				mysurfview.framerec.startPlayBack();
 		mysurfview.stopThread();
@@ -514,7 +521,7 @@ public class OkobotokeActivity extends Activity {
 			
 			if (source.equals("switchdir")) {
 				//Log.d("RECV", "bang " + source);
-				mysurfview.dirSwitchCalled();
+				//mysurfview.dirSwitchCalled();
 			}
 			
 //			if (source.equals("fadeoutbang")) {
@@ -789,7 +796,7 @@ public class OkobotokeActivity extends Activity {
 //	}
 
 
-	public void sendBang(String s) {
+	public static void sendBang(String s) {
 		
 	  PdBase.sendBang(s);
 	  
@@ -839,8 +846,20 @@ public class OkobotokeActivity extends Activity {
 		//Log.d(TAG1, "calcToRangeColor rtnval" + rtnval);
 		return rtnval;
 		
-		
 	}
+	
+	public static float calcToRangePulsePan(float sndrval, float sndrrng) {
+		
+		float rtnval =(sndrval * (PUL_PAN_RNG/sndrrng)) + PUL_PAN_MIN;
+		return rtnval;
+	}
+	
+	public static float calcToRangePulseFrq(float sndrval, float sndrrng) {
+		
+		float rtnval =(sndrval * (PUL_FRQ_RNG/sndrrng)) + PUL_FRQ_MIN;
+		return rtnval;
+	}
+	
 
 //	public void send(String dest, String s) {
 //	  String[] pieces = s.split(" ");r

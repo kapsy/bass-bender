@@ -4,7 +4,7 @@ package nz.kapsy.okobotoke;
 
 //ご注意：このクラスは廃止されて使用を推奨されなくなりました。
 
-
+/*
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -40,9 +40,7 @@ private long recfinishtime;
 	
 
 	
-	/**
-	 * ここで説明をかきます
-	 */
+
 	public TouchRecorder() {
 		super();
 	
@@ -321,13 +319,13 @@ public void playBack() {
 		private float touch_x;
 		private float touch_y;
 		
-		/**
+		*//**
 		 * @param eventtime
 		 * @param touchtype
 		 * @param index
 		 * @param touch_x
 		 * @param touch_y
-		 */
+		 *//*
 		public TouchRecUnit(int touchtype, int index,
 				float touch_x, float touch_y, TouchRecorder rec) {
 			super();
@@ -366,3 +364,4 @@ public void playBack() {
 	
 }
 
+*/

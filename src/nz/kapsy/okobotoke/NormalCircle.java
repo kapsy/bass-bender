@@ -2,6 +2,8 @@ package nz.kapsy.okobotoke;
 
 import java.util.Random;
 
+import nz.kapsy.okobotoke.MySurfaceView.TargetTouch;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -55,7 +57,9 @@ public class NormalCircle {
 	private float baserad = 0F; //original radius before any modulation modifiers
 	private float radmodsinangle = 0F;
 	
-
+	private TargetTouch targetpoint1;
+	
+	private NormalCircle targetcircle1;
 	
 	public NormalCircle() {
 
@@ -142,6 +146,19 @@ public class NormalCircle {
             c.drawCircle(posx, posy, rad, this.getPaint());
            
 	}
+	
+	public void drawCircleOnce(int col, Canvas c) {
+
+		paint.setColor(col);
+		c.drawCircle(posx, posy, rad, this.getPaint());
+
+	}
+	
+	public void drawCircleOnceNoColor(Canvas c) {
+		    	
+        c.drawCircle(posx, posy, rad, this.getPaint());
+       
+	}
 
 	// currframeによって色、形を変える処理
 	public void circleAnim() {
@@ -219,7 +236,36 @@ public class NormalCircle {
 				* this.maxaccelspeedy);
 	}
 
+	protected TargetTouch getTargetpoint1() {
+		return targetpoint1;
+	}
+	protected void setTargetpoint1(TargetTouch targetpoint1) {
+		this.targetpoint1 = targetpoint1;
+	}
 
+	protected void getCoordsFromTarget() {
+		if (this.targetpoint1 != null) {
+			
+			this.setTargetXy(this.targetpoint1.getPosX(),  this.targetpoint1.getPosY());
+		}
+	}
+	
+	protected NormalCircle getTargetcircle1() {
+		return targetcircle1;
+	}
+	protected void setTargetcircle1(NormalCircle targetcircle1) {
+		this.targetcircle1 = targetcircle1;
+	}
+
+	protected void getCoordsFromTargetCircle() {
+		if (this.targetcircle1 != null) {
+			
+			this.setTargetXy(this.targetcircle1.getPosX(),  this.targetcircle1.getPosY());
+		}
+	}
+	
+	
+	
 	
 	
 	// target for decel
@@ -227,8 +273,6 @@ public class NormalCircle {
 		this.acceltargetx = targetx;
 		this.acceltargety = targety;
 	}
-    
-    
     
     protected float getMaxaccelspeedx() {
 		return maxaccelspeedx;
@@ -244,6 +288,22 @@ public class NormalCircle {
 
 	protected void setMaxaccelspeedy(float maxaccelspeedy) {
 		this.maxaccelspeedy = maxaccelspeedy;
+	}
+
+	protected float getAcceltargetx() {
+		return acceltargetx;
+	}
+
+	protected float getAcceltargety() {
+		return acceltargety;
+	}
+
+	protected void setAcceltargetx(float acceltargetx) {
+		this.acceltargetx = acceltargetx;
+	}
+
+	protected void setAcceltargety(float acceltargety) {
+		this.acceltargety = acceltargety;
 	}
 
 	//curveの方はどうだ？
