@@ -20,7 +20,7 @@ public class RecordBar extends NormalCircle {
 	
 	private int frameinterval;//アニメーションの間隔
 	private float incperframe;
-	private static float relframecount = 42F; // max release frames
+	private static float relframecount = 65F; // max release frames
 	private boolean releasecmdcalled = false;
 		
 	private FrameRecorder framerec;
@@ -117,11 +117,14 @@ public class RecordBar extends NormalCircle {
 				&& !this.releasecmdcalled) {
 			
 			if (this.framerec.isPlayingback()) {
-				this.mysurfview.releaseAllTouchPlayAnims();
+				//this.mysurfview.releaseAllTouchPlayAnims();
 				
 			} else if (this.framerec.isRecordingnow()) {
-				this.mysurfview.releaseAllTouchRecAnims();
+				
+				//this.mysurfview.releaseAllTouchRecAnims();
 				this.mysurfview.setTouchenabled(false);
+				this.mysurfview.addActionUps();
+				//this.mysurfview.callMotionUps();
 			}
 			this.releasecmdcalled = true;
 		}
@@ -141,7 +144,7 @@ public class RecordBar extends NormalCircle {
 				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
 				
 				// タッチ無効する
-			//	this.framerec.logAllRecordedFrames();
+				this.framerec.logAllRecordedFrames();
 				//this.mysurfview.releaseAllTouchRecAnims();
 				this.framerec.startPlayBack();
 				

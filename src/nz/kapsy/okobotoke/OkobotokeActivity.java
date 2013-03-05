@@ -128,60 +128,21 @@ public class OkobotokeActivity extends Activity {
 				Circle2 cprev = mysurfview.maincircles[mysurfview.getCurmaincircle()];
 				
 				cprev.relAnimOn();
-//				c2.setTargetpointatnull();
-//				
-//	    		for (int i = 0; i < c2.getTails().length; i++) {
-//
-//	    			c2.getTails()[i].setTargetcircle1null();
-//	    				    			
-//	    		}
-				
-				
-				
 				mysurfview.nextCirc();
-				
-				Circle2 ccur = mysurfview.maincircles[mysurfview.getCurmaincircle()];
-				
-				
-				
-				if (mysurfview.acceltouchfirst[0].isAlive() && mysurfview.framerec.isRecordingnow()) {
-					
-						ccur.setTargetpointat(mysurfview.acceltouchfirst[0]);
-					
-				} else if (mysurfview.acceltouchfirst[1].isAlive() && mysurfview.framerec.isPlayingback()) {
-					
-						ccur.setTargetpointat(mysurfview.acceltouchfirst[1]);
-					
+
+				Circle2 ccur = mysurfview.maincircles[mysurfview
+						.getCurmaincircle()];
+
+				if (mysurfview.framerec.isRecordingnow()) {
+					ccur.setTargetpointat(mysurfview.acceltouchfirstrec[mysurfview
+							.getCuracceltouchfirstrec()]);
+
+				} else if (mysurfview.framerec.isPlayingback()) {
+					ccur.setTargetpointat(mysurfview.acceltouchfirstplay[mysurfview
+							.getCuracceltouchfirstplay()]);
 				}
 				
 				
-				
-//				if (mysurfview.acceltouchfirst[0].isAlive()) {
-//
-//					ccur.setTargetpointat(mysurfview.acceltouchfirst[0]);
-//
-//				} else {
-//					
-//
-//
-//					for (int i = 0; i < mysurfview.maincircles.length; i++) {
-//						mysurfview.maincircles[i].setTargetpointat(mysurfview.acceltouchfirst[2]);
-//						for (int a = 0; a < ccur.getTails().length; a++) {
-//							mysurfview.maincircles[i].getTails()[a].setTargetcircle1(mysurfview.acceltouchfirst[2]);
-//							
-//						}
-//					}
-//					
-//					ccur.setTargetpointat(mysurfview.acceltouchfirst[2]);
-//					
-//					
-//					for (int i = 0; i < ccur.getTails().length; i++) {
-//
-//						ccur.getTails()[i].setTargetcircle1(mysurfview.acceltouchfirst[2]);
-//
-//					}
-//				}
-//				
 				mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
 
 			}

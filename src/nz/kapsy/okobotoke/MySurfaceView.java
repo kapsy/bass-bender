@@ -26,7 +26,7 @@ public class MySurfaceView extends SurfaceView implements
     //public NormalCircle foggylight;  
     
     // counts total in array
-    private int touchobjs = 2;
+    private int touchobjs = 3;
     // target like points. not drawn at all.
     // 的みたいな点。全く描いてない。
     public TargetTouch[] targtouchfirst;   
@@ -36,12 +36,19 @@ public class MySurfaceView extends SurfaceView implements
     
     
     public NormalLineFader[] faderline;
-    private int curpbfaderline = 1;
+  //  private int curfaderline = 1;
     
-    public AccelTouch[] acceltouchfirst;
-    private int curpbacceltouchfirst = 1;
+    public AccelTouch[] acceltouchfirstrec;
+    private int curacceltouchfirstrec = 1;
+    
+    public AccelTouch[] acceltouchfirstplay;
+    private int curacceltouchfirstplay = 1;
+    
+    
+    
+    
     public AccelTouch[] acceltouchsecond;
-    private int curpbacceltouchsecond = 1;
+  //  private int curpbacceltouchsecond = 1;
     
     
     
@@ -175,13 +182,23 @@ public class MySurfaceView extends SurfaceView implements
 			}
 			
 			// 0: rec 1: pb 2: last point before death
-			acceltouchfirst = new AccelTouch[3];
-			for (int i = 0; i < acceltouchfirst.length; i++) {
-				acceltouchfirst[i] = new AccelTouch();
-				acceltouchfirst[i].setRad(this.percToPixX(6.25F));
-				acceltouchfirst[i].setBaserad(acceltouchfirst[i].getRad());
-				acceltouchfirst[i].setARGB(0, 0, 255, 0);
+			acceltouchfirstrec = new AccelTouch[this.touchobjs];
+			for (int i = 0; i < acceltouchfirstrec.length; i++) {
+				acceltouchfirstrec[i] = new AccelTouch();
+				acceltouchfirstrec[i].setRad(this.percToPixX(6.25F));
+				acceltouchfirstrec[i].setBaserad(acceltouchfirstrec[i].getRad());
+				acceltouchfirstrec[i].setARGB(0, 0, 255, 0);
 			}
+			acceltouchfirstplay = new AccelTouch[this.touchobjs];
+			for (int i = 0; i < acceltouchfirstplay.length; i++) {
+				acceltouchfirstplay[i] = new AccelTouch();
+				acceltouchfirstplay[i].setRad(this.percToPixX(6.25F));
+				acceltouchfirstplay[i].setBaserad(acceltouchfirstplay[i].getRad());
+				acceltouchfirstplay[i].setARGB(0, 0, 255, 0);
+			}
+			
+			
+			
 			acceltouchsecond = new AccelTouch[this.touchobjs];
 			for (int i = 0; i < acceltouchsecond.length; i++) {
 				acceltouchsecond[i] = new AccelTouch();
@@ -199,7 +216,7 @@ public class MySurfaceView extends SurfaceView implements
 				rainstars[i] = new RainStar();
 			}
 			//12000
-			recbar = new RecordBar(this.screenwidth, this.screenheight, 19000,
+			recbar = new RecordBar(this.screenwidth, this.screenheight, 8000,
 					threadinterval, this.framerec, this);
 			recsymbol = new RecSymbol();
 			playsymbol = new PlaySymbol();
@@ -266,11 +283,11 @@ public class MySurfaceView extends SurfaceView implements
 			TargetTouch tt1 = this.targtouchfirst[this.getCurtargtouchfirst()];
 			TargetTouch tt2 = this.targtouchsecond[this.getCurtargtouchsecond()];
 			NormalLineFader fdr = this.faderline[0];
-			AccelTouch at1 = this.acceltouchfirst[0];
+			AccelTouch at1 = this.acceltouchfirstrec[this.getCuracceltouchfirstrec()];
 			AccelTouch at2 = this.acceltouchsecond[0];
 	
-			fdr.setSnagpoint1(at1);
-			fdr.setSnagpoint2(at2);
+			//fdr.setSnagpoint1(at1);
+			//fdr.setSnagpoint2(at2);
 			
 			float x0 = event.getX(0);
 			float y0 = event.getY(0);
@@ -304,6 +321,7 @@ public class MySurfaceView extends SurfaceView implements
 					tt1.setPosX(x0);
 					tt1.setPosY(y0);
 	
+					at1 = this.acceltouchfirstrec[this.nextAcceltouchfirstrec()];
 					at1.setTargetpoint1(tt1);
 					at1.init();
 	
@@ -323,9 +341,12 @@ public class MySurfaceView extends SurfaceView implements
 					tt2.setPosX(x1);
 					tt2.setPosY(y1);
 	
+					
 					at2.setTargetpoint1(tt2);
 					at2.init();
-	
+					
+					fdr.setSnagpoint1(at1);
+					fdr.setSnagpoint2(at2);
 					fdr.init();
 	
 					this.framerec.setFrameEssential(x0, y0, x1, y1,
@@ -456,6 +477,52 @@ public class MySurfaceView extends SurfaceView implements
 //		this.touchenabledafterrec = touchenabled;
 //	}
 
+//	protected void callMotionUps() {
+//		
+//		
+//		MotionEvent m1 = MotionEvent.obtain(0, 0, MotionEvent.ACTION_POINTER_UP, 0, 0, 0);
+//		
+//		this.dispatchTouchEvent(m1);
+//		
+//		
+//		
+//		MotionEvent m2 = MotionEvent.obtain(0, 0, MotionEvent.ACTION_UP, 0, 0, 0);
+//		
+//		this.dispatchTouchEvent(m2);
+//		
+//	}
+	
+	protected void addActionUps() {
+
+		AccelTouch at1 = this.acceltouchfirstrec[this.getCuracceltouchfirstrec()];
+		AccelTouch at2 = this.acceltouchsecond[0];
+		NormalLineFader fdr = this.faderline[0];
+
+		if (at2.isAlive() && !at2.isPlayrelanim()) {
+			OkobotokeActivity.sendFloat("fm_index", 12F);
+			fdr.relAnimOn();
+			at2.relAnimOn();
+
+			framerec.setTouchpts(1);
+			this.framerec.setFrameEssential(
+					at1.getPosX(), at1.getPosY(),
+					at2.getPosX(), at2.getPosY(),
+					MotionEvent.ACTION_POINTER_UP, 1, 1);
+		}
+		if (at1.isAlive() && !at1.isPlayrelanim()) {
+			at1.relAnimOn();
+
+			framerec.setTouchpts(0);
+			this.framerec.setFrameEssential(
+					at1.getPosX(), at1.getPosY(),
+					at2.getPosX(), at2.getPosY(), 
+					MotionEvent.ACTION_UP, 0, 0);
+		}
+	}
+		
+	
+	
+	
 	protected static int getMultiTouchMax() {
 		return MULTI_TOUCH_MAX;
 	}
@@ -563,17 +630,40 @@ public class MySurfaceView extends SurfaceView implements
 			
 			this.playBackRecording();
 
-			for (int i = 0; i < acceltouchfirst.length; i++) {
-				acceltouchfirst[i].drawSequence(canvas);
-
-//				if (this.acceltouchfirst[i].isAlive()) {
-//					Log.d("Snagcheck", 
-//							"acceltouchfirst[" + i + "] coords: X: "
-//							+ this.acceltouchfirst[i].getPosX() 
-//							+ " Y: "
-//							+ this.acceltouchfirst[i].getPosY());
-//				}
+			
+			
+			if (this.framerec.isRecordingnow()
+					|| this.acceltouchfirstrec[this.getCuracceltouchfirstrec()].isAlive()) {
+				//Log.d("drawingefficiency", "drawing while recording");
+				for (int i = 0; i < acceltouchfirstrec.length; i++) {
+					acceltouchfirstrec[i].drawSequence(canvas);
+				}
 			}
+			
+			if (this.framerec.isPlayingback()
+					|| this.acceltouchfirstplay[this.getCuracceltouchfirstplay()].isAlive()) {
+				//Log.d("drawingefficiency", "drawing while playing");
+				for (int i = 0; i < acceltouchfirstplay.length; i++) {
+					acceltouchfirstplay[i].drawSequence(canvas);
+				}
+			}
+			
+			
+			
+			
+			
+			
+//			for (int i = 0; i < acceltouchfirstplay.length; i++) {
+//				acceltouchfirstplay[i].drawSequence(canvas);
+//
+////				if (this.acceltouchfirst[i].isAlive()) {
+////					Log.d("Snagcheck", 
+////							"acceltouchfirst[" + i + "] coords: X: "
+////							+ this.acceltouchfirst[i].getPosX() 
+////							+ " Y: "
+////							+ this.acceltouchfirst[i].getPosY());
+////				}
+//			}
 			for (int i = 0; i < acceltouchsecond.length; i++) {
 				acceltouchsecond[i].drawSequence(canvas);
 
@@ -625,11 +715,11 @@ public class MySurfaceView extends SurfaceView implements
 		TargetTouch tt1 = this.targtouchfirst[this.getCurtargtouchfirst()];
 		TargetTouch tt2 = this.targtouchsecond[this.getCurtargtouchsecond()];
         NormalLineFader fdr = this.faderline[1];
-    	AccelTouch at1 = this.acceltouchfirst[1];
+    	AccelTouch at1 = this.acceltouchfirstplay[this.getCuracceltouchfirstplay()];
     	AccelTouch at2 = this.acceltouchsecond[1];
 		
-		fdr.setSnagpoint1(at1);
-		fdr.setSnagpoint2(at2);
+//		fdr.setSnagpoint1(at1);
+//		fdr.setSnagpoint2(at2);
     	
 			FrameRecUnit fru = this.framerec.getPlaybackFrame();
 			
@@ -645,6 +735,7 @@ public class MySurfaceView extends SurfaceView implements
 				tt1.setPosY(fru.getCirtfirsty());
 				
 			//	at1 = this.acceltouchfirst[this.nextPbAccelFirst()];
+				at1 = this.acceltouchfirstplay[this.nextAcceltouchfirstplay()];
 				at1.setTargetpoint1(tt1);
 				at1.init();
 
@@ -664,6 +755,8 @@ public class MySurfaceView extends SurfaceView implements
 					at2.init();
 
 				//	fdr = this.faderline[this.nextPbFaderLine()];
+					fdr.setSnagpoint1(at1);
+					fdr.setSnagpoint2(at2);
 					fdr.init();
 
 				break;
@@ -673,10 +766,7 @@ public class MySurfaceView extends SurfaceView implements
 
 					tt1.setPosX(fru.getCirtfirstx());
 					tt1.setPosY(fru.getCirtfirsty());
-					this.sendSingleTouchVals(
-							this.acceltouchfirst[this.getCurpbacceltouchfirst()].getPosX(),
-							this.acceltouchfirst[this.getCurpbacceltouchfirst()].getPosY());
-
+					this.sendSingleTouchVals(at1.getPosX(), at1.getPosY());
 					if (fru.getTouchpts() == 2) {
 
 						tt2.setPosX(fru.getCirtsecondx());
@@ -784,17 +874,33 @@ public class MySurfaceView extends SurfaceView implements
 		// reset tgt to null...
 		OkobotokeActivity.sendFloat("fm_index", 12F);
 		this.faderline[0].relAnimOn();
-		this.acceltouchfirst[0].relAnimOn();
+		this.acceltouchfirstrec[this.getCuracceltouchfirstrec()].relAnimOn();
 		this.acceltouchsecond[0].relAnimOn();
+		
+		
+		
 	}
-	
-	public void releaseAllTouchPlayAnims() {
+  	
+  	public void releaseAllTouchPlayAnims() {
 
 		OkobotokeActivity.sendFloat("fm_index", 12F);
 		this.faderline[1].relAnimOn();
-		this.acceltouchfirst[1].relAnimOn();
+		this.acceltouchfirstplay[this.getCuracceltouchfirstplay()].relAnimOn();
 		this.acceltouchsecond[1].relAnimOn();
 	}
+//  	public void allTouchFirstRecTargetsNull() {
+//  		for (int i = 0; i < acceltouchfirstrec.length; i++) {
+//  			this.acceltouchfirstrec[i].setTargetpoint1null();
+//  		}
+//  	}
+//	
+//  	public void allTouchFirstPlayTargetsNull() {
+//  		for (int i = 0; i < this.acceltouchfirstplay.length; i++) {
+//  			this.acceltouchfirstplay[i].setTargetpoint1null();
+//  		}
+//  	}
+  	
+
 
 
 	public void sendSingleTouchVals(float x, float y) {
@@ -833,33 +939,49 @@ public class MySurfaceView extends SurfaceView implements
 	}
 	
 	
-	public int nextPbAccelFirst() {
-		if (this.curpbacceltouchfirst == 1) {
-			this.curpbacceltouchfirst = 2;
-		} else {
-			this.curpbacceltouchfirst = 1;
+	public int nextAcceltouchfirstrec() {
+		if(curacceltouchfirstrec < acceltouchfirstrec.length - 1) {
+			curacceltouchfirstrec++;
+		} else if (curacceltouchfirstrec == acceltouchfirstrec.length - 1) {
+			curacceltouchfirstrec = 0;
 		}
-		return this.curpbacceltouchfirst;
-	}
-
-	public int nextPbAccelSecond() {
-		if (this.curpbacceltouchsecond == 1) {
-			this.curpbacceltouchsecond = 2;
-		} else {
-			this.curpbacceltouchsecond = 1;
-		}
-		return this.curpbacceltouchsecond;
-	}
-
-	public int nextPbFaderLine() {
-		if (this.curpbfaderline == 1) {
-			this.curpbfaderline = 2;
-		} else {
-			this.curpbfaderline = 1;
-		}
-		return this.curpbfaderline;
+		return this.curacceltouchfirstrec;
 	}
 	
+	public int nextAcceltouchfirstplay() {
+		if(curacceltouchfirstplay < acceltouchfirstplay.length - 1) {
+			curacceltouchfirstplay++;
+		} else if (curacceltouchfirstplay == acceltouchfirstplay.length - 1) {
+			curacceltouchfirstplay = 0;
+		}
+		return this.curacceltouchfirstplay;
+	}
+	
+
+
+	protected int getCuracceltouchfirstrec() {
+		return curacceltouchfirstrec;
+	}
+	protected void setCuracceltouchfirstrec(int curacceltouchfirstrec) {
+		this.curacceltouchfirstrec = curacceltouchfirstrec;
+	}
+	
+	protected int getCuracceltouchfirstplay() {
+		return curacceltouchfirstplay;
+	}
+	protected void setCuracceltouchfirstplay(int curacceltouchfirstplay) {
+		this.curacceltouchfirstplay = curacceltouchfirstplay;
+	}
+
+//	public int nextPbFaderLine() {
+//		if (this.curpbfaderline == 1) {
+//			this.curpbfaderline = 2;
+//		} else {
+//			this.curpbfaderline = 1;
+//		}
+//		return this.curpbfaderline;
+//	}
+//	
 		
     protected int getCurmaincircle() {
 		return curmaincircle;
@@ -873,17 +995,17 @@ public class MySurfaceView extends SurfaceView implements
 		return curtargtouchsecond;
 	}
 
-	protected int getCurpbfaderline() {
-		return curpbfaderline;
-	}
-	
-	protected int getCurpbacceltouchfirst() {
-		return curpbacceltouchfirst;
-	}
-
-	protected int getCurpbacceltouchsecond() {
-		return curpbacceltouchsecond;
-	}
+//	protected int getCurpbfaderline() {
+//		return curpbfaderline;
+//	}
+//	
+//	protected int getCurpbacceltouchfirst() {
+//		return curpbacceltouchfirst;
+//	}
+//
+//	protected int getCurpbacceltouchsecond() {
+//		return curpbacceltouchsecond;
+//	}
 	
 //    protected boolean isFirsttouchenabled() {
 //		return firsttouchenabled;
@@ -924,7 +1046,7 @@ public class MySurfaceView extends SurfaceView implements
 		// private float satfromfader = 1;
 		private AccelTouch targetpointat;
 
-    	private TailCircle[] tails = new TailCircle[3];
+    	private TailCircle[] tails = new TailCircle[2];
 		
 		public Circle2() {
 			this.setAlive(false);
@@ -940,13 +1062,16 @@ public class MySurfaceView extends SurfaceView implements
     	@Override
     	public void init() {
     		
-			this.setStartPosRndOffset((int)percToPixX(25F));
+			this.setStartPosRndOffset((int)percToPixX(45F));
     		
 			this.setYchgspd(0F);
 			this.setXchgspd(0F);
 			this.setMaxaccelspeedx(percToPixX(1.875F));
 			this.setMaxaccelspeedy(percToPixX(1.875F));
-    		this.setRad(percToPixX(13.75F - ((float)rnd.nextInt(208) / 100F)));
+    		//this.setRad(percToPixX(13.75F - ((float)rnd.nextInt(208) / 100F)));
+    		this.setRad(percToPixX(17F));
+    		
+    		
     		
     		this.setAlpha(0);
     		this.hsv[1] = MySurfaceView.this.getMaincirclesatcontrol();
@@ -968,17 +1093,18 @@ public class MySurfaceView extends SurfaceView implements
 			float masx = this.getMaxaccelspeedx();
 			float masy = this.getMaxaccelspeedy();
     		
+			float masfactor = 0.5F;
+			
     		for (int i = 0; i < tails.length; i++) {
     			
     			tails[i].setParentsettings(this);
-    			//tails[i].setTargetpoint1(this.getTargetpoint1());
     			tails[i].setTargetcircle1(this.targetpointat);
     			
     			tails[i].init();
     			
-    			masx = masx * 0.6F;
-    			masy = masy * 0.6F;
-
+    			masfactor = masfactor + 0.1F;
+    			masx = masx * masfactor;
+    			masy = masy * masfactor;
     			tails[i].setMaxaccelspeedx(masx);
     			tails[i].setMaxaccelspeedy(masy);
     			
@@ -1111,7 +1237,7 @@ public class MySurfaceView extends SurfaceView implements
 			//Log.d("targetpoint1", "this.targetpoint1.equals(null): " + this.targetpoint1.equals(null));
 		}
 
-		protected void setStartPosRndOffset(int maxdist) {
+		protected void setStartPosRndOffset(int rndmagnitude) {
 			
 			if (this.targetpointat != null) {
 				
@@ -1126,11 +1252,13 @@ public class MySurfaceView extends SurfaceView implements
 				
 				float rnddist = 0;
 				if (spd <= maxchgspd) {
-					rnddist = ((spd * (-1F / maxchgspd )) + 1) * (float) maxdist;
+					rnddist = ((spd * (-1F / maxchgspd )) + 1) * (float) rndmagnitude;
 					//Log.d("startpos", "rnddist " + rnddist);
 				}
 				float x = (rnd.nextFloat() * (rnddist * 2)) - rnddist;
-				float y = (rnd.nextFloat() * (rnddist * 2)) - rnddist;
+			
+				float y = (rnd.nextFloat() * (rnddist * 2)) - rnddist;	
+	
 				this.setPosX(this.targetpointat.getPosX() + x);
 				this.setPosY(this.targetpointat.getPosY() + y);
 			}
@@ -1581,6 +1709,8 @@ public class MySurfaceView extends SurfaceView implements
 			float masx = this.getMaxaccelspeedx();
 			float masy = this.getMaxaccelspeedy();
 			
+			float masfactor = 0.65F;
+			
 			// この辺を見なおすべき
     		for (int i = 0; i < tails.length; i++) {
     			tails[i] = new TailCircle();
@@ -1588,8 +1718,13 @@ public class MySurfaceView extends SurfaceView implements
     			tails[i].setParentsettings(this);
     			tails[i].setTargetpoint1(this.getTargetpoint1());
     			
-    			masx = masx * 0.8F;
-    			masy = masy * 0.8F;
+//    			masx = masx * 0.8F;
+//    			masy = masy * 0.8F;
+    			
+    			masfactor = masfactor + 0.04F;
+    			
+    			masx = masx * masfactor;
+    			masy = masy * masfactor;
 
     			tails[i].setMaxaccelspeedx(masx);
     			tails[i].setMaxaccelspeedy(masy);
