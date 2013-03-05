@@ -243,6 +243,15 @@ public class NormalCircle {
 		this.targetpoint1 = targetpoint1;
 	}
 
+	protected void setTargetpoint1null() {
+		this.targetpoint1 = null;
+		
+		
+	}
+	
+	
+	
+	
 	protected void getCoordsFromTarget() {
 		if (this.targetpoint1 != null) {
 			
@@ -255,6 +264,10 @@ public class NormalCircle {
 	}
 	protected void setTargetcircle1(NormalCircle targetcircle1) {
 		this.targetcircle1 = targetcircle1;
+	}
+	
+	protected void setTargetcircle1null() {
+		this.targetcircle1 = null;
 	}
 
 	protected void getCoordsFromTargetCircle() {

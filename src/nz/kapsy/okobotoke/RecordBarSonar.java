@@ -15,43 +15,38 @@ public class RecordBarSonar extends RecordBar {
 	@Override
 	public void initDimensions() {
 		this.setRec_left(0F);
-		this.setRec_top(this.getTotalheight() - this.getMysurfv().percToPixY(2F));
-		
+		this.setRec_top((float) Math.round(this.getTotalheight()
+				- this.getMysurfv().percToPixY(1.6F)));
 		this.setRec_right(0F);
-		this.setRec_bottom(this.getTotalheight() - this.getMysurfv().percToPixY(1F));
+		this.setRec_bottom((float) Math.round(this.getTotalheight()
+				- this.getMysurfv().percToPixY(0.8F)));
 	}
 
 	@Override
 	public void progressAnim() {
 		// int cf = this.getCurrframe();
 
-		if (this.getRec_right() == 0 && this.getFramerec().isRecordingnow()) {
-			this.getMysurfv().recsymbol.init();
-		}
-		if (this.getRec_right() == this.getIncperframe()) {
-		}
+		// if (this.getRec_right() == 0 && this.getFramerec().isRecordingnow())
+		// {
+		// //this.getMysurfv().recsymbol.init();
+		// }
 
 		if (this.getRec_right() < this.getTotalwidth()) {
 			this.incBar();
 		} else {
 			if (this.getFramerec().isPlayingback()) {
-				
-			//	this.mysurfv.releaseAllTouchAnims();
+
 				this.getFramerec().startPlayBack();
-				this.getMysurfv().playsymbol.init();
-				
+
 			} else if (this.getFramerec().isRecordingnow()) {
-				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
-				
-				// タッチ無効する
-				//this.getMysurfv().setTouchenabledafterrec(false);
-			//	this.framerec.logAllRecordedFrames();
+				// Log.d("ProgressAnim",
+				// "this.framerec.isRecordingnow() is true");
 				this.getFramerec().startPlayBack();
-				//this.mysurfv.releaseAllTouchAnims();
 				this.getMysurfv().setFmrecmode(true);
-								
-				//大きの方がいい
-				this.getMysurfv().playsymbolcntr.init();
+
+				// 大きの方がいい
+				// this.getMysurfv().playsymbolcntr.init();
+				this.getMysurfv().playsymbol.init();
 			}
 			this.init();
 		}

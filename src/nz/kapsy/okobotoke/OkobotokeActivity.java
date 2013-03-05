@@ -8,6 +8,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import nz.kapsy.okobotoke.MySurfaceView.Circle2;
+import nz.kapsy.okobotoke.MySurfaceView.TailCircle;
+
 import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;
 import org.puredata.android.service.PdService;
@@ -69,7 +72,6 @@ public class OkobotokeActivity extends Activity {
 	
 	private static final float CF_BENDER_RNG = 220F;
 	private static final float CF_BENDER_MIN = 70F;
-	
 		
 	public static final int COL_FADE_RNG = 510;
 
@@ -121,10 +123,65 @@ public class OkobotokeActivity extends Activity {
 		lightrun = new Runnable() {
 			@Override
 			public void run() {
-				mysurfview.maincircles[mysurfview.getCurmaincircle()].relAnimOn();
+				
+				
+				Circle2 cprev = mysurfview.maincircles[mysurfview.getCurmaincircle()];
+				
+				cprev.relAnimOn();
+//				c2.setTargetpointatnull();
+//				
+//	    		for (int i = 0; i < c2.getTails().length; i++) {
+//
+//	    			c2.getTails()[i].setTargetcircle1null();
+//	    				    			
+//	    		}
+				
+				
+				
 				mysurfview.nextCirc();
-				mysurfview.maincircles[mysurfview.getCurmaincircle()].setTargetpoint1(mysurfview.acceltouchfirst[mysurfview.getCuracceltouchfirst()]);
-
+				
+				Circle2 ccur = mysurfview.maincircles[mysurfview.getCurmaincircle()];
+				
+				
+				
+				if (mysurfview.acceltouchfirst[0].isAlive() && mysurfview.framerec.isRecordingnow()) {
+					
+						ccur.setTargetpointat(mysurfview.acceltouchfirst[0]);
+					
+				} else if (mysurfview.acceltouchfirst[1].isAlive() && mysurfview.framerec.isPlayingback()) {
+					
+						ccur.setTargetpointat(mysurfview.acceltouchfirst[1]);
+					
+				}
+				
+				
+				
+//				if (mysurfview.acceltouchfirst[0].isAlive()) {
+//
+//					ccur.setTargetpointat(mysurfview.acceltouchfirst[0]);
+//
+//				} else {
+//					
+//
+//
+//					for (int i = 0; i < mysurfview.maincircles.length; i++) {
+//						mysurfview.maincircles[i].setTargetpointat(mysurfview.acceltouchfirst[2]);
+//						for (int a = 0; a < ccur.getTails().length; a++) {
+//							mysurfview.maincircles[i].getTails()[a].setTargetcircle1(mysurfview.acceltouchfirst[2]);
+//							
+//						}
+//					}
+//					
+//					ccur.setTargetpointat(mysurfview.acceltouchfirst[2]);
+//					
+//					
+//					for (int i = 0; i < ccur.getTails().length; i++) {
+//
+//						ccur.getTails()[i].setTargetcircle1(mysurfview.acceltouchfirst[2]);
+//
+//					}
+//				}
+//				
 				mysurfview.maincircles[mysurfview.getCurmaincircle()].init();
 
 			}

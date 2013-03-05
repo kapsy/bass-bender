@@ -14,14 +14,14 @@ public class FrameRecorder {
 	// records last motion event obtained from touch
 	private int motionevent = MotionEvent.ACTION_CANCEL;
 		
-	// values that could fall between frames are forced to the next frame
-	private int[] mustrecvals = {MotionEvent.ACTION_POINTER_DOWN,
-			MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_UP};
+//	// values that could fall between frames are forced to the next frame
+//	private int[] mustrecvals = {MotionEvent.ACTION_POINTER_DOWN,
+//			MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_UP};
 	
-	// if true, an action down MUST be recorded that frame
-	private boolean actiondownevent = false;
-	private boolean mustreclastevent = false;
-	private int lastmustrec;
+//	// if true, an action down MUST be recorded that frame
+//	private boolean actiondownevent = false;
+//	private boolean mustreclastevent = false;
+//	private int lastmustrec;
 	
 	private int touchpts = 0;
 	
@@ -34,25 +34,21 @@ public class FrameRecorder {
 		{
 			this.recording.clear();
 		}
-		
 		this.setPlayingback(false);
 		this.setRecordingnow(true);
 		this.setTouchpts(0);
 		this.setMotionevent(MotionEvent.ACTION_CANCEL);
-		
 	}
 	
 	public void startPlayBack() {
 
 		// 強制的にタッチ処理を終了ってこと
-
 		this.setRecordingnow(false);
 		
 		if (this.recording.size() > 0) {
 			this.setPlayingback(true);
 		}
 		this.setCurrentframe(0);
-
 	}
 			
 	// adds important events at the time they occur
@@ -61,15 +57,13 @@ public class FrameRecorder {
 	public void setFrameEssential(
 			float x0, float y0, float x1, float y1,
 			int motionevent, int touchpts, int index) {
-
+		
 		if (this.isRecordingnow()) {
 			this.recording.add(new FrameRecUnit(
 					x0, y0, x1, y1, motionevent, touchpts, index));
 		}
-		
 		// resets the current motionevent so that movements aren't recorded
 		this.setMotionevent(MotionEvent.ACTION_CANCEL);
-		
 	}
 	
 	// called while drawing 
@@ -78,9 +72,7 @@ public class FrameRecorder {
 			float x0, float y0, 
 			float x1, float y1) {
 		
-		
 		if (this.isRecordingnow()) {
-			
 			// index = 99 because is irrelevant for movement
 			// index = 99、理由は動くを再現するため無関係である
 			this.recording.add(new FrameRecUnit(
@@ -93,17 +85,15 @@ public class FrameRecorder {
 		if (this.recording != null) {
 			for (int i = 0; i < this.recording.size(); i++) {
 				FrameRecUnit fl = this.recording.get(i);
-				Log.d("recording",
-						"RECORDED FRAME"
-						+ "\n" + "getCirtfirstx " + fl.getCirtfirstx() 
-						+ "\n" + "getCirtfirsty " +  fl.getCirtfirsty() 
-						+ "\n" + "getCirtsecondx " + fl.getCirtsecondx() 
-						+ "\n" + "getCirtsecondy " + fl.getCirtsecondy() 
-						+ "\n" + "getTouchpts " + fl.getTouchpts() 
-						+ "\n" + "getMotionevent " + fl.getMotionevent()
-						+ "\n" + "getIndex " + fl.getIndex()
-						+ "\n" + "recording.size() " + recording.size());
-				
+				Log.d("recording", "RECORDED FRAME"
+					+ "\n" + "getCirtfirstx " + fl.getCirtfirstx() 
+					+ "\n" + "getCirtfirsty " +  fl.getCirtfirsty() 
+					+ "\n" + "getCirtsecondx " + fl.getCirtsecondx() 
+					+ "\n" + "getCirtsecondy " + fl.getCirtsecondy() 
+					+ "\n" + "getTouchpts " + fl.getTouchpts() 
+					+ "\n" + "getMotionevent " + fl.getMotionevent()
+					+ "\n" + "getIndex " + fl.getIndex()
+					+ "\n" + "recording.size() " + recording.size());
 			}
 		}
 	}
@@ -119,9 +109,7 @@ public class FrameRecorder {
 					+ "\n" + " ");
 */
 		this.frameAdvance();
-		
-		return f;
-				
+		return f;	
 	}
 	
 	
@@ -129,7 +117,6 @@ public class FrameRecorder {
 	public void forceLastFrameOff () {
 		
 		FrameRecUnit f = this.recording.get(this.recording.size() - 1);
-		
 //		f.setCirtfirstisalive(false);
 //		f.setCirtsecondisalive(false);
 		f.setTouchpts(0);
@@ -139,7 +126,6 @@ public class FrameRecorder {
 	public void frameAdvance() {
 				
 		if (this.getCurrentframe() < recording.size() - 1) {
-			
 			this.setCurrentframe(getCurrentframe() +1);
 		}
 		else {

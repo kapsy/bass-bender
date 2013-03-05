@@ -7,11 +7,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 public class RecordBar extends NormalCircle {
-	
-	
 
 	private long totaltime;
-	
 	
 	private float rec_left;
 	private float rec_top;
@@ -23,14 +20,15 @@ public class RecordBar extends NormalCircle {
 	
 	private int frameinterval;//アニメーションの間隔
 	private float incperframe;
+	private static float relframecount = 42F; // max release frames
+	private boolean releasecmdcalled = false;
 		
 	private FrameRecorder framerec;
-	private MySurfaceView mysurfv;
-	
+	private MySurfaceView mysurfview;
 	
 	public RecordBar
 		(float swidth, float sheight, long totaltime, int frameinterval, 
-				FrameRecorder fr, MySurfaceView mysurfv) {
+				FrameRecorder fr, MySurfaceView mysurfview) {
 				
 		Paint p = this.getPaint();
 		
@@ -41,7 +39,6 @@ public class RecordBar extends NormalCircle {
         
         this.totaltime = totaltime;
         this.frameinterval = frameinterval;
-        
          
         this.totalwidth = swidth;
         this.totalheight = sheight;		
@@ -49,7 +46,7 @@ public class RecordBar extends NormalCircle {
         this.calcIncPerFrame();
         
 		this.framerec = fr;
-		this.mysurfv = mysurfv;
+		this.mysurfview = mysurfview;
 		
 		// if restoring after home button pressed
 		if (!fr.isPlayingback() && !fr.isRecordingnow()) {
@@ -68,11 +65,6 @@ public class RecordBar extends NormalCircle {
 	//called when rec or play started
 	@Override
 	public void init() {
-				
-//		rec_left = 0F;
-//		rec_top = totalheight - mysurfv.percToPixY(1F);
-//		rec_right = 0F;
-//		rec_bottom = totalheight;
 		this.initDimensions();
 		if (this.framerec.isRecordingnow()) {
 			this.setARGB(127, 255, 0, 0);
@@ -84,105 +76,90 @@ public class RecordBar extends NormalCircle {
 	}
 
 	public void initDimensions() {
-		
 		this.setRec_left(0F);
-		this.setRec_top(this.getTotalheight() - this.getMysurfv().percToPixY(1F));
-		
+		this.setRec_top((float) Math.round(this.getTotalheight() - this.getMysurfv().percToPixY(0.8F)));
 		this.setRec_right(0F);
 		this.setRec_bottom(this.getTotalheight());
 	}
 	
-	
 	public void startFrameRecorder() {
-		
 		this.framerec.startRecord();
-		
 	}
-	
-	
-
 	
 	@Override
 	public void drawSequence(Canvas c) {
 		if (this.isAlive()) {
-			
-			
-		
 			this.progressAnim();
 			this.drawProgressBar(c);
 		}
 	}
 	
 	public void drawProgressBar(Canvas c) {
-		
-		
-    	this.getPaint().setColor(Color.argb
+		this.getPaint().setColor(Color.argb
     			(this.getAlpha(), this.getRed(), this.getGrn(), this.getBlu()));
-    	
     	c.drawRect(this.rec_left, this.rec_top, this.rec_right, this.rec_bottom, this.getPaint());
-    	
-	}
+    }
 	
 	public void progressAnim() {
 		// int cf = this.getCurrframe();
 
-		if (this.rec_right == 0 && this.framerec.isRecordingnow()) {
-
-			// this.mysurfv.setBackGrRed();
-			this.mysurfv.recsymbol.init();
+//		if (this.rec_right == 0 && this.framerec.isRecordingnow()) {
+//			//this.mysurfv.recsymbol.init();
+//			this.releasecmdcalled = false;
+//		}
+		if (this.rec_right == 0F) {
+			//this.mysurfv.recsymbol.init();
+			this.releasecmdcalled = false;
 		}
-		if (this.rec_right == this.incperframe) {
-
-			// this.mysurfv.setBackGrBlack();
+		// fades out just before finish to allow fade out anims
+		if ((this.rec_right > this.totalwidth
+				- (this.incperframe * RecordBar.relframecount))
+				&& !this.releasecmdcalled) {
+			
+			if (this.framerec.isPlayingback()) {
+				this.mysurfview.releaseAllTouchPlayAnims();
+				
+			} else if (this.framerec.isRecordingnow()) {
+				this.mysurfview.releaseAllTouchRecAnims();
+				this.mysurfview.setTouchenabled(false);
+			}
+			this.releasecmdcalled = true;
 		}
-
+		
+		
 		if (this.rec_right < this.totalwidth) {
-
 			this.incBar();
-
 		} else {
-			
-			
 			
 			if (this.framerec.isPlayingback()) {
 				Log.d("ProgressAnim", "this.framerec.isPlayingback() is true");
 				
-				//this.mysurfv.releaseAllTouchAnims();
-				this.mysurfv.releaseAllTouchPlayAnims();
+				//this.mysurfview.releaseAllTouchPlayAnims();
 				this.framerec.startPlayBack();
-				this.mysurfv.playsymbol.init();
 				
 			} else if (this.framerec.isRecordingnow()) {
 				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
 				
 				// タッチ無効する
-				this.mysurfv.setTouchenabledafterrec(false);
 			//	this.framerec.logAllRecordedFrames();
+				//this.mysurfview.releaseAllTouchRecAnims();
 				this.framerec.startPlayBack();
-				//this.mysurfv.releaseAllTouchAnims();
 				
-				this.mysurfv.releaseAllTouchRecAnims();
-				this.mysurfv.setFmrecmode(false);
+				this.mysurfview.setFmrecmode(false);
 								
-				//大きの方がいい
-				this.mysurfv.playsymbolcntr.init();
+//				this.mysurfv.playsymbolcntr.init();
+				this.getMysurfv().playsymbol.init();
 			}
-
-
 			this.init();
 		}
-
 	}
 	
 	public void incBar() {
-		
 		this.rec_right = (this.rec_right + this.incperframe);
 	}
 	
-	
 	// fills all rec frames from current frame till the correct list array size
 	// (only used when home button is pressed while recording)
-	
 	public void fillFramesEmpty() {
 
 		if (this.framerec.isRecordingnow()) {
@@ -191,14 +168,13 @@ public class RecordBar extends NormalCircle {
 			for (float f = 0F; f < this.totalwidth; f = f + this.incperframe) {
 				totalframes++;
 			}
-
 			this.framerec.setMotionevent(MotionEvent.ACTION_CANCEL);
 			this.framerec.setTouchpts(0);
 
-			float c1_x = mysurfv.targtouchfirst[mysurfv.getCurtargtouchfirst()].getPosX();
-			float c1_y = mysurfv.targtouchfirst[mysurfv.getCurtargtouchfirst()].getPosY();
-			float c2_x = mysurfv.targtouchsecond[mysurfv.getCurtargtouchsecond()].getPosX();
-			float c2_y = mysurfv.targtouchsecond[mysurfv.getCurtargtouchsecond()].getPosY();
+			float c1_x = mysurfview.targtouchfirst[mysurfview.getCurtargtouchfirst()].getPosX();
+			float c1_y = mysurfview.targtouchfirst[mysurfview.getCurtargtouchfirst()].getPosY();
+			float c2_x = mysurfview.targtouchsecond[mysurfview.getCurtargtouchsecond()].getPosX();
+			float c2_y = mysurfview.targtouchsecond[mysurfview.getCurtargtouchsecond()].getPosY();
 
 			int remaining = totalframes - this.framerec.getCurrentframe();
 
@@ -206,7 +182,6 @@ public class RecordBar extends NormalCircle {
 				framerec.setFrameMovement(c1_x, c1_y, c2_x, c2_y);
 			}
 		}
-
 	}
 
 	protected long getTotaltime() {
@@ -247,10 +222,6 @@ public class RecordBar extends NormalCircle {
 
 	protected FrameRecorder getFramerec() {
 		return framerec;
-	}
-
-	protected MySurfaceView getMysurfv() {
-		return mysurfv;
 	}
 
 	protected void setTotaltime(long totaltime) {
@@ -294,9 +265,10 @@ public class RecordBar extends NormalCircle {
 	}
 
 	protected void setMysurfv(MySurfaceView mysurfv) {
-		this.mysurfv = mysurfv;
+		this.mysurfview = mysurfv;
 	}
 	
-	
-
+	protected MySurfaceView getMysurfv() {
+		return mysurfview;
+	}
 }
