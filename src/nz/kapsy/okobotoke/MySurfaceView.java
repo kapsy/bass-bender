@@ -44,7 +44,7 @@ public class MySurfaceView extends SurfaceView implements
     public AccelTouch[] acceltouchfirstplay;
     private int curacceltouchfirstplay = 1;
     
-    
+    private AccelTouch initialcirclepointer;
     
     
     public AccelTouch[] acceltouchsecond;
@@ -169,8 +169,6 @@ public class MySurfaceView extends SurfaceView implements
 			}
 
 			sonarcircle2 = new SonarCircle2();
-			//foggylight = new NormalCircle();
-
 
 			targtouchfirst = new TargetTouch[this.touchobjs];
 			for (int i = 0; i < targtouchfirst.length; i++) {
@@ -210,6 +208,11 @@ public class MySurfaceView extends SurfaceView implements
 			for (int i = 0; i < faderline.length; i++) {
 				faderline[i] = new NormalLineFader();
 			}
+			
+			this.initialcirclepointer = new AccelTouch();
+			initialcirclepointer.setPosX(this.percToPixX(35F));
+			initialcirclepointer.setPosY(this.percToPixY(65F));
+			
 			
 			rainstars = new RainStar[40];
 			for (int i = 0; i < rainstars.length; i++) {
@@ -472,24 +475,17 @@ public class MySurfaceView extends SurfaceView implements
 //	protected boolean isTouchenabledafterrec() {
 //		return touchenabledafterrec;
 //	}
-//
 //	protected void setTouchenabledafterrec(boolean touchenabled) {
 //		this.touchenabledafterrec = touchenabled;
 //	}
 
 //	protected void callMotionUps() {
 //		
-//		
 //		MotionEvent m1 = MotionEvent.obtain(0, 0, MotionEvent.ACTION_POINTER_UP, 0, 0, 0);
-//		
 //		this.dispatchTouchEvent(m1);
 //		
-//		
-//		
 //		MotionEvent m2 = MotionEvent.obtain(0, 0, MotionEvent.ACTION_UP, 0, 0, 0);
-//		
 //		this.dispatchTouchEvent(m2);
-//		
 //	}
 	
 	protected void addActionUps() {
@@ -556,19 +552,14 @@ public class MySurfaceView extends SurfaceView implements
     
 	// screen percentage to pixels
 	public float percToPixX(float percent) {
-		
 		float pixx = (this.screenwidth / 100F) * percent;
-		
 	//	pixx = (float) Math.round(pixx);
 		return pixx;
-		
 	}
 	
 	public float percToPixY(float percent) {
-		
 		float pixy = (this.screenheight / 100F) * percent;
 		return pixy;
-		
 	}
 	
 	public float getMaincirclesatcontrol() {
@@ -1023,6 +1014,10 @@ public class MySurfaceView extends SurfaceView implements
 //		this.secondtouchenabled = secondtouchenabled;
 //	}
 
+	protected AccelTouch getInitialcirclepointer() {
+		return initialcirclepointer;
+	}
+
 	protected boolean isFmrecmode() {
 		return fmrecmode;
 	}
@@ -1048,6 +1043,9 @@ public class MySurfaceView extends SurfaceView implements
 
     	private TailCircle[] tails = new TailCircle[2];
 		
+    	//private float radfactor;// = 0.9F;
+    	float radrnginit;
+    	
 		public Circle2() {
 			this.setAlive(false);
 			this.getPaint().setStyle(Paint.Style.FILL);
@@ -1068,10 +1066,17 @@ public class MySurfaceView extends SurfaceView implements
 			this.setXchgspd(0F);
 			this.setMaxaccelspeedx(percToPixX(1.875F));
 			this.setMaxaccelspeedy(percToPixX(1.875F));
-    		//this.setRad(percToPixX(13.75F - ((float)rnd.nextInt(208) / 100F)));
-    		this.setRad(percToPixX(17F));
+			
+//    		this.setRad(percToPixX(17F));
+//    		this.setBaserad(this.getRad());
+    		
+			this.setBaserad(percToPixX(14F));
+    		this.setRad(percToPixX(28F));
+    		
+    	this.radrnginit = this.getRad() - this.getBaserad();
     		
     		
+    		//this.radfactor = 0.98F;
     		
     		this.setAlpha(0);
     		this.hsv[1] = MySurfaceView.this.getMaincirclesatcontrol();
@@ -1080,9 +1085,8 @@ public class MySurfaceView extends SurfaceView implements
     		
     		this.setLinearyaccelfactor(1.05F);
     		
-    		this.setAccelangle(0F);
-    		this.setRadfadeangle(0F);
-    		this.setBaserad(this.getRad());
+//    		this.setAccelangle(0F);
+//    		this.setRadfadeangle(0F);
     		
 //    		this.radfad1 = 1F;
 //    		this.radfad2 = 220F;
@@ -1131,6 +1135,8 @@ public class MySurfaceView extends SurfaceView implements
 				// 今は必要ないかも
 				// this.rampSatToFader();
 				// this.drawCircleFadedEdges(1, 21F, 20, c);
+				//this.radFadeLinIn();
+				this.decelRadFade(1F, -0.08F);
 				
 				
 				float a = (float) this.getAlpha();
@@ -1156,10 +1162,6 @@ public class MySurfaceView extends SurfaceView implements
 //	    					+ "\n" + "tails[i].getAcceltargety() " + tails[i].getAcceltargety()
 //	    					+ "\n" + "tails[i].getXchgspd(): " + tails[i].getXchgspd()
 //	    					+ "\n" + "tails[i].getYchgspd(): " + tails[i].getYchgspd());
-//
-
-	    			
-	    			
 				}
 				
 				for (int i = tails.length - 1; i >= 0;  i--) {
@@ -1190,6 +1192,9 @@ public class MySurfaceView extends SurfaceView implements
 			} else {
 				if (cf < 150) {
 					this.alphaDecrement(3.5F, 0F);
+					this.decelRadFade(1F, 0.17F);
+					
+					
 				} else if (cf == 150) {
 					this.setAlive(false);
 				}
@@ -1255,15 +1260,65 @@ public class MySurfaceView extends SurfaceView implements
 					rnddist = ((spd * (-1F / maxchgspd )) + 1) * (float) rndmagnitude;
 					//Log.d("startpos", "rnddist " + rnddist);
 				}
-				float x = (rnd.nextFloat() * (rnddist * 2)) - rnddist;
+				
+				
+				float x = 0F;
+				float y = 0F;
+				//float x = (rnd.nextFloat() * (rnddist * 2)) - rnddist;
+				//float y = (rnd.nextFloat() * (rnddist * 2)) - rnddist;	
 			
-				float y = (rnd.nextFloat() * (rnddist * 2)) - rnddist;	
+				x = (rnd.nextFloat() * rnddist * (rnd.nextBoolean() ? 1F : -1F));
+				
+				if (Math.abs(x) < (rnddist / 2F)) {
+					y = ((0.5F + (rnd.nextFloat()/2F)) * rnddist * (rnd.nextBoolean() ? 1F : -1F));
+				} else {
+					y = (rnd.nextFloat() * rnddist * (rnd.nextBoolean() ? 1F : -1F));
+				}
 	
+				//Log.d("startpos", " x: " + x + " y: " + y);
+				
 				this.setPosX(this.targetpointat.getPosX() + x);
 				this.setPosY(this.targetpointat.getPosY() + y);
 			}
 		}
 
+//		protected void radFadeLinIn() {
+//			
+//			
+//			if (this.getRad() > this.getBaserad()) {
+//				
+//				float r = this.getRad() * this.radfactor;
+//				
+//				
+//						 this.setRad(r);
+////						 this.radfactor = (this.radfactor * 0.9F);
+////						 
+//						 Log.d("radfade", "this.getRad() " + this.getRad() + " this.getBaserad() " + this.getBaserad());
+//			} else {
+//				this.setRad(this.getBaserad());
+//			}
+//
+//		}
+		
+		protected void decelRadFade(float decelmin, float decelrng) {
+			
+			float factor = 1;
+			
+		
+			
+			float radcurval = this.getRad() - this.getBaserad();
+			
+			factor = (radcurval * (decelrng/this.radrnginit)) + decelmin;
+			
+			// Log.d("radfade", "factor: " + factor);
+			
+			this.setRad(this.getRad() * factor);
+			
+			
+		}
+		
+		
+		
 		protected TailCircle[] getTails() {
 			return tails;
 		}
@@ -1709,7 +1764,7 @@ public class MySurfaceView extends SurfaceView implements
 			float masx = this.getMaxaccelspeedx();
 			float masy = this.getMaxaccelspeedy();
 			
-			float masfactor = 0.65F;
+			float masfactor = 0.60F;
 			
 			// この辺を見なおすべき
     		for (int i = 0; i < tails.length; i++) {
@@ -1721,7 +1776,8 @@ public class MySurfaceView extends SurfaceView implements
 //    			masx = masx * 0.8F;
 //    			masy = masy * 0.8F;
     			
-    			masfactor = masfactor + 0.04F;
+    			//masfactor = masfactor + 0.055F;
+    			masfactor = masfactor * 1.05F;
     			
     			masx = masx * masfactor;
     			masy = masy * masfactor;
@@ -1812,7 +1868,7 @@ public class MySurfaceView extends SurfaceView implements
 				float r = this.getRad();
 				
 				for (int i = 0; i < tails.length; i++) {
-	    			a = a * 0.7F;
+	    			a = a * 0.65F;
 	    			r = r * 0.80F;
 
 	    		//tails[i].setAlpha((int) a);

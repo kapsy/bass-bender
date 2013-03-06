@@ -1,5 +1,5 @@
 package nz.kapsy.okobotoke;
-
+/*
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -170,3 +170,4 @@ public class SplashSurfView extends SurfaceView implements
 	
 	
 }
+*/

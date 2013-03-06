@@ -118,6 +118,8 @@ public class OkobotokeActivity extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		
 
 		lightsdelay = Executors.newSingleThreadScheduledExecutor();
 		lightrun = new Runnable() {
@@ -140,6 +142,8 @@ public class OkobotokeActivity extends Activity {
 				} else if (mysurfview.framerec.isPlayingback()) {
 					ccur.setTargetpointat(mysurfview.acceltouchfirstplay[mysurfview
 							.getCuracceltouchfirstplay()]);
+				} else {
+					ccur.setTargetpointat(mysurfview.getInitialcirclepointer());
 				}
 				
 				

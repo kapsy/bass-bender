@@ -494,6 +494,10 @@ public class NormalCircle {
 	}
 
 
+	protected float getBaserad() {
+		return baserad;
+	}
+
 	public void setColor(Paint p) {
         p.setColor(Color.argb(alpha, red, grn, blu));
 	}
