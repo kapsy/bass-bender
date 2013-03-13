@@ -43,10 +43,12 @@ import android.view.WindowManager.LayoutParams;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.SlidingDrawer;
 import android.widget.Toast;
 
 public class OkobotokeActivity extends Activity {
@@ -75,8 +77,11 @@ public class OkobotokeActivity extends Activity {
 		
 	public static final int COL_FADE_RNG = 510;
 
-	private static final float COL_SAT_RNG = -1F;
-	private static final float COL_SAT_MIN = 1F;
+//	private static final float COL_SAT_RNG = -1F;
+//	private static final float COL_SAT_MIN = 1F;
+	
+	private static final float COL_SAT_RNG = 255F;
+	private static final float COL_SAT_MIN = 0F;
 
 	private static final float PUL_PAN_RNG = 1F;
 	private static final float PUL_PAN_MIN = 0F;
@@ -94,8 +99,19 @@ public class OkobotokeActivity extends Activity {
 
 	// splash 画面
 	private View splashtest;
-	private AlphaAnimation fadein;
-	private AlphaAnimation fadeout; 
+	private InfoView infoview;
+	
+	private View bwlayer;
+	
+	private View touchlayertest;
+	
+
+//	private AlphaAnimation alphazero;
+	private AlphaAnimation splashinitial;
+	private AlphaAnimation fadeininfo;
+	private AlphaAnimation splashtoinfo;
+	private AlphaAnimation splashtoapp; 
+	private AlphaAnimation infotoapp;
 		
 	private ScheduledExecutorService lightsdelay;
 	private Runnable lightrun;
@@ -166,80 +182,182 @@ public class OkobotokeActivity extends Activity {
 		
 		splashtest = new SplashView(getApplicationContext());
 		splashtest.setSoundEffectsEnabled(false);
+		
+		infoview = new InfoView(getApplicationContext());
+		infoview.setSoundEffectsEnabled(false);
 				
 		mysurfview = new MySurfaceView(getApplication());
 		mysurfview.setSoundEffectsEnabled(false);
+		
+		bwlayer = new MySurfaceView(getApplication());
+		bwlayer.setSoundEffectsEnabled(false);
+		
+		touchlayertest = new View(getApplicationContext());
+		touchlayertest.setSoundEffectsEnabled(false);
 
-		mysurfview.setClickable(false);
-		splashtest.setClickable(true);
+		
+//		framelayout.setClickable(false);
+//		mysurfview.setClickable(false);
+//		infoview.setClickable(false);
+//		splashtest.setClickable(false);
+		
+		framelayout.setEnabled(false);
+		mysurfview.setEnabled(false);
+		infoview.setEnabled(false);
+		splashtest.setEnabled(false);
+		
+		
+		//touchlayertest.setClickable(false);
 
-		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
-		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
+//		dev_master_btns = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_master_btns, null);
+//		dev_pref_pg1 = (LinearLayout)this.getLayoutInflater().inflate(R.layout.dev_pref_pg1, null);
+		
+		
+		//infoview.setEnabled(false);
+		
+		
+		//infoview.setAlpha(0F);
+		
+		bwlayer.setBackgroundColor(Color.BLACK);
+		
 		
 		framelayout.addView(mysurfview);
+		
+	//infoview.setBackgroundColor(Color.TRANSPARENT);
+		framelayout.addView(bwlayer);
 		framelayout.addView(splashtest);
+//framelayout.addView(touchlayertest);
+		
 
-		fadein = new AlphaAnimation(0.0F, 1F);
-		fadein.setDuration(900);
-		fadein.setStartOffset(500);
-		fadein.setAnimationListener(new AnimationListener() {
+		
+		splashinitial = new AlphaAnimation(0.0F, 1F);
+		splashinitial.setDuration(900);
+		splashinitial.setStartOffset(500);
+		splashinitial.setAnimationListener(new AnimationListener() {
 			@Override
-			public void onAnimationStart(Animation animation) {}
+			public void onAnimationStart(Animation animation) {
+				mysurfview.initDrawables();}
 			@Override
 			public void onAnimationRepeat(Animation animation) {}
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// any gfx pre-processing/loading should go here
-				mysurfview.initDrawables();
+				//splashtest.setClickable(true);
+				splashtest.setEnabled(true);
 			}
 		});
 		
-		splashtest.startAnimation(fadein);
 		
-		fadeout = new AlphaAnimation(1F, 0.0F);
-		fadeout.setDuration(750);
-		fadeout.setAnimationListener(new AnimationListener() {
+		fadeininfo = new AlphaAnimation(0.0F, 1F);
+		fadeininfo.setDuration(900);
+		fadeininfo.setAnimationListener(new AnimationListener() {
 			@Override
 			public void onAnimationStart(Animation animation) {}
 			@Override
 			public void onAnimationRepeat(Animation animation) {}
 			@Override
 			public void onAnimationEnd(Animation animation) {
+				//infoview.setClickable(true);
+				infoview.setEnabled(true);
+			}
+		});
+		
+		splashtoinfo = new AlphaAnimation(1F, 0.0F);
+		splashtoinfo.setDuration(750);
+		splashtoinfo.setAnimationListener(new AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+			@Override
+			public void onAnimationRepeat(Animation animation) {}
+			@Override
+			public void onAnimationEnd(Animation animation) {
 				framelayout.removeView(splashtest);
-				mysurfview.setClickable(true);	
+				framelayout.addView(infoview);
+				infoview.startAnimation(fadeininfo);
+			}
+		});
+		
+		splashtoapp = new AlphaAnimation(1F, 0.0F);
+		splashtoapp.setDuration(750);
+		splashtoapp.setAnimationListener(new AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {
+				framelayout.removeView(bwlayer);
+			}
+			@Override
+			public void onAnimationRepeat(Animation animation) {}
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				
+				framelayout.removeView(splashtest);
 				OkobotokeActivity.this.startAudioFade();
 				mysurfview.startThread();
 				splashinitnosound = false;
-				//==== dev 設定
-//				framelayout.addView(dev_master_btns);
-//				devBtnsInit();
+				//mysurfview.setClickable(true);		
+				mysurfview.setEnabled(true);
+				mysurfview.setTouchenabled(true);
 			}
 		});
+		
+		infotoapp = new AlphaAnimation(1F, 0.0F);
+		infotoapp.setDuration(750);
+		infotoapp.setAnimationListener(new AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {
+				framelayout.removeView(bwlayer);
+			}
+			@Override
+			public void onAnimationRepeat(Animation animation) {}
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				framelayout.removeView(infoview);
+				OkobotokeActivity.this.startAudioFade();
+				mysurfview.startThread();
+				splashinitnosound = false;
+				//mysurfview.setClickable(true);	
+				mysurfview.setEnabled(true);
+				mysurfview.setTouchenabled(true);
+			}
+		});
+		
+		splashtest.startAnimation(splashinitial);
 		
 		splashtest.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				splashtest.startAnimation(fadeout);
+				
+				if (event.getX() < v.getWidth() - SplashView.percToPixX(v.getWidth(), 14F) ||
+						event.getY() < v.getHeight() - SplashView.percToPixY(v.getHeight(), 14F)) {
+					framelayout.removeView(bwlayer);
+					splashtest.startAnimation(splashtoapp);
+					
+				} else {
+					//bwlayer.setBackgroundColor(Color.WHITE);
+					bwlayer.setBackgroundColor(Color.argb(255, 160, 0, 255));
+					splashtest.startAnimation(splashtoinfo);
+				}
+
+				splashtest.setEnabled(false);
+				return false;
+			}
+		});
+
+		infoview.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				framelayout.removeView(bwlayer);
+				infoview.startAnimation(infotoapp);
+				infoview.setEnabled(false);
 				return false;
 			}
 		});
 		
 		this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		
-		//----====----====----====----====----====----
-		
-
-			
-		//----====----====----====----====----====----====----
-		
-
-			
-			
-			
 		}
 	
 	
-	public void devBtnsInit() {
+/*	public void devBtnsInit() {
 
 		Button dprefbtn_pg1 = (Button) findViewById(R.id.dprefbtn_pg1);
 		dprefbtn_pg1.setOnClickListener(new OnClickListener() {
@@ -259,84 +377,10 @@ public class OkobotokeActivity extends Activity {
 				}
 			}
 		});
-		
-		
-/*		Button dprefbtn_rec = (Button)findViewById(R.id.dprefbtn_rec);
-			dprefbtn_rec.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
 
-					//mysurfview.framerec.startRecord();
-					//mysurfview.recbar.init();
-					
-				}
-			});
-
-			Button dprefbtn_play = (Button)findViewById(R.id.dprefbtn_play);
-			dprefbtn_play.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-//					mysurfview.trec.initPlayBack(mysurfview.circtouchsecond, 
-//							mysurfview.circtouchfirst, mysurfview.faderline);
-					
-					//mysurfview.framerec.startPlayBack();
-				}
-			});*/
 	}
-	
+	*/
 
-	
-/*	public void devPrefPg1Init() {
-		
-		final EditText radarg1 = (EditText)findViewById(R.id.pg1_et_radfade_arg1);
-		final EditText radarg2 = (EditText)findViewById(R.id.pg1_et_radfade_arg2);
-		final EditText radarg3 = (EditText)findViewById(R.id.pg1_et_radfade_arg3);
-		final EditText radarg4 = (EditText)findViewById(R.id.pg1_et_radfade_arg4);
-		
-		radarg1.setText(String.valueOf(mysurfview.radFadearg1));
-		radarg2.setText(String.valueOf(mysurfview.radFadearg2));
-		radarg3.setText(String.valueOf(mysurfview.radFadearg3));
-		radarg4.setText(String.valueOf(mysurfview.radFadearg4));
-		
-		Button pg1_applybtn_radfade = (Button)findViewById(R.id.pg1_applybtn_radfade);
-		pg1_applybtn_radfade.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				
-				mysurfview.radFadearg1 = Float.parseFloat(radarg1.getText().toString());
-				mysurfview.radFadearg2 = Float.parseFloat(radarg2.getText().toString());
-				mysurfview.radFadearg3 = Float.parseFloat(radarg3.getText().toString());
-				mysurfview.radFadearg4 = Float.parseFloat(radarg4.getText().toString());
-			}
-		});
-		
-		final EditText spdarg1 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg1);
-		final EditText spdarg2 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg2);
-		final EditText spdarg3 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg3);
-		final EditText spdarg4 = (EditText)findViewById(R.id.pg1_et_speedaccelsamp_arg4);
-		
-		spdarg1.setText(String.valueOf(mysurfview.spdaccel1_prf));
-		spdarg2.setText(String.valueOf(mysurfview.spdaccel2_prf));
-		spdarg3.setText(String.valueOf(mysurfview.spdaccel3_prf));
-		spdarg4.setText(String.valueOf(mysurfview.spdaccel4_prf));
-		
-		Button pg1_applybtn_spdaccel = (Button)findViewById(R.id.pg1_applybtn_speedaccelsamp);
-		pg1_applybtn_spdaccel.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				
-				mysurfview.spdaccel1_prf = Float.parseFloat(spdarg1.getText().toString());
-				mysurfview.spdaccel2_prf = Float.parseFloat(spdarg2.getText().toString());
-				mysurfview.spdaccel3_prf = Float.parseFloat(spdarg3.getText().toString());
-				mysurfview.spdaccel4_prf = Float.parseFloat(spdarg4.getText().toString());
-			}
-		});
-				
-	}*/
 	
 
 
@@ -347,8 +391,6 @@ public class OkobotokeActivity extends Activity {
 //        if (event.getAction() == KeyEvent.ACTION_UP) { // キーが離された時
 //            switch (event.getKeyCode()) {
 //            case KeyEvent.KEYCODE_HOME: // 十字中央キー
-//            	
-//
 //            	
 //            	
 //                return true;
@@ -391,6 +433,8 @@ public class OkobotokeActivity extends Activity {
 		this.sendBang("fade_in");
 
 	}
+	//sdfsd
+	
 	
 
 	@Override

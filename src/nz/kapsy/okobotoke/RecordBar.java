@@ -124,7 +124,6 @@ public class RecordBar extends NormalCircle {
 				//this.mysurfview.releaseAllTouchRecAnims();
 				this.mysurfview.setTouchenabled(false);
 				this.mysurfview.addActionUps();
-				//this.mysurfview.callMotionUps();
 			}
 			this.releasecmdcalled = true;
 		}
@@ -143,14 +142,10 @@ public class RecordBar extends NormalCircle {
 			} else if (this.framerec.isRecordingnow()) {
 				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
 				
-				// タッチ無効する
-				this.framerec.logAllRecordedFrames();
+				//this.framerec.logAllRecordedFrames();
 				//this.mysurfview.releaseAllTouchRecAnims();
 				this.framerec.startPlayBack();
-				
-				this.mysurfview.setFmrecmode(false);
-								
-//				this.mysurfv.playsymbolcntr.init();
+				//this.mysurfview.setFmrecmode(false);
 				this.getMysurfv().playsymbol.init();
 			}
 			this.init();
