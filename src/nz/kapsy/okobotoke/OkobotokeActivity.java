@@ -334,7 +334,8 @@ public class OkobotokeActivity extends Activity {
 					
 				} else {
 					//bwlayer.setBackgroundColor(Color.WHITE);
-					bwlayer.setBackgroundColor(Color.argb(255, 160, 0, 255));
+					//bwlayer.setBackgroundColor(Color.argb(255, 160, 0, 255));
+					bwlayer.setBackgroundColor(Color.argb(255, 255, 0, 0));
 					splashtest.startAnimation(splashtoinfo);
 				}
 

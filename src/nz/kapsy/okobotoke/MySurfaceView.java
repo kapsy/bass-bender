@@ -219,12 +219,19 @@ public class MySurfaceView extends SurfaceView implements
 			//12000
 			recbar = new RecordBar(this.screenwidth, this.screenheight, 25000,
 					threadinterval, this.framerec, this);
+			
+//			recbar = new RecordBar(this.screenwidth, this.screenheight, 7000,
+//					threadinterval, this.framerec, this);
+			
 			recsymbol = new RecSymbol();
 			playsymbol = new PlaySymbol();
 			playsymbolcntr = new PlaySymbolCntr();
-			//19000
+
+			
 			recbarsonar = new RecordBarSonar(this.screenwidth, this.screenheight, 27500,
 					threadinterval, this.framerecsonar, this);
+			
+			
 			
 			this.isattached = true;
 		}
@@ -753,12 +760,13 @@ public class MySurfaceView extends SurfaceView implements
 					tt1.setPosX(fru.getCirtfirstx());
 					tt1.setPosY(fru.getCirtfirsty());
 					this.sendSingleTouchVals(at1.getPosX(), at1.getPosY());
-					if (fru.getTouchpts() == 2) {
+					
+					//if (at2.isAlive() && !at2.isPlayrelanim() && pts == MULTI_TOUCH_MAX) 
+					
+				if (at2.isAlive() && !at2.isPlayrelanim() && fru.getTouchpts() == 2 ) {
 
-						tt2.setPosX(fru.getCirtsecondx());
-						tt2.setPosY(fru.getCirtsecondy());
-
-						
+					tt2.setPosX(fru.getCirtsecondx());
+					tt2.setPosY(fru.getCirtsecondy());
 
 					float fdrdist = fdr.calcDistance();
 
@@ -767,17 +775,11 @@ public class MySurfaceView extends SurfaceView implements
 
 					this.bggradtarget = (int) OkobotokeActivity
 							.calcToRangeSaturation(fdrdist, screendiag);
-						
 
-						// float sat = OkobotokeActivity.calcToRangeSaturation(
-						// fdr.calcDistance(),
-						// this.screendiag);
-						//
-						// Log.d("saturation", "float sat: " + sat);
-						//
-						// this.setMaincirclesatcontrol(sat);
-						// maincircles[this.getCurmaincircle()].faderSatToCirc(sat);
-					}
+					
+					
+					
+				}
 				break;
 
 			case MotionEvent.ACTION_POINTER_UP:
@@ -894,7 +896,6 @@ public class MySurfaceView extends SurfaceView implements
   	public void releaseAllTouchRecAnims() {
 		// reset tgt to null...
 		OkobotokeActivity.sendFloat("fm_index", 12F);
-
 		this.bggradtarget = 0;
 		this.faderline[0].relAnimOn();
 		this.acceltouchfirstrec[this.getCuracceltouchfirstrec()].relAnimOn();
@@ -903,6 +904,7 @@ public class MySurfaceView extends SurfaceView implements
   	
   	public void releaseAllTouchPlayAnims() {
 		OkobotokeActivity.sendFloat("fm_index", 12F);
+		this.bggradtarget = 0;
 		this.faderline[1].relAnimOn();
 		this.acceltouchfirstplay[this.getCuracceltouchfirstplay()].relAnimOn();
 		this.acceltouchsecond[1].relAnimOn();
