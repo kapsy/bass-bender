@@ -124,10 +124,18 @@ public class SplashView extends View{
         
         
         
+        title_1.setTextSize(percToPixX(4F));
+        title_1.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
+        title_1.setColor(Color.argb(255, 0, 255, 255));
+        
+        
+        c.drawText("built for headphones / speakers", percToPixX(52F), percToPixY(80F), title_1);
+       
         title_1.setTextSize(percToPixX(5F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
         title_1.setColor(Color.argb(255, 0, 255, 0));
-        c.drawText("t o u c h    t o    continue...", percToPixX(52F), percToPixY(85F), title_1);
+        
+        c.drawText("t o u c h    t o    continue...", percToPixX(52F), percToPixY(90F), title_1);
 
         title_1.setTextSize(percToPixX(2.5F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.ITALIC));

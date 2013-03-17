@@ -70,8 +70,6 @@ public class InfoView extends SplashView{
         //Paint logo_1 = new Paint();
       //  c.drawBitmap(logo, null, lrectf, null);
         
-        
-        
         Paint title_1 = new Paint();
         title_1.setStyle(Paint.Style.FILL);
         title_1.setAntiAlias(true);
@@ -96,7 +94,6 @@ public class InfoView extends SplashView{
 //        normal_2.setTextAlign(Align.CENTER);
 //        normal_2.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
         
-        
         float info = 10F;
         float infosp = 6F;
         
@@ -107,19 +104,17 @@ public class InfoView extends SplashView{
         title_1.setTypeface(Typeface.create("Ariel", Typeface.ITALIC));
         c.drawText("the aim...", 
         		percToPixX(50F), percToPixY(info), title_1);
-        c.drawText("bass bender is an quest to discover alternative methods of", 
+        c.drawText("bass bender is a quest to discover alternative methods of", 
         		percToPixX(50F), percToPixY(info + (infosp * 1F)), normal_1);
         c.drawText("instrument control, that are more intuative and feel based,", 
         		percToPixX(50F), percToPixY(info + (infosp * 1.5F)), normal_1);
         c.drawText("and less number and knob based.", 
         		percToPixX(50F), percToPixY(info + (infosp * 2F)), normal_1);
         
-
         title_1.setColor(Color.argb(255, 0, 255, 255));
 
         normal_1.setColor(Color.argb(255, 0, 255, 255));
         
-
         title_1.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
         c.drawText("how it works", 
         		percToPixX(50F), percToPixY(hiw + (hiwsp * 0F)), title_1);
@@ -151,9 +146,7 @@ public class InfoView extends SplashView{
 
         title_1.setTextSize(percToPixX(4F));
         c.drawText("t o u c h to play...", percToPixX(50F), percToPixY(92F), title_1);
-
-
-         
+   
     }
     
 
