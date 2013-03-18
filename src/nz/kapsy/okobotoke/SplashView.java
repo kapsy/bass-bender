@@ -140,7 +140,7 @@ public class SplashView extends View{
         title_1.setTextSize(percToPixX(2.5F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.ITALIC));
         title_1.setColor(Color.argb(255, 0, 40, 255));
-        c.drawText("powered by libpd.    contact: www.kapsy198.com", percToPixX(42F), percToPixY(97F), title_1);
+        c.drawText("powered by libpd.    contact: ichiba.geocities.jp/kaspy198/", percToPixX(42F), percToPixY(97F), title_1);
 
         
         
