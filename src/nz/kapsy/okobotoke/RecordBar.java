@@ -33,7 +33,6 @@ public class RecordBar extends NormalCircle {
 		Paint p = this.getPaint();
 		
         p.setStyle(Paint.Style.FILL);
-        //p.setStrokeWidth((float)(150 - rnd.nextInt(100)));
         p.setAntiAlias(false);
         p.setDither(false);
         
@@ -103,10 +102,6 @@ public class RecordBar extends NormalCircle {
 	public void progressAnim() {
 		// int cf = this.getCurrframe();
 
-//		if (this.rec_right == 0 && this.framerec.isRecordingnow()) {
-//			//this.mysurfv.recsymbol.init();
-//			this.releasecmdcalled = false;
-//		}
 		if (this.rec_right == 0F) {
 			//this.mysurfv.recsymbol.init();
 			this.releasecmdcalled = false;
@@ -117,8 +112,7 @@ public class RecordBar extends NormalCircle {
 				&& !this.releasecmdcalled) {
 			
 			if (this.framerec.isPlayingback()) {
-				//this.mysurfview.releaseAllTouchPlayAnims();
-				
+				// nothing yet
 			} else if (this.framerec.isRecordingnow()) {
 				
 				//this.mysurfview.releaseAllTouchRecAnims();
@@ -143,9 +137,8 @@ public class RecordBar extends NormalCircle {
 				Log.d("ProgressAnim", "this.framerec.isRecordingnow() is true");
 				
 				//this.framerec.logAllRecordedFrames();
-				//this.mysurfview.releaseAllTouchRecAnims();
 				this.framerec.startPlayBack();
-				//this.mysurfview.setFmrecmode(false);
+				//this.mysurfview.setFmrecmode(false); // enable for sonars
 				this.getMysurfv().playsymbol.init();
 			}
 			this.init();

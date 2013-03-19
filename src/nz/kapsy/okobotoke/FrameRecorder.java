@@ -13,16 +13,6 @@ public class FrameRecorder {
 	private int currentframe;
 	// records last motion event obtained from touch
 	private int motionevent = MotionEvent.ACTION_CANCEL;
-		
-//	// values that could fall between frames are forced to the next frame
-//	private int[] mustrecvals = {MotionEvent.ACTION_POINTER_DOWN,
-//			MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_UP};
-	
-//	// if true, an action down MUST be recorded that frame
-//	private boolean actiondownevent = false;
-//	private boolean mustreclastevent = false;
-//	private int lastmustrec;
-	
 	private int touchpts = 0;
 	
 	private ArrayList<FrameRecUnit> recording = 
@@ -52,8 +42,6 @@ public class FrameRecorder {
 	}
 			
 	// adds important events at the time they occur
-	// less accurrate in terms of playback as an extra frame is added
-	// but much more robust in terms of ensuring essential values are added
 	public void setFrameEssential(
 			float x0, float y0, float x1, float y1,
 			int motionevent, int touchpts, int index) {

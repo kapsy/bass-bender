@@ -10,16 +10,12 @@ public class NormalLine extends NormalCircle {
 	
 	// snagpoints used to ensure line is always attached to something
 	// therefore a 'disconnect' between line and circle cannot occur
-	
 	private AccelTouch snagpoint1;
 	private AccelTouch snagpoint2;
 	
 	@Override
 	public void drawSequence(Canvas c) {
 		if (this.isAlive()) {
-			//this.circleAnim();
-			//this.circleRadiusMod();
-			//this.setLineBySnags();
 			this.drawLineOnce(c);
 		}
 	}
@@ -29,11 +25,6 @@ public class NormalLine extends NormalCircle {
 		this.getPaint().setColor(
 				Color.argb(this.getAlpha(), this.getRed(), this.getGrn(),
 						this.getBlu()));
-
-		// c.clipRegion(region)
-
-		
-		//this.getPaint().setColorFilter(new PorterDuffColorFilter(Color.rgb(0, 255, 0), Mode.SRC_OUT));
 		
 		c.drawLine(linepoints[0], linepoints[1], linepoints[2], linepoints[3],
 				this.getPaint());
@@ -67,7 +58,6 @@ public class NormalLine extends NormalCircle {
 		
 	    float dist = (float)Math.sqrt(Math.pow(xdiff, 2D) + Math.pow(ydiff, 2D));
 		
-	   // Log.d("calcDistance", "dist: " + dist);
 	    return dist;
 
 	}
@@ -91,5 +81,4 @@ public class NormalLine extends NormalCircle {
 	protected float[] getLinepoints() {
 		return linepoints;
 	}
-	
 }

@@ -1,9 +1,6 @@
 package nz.kapsy.okobotoke;
 
-import java.util.Random;
-
 import nz.kapsy.okobotoke.MySurfaceView.TargetTouch;
-
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,6 +13,7 @@ public class NormalCircle {
 	private boolean alive;
 
 	// 演算するときfloatを使ってintに変更するためのフィルド
+	// a float is used to to less-than-one alpha calcuations
 	private float alphaf = 1F;
 	private int alpha;
 	private int red;
@@ -44,38 +42,30 @@ public class NormalCircle {
 	private float acceltargetx;
 	private float acceltargety;
 	
-
-
-	
 	private int currframe;
 	private boolean playrelanim = false;
 	    	
 	// mod フィルド
 	private float accelangle = 0F;
-	
 	private float radfadeangle = 0F;
 	private float baserad = 0F; //original radius before any modulation modifiers
 	private float radmodsinangle = 0F;
 	
 	private TargetTouch targetpoint1;
-	
 	private NormalCircle targetcircle1;
 	
 	public NormalCircle() {
 
 		this.setAlive(false);
-
 		paint.setStyle(Paint.Style.FILL);
-		// paint.setStrokeWidth((float)(150 - rnd.nextInt(100)));
 		paint.setAntiAlias(false);
 		paint.setDither(false);
-
 	}
 
 	// 初期化
 	// 円形を描く前、このメソッドを呼びなくて駄目
+	// this method must be called in order to draw
 	public void init(int a, int r, int g, int b) {
-		// float x, float y, float r
 
 		// 必要処理
 		alive = true;
@@ -84,11 +74,9 @@ public class NormalCircle {
 
 		alpha = a;
 		alphaf = (float) alpha;
-
 		red = r;
 		grn = g;
 		blu = b;
-
 	}
 
 	public void init() {
@@ -97,9 +85,7 @@ public class NormalCircle {
 		alive = true;
 		currframe = 1;
 		playrelanim = false;
-
 		alphaf = (float) alpha;
-
 	}
 
 	public void drawSequence(Canvas c) {
@@ -121,19 +107,14 @@ public class NormalCircle {
         float cirx = this.getPosX();
         float ciry = this.getPosY();
         float cirr = this.getRad();
-        //float rchgreal = (cirr / 100) * rchg;
         
         for (int i = 0; i < layers; i++) {
         	paint.setColor(Color.argb(ciralpha, cirred, cirgrn, cirblu));
             c.drawCircle(cirx, ciry, cirr, this.getPaint());
             
-//                Log.d("drawCircle", "Colors " + "a " + ciralpha + " r " + cirred + " g " + cirgrn+ " b " + cirblu);
-//                Log.d("drawCircle", "Dimens " + "x " + cirx + " y " + ciry + " r " + cirr);
-            
             if (ciralpha > 0) {
             	ciralpha += alphachng;
             }
-            
             //ciralpha += 1;
             cirr -= rchg;
             ciry -= 2;
@@ -141,41 +122,30 @@ public class NormalCircle {
 	}
 	
 	public void drawCircleOnce(Canvas c) {
-		
         	paint.setColor(Color.argb(alpha, red, grn, blu));
             c.drawCircle(posx, posy, rad, this.getPaint());
-           
 	}
 	
 	public void drawCircleOnce(int col, Canvas c) {
-
 		paint.setColor(col);
 		c.drawCircle(posx, posy, rad, this.getPaint());
-
 	}
 	
 	public void drawCircleOnceNoColor(Canvas c) {
-		    	
         c.drawCircle(posx, posy, rad, this.getPaint());
-       
 	}
 
 	// currframeによって色、形を変える処理
 	public void circleAnim() {
 
 		int cf = this.getCurrframe();
-
 		if (cf < 200) {
-
 			this.alphaIncrement(1.3F, 7F);
-
 			this.frameAdvance();
-
 		} else if (cf >= 500 && cf < 600) {
 			this.frameAdvance();
 		} else if (cf == 600) { // アニメーション終了
 			this.setAlive(false);
-
 			// ループなら this.setCurrframe(1);
 		}
 	}
@@ -184,7 +154,6 @@ public class NormalCircle {
     
 	// mod amplitude %
 	public void cirRadModSamp(float anglechgrate, float modamplitude) {
-
 		if (this.radmodsinangle < 360F - anglechgrate) {
 			this.radmodsinangle = this.radmodsinangle + anglechgrate;
 		} else {
@@ -193,45 +162,33 @@ public class NormalCircle {
 		// returns -1 to 1
 		float sinval = SampledSines.getPosNegSineVal(this.radmodsinangle);
 		this.rad = this.baserad + (sinval * modamplitude);
-		// Log.d("cirRadModSamp", "radmodsinangle: " + radmodsinangle
-		// + " mod values: " + (sinval * modamplitude));
 	}
     
     public void speedAccelSamp(float changeangle, float initialspeed, float targetspeed, float startangle) {
-    	
     	float targetdiff = targetspeed - initialspeed;
-    	
     	if ((this.accelangle + startangle) < 360F - changeangle) {
-    
+    		
     		float sval = SampledSines.getPosSineVal(this.accelangle + startangle);
     		this.setYchgspd(initialspeed + (targetdiff * sval));
-    		
-    		//Log.d("speedAccelSamp", "this.getYchgspd(): " + this.getYchgspd());
         	this.accelangle = this.accelangle + changeangle;
     	}
     }
     
-    
-    
 	public void linearXAccel() {
-
 		this.setXchgspd(this.getXchgspd() * this.linearxaccelfactor);
 	}
 
 	public void linearYAccel() {
-
 		this.setYchgspd(this.getYchgspd() * this.linearyaccelfactor);
 	}
 
 	// deccelerates towards whatever target is set to
 	public void xCalcSpeed(float width) {
-
 		this.setXchgspd(((this.acceltargetx - this.getPosX()) / width)
 				* this.maxaccelspeedx);
 	}
 
 	public void yCalcSpeed(float height) {
-
 		this.setYchgspd(((this.acceltargety - this.getPosY()) / height)
 				* this.maxaccelspeedy);
 	}
@@ -239,22 +196,17 @@ public class NormalCircle {
 	protected TargetTouch getTargetpoint1() {
 		return targetpoint1;
 	}
+	
 	protected void setTargetpoint1(TargetTouch targetpoint1) {
 		this.targetpoint1 = targetpoint1;
 	}
 
 	protected void setTargetpoint1null() {
 		this.targetpoint1 = null;
-		
-		
 	}
-	
-	
-	
 	
 	protected void getCoordsFromTarget() {
 		if (this.targetpoint1 != null) {
-			
 			this.setTargetXy(this.targetpoint1.getPosX(),  this.targetpoint1.getPosY());
 		}
 	}
@@ -262,6 +214,7 @@ public class NormalCircle {
 	protected NormalCircle getTargetcircle1() {
 		return targetcircle1;
 	}
+	
 	protected void setTargetcircle1(NormalCircle targetcircle1) {
 		this.targetcircle1 = targetcircle1;
 	}
@@ -272,14 +225,9 @@ public class NormalCircle {
 
 	protected void getCoordsFromTargetCircle() {
 		if (this.targetcircle1 != null) {
-			
 			this.setTargetXy(this.targetcircle1.getPosX(),  this.targetcircle1.getPosY());
 		}
 	}
-	
-	
-	
-	
 	
 	// target for decel
 	protected void setTargetXy(float targetx, float targety) {
@@ -321,26 +269,17 @@ public class NormalCircle {
 
 	//curveの方はどうだ？
     // 180 -> 270
+	// not using this method - ineffiecient and looks unnatural. marked for del
     public void radFade(float angchgrate, float startang, float finang, float raddiff) {
 
-    	//this.baserad = this.getRad();
-    	
     	if ((this.radfadeangle + startang) < finang) {
-    		
     		float sval = SampledSines.getPosSineVal(this.radfadeangle + startang);
     		this.setRad((raddiff * sval) + this.baserad);
-
-    		//Log.d("radFade", "sval: " + sval + " this.getRad(): " + this.getRad());
-    		    		
     		this.radfadeangle = this.radfadeangle + angchgrate;
-    		
     	}
-    	
     }
     
-    
 	public void relAnimOn() {
-		
 		this.playrelanim = true;
 		this.setCurrframe(0);
 	}
@@ -350,9 +289,8 @@ public class NormalCircle {
 	}
 	
 	// アニメーションのためのメソッド
-	
+	// would probably be much more efficiant to stick to int vals.
 	protected void alphaIncrement(float inc, float max) {
-		
 		if (this.alpha < (max - inc)) {
 			alphaf += inc;
 			this.alpha = (int)alphaf;
@@ -368,7 +306,6 @@ public class NormalCircle {
 	}
 	
 	protected void alphaDecrement (float dec, float min) {
-		
 		// float -> int for slower fade outs 
 		if (this.alpha > (min + dec)) {
 			alphaf -= dec;
@@ -417,7 +354,6 @@ public class NormalCircle {
 	public void setRad(float rad) {
 		this.rad = rad;
 	}
-	
 	
 	protected void radIncrement() {
 		this.rad = this.rad + this.radchgspd;
@@ -483,16 +419,13 @@ public class NormalCircle {
 		return radfadeangle;
 	}
 
-
 	protected void setRadfadeangle(float radfadeangle) {
 		this.radfadeangle = radfadeangle;
 	}
 
-
 	protected void setBaserad(float baserad) {
 		this.baserad = baserad;
 	}
-
 
 	protected float getBaserad() {
 		return baserad;
@@ -526,7 +459,6 @@ public class NormalCircle {
 		this.grn = g;
 		this.blu = b;
 	}
-
 
 	public int getRed() {
 		return red;
@@ -567,5 +499,4 @@ public class NormalCircle {
 	protected void setPlayrelanim(boolean playrelanim) {
 		this.playrelanim = playrelanim;
 	}
-
 }

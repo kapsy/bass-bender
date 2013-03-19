@@ -10,7 +10,6 @@ public class FrameRecUnit {
 	private float cirtsecondy;
 	
 	private int motionevent;
-	
 	private int touchpts;
 	private int index;
 	
@@ -94,6 +93,4 @@ public class FrameRecUnit {
 	protected void setIndex(int index) {
 		this.index = index;
 	}
-
-
 }

@@ -7,24 +7,18 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 
-import android.text.style.AlignmentSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
 public class SplashView extends View{
 
-	
-	
 	Canvas maincanvas = new Canvas();
-	
 	TextView instructions = new TextView(this.getContext());
 	
-
 	Bitmap logo = BitmapFactory.decodeResource(this.getContext().getResources(), R.drawable.k3_placeholder_3);
 	RectF lrectf;
 	
@@ -49,12 +43,11 @@ public class SplashView extends View{
 		initView();
 	}
 	
-	
 	private void initView() {
-		
 		this.setBackgroundColor(Color.argb(255, 0, 140, 255));
 		onDraw(maincanvas);
 	}
+	
 	// screen percentage to pixels
 	public static float percToPixX(float percent) {
 		float pixx = ( width / 100F) * percent;
@@ -79,25 +72,11 @@ public class SplashView extends View{
 	
     public void onDraw(Canvas c) {
     	
-       // c.drawColor(Color.WHITE);
-
-//        Paint fill_paint = new Paint();
-//        fill_paint.setStyle(Paint.Style.FILL);
-//        fill_paint.setColor(Color.argb(50, 255, 0, 0));
-//        for(int i = 0;i < 10;i++){
-//            c.drawOval(new RectF(25f * i, 25f * i, 25f * i + 100f,
-//                    25f * i + 100f), fill_paint);
-//        }
-    	
-    	
 		width = this.getWidth();
 		height = this.getHeight();
-    	
-    	
-    	        lrectf = new RectF();
+    	lrectf = new RectF();
         
         setRecDims(lrectf, 70F);
-        //Paint logo_1 = new Paint();
         c.drawBitmap(logo, null, lrectf, null);
                 
         Paint title_1 = new Paint();
@@ -118,16 +97,13 @@ public class SplashView extends View{
         
         c.drawText("bass bender~", percToPixX(48F), percToPixY(16F), title_1);
         
- title_1.setTextSize(percToPixX(3F));
+        title_1.setTextSize(percToPixX(3F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.ITALIC));
         c.drawText("by", percToPixX(16F), percToPixY(27F), title_1);
-        
-        
         
         title_1.setTextSize(percToPixX(4F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
         title_1.setColor(Color.argb(255, 0, 255, 255));
-        
         
         c.drawText("built for headphones / speakers", percToPixX(52F), percToPixY(80F), title_1);
        
@@ -142,9 +118,6 @@ public class SplashView extends View{
         title_1.setColor(Color.argb(255, 0, 40, 255));
         c.drawText("powered by libpd.    contact: ichiba.geocities.jp/kaspy198/", percToPixX(42F), percToPixY(97F), title_1);
 
-        
-        
-        
         c.drawText("?", (float) getWidth() - percToPixX(5F), (float) getHeight() - percToPixX(5F), question_1);
     }
     
@@ -153,9 +126,7 @@ public class SplashView extends View{
     	
     	rect.left = (getWidth() / 2F) - percToPixX(widthpercent / 2F); 
     	rect.right = (getWidth() / 2F) + percToPixX(widthpercent / 2F);
-    	
 		float rheight = rectHeightToBitmapDims((lrectf.right - lrectf.left), logo);
-		
 		lrectf.top = (getHeight() / 2F) - (rheight / 2F);
 		lrectf.bottom = lrectf.top + rheight;
     }
@@ -164,9 +135,4 @@ public class SplashView extends View{
     	float height = rwidth * ((float) bm.getHeight() / (float) bm.getWidth());
     		return height;
     }
-    
-    
-    
-    
-
 }
