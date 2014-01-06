@@ -40,6 +40,7 @@ DEVLOG.txt
 # generated files
 bin/
 gen/
+libs/
 
 # ignore gradle files
 .gradle/
