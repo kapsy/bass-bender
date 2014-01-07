@@ -2,7 +2,7 @@
 
 **bass bender** explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the **Android** platform, and uses the *libpd* library to run a real time *Pure Data* FM synthesis patch. 
 
-Please note that **bass bender** requires the *libpd pd-for-android* library in order to run. If you're unfamiliar with what *libpd* and *Pure Data* are, more info can be found at <github.com/libpd> and <puredata.info/>.
+Please note that **bass bender** requires *libpd* in order to run the *Pure Data* patches. If you're unfamiliar with what *libpd* and *Pure Data* are, more info can be found at <github.com/libpd> and <puredata.info/>.
 
 ### INSTALLATION 
 
@@ -25,7 +25,7 @@ Eclipse setup:
 
 If any error messages are encountered you may have to select Project > Clean and then select Clean all projects. 
 
-Depending on where you've saved pd-for-android you may need to modify the path to PDCore. Right click on the project and select Properties, then Android. On the right there's a dialog to add a reference to the PDCore library.
+Depending on where you've saved *pd-for-android* you may need to modify the path to *PDCore*. Right click on the project and select Properties, then Android. On the right there's a dialog to add a reference to the *PDCore* library.
 
 ### USAGE
 
@@ -33,7 +33,7 @@ The application itself plays a continous loop of FM-synthesized bass notes in a 
 
 When two fingers are used in a pinch-zoom fashion, the distance between the first and second finger creates a sort of fader, which controls the amplitude of the FM signal, creating a growling sound. 
 
-All touch movements, represented by the green dots, are recorded over a 25 second period then continuously played back, a state that is represented by blue doth. This further adds to the genererative nature of the sounds produced, creating ever changing sound textures that do not become repetitive to the listener.
+All touch movements, represented by the green dots, are recorded over a 25 second period then continuously played back, a state that is represented by blue dots. This further adds to the genererative nature of the sounds produced, creating ever changing sound textures that do not become repetitive to the listener.
 
 Any time the screen is touched in a playback state, the current recording is overwritten and the loop is started again. The position in the touch recording/playback loop is represented by the thin bar at the bottom of the screen.
 
