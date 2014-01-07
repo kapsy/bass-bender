@@ -37,4 +37,4 @@ All touch movements, represented by the green dots, are recorded over a 25 secon
 
 Any time the screen is touched in a playback state, the current recording is overwritten and the loop is started again. The position in the touch recording/playback loop is represented by the thin bar at the bottom of the screen.
 
-Please note that it is recommended that this app is used on devices runnning Android 4.1 and above due to shorter audio playback latency. Also, as the sounds are of a low frequency, they can only be heard properly on full-range speakers or headphones - the built in speakers found in most smartphones and tablets are not recommended. 
+It is recommended to install on devices runnning Android 4.1 and above due to shorter audio playback latency. Also, as the sounds are of a low frequency, they can only be heard properly on full-range speakers or headphones - the built in speakers found in most smartphones and tablets are not recommended. 
