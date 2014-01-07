@@ -104,18 +104,18 @@ public class SplashView extends View{
         title_1.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
         title_1.setColor(Color.argb(255, 0, 255, 255));
         
-        c.drawText("built for headphones / speakers", percToPixX(52F), percToPixY(80F), title_1);
+        c.drawText("built for headphones", percToPixX(50F), percToPixY(80F), title_1);
        
         title_1.setTextSize(percToPixX(5F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.NORMAL));
         title_1.setColor(Color.argb(255, 0, 255, 0));
         
-        c.drawText("t o u c h    t o    continue...", percToPixX(52F), percToPixY(90F), title_1);
+        c.drawText("touch to continue...", percToPixX(52F), percToPixY(90F), title_1);
 
         title_1.setTextSize(percToPixX(2.5F));
         title_1.setTypeface(Typeface.create("Ariel", Typeface.ITALIC));
         title_1.setColor(Color.argb(255, 0, 40, 255));
-        c.drawText("powered by libpd.    contact: ichiba.geocities.jp/kaspy198/", percToPixX(42F), percToPixY(97F), title_1);
+        c.drawText("©2013, DMG Software", percToPixX(50F), percToPixY(97F), title_1);
 
         c.drawText("?", (float) getWidth() - percToPixX(5F), (float) getHeight() - percToPixX(5F), question_1);
     }

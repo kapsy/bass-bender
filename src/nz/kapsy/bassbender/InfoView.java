@@ -78,7 +78,7 @@ public class InfoView extends SplashView{
         c.drawText("how it works", 
         		percToPixX(50F), percToPixY(hiw + (hiwsp * 0F)), title_1);
         
-        c.drawText("the synth continuously cycles through a set sequence of notes.", 
+        c.drawText("the synth continuously cycles through a set sequence of bass sounds.", 
         		percToPixX(50F), percToPixY(hiw + (hiwsp * 1F)), normal_1);
         c.drawText("all touches are recorded over 25.0 seconds and then looped back. ", 
         		percToPixX(50F), percToPixY(hiw + (hiwsp * 2F)), normal_1);
@@ -104,6 +104,6 @@ public class InfoView extends SplashView{
         title_1.setColor(Color.argb(255, 255, 255, 0));
 
         title_1.setTextSize(percToPixX(4F));
-        c.drawText("t o u c h to play...", percToPixX(50F), percToPixY(92F), title_1);
+        c.drawText("touch to play...", percToPixX(50F), percToPixY(92F), title_1);
     }
 }
