@@ -15,7 +15,7 @@ PD for Android install:
 	git submodule init
 	git submodule update
 
-Eclipse setup:
+#### ECLIPSE SETUP:
 
 * From the main menu bar, select File > Import... The Import wizard opens.
 * Select General > Existing Project into Workspace and click Next.
