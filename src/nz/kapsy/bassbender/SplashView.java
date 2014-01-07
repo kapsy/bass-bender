@@ -1,4 +1,4 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,7 +9,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;

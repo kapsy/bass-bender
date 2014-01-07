@@ -1,10 +1,12 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
 import java.util.Random;
+
+//import nz.kapsy.okobotoke.R;
 import android.content.Context;
 import android.graphics.*;
 import android.util.AttributeSet;
-import android.util.Log;
+//import android.util.Log;
 import android.view.*;
 
 public class MySurfaceView extends SurfaceView implements
@@ -349,10 +351,10 @@ public class MySurfaceView extends SurfaceView implements
 	
 						float fdrdist = fdr.calcDistance();
 	
-						OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity
+						BassBenderActivity.sendFloat("fm_index", BassBenderActivity
 								.calcToRangeFM(fdrdist, screendiag));
 						
-						this.bggradtarget = (int) OkobotokeActivity
+						this.bggradtarget = (int) BassBenderActivity
 								.calcToRangeSaturation(fdrdist, screendiag);
 					}
 				}
@@ -364,7 +366,7 @@ public class MySurfaceView extends SurfaceView implements
 				if (at1.isAlive() && at2.isAlive()) {
 	
 					if (index == 1 && !at2.isPlayrelanim()) {
-						OkobotokeActivity.sendFloat("fm_index", 12F);
+						BassBenderActivity.sendFloat("fm_index", 12F);
 
 						this.bggradtarget = 0;
 						fdr.relAnimOn();
@@ -417,13 +419,13 @@ public class MySurfaceView extends SurfaceView implements
 				this.recbarsonar.init();
 			}
 
-			OkobotokeActivity.sendFloat("pulse_pan",
-					OkobotokeActivity.calcToRangePulsePan(x0, this.getScreenwidth()));
+			BassBenderActivity.sendFloat("pulse_pan",
+					BassBenderActivity.calcToRangePulsePan(x0, this.getScreenwidth()));
 
-			OkobotokeActivity.sendFloat("pulse_freq",
-					OkobotokeActivity.calcToRangePulseFrq(y0, this.getScreenheight()));
+			BassBenderActivity.sendFloat("pulse_freq",
+					BassBenderActivity.calcToRangePulseFrq(y0, this.getScreenheight()));
 
-			OkobotokeActivity.sendBang("pulse_bang");
+			BassBenderActivity.sendBang("pulse_bang");
 
 			this.sonarcircle2.setPosX(x0);
 			this.sonarcircle2.setPosY(y0);
@@ -446,7 +448,7 @@ public class MySurfaceView extends SurfaceView implements
 		NormalLineFader fdr = this.faderline[0];
 
 		if (at2.isAlive() && !at2.isPlayrelanim()) {
-			OkobotokeActivity.sendFloat("fm_index", 12F);
+			BassBenderActivity.sendFloat("fm_index", 12F);
 			
 			this.bggradtarget = 0;
 			fdr.relAnimOn();
@@ -650,10 +652,10 @@ public class MySurfaceView extends SurfaceView implements
 
 					float fdrdist = fdr.calcDistance();
 
-					OkobotokeActivity.sendFloat("fm_index", OkobotokeActivity
+					BassBenderActivity.sendFloat("fm_index", BassBenderActivity
 							.calcToRangeFM(fdrdist, screendiag));
 
-					this.bggradtarget = (int) OkobotokeActivity
+					this.bggradtarget = (int) BassBenderActivity
 							.calcToRangeSaturation(fdrdist, screendiag);
 				}
 				break;
@@ -663,12 +665,12 @@ public class MySurfaceView extends SurfaceView implements
 				// "case MotionEvent.ACTION_POINTER_UP:");
 
 				if (fru.getIndex() == 0) {
-					OkobotokeActivity.sendFloat("fm_index", 12F);
+					BassBenderActivity.sendFloat("fm_index", 12F);
 					this.bggradtarget = 0;
 
 					this.releaseAllTouchPlayAnims();
 				} else if (fru.getIndex() == 1) {
-					OkobotokeActivity.sendFloat("fm_index", 12F);
+					BassBenderActivity.sendFloat("fm_index", 12F);
 					this.bggradtarget = 0;
 
 					fdr.relAnimOn();
@@ -758,7 +760,7 @@ public class MySurfaceView extends SurfaceView implements
 	
   	public void releaseAllTouchRecAnims() {
 		// reset tgt to null...
-		OkobotokeActivity.sendFloat("fm_index", 12F);
+		BassBenderActivity.sendFloat("fm_index", 12F);
 		this.bggradtarget = 0;
 		this.faderline[0].relAnimOn();
 		this.acceltouchfirstrec[this.getCuracceltouchfirstrec()].relAnimOn();
@@ -766,7 +768,7 @@ public class MySurfaceView extends SurfaceView implements
 	}
   	
   	public void releaseAllTouchPlayAnims() {
-		OkobotokeActivity.sendFloat("fm_index", 12F);
+		BassBenderActivity.sendFloat("fm_index", 12F);
 		this.bggradtarget = 0;
 		this.faderline[1].relAnimOn();
 		this.acceltouchfirstplay[this.getCuracceltouchfirstplay()].relAnimOn();
@@ -774,13 +776,13 @@ public class MySurfaceView extends SurfaceView implements
 	}
 
 	public void sendSingleTouchVals(float x, float y) {
-		OkobotokeActivity.sendFloat(
+		BassBenderActivity.sendFloat(
 				"cntr_freq",
-				OkobotokeActivity.calcToRangeCentFreq(y, this.screenheight));
+				BassBenderActivity.calcToRangeCentFreq(y, this.screenheight));
 		
-		OkobotokeActivity.sendFloat(
+		BassBenderActivity.sendFloat(
 				"bender",
-				OkobotokeActivity.calcToRangeBender(x, this.screenwidth));
+				BassBenderActivity.calcToRangeBender(x, this.screenwidth));
 	}
 
 	//cycle through object 配列

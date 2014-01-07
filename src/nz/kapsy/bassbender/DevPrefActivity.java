@@ -1,4 +1,4 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
 import android.os.Bundle;
 import android.preference.EditTextPreference;

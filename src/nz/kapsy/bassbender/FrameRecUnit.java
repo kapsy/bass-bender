@@ -1,4 +1,4 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
 public class FrameRecUnit {
 	

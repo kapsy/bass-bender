@@ -1,4 +1,4 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,13 +31,10 @@ public class SplashActivity extends Activity {
 			// スプラッシュ完了後に実行するActivityを指定します。
 			
 			Log.d(TAG, "splashHandler run() " + System.currentTimeMillis());
-			Intent intent = new Intent(getApplication(), OkobotokeActivity.class);
+			Intent intent = new Intent(getApplication(), BassBenderActivity.class);
 			startActivity(intent);
 			// SplashActivityを終了させますd。
 			SplashActivity.this.finish();
 		}
 	}
-	
-	
-
 }

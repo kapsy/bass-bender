@@ -1,4 +1,4 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

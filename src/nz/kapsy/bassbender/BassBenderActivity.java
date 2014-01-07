@@ -1,4 +1,4 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 // branch test
 
 import java.io.File;
@@ -7,15 +7,12 @@ import java.util.Arrays;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import nz.kapsy.okobotoke.MySurfaceView.Circle2;
-
+import nz.kapsy.bassbender.MySurfaceView.Circle2;
 import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;
 import org.puredata.core.PdBase;
 import org.puredata.core.PdReceiver;
 import org.puredata.core.utils.IoUtils;
-
 import android.app.Activity;
 import android.graphics.Color;
 import android.media.AudioFormat;
@@ -33,7 +30,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-public class OkobotokeActivity extends Activity {
+public class BassBenderActivity extends Activity {
 
 	private static final String TAG = "Pd Test";
 	private static final String TAG1 = "Pd Debug";
@@ -237,7 +234,7 @@ public class OkobotokeActivity extends Activity {
 			public void onAnimationEnd(Animation animation) {
 				
 				framelayout.removeView(splashtest);
-				OkobotokeActivity.this.startAudioFade();
+				BassBenderActivity.this.startAudioFade();
 				mysurfview.startThread();
 				splashinitnosound = false;
 				//mysurfview.setClickable(true);		
@@ -258,7 +255,7 @@ public class OkobotokeActivity extends Activity {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				framelayout.removeView(infoview);
-				OkobotokeActivity.this.startAudioFade();
+				BassBenderActivity.this.startAudioFade();
 				mysurfview.startThread();
 				splashinitnosound = false;
 				//mysurfview.setClickable(true);	
@@ -334,7 +331,7 @@ public class OkobotokeActivity extends Activity {
 	
 	private void startAudioFade() {
 		PdAudio.startAudio(this);
-		OkobotokeActivity.sendFloat("fm_index", 12F);
+		BassBenderActivity.sendFloat("fm_index", 12F);
 		sendBang("fade_in");
 	}
 	
@@ -472,19 +469,19 @@ public class OkobotokeActivity extends Activity {
 
 		public void delaySonar() {
 			Log.d(TAG1, "OkobotokeActivity.this.latencymillis "
-					+ OkobotokeActivity.this.latencymillis);
+					+ BassBenderActivity.this.latencymillis);
 			Log.d(TAG1, "(int)(OkobotokeActivity.this.latencymillis * 0.7) "
-					+ (int) (OkobotokeActivity.this.latencymillis * 0.7));
+					+ (int) (BassBenderActivity.this.latencymillis * 0.7));
 
 			sonardelay.schedule(sonarrun,
-					(int) (OkobotokeActivity.this.latencymillis * 0.6),
+					(int) (BassBenderActivity.this.latencymillis * 0.6),
 					TimeUnit.MILLISECONDS);
 		}
 
 		// 490Lだった
 		public void delayLights() {
 			lightsdelay.schedule(lightrun,
-					(int) (OkobotokeActivity.this.latencymillis * 2.4),
+					(int) (BassBenderActivity.this.latencymillis * 2.4),
 					TimeUnit.MILLISECONDS);
 		}
 

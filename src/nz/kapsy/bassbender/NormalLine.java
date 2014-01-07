@@ -1,6 +1,6 @@
-package nz.kapsy.okobotoke;
+package nz.kapsy.bassbender;
 
-import nz.kapsy.okobotoke.MySurfaceView.AccelTouch;
+import nz.kapsy.bassbender.MySurfaceView.AccelTouch;
 import android.graphics.Canvas;
 import android.graphics.Color;
 
