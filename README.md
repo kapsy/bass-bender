@@ -1,4 +1,4 @@
-# bass bender 1.0
+# bass bender 1.1
 
 **bass bender** explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the **Android** platform, and uses the *libpd* library to run a real time *Pure Data* FM synthesis patch. 
 
@@ -38,3 +38,14 @@ All touch movements, represented by the green dots, are recorded over a 25 secon
 Any time the screen is touched in a playback state, the current recording is overwritten and the loop is started again. The position in the touch recording/playback loop is represented by the thin bar at the bottom of the screen.
 
 It is recommended to install on devices runnning Android 4.1 and above due to shorter audio playback latency. Also, as the sounds are of a low frequency, they can only be heard properly on full-range speakers or headphones - the built in speakers found in most smartphones and tablets are not recommended. 
+
+### VERSION HISTORY
+
+#### 1.1
+* Updated splash screen design. 
+* Removed unused image files for a smaller apk.
+* Tidied project and added .gitignore.
+
+
+#### 1.0
+* Initial release.
