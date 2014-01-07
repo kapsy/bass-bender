@@ -1,8 +1,8 @@
 # bass bender 0.8
 
-*bass bender* explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the Android platform, and uses the *libpd* library to run a real time Pure Data FM synthesis patch. 
+_bass bender_ explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the Android platform, and uses the *libpd* library to run a real time Pure Data FM synthesis patch. 
 
-Please note that *bass bender* requires the libpd pd-for-android library in order to run. If you're unfamiliar with what libpd and Pure Data are, more info can be found at <https://github.com/libpd> and <http://puredata.info/>.
+Please note that *bass bender* requires the libpd pd-for-android library in order to run. If you're unfamiliar with what libpd and Pure Data are, more info can be found at <github.com/libpd> and <puredata.info/>.
 
 ## INSTALLATION 
 
@@ -17,11 +17,11 @@ PD for Android install:
 
 Eclipse setup:
 
-*From the main menu bar, select File > Import... The Import wizard opens.
-*Select General > Existing Project into Workspace and click Next.
-*Browse to locate the directory containing the previously cloned projects.
-*Under Projects select bass-bender, PDCore, AndroidMidi.
-*Click Finish to start the import.
+* From the main menu bar, select File > Import... The Import wizard opens.
+* Select General > Existing Project into Workspace and click Next.
+* Browse to locate the directory containing the previously cloned projects.
+* Under Projects select bass-bender, PDCore, AndroidMidi.
+* Click Finish to start the import.
 
 If any error messages are encountered you may have to select Project > Clean and then select Clean all projects. 
 
