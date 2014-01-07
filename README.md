@@ -1,8 +1,8 @@
 # bass bender 0.8
 
-**bass bender** explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the Android platform, and uses the *libpd* library to run a real time Pure Data FM synthesis patch. 
+**bass bender** explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the **Android** platform, and uses the *libpd* library to run a real time *Pure Data* FM synthesis patch. 
 
-Please note that *bass bender* requires the libpd pd-for-android library in order to run. If you're unfamiliar with what libpd and Pure Data are, more info can be found at <github.com/libpd> and <puredata.info/>.
+Please note that **bass bender** requires the *libpd pd-for-android* library in order to run. If you're unfamiliar with what *libpd* and *Pure Data* are, more info can be found at <github.com/libpd> and <puredata.info/>.
 
 ### INSTALLATION 
 
@@ -20,7 +20,7 @@ Eclipse setup:
 * From the main menu bar, select File > Import... The Import wizard opens.
 * Select General > Existing Project into Workspace and click Next.
 * Browse to locate the directory containing the previously cloned projects.
-* Under Projects select bass-bender, PDCore, AndroidMidi.
+* Under Projects select *bass-bender*, *PDCore*, *AndroidMidi*.
 * Click Finish to start the import.
 
 If any error messages are encountered you may have to select Project > Clean and then select Clean all projects. 
@@ -29,7 +29,9 @@ Depending on where you've saved pd-for-android you may need to modify the path t
 
 ### USAGE
 
-The application itself plays a continous loop of FM-synthesized bass notes in a generative fashion. When the user drags one finger across the screen, the X axis applies pitch bending to the notes, and the Y axis changes the pitch of the fundamental FM frequency. When two fingers are used in a pinch-zoom fashion, the distance between the first and second finger creates a sort of fader, which controls the amplitude of the FM signal, creating a growling sound. 
+The application itself plays a continous loop of FM-synthesized bass notes in a generative fashion. When the user drags one finger across the screen, the X axis applies pitch bending to the notes, and the Y axis changes the pitch of the fundamental FM frequency. 
+
+When two fingers are used in a pinch-zoom fashion, the distance between the first and second finger creates a sort of fader, which controls the amplitude of the FM signal, creating a growling sound. 
 
 All touch movements, represented by the green dots, are recorded over a 25 second period then continuously played back, a state that is represented by blue doth. This further adds to the genererative nature of the sounds produced, creating ever changing sound textures that do not become repetitive to the listener.
 
