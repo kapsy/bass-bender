@@ -1,10 +1,10 @@
 # bass bender 0.8
 
-_bass bender_ explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the Android platform, and uses the *libpd* library to run a real time Pure Data FM synthesis patch. 
+**bass bender** explores an alternative audio and synthesizer control interface that is more suitable for a smartphone/tablet touch screen environment. It is built for the Android platform, and uses the *libpd* library to run a real time Pure Data FM synthesis patch. 
 
 Please note that *bass bender* requires the libpd pd-for-android library in order to run. If you're unfamiliar with what libpd and Pure Data are, more info can be found at <github.com/libpd> and <puredata.info/>.
 
-## INSTALLATION 
+### INSTALLATION 
 
 	git clone git@github.com:kapsy/bass-bender.git
 
@@ -27,7 +27,7 @@ If any error messages are encountered you may have to select Project > Clean and
 
 Depending on where you've saved pd-for-android you may need to modify the path to PDCore. Right click on the project and select Properties, then Android. On the right there's a dialog to add a reference to the PDCore library.
 
-## USAGE
+### USAGE
 
 The application itself plays a continous loop of FM-synthesized bass notes in a generative fashion. When the user drags one finger across the screen, the X axis applies pitch bending to the notes, and the Y axis changes the pitch of the fundamental FM frequency. When two fingers are used in a pinch-zoom fashion, the distance between the first and second finger creates a sort of fader, which controls the amplitude of the FM signal, creating a growling sound. 
 
