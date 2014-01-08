@@ -18,7 +18,7 @@ public class SplashView extends View{
 	Canvas maincanvas = new Canvas();
 	TextView instructions = new TextView(this.getContext());
 	
-	Bitmap logo = BitmapFactory.decodeResource(this.getContext().getResources(), R.drawable.dmg_logo_001);
+	Bitmap logo = BitmapFactory.decodeResource(this.getContext().getResources(), R.drawable.dmg_logo_1024_001);
 	RectF lrectf;
 	
 	private static float width = 0F;
